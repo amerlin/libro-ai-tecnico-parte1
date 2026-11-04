@@ -1,0 +1,3761 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  italian,
+  10pt,
+]{book}
+\usepackage{xcolor}
+\usepackage[papersize={6in,9in},inner=0.75in,outer=0.5in,top=0.7in,bottom=0.7in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{caption}
+\captionsetup[table]{skip=6pt}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{fvextra}
+\usepackage{float}
+\usepackage{xurl}
+\usepackage[htt]{hyphenat}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,fontsize=\small,commandchars=\\\{\}}
+\floatplacement{figure}{H}
+\setlength{\emergencystretch}{8em}
+\sloppy
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Quaderno AI},
+  pdfauthor={Andrea Merlin},
+  pdflang={it},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Quaderno AI}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Concetti, strumenti e percorsi pratici per lo sviluppo
+software con AI}
+\author{Andrea Merlin}
+\date{Numero 1 - Novembre 2026}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\mainmatter
+\chapter{Capitolo 5}\label{capitolo-5}
+
+\section{Migrare a .NET da altri linguaggi e
+piattaforme}\label{migrare-a-.net-da-altri-linguaggi-e-piattaforme}
+
+\textbf{Abstract.} Migrare un'applicazione non significa riscrivere ogni
+riga cambiando sintassi. Significa trasferire in un nuovo ecosistema un
+insieme di comportamenti, dati, contratti, vincoli operativi e
+aspettative degli utenti, riducendo il rischio di interrompere il
+servizio. Questo capitolo guida chi conosce già PHP, Python,
+JavaScript/Node.js, Java o un altro stack attraverso il passaggio a .NET
+moderno e ASP.NET Core. Partiremo dall'assessment del sistema esistente
+e confronteremo le strategie di migrazione; poi costruiremo una mappa
+dei concetti, esploreremo hosting, pipeline HTTP, Dependency Injection,
+dati, sicurezza, test, prestazioni e deployment. Un caso pratico
+mostrerà come migrare un servizio per passi, mantenendo compatibili i
+client e predisponendo rollback e osservabilità. L'obiettivo non è
+dichiarare un framework universalmente migliore, ma fornire un metodo
+verificabile per scegliere cosa trasferire, cosa adattare e cosa
+lasciare temporaneamente nel sistema originale.
+
+\subsection{Cosa imparerai in questo
+capitolo}\label{cosa-imparerai-in-questo-capitolo}
+
+Al termine saprai:
+
+\begin{itemize}
+\tightlist
+\item
+  distinguere una migrazione tecnologica da una riscrittura funzionale e
+  raccogliere le informazioni necessarie prima di stimare il lavoro;
+\item
+  confrontare PHP, Python, Node.js e Java con C\# e .NET senza
+  confondere analogie utili con equivalenze perfette;
+\item
+  scegliere tra riscrittura completa, migrazione per moduli e
+  sostituzione incrementale con il pattern \emph{strangler};
+\item
+  creare e organizzare un servizio ASP.NET Core, capire il ruolo
+  dell'host, di Kestrel e di \texttt{Program.cs};
+\item
+  trasferire route, middleware, validazione, error handling,
+  configurazione e stato;
+\item
+  pianificare schema, migrazioni e dati con Entity Framework Core
+  mantenendo le compatibilità necessarie;
+\item
+  migrare autenticazione, autorizzazioni e segreti senza abbassare il
+  livello di protezione;
+\item
+  costruire test che descrivano il comportamento attuale e verificare la
+  parità funzionale;
+\item
+  misurare prestazioni, integrare CI/CD, distribuire in container e
+  preparare rollout e rollback;
+\item
+  usare checklist e criteri di uscita per dimostrare che la migrazione è
+  pronta.
+\end{itemize}
+
+\subsection{Prerequisiti}\label{prerequisiti}
+
+\begin{itemize}
+\tightlist
+\item
+  Conoscenza di base di almeno un linguaggio e framework di sviluppo.
+\item
+  Familiarità con HTTP, API, database relazionali, test automatici e
+  controllo versione.
+\item
+  Un SDK .NET 10 installato per eseguire gli esempi. Non è richiesta
+  esperienza precedente con C\# o ASP.NET Core.
+\end{itemize}
+
+\subsection{Convenzioni}\label{convenzioni}
+
+\begin{itemize}
+\tightlist
+\item
+  I comandi sono mostrati in forma multipiattaforma con \texttt{dotnet};
+  i frammenti di shell possono richiedere piccoli adattamenti in
+  PowerShell.
+\item
+  Il riferimento è .NET 10, salvo indicazione diversa. Le API e i
+  template possono variare tra versioni: verificare sempre il target
+  dichiarato nel \texttt{.csproj}.
+\item
+  Gli esempi sono didattici: prima di usarli in produzione occorre
+  adattare autenticazione, segreti, storage, log e policy operative.
+\item
+  ``Sistema sorgente'' indica l'applicazione da cui si migra; ``sistema
+  target'' indica quella realizzata con .NET. ``Cutover'' indica il
+  passaggio del traffico al target.
+\end{itemize}
+
+\subsection{Indice concettuale}\label{indice-concettuale}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Perché migrare e come valutare il progetto
+\item
+  Mappare linguaggi, runtime e strumenti
+\item
+  Pianificare una migrazione controllata
+\item
+  Architettura e organizzazione del codice
+\item
+  Richieste HTTP e pipeline
+\item
+  Configurazione, stato e dipendenze
+\item
+  Dati e integrazione con i sistemi esistenti
+\item
+  Sicurezza e identità
+\item
+  Testing e qualità
+\item
+  Prestazioni e comportamento del runtime
+\item
+  Container, CI/CD e produzione
+\item
+  Caso pratico: migrare un servizio catalogo
+\item
+  Approfondire la mappa dai principali ecosistemi
+\item
+  Prove di migrazione dei dati: runbook e controlli
+\item
+  Diagnosi operativa durante la migrazione
+\item
+  Verifica finale, criteri di successo e fonti ufficiali
+\item
+  Checklist, glossario e anti-pattern
+\item
+  Appendice: piano di migrazione riutilizzabile
+\end{enumerate}
+
+\section{5.1 Perché migrare e come valutare il
+progetto}\label{perchuxe9-migrare-e-come-valutare-il-progetto}
+
+Una migrazione viene spesso proposta come risposta a un problema
+percepito: un framework è fuori supporto, il team non riesce più a
+trovare competenze, il costo di manutenzione cresce o il servizio deve
+entrare in un ambiente standardizzato su .NET. La proposta tecnica,
+però, non dimostra da sola che la migrazione sia vantaggiosa. Prima di
+scegliere la destinazione bisogna comprendere il sistema che si intende
+sostituire, il valore che offre e i vincoli che non sono visibili
+osservando soltanto i file sorgente.
+
+\subsection{5.1.1 Migrazione non è
+traduzione}\label{migrazione-non-uxe8-traduzione}
+
+Un'applicazione è più del suo codice. Comprende almeno:
+
+\begin{itemize}
+\tightlist
+\item
+  comportamenti osservabili, inclusi casi limite e comportamenti
+  accidentali su cui i client hanno finito per fare affidamento;
+\item
+  contratti HTTP, formati, codici di stato, eventi, code, file e schemi
+  dati;
+\item
+  identità, ruoli, permessi, credenziali e regole di conservazione;
+\item
+  operazioni pianificate, procedure manuali e strumenti di supporto;
+\item
+  caratteristiche operative: latenza, disponibilità, throughput, costo e
+  procedure di ripristino.
+\end{itemize}
+
+Trasferire ogni funzione una a una può perpetuare difetti e vincoli non
+più necessari. Cambiare tutto insieme, d'altra parte, rende difficile
+capire se un malfunzionamento dipende dalla nuova piattaforma o da una
+modifica funzionale. In una migrazione tecnologica ben controllata si
+definisce prima quali comportamenti devono restare invariati. Le nuove
+funzionalità e le correzioni di dominio possono essere introdotte
+separatamente, oppure identificate esplicitamente come variazioni di
+contratto.
+
+Una distinzione utile è tra \textbf{parità funzionale} e \textbf{parità
+operativa}. La prima riguarda ciò che utenti e client possono fare; la
+seconda riguarda come il servizio si comporta sotto carico, come viene
+distribuito e osservato, quali procedure servono per ripristinarlo. Un
+endpoint che restituisce lo stesso JSON ma non rispetta più il limite di
+latenza del client è funzionalmente simile, non una sostituzione
+riuscita.
+
+\subsection{5.1.2 Motivazioni e
+controindicazioni}\label{motivazioni-e-controindicazioni}
+
+Tra le motivazioni ragionevoli ci sono il termine del supporto del
+runtime, la difficoltà di aggiornare dipendenze critiche, i requisiti di
+sicurezza o conformità, l'esigenza di unificare toolchain e
+infrastruttura, l'integrazione con librerie .NET già adottate e la
+necessità di sostenere un carico o una modalità di deployment diversi.
+
+Non sono sufficienti, da sole, frasi come ``C\# è più veloce'', ``il
+linguaggio è vecchio'' o ``vogliamo un'architettura moderna''.
+Un'applicazione stabile, ben testata e con costo operativo contenuto può
+essere più sicura da aggiornare sullo stack corrente. Una riscrittura
+consuma capacità di sviluppo, crea un periodo di doppia manutenzione e
+può introdurre regressioni. Il confronto deve includere il costo totale:
+sviluppo, licenze, hosting, supporto, formazione, incidenti e
+dismissione del vecchio sistema.
+
+La domanda corretta non è «.NET è migliore?», ma «quali requisiti del
+nostro sistema soddisfa meglio il target, e con quali costi e rischi
+misurabili?». Un prototipo può validare un'integrazione o una libreria;
+non prova automaticamente che una migrazione completa sia conveniente.
+
+\subsection{5.1.3 Inventario tecnico e
+funzionale}\label{inventario-tecnico-e-funzionale}
+
+L'assessment inizia da un inventario verificabile. Non basta contare
+controller e righe di codice. Raccogliere, dove disponibili:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Superfici funzionali:} route, metodi, parametri, payload,
+  errori, pagine e client che le usano.
+\item
+  \textbf{Processi:} job schedulati, consumer di code, import/export,
+  webhook, strumenti amministrativi e script manuali.
+\item
+  \textbf{Dati:} database, tabelle, volumi, crescita, vincoli, indici,
+  backup, retention e migrazioni pregresse.
+\item
+  \textbf{Dipendenze:} runtime, framework, pacchetti, servizi cloud,
+  SDK, sistemi di identità e componenti nativi.
+\item
+  \textbf{Integrazioni:} API esterne, code, SMTP, storage di file,
+  pagamenti, sistemi legacy e formati di scambio.
+\item
+  \textbf{Operazioni:} pipeline, deployment, secret store, logging,
+  monitoraggio, alert, runbook, RTO e RPO.
+\item
+  \textbf{Utilizzo:} frequenza delle route, profili di carico, picchi,
+  client attivi, operazioni costose e stagionalità.
+\item
+  \textbf{Vincoli:} finestre di fermo, requisiti legali, localizzazione
+  dei dati, compatibilità, competenze e budget.
+\end{enumerate}
+
+Accoppiare l'inventario statico con osservazioni runtime. Log, tracing e
+metriche rivelano percorsi davvero usati e dipendenze effettive;
+repository e documentazione rivelano intenzioni e configurazioni.
+Nessuna delle due fonti è completa. Un route presente nel codice può
+essere inutilizzato, ma non va rimosso senza verifica con i proprietari
+dei client.
+
+\subsection{5.1.4 Requisiti non funzionali e
+baseline}\label{requisiti-non-funzionali-e-baseline}
+
+Per valutare il target servono misure di partenza. Registrare almeno:
+
+\begin{itemize}
+\tightlist
+\item
+  latenza per operazioni rappresentative, includendo percentili come
+  p50, p95 e p99;
+\item
+  richieste al secondo, concorrenza, code e frequenza degli errori;
+\item
+  consumo di CPU, memoria, storage, connessioni e risorse di database;
+\item
+  tempi di avvio, deploy, ripristino e build;
+\item
+  disponibilità, incidenti, obiettivi RTO/RPO e carico operativo del
+  team.
+\end{itemize}
+
+Misurare le stesse operazioni con input e ambiente confrontabili. Una
+media globale nasconde le route lente e la variabilità; un benchmark su
+una singola macchina non rappresenta una produzione con rete, database e
+cache. Annotare configurazione, versione, dimensione del dataset e data
+della misura. Senza una baseline il team non può distinguere un
+miglioramento reale da una differenza di ambiente.
+
+Definire criteri d'accettazione prima dell'implementazione. Per esempio:
+tutti i flussi critici hanno test di caratterizzazione; il target
+rispetta la compatibilità API; p95 non supera il budget concordato; il
+rollback è stato provato; nessun segreto è contenuto nell'immagine. I
+numeri devono provenire dal servizio e dai suoi utenti, non da soglie
+arbitrarie.
+
+\subsection{5.1.5 Registro delle decisioni e dei
+rischi}\label{registro-delle-decisioni-e-dei-rischi}
+
+Per ogni funzione si può registrare proprietario, frequenza, criticità,
+dipendenze e strategia proposta. Un registro decisionale breve dovrebbe
+descrivere la decisione, le alternative considerate, le evidenze e le
+condizioni che la farebbero rivedere. Esempio: mantenere inizialmente il
+database invariato perché più servizi condividono lo schema;
+riconsiderare la separazione solo dopo aver stabilizzato API e
+ownership.
+
+Valutare probabilità e impatto dei rischi: dati non interpretabili allo
+stesso modo, dipendenza non portabile, identità non migrabili, traffico
+non riproducibile, doppia scrittura incoerente, indisponibilità durante
+il cutover o mancanza di rollback. Ogni rischio importante deve avere
+una mitigazione e un responsabile. Se manca un'informazione critica,
+trasformarla in un'attività di discovery con un risultato atteso, non in
+una supposizione nascosta nel piano.
+
+\textbf{Risultato dell'assessment:} una mappa del sistema, una baseline,
+un insieme di contratti da preservare, una lista di incertezze e una
+raccomandazione motivata tra migrare, modernizzare sullo stack esistente
+o rimandare. Questo pacchetto è la base della pianificazione, non un
+documento da archiviare senza seguito.
+
+\section{5.2 Mappare linguaggi, runtime e
+strumenti}\label{mappare-linguaggi-runtime-e-strumenti}
+
+Chi arriva in .NET porta con sé un modello mentale valido per il proprio
+ecosistema. Riutilizzarlo rende più rapido l'apprendimento, a patto di
+non supporre che due strumenti con nomi o scopi simili abbiano lo stesso
+lifecycle, la stessa semantica o gli stessi limiti. In questa sezione
+costruiamo una mappa e una piccola applicazione che useremo nei capitoli
+successivi.
+
+\subsection{5.2.1 Da .NET Core a .NET
+moderno}\label{da-.net-core-a-.net-moderno}
+
+``.NET Core'' è il nome della linea open source multipiattaforma fino a
+.NET Core 3.1. Da .NET 5 il prodotto si chiama \textbf{.NET}: .NET 6, 7,
+8, 9 e 10 sono versioni della piattaforma unificata. \textbf{ASP.NET
+Core} è il framework web moderno della piattaforma e ha mantenuto
+``Core'' nel proprio nome. Il vecchio \textbf{.NET Framework} è un
+prodotto distinto, principalmente legato a Windows; non è il target di
+questo capitolo.
+
+Per un nuovo servizio, fissare una versione supportata e dichiararla
+esplicitamente. .NET 10 è il riferimento degli esempi. Non scegliere il
+target perché il computer dello sviluppatore lo ha installato per caso:
+SDK, target framework, pipeline CI e runtime di produzione devono essere
+coordinati. Per la policy di supporto e le patch correnti fare
+riferimento alla pagina ufficiale del ciclo di vita .NET.
+
+\subsection{5.2.2 Concetti e strumenti a
+confronto}\label{concetti-e-strumenti-a-confronto}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{PHP:} linguaggio PHP; runtime PHP e Composer; progetto
+  \texttt{composer.json}; avvio dipendente dal framework o dal worker;
+  framework come Laravel e Symfony; pacchetti da Packagist.
+\item
+  \textbf{Python:} linguaggio Python; runtime e pip/Poetry; progetto
+  \texttt{pyproject.toml}; avvio tramite modulo, ASGI o WSGI; framework
+  come Django, Flask e FastAPI; pacchetti da PyPI.
+\item
+  \textbf{Node.js:} JavaScript o TypeScript; Node.js con npm/pnpm;
+  progetto \texttt{package.json}; entry point Node; framework come
+  Express e NestJS; pacchetti dal registry npm.
+\item
+  \textbf{Java:} linguaggio Java; JDK con Maven/Gradle; progetto
+  \texttt{pom.xml} o file Gradle; avvio da \texttt{main} o framework;
+  framework come Spring Boot; pacchetti da Maven Central.
+\item
+  \textbf{.NET:} linguaggio C\#; SDK e runtime .NET; progetto
+  \texttt{.csproj}; avvio da \texttt{Program.cs} e host; framework come
+  ASP.NET Core; pacchetti da NuGet.
+\end{itemize}
+
+La tabella orienta, ma non mappa capacità uno-a-uno. Per esempio un
+provider del framework sorgente può combinare routing, dependency
+injection, sessione e configurazione; nel target queste responsabilità
+possono appartenere a servizi differenti. Prima di sostituirlo,
+scomporre quali comportamenti effettivamente offre.
+
+\subsection{5.2.3 SDK, runtime e CLI}\label{sdk-runtime-e-cli}
+
+L'\textbf{SDK} include compilatore, template e strumenti per sviluppare;
+il \textbf{runtime} esegue un'applicazione già pubblicata. Un server di
+build richiede l'SDK; un container di produzione può usare solo il
+runtime, oppure un artefatto self-contained a seconda della strategia.
+La distinzione influenza immagini, dimensione del deploy, patching e
+installazione.
+
+La CLI standardizza molte operazioni:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dotnet {-}{-}info}
+\NormalTok{dotnet new webapi {-}n Catalogo.Api}
+\NormalTok{cd Catalogo.Api}
+\NormalTok{dotnet restore}
+\NormalTok{dotnet build}
+\NormalTok{dotnet test}
+\NormalTok{dotnet run}
+\NormalTok{dotnet publish {-}c Release {-}o publish}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{dotnet\ restore} risolve i pacchetti; \texttt{build} compila;
+\texttt{test} esegue i test; \texttt{run} avvia il progetto;
+\texttt{publish} produce l'output destinato alla distribuzione. Non sono
+sinonimi: per esempio una build riuscita non garantisce che
+l'applicazione sia configurata correttamente in produzione.
+
+Per pinning riproducibile, il repository può contenere
+\texttt{global.json} con la policy SDK usata dal team. Il file
+\texttt{.csproj} dichiara il target:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{Project} \OtherTok{Sdk=}\StringTok{"Microsoft.NET.Sdk.Web"}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}}\KeywordTok{PropertyGroup}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{TargetFramework}\NormalTok{\textgreater{}net10.0\textless{}/}\KeywordTok{TargetFramework}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{Nullable}\NormalTok{\textgreater{}enable\textless{}/}\KeywordTok{Nullable}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{ImplicitUsings}\NormalTok{\textgreater{}enable\textless{}/}\KeywordTok{ImplicitUsings}\NormalTok{\textgreater{}}
+\NormalTok{  \textless{}/}\KeywordTok{PropertyGroup}\NormalTok{\textgreater{}}
+\NormalTok{\textless{}/}\KeywordTok{Project}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{TargetFramework} non è una lista di pacchetti. Le librerie
+esterne si aggiungono con \texttt{dotnet\ add\ package} e vengono
+registrate nel progetto; in una soluzione con più progetti si distingue
+il progetto API dai progetti di dominio e test.
+
+\subsection{5.2.4 Sintassi C\# per chi conosce già un
+linguaggio}\label{sintassi-c-per-chi-conosce-giuxe0-un-linguaggio}
+
+C\# è staticamente tipizzato e compilato. Il compilatore intercetta
+categorie di errori prima dell'avvio, ma il sistema dei tipi non
+sostituisce validazione e test. \texttt{string?} indica che un valore
+può essere null quando nullable reference types sono attivi;
+\texttt{string} esprime l'intenzione opposta. I dati ricevuti da HTTP
+sono comunque input non attendibile e vanno validati.
+
+Un record può descrivere un DTO immutabile:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed}\NormalTok{ record }\FunctionTok{CreateProductRequest}\OperatorTok{(}\DataTypeTok{string}\NormalTok{ Name}\OperatorTok{,} \DataTypeTok{decimal}\NormalTok{ Price}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+La definizione non valida automaticamente \texttt{Name} o
+\texttt{Price}: occorrono regole esplicite. Un metodo asincrono
+restituisce normalmente \texttt{Task\textless{}T\textgreater{}} o
+\texttt{ValueTask\textless{}T\textgreater{}} e usa \texttt{await};
+l'asincronia è essenziale per non bloccare thread mentre si aspetta I/O,
+ma non rende automaticamente veloce una query.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public}\NormalTok{ async Task}\OperatorTok{\textless{}}\NormalTok{Product}\OperatorTok{?\textgreater{}} \FunctionTok{FindAsync}\OperatorTok{(}
+    \DataTypeTok{int}\NormalTok{ id}\OperatorTok{,}\NormalTok{ CancellationToken cancellationToken}\OperatorTok{)}
+\OperatorTok{\{}
+    \KeywordTok{return}\NormalTok{ await db}\OperatorTok{.}\FunctionTok{Products}
+        \OperatorTok{.}\FunctionTok{SingleOrDefaultAsync}\OperatorTok{(}\NormalTok{p }\OperatorTok{=\textgreater{}}\NormalTok{ p}\OperatorTok{.}\FunctionTok{Id} \OperatorTok{==}\NormalTok{ id}\OperatorTok{,}\NormalTok{ cancellationToken}\OperatorTok{);}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Il codice non dovrebbe nascondere le eccezioni con
+\texttt{catch\ \{\ return\ null;\ \}}: un errore database non equivale a
+un prodotto assente. Gli errori devono essere tradotti in modo coerente
+al confine applicativo e registrati con contesto sufficiente, senza
+esporre dettagli interni al client.
+
+\subsection{5.2.5 Lifecycle e hosting}\label{lifecycle-e-hosting}
+
+Molti framework sorgente offrono un processo per richiesta, un worker
+persistente, oppure più processi con un server applicativo davanti.
+ASP.NET Core usa un \textbf{host} che costruisce configurazione,
+logging, dependency injection e lifecycle dell'applicazione. Kestrel è
+il server HTTP integrato; può ricevere direttamente traffico o lavorare
+dietro un reverse proxy, in base all'ambiente.
+
+Nel modello moderno \texttt{Program.cs} configura servizi e pipeline e
+avvia l'host. La parte essenziale può essere molto breve:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ builder }\OperatorTok{=}\NormalTok{ WebApplication}\OperatorTok{.}\FunctionTok{CreateBuilder}\OperatorTok{(}\NormalTok{args}\OperatorTok{);}
+
+\DataTypeTok{var}\NormalTok{ app }\OperatorTok{=}\NormalTok{ builder}\OperatorTok{.}\FunctionTok{Build}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapGet}\OperatorTok{(}\StringTok{"/health"}\OperatorTok{,} \OperatorTok{()} \OperatorTok{=\textgreater{}}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{Ok}\OperatorTok{(}\KeywordTok{new} \OperatorTok{\{}\NormalTok{ status }\OperatorTok{=} \StringTok{"ok"} \OperatorTok{\}));}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{Run}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{AddEndpointsApiExplorer()} da solo registra metadati, ma non
+genera né espone un documento OpenAPI: serve insieme a un generatore.
+Per esempio, in .NET 10, aggiungendo il pacchetto
+\texttt{Microsoft.AspNetCore.OpenApi}, si può usare
+\texttt{AddOpenApi()} con \texttt{MapOpenApi()}; qui non è necessario e
+viene omesso.
+
+La brevità non implica assenza di struttura: route, servizi, opzioni e
+componenti possono essere estratti in metodi o moduli. Il punto
+d'ingresso non è il luogo in cui inserire tutta la logica di dominio; è
+il punto in cui si compone l'applicazione.
+
+\subsection{5.2.6 Pacchetti e dipendenze}\label{pacchetti-e-dipendenze}
+
+NuGet è il sistema di pacchetti .NET. Ogni dipendenza aggiunta aumenta
+superficie di aggiornamento, licenze e rischio di supply chain. Prima di
+portare un pacchetto, verificare compatibilità con il target,
+manutenzione, advisory, licenza, dipendenze transitive e necessità
+effettiva. Un equivalente con nome simile può avere una filosofia o un
+lifecycle differenti.
+
+Per build riproducibili, versionare il file di lock quando il workflow
+lo usa, mantenere gli aggiornamenti automatizzati e non includere
+credenziali del registry nel progetto. Configurazioni di feed e token
+devono stare in ambienti o secret store protetti. La pipeline dovrebbe
+ripristinare, compilare e testare da una copia pulita del repository.
+
+\subsection{5.2.7 Un primo servizio e le verifiche di
+ambiente}\label{un-primo-servizio-e-le-verifiche-di-ambiente}
+
+Creare un progetto è solo la prima verifica. Prima di migrare logica
+applicativa, accertarsi che il team possa:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  installare o selezionare la versione SDK prevista;
+\item
+  ripristinare i pacchetti dietro le restrizioni di rete del progetto;
+\item
+  compilare e testare dalla CLI e in CI;
+\item
+  avviare l'applicazione con la configurazione locale;
+\item
+  produrre un artefatto pubblicabile e avviarlo in un ambiente simile
+  alla produzione.
+\end{enumerate}
+
+Registrare i comandi funzionanti e le versioni nel README del progetto.
+Un ``funziona sul mio IDE'' non è ancora una toolchain condivisa.
+
+\subsection{5.2.8 La mappa deve essere verificata sul caso
+reale}\label{la-mappa-deve-essere-verificata-sul-caso-reale}
+
+Per ogni concetto del sistema sorgente, compilare una scheda con tre
+colonne: responsabilità attuale, candidato .NET, differenza da provare.
+Per esempio: un hook di richiesta in un framework Python può essere
+middleware, filtro o endpoint filter; la scelta dipende dal fatto che
+debba avvolgere l'intera richiesta, agire solo su una route o validare
+parametri. Questa verifica evita migrazioni basate sulla sola
+somiglianza dei nomi.
+
+\section{5.3 Pianificare una migrazione
+controllata}\label{pianificare-una-migrazione-controllata}
+
+Scelta la direzione, bisogna decidere come raggiungerla. La strategia
+influenza tempi, costi, possibilità di rollback, coordinamento tra team
+e probabilità di mantenere il servizio disponibile. Non esiste una
+tecnica universalmente corretta: la decisione dipende dai confini
+funzionali, dalle dipendenze condivise, dalle capacità di test e dai
+vincoli del business.
+
+\subsection{5.3.1 Tre strategie, non due}\label{tre-strategie-non-due}
+
+\textbf{Riscrittura completa (big bang).} Il sistema viene ricostruito
+in un ramo o ambiente separato e sostituito in un'unica data. È semplice
+da spiegare, ma raramente semplice da eseguire: per molto tempo due
+implementazioni divergono e il team scopre tardi differenze nei dati e
+nei comportamenti. Ha senso solo con superficie contenuta, confini
+chiari, test affidabili, breve durata e un cutover reversibile. Un lungo
+congelamento funzionale può ridurre la divergenza, ma comporta costi di
+business.
+
+\textbf{Migrazione per componenti.} Si selezionano servizi o moduli
+autonomi e li si migra in sequenza. Riduce il perimetro di ogni
+rilascio, a condizione che i confini siano reali. Un modulo solo
+nominalmente separato ma accoppiato a tabelle condivise, sessioni o
+chiamate interne non è necessariamente una buona unità di migrazione.
+
+\textbf{Sostituzione incrementale (\emph{strangler}).} Un router,
+gateway o livello di ingresso dirige alcune capacità verso il sistema
+nuovo e mantiene le restanti sul sistema originale. Le funzionalità
+vengono spostate progressivamente; alla fine si rimuove il vecchio
+sistema. Consente feedback reale e rollback selettivo, ma richiede di
+gestire coesistenza, identità, osservabilità e contratti tra i due lati.
+Non è sinonimo di riscrittura in microservizi.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Strategia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rischio concentrato
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Vantaggio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Condizione che la rende praticabile
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Big bang & Cutover e regressioni aggregate & Confine di transizione
+semplice & Sistema piccolo e test completo \\
+Per componenti & Integrazione tra moduli & Progressi e rollback per
+unità & Confini e ownership chiari \\
+Strangler & Coesistenza e routing & Migrazione graduale in produzione &
+Ingresso instradabile e contratti stabili \\
+\end{longtable}
+}
+
+Una strategia ibrida è frequente: si crea un nuovo edge applicativo, si
+migrano prima funzionalità isolate, si sostituiscono poi i flussi con
+dipendenze più forti e si pianifica una finestra di cutover per elementi
+non separabili.
+
+\subsection{5.3.2 Scegliere la prima
+capacità}\label{scegliere-la-prima-capacituxe0}
+
+La prima funzionalità migrata non deve essere né un semplice endpoint
+senza valore, né il flusso più critico dell'azienda. È preferibile una
+capacità rappresentativa ma reversibile: possiede un contratto
+comprensibile, ha dipendenze sotto controllo e permette di esercitare
+build, deploy, logging, test e routing.
+
+Valutare ogni candidato considerando valore, rischio, dipendenze, volume
+di traffico e facilità di verifica. Un indice sintetico può aiutare a
+confrontare opzioni, ma non deve sostituire la discussione: un punteggio
+numerico non elimina l'incertezza. Il team dovrebbe poter spiegare
+perché una capacità è pronta e quali evidenze mancano.
+
+Prima di spostare il traffico occorre sapere come il router identifica
+la funzionalità: prefisso di route, host, tenant, feature flag o regola
+di gateway. Se la decisione dipende da un flag, deve essere possibile
+disabilitarlo rapidamente senza ricompilare o perdere tracciabilità
+delle modifiche. Un flag che resta indefinitamente nel codice non è un
+piano di migrazione.
+
+\subsection{5.3.3 Compatibilità durante la
+coesistenza}\label{compatibilituxe0-durante-la-coesistenza}
+
+Due sistemi attivi contemporaneamente possono leggere e scrivere lo
+stesso dato. Le letture sono spesso più facili da spostare; le scritture
+richiedono un proprietario chiaro. Scrivere su due database indipendenti
+in sequenza non crea una transazione atomica: una scrittura può riuscire
+e l'altra fallire. La doppia scrittura non va introdotta come soluzione
+rapida senza un protocollo di riconciliazione, idempotenza e gestione
+dei conflitti.
+
+Le alternative dipendono dal dominio:
+
+\begin{itemize}
+\tightlist
+\item
+  un solo sistema possiede temporaneamente la scrittura; l'altro legge
+  dati replicati;
+\item
+  si trasferisce la proprietà per entità o gruppo, con un registro di
+  ownership;
+\item
+  si usa un outbox transazionale per pubblicare cambiamenti dopo il
+  commit;
+\item
+  si effettua una migrazione con snapshot iniziale e sincronizzazione
+  incrementale.
+\end{itemize}
+
+Ogni opzione ha costi e failure mode. L'outbox evita di perdere
+l'intenzione di pubblicare un evento nella stessa transazione locale, ma
+non rende atomici database diversi e consumer. La consegna può essere
+ripetuta; i consumer devono essere idempotenti. In tutte le opzioni
+vanno definiti conflitti, retry, deduplicazione e procedura di
+riconciliazione.
+
+Anche i contratti devono evolvere con compatibilità. Aggiungere un campo
+opzionale è spesso più sicuro che rinominare o cambiare il tipo di uno
+esistente; tuttavia il client potrebbe rifiutare campi sconosciuti o
+interpretare diversamente un default. Versionamento e compatibilità
+vanno provati contro i client reali o le loro specifiche.
+
+\subsection{5.3.4 Fasi con condizioni di
+uscita}\label{fasi-con-condizioni-di-uscita}
+
+Una sequenza utile è:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Discovery:} inventario, baseline, dipendenze e rischi
+  approvati.
+\item
+  \textbf{Foundation:} SDK/CI, hosting, log, configurazione, sicurezza e
+  deploy vuoto verificati.
+\item
+  \textbf{Caratterizzazione:} contratti ed esempi rappresentativi
+  fissati nei test.
+\item
+  \textbf{Vertical slice:} un flusso completo attraversa HTTP, dominio,
+  persistenza, test e produzione non critica.
+\item
+  \textbf{Migrazione per capacità:} ogni unità ha criteri
+  d'accettazione, osservazione e rollback.
+\item
+  \textbf{Cutover:} traffico spostato con una finestra e responsabili
+  espliciti.
+\item
+  \textbf{Stabilizzazione e rimozione:} dati riconciliati, dipendenze
+  eliminate, vecchio sistema dismesso e costi ridotti.
+\end{enumerate}
+
+Le fasi possono sovrapporsi, ma le condizioni d'uscita devono essere
+esplicite. Per esempio, la foundation non è completata se esiste
+soltanto un Dockerfile: bisogna dimostrare che l'immagine gira
+nell'ambiente previsto, riceve configurazione esterna, espone health
+check e termina correttamente.
+
+\subsection{5.3.5 Cutover e rollback}\label{cutover-e-rollback}
+
+Il cutover va trattato come un'operazione controllata, non come una
+modifica improvvisata al load balancer. Il piano include orario,
+responsabile della decisione, metriche da osservare, soglie d'arresto,
+canali di comunicazione, ownership dei dati e comandi di ritorno.
+
+Un rollback tecnico non annulla automaticamente le scritture già fatte
+dal nuovo sistema. Se lo schema o il formato dati non sono leggibili dal
+vecchio sistema, tornare indietro può richiedere restore, replay o
+riconciliazione. Applicare migrazioni database compatibili in più passi:
+espandere lo schema, distribuire codice che supporta entrambi i formati,
+migrare i dati, poi rimuovere gli elementi obsoleti solo quando il
+rollback non li richiede più.
+
+Provare il rollback prima del cutover. Registrare durata, autorizzazioni
+necessarie, effetti sui dati e segnali che confermano che il traffico è
+tornato sul vecchio percorso. Un piano non provato è un'ipotesi.
+
+\subsection{5.3.6 Organizzazione e
+dipendenze}\label{organizzazione-e-dipendenze}
+
+La migrazione richiede decisioni condivise tra sviluppo, piattaforma,
+sicurezza, database, supporto e product owner. Stabilire chi approva un
+contratto, chi controlla le metriche e chi può fermare il rollout.
+Esplicitare le dipendenze tra attività, evitando che più team cambino lo
+stesso schema o endpoint senza coordinamento.
+
+Il backlog deve distinguere lavoro di migrazione, correzioni necessarie
+per la parità e nuove funzionalità. Questa separazione rende visibile il
+costo e impedisce che una funzionalità aggiunta a metà diventi la
+ragione per rinviare la dismissione. Ogni milestone dovrebbe produrre un
+incremento funzionante e una decisione informata sul passo successivo.
+
+\section{5.4 Architettura e organizzazione del
+codice}\label{architettura-e-organizzazione-del-codice}
+
+L'architettura di destinazione non dovrebbe essere una copia dei package
+del framework sorgente né una collezione di pattern scelti per moda. Il
+suo compito è rendere espliciti i confini: dove termina HTTP, dove
+risiede la logica di dominio, chi possiede i dati e come si integrano le
+dipendenze esterne.
+
+\subsection{5.4.1 Dal framework sorgente alle responsabilità ASP.NET
+Core}\label{dal-framework-sorgente-alle-responsabilituxe0-asp.net-core}
+
+Laravel, Django, Express/NestJS e Spring Boot offrono combinazioni
+diverse di routing, middleware, controller, container, configurazione e
+persistenza. Durante la migrazione, decomporre il comportamento:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Responsabilità sorgente
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Possibile destinazione ASP.NET Core
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Route/controller & Minimal API o controller MVC \\
+Hook globale per richiesta & Middleware \\
+Hook limitato a endpoint & Endpoint filter o filtro MVC \\
+Container dei servizi & \texttt{IServiceCollection} e provider DI \\
+Configurazione ambientale & Configuration providers e Options \\
+Worker/job & \texttt{BackgroundService}, worker o scheduler esterno \\
+Validazione input & Validazione esplicita, filtri o libreria adottata \\
+Template/server rendering & Razor Pages, MVC o frontend separato \\
+\end{longtable}
+}
+
+La tabella indica candidati, non una traduzione automatica. Un
+middleware ASP.NET Core avvolge una richiesta e può decidere se
+proseguire; un filtro MVC opera nel ciclo MVC; un endpoint filter si
+applica ai delegate degli endpoint. Scegliere il livello in base alla
+responsabilità evita middleware globali che contengono eccezioni
+specifiche per una sola route.
+
+\subsection{5.4.2 Minimal API o
+controller?}\label{minimal-api-o-controller}
+
+Le Minimal API sono un modo conciso per definire endpoint e si adattano
+bene a servizi piccoli, API focalizzate e team che vogliono comporre
+route per feature. Non sono un framework ``senza architettura'':
+dipendenze, validazione, errori, mapping e test devono comunque essere
+organizzati.
+
+I controller MVC offrono convenzioni e struttura familiare per API
+articolate, applicazioni con molti endpoint simili, filtri MVC e team
+che beneficiano di classi e attributi. Non obbligano a usare tutte le
+funzionalità MVC. La scelta non va basata sul numero di righe iniziali:
+valutare complessità delle regole trasversali, standardizzazione,
+familiarità del team e necessità di organizzare i contratti.
+
+Esempio Minimal API con gruppo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ builder }\OperatorTok{=}\NormalTok{ WebApplication}\OperatorTok{.}\FunctionTok{CreateBuilder}\OperatorTok{(}\NormalTok{args}\OperatorTok{);}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddScoped}\OperatorTok{\textless{}}\NormalTok{IProductService}\OperatorTok{,}\NormalTok{ ProductService}\OperatorTok{\textgreater{}();}
+
+\DataTypeTok{var}\NormalTok{ app }\OperatorTok{=}\NormalTok{ builder}\OperatorTok{.}\FunctionTok{Build}\OperatorTok{();}
+\DataTypeTok{var}\NormalTok{ products }\OperatorTok{=}\NormalTok{ app}\OperatorTok{.}\FunctionTok{MapGroup}\OperatorTok{(}\StringTok{"/api/products"}\OperatorTok{);}
+
+\NormalTok{products}\OperatorTok{.}\FunctionTok{MapGet}\OperatorTok{(}\StringTok{"/\{id:int\}"}\OperatorTok{,} \FunctionTok{async} \OperatorTok{(}
+    \DataTypeTok{int}\NormalTok{ id}\OperatorTok{,}\NormalTok{ IProductService service}\OperatorTok{,}\NormalTok{ CancellationToken ct}\OperatorTok{)} \OperatorTok{=\textgreater{}}
+\OperatorTok{\{}
+    \DataTypeTok{var}\NormalTok{ product }\OperatorTok{=}\NormalTok{ await service}\OperatorTok{.}\FunctionTok{FindAsync}\OperatorTok{(}\NormalTok{id}\OperatorTok{,}\NormalTok{ ct}\OperatorTok{);}
+    \KeywordTok{return}\NormalTok{ product }\KeywordTok{is} \KeywordTok{null} \OperatorTok{?}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{NotFound}\OperatorTok{()} \OperatorTok{:}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{Ok}\OperatorTok{(}\NormalTok{product}\OperatorTok{);}
+\OperatorTok{\});}
+
+\NormalTok{app}\OperatorTok{.}\FunctionTok{Run}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+Il delegate riceve parametri che ASP.NET Core associa a route, servizi o
+body secondo regole di binding. Per mantenere leggibile il punto di
+composizione, spostare la definizione in un metodo
+\texttt{MapProductEndpoints} o in un modulo quando le route crescono.
+Non trasformare subito ogni gruppo in un'astrazione generica: estrarre
+quando si chiarisce una responsabilità riutilizzabile.
+
+\subsection{5.4.3 Confini applicativi e
+dipendenze}\label{confini-applicativi-e-dipendenze}
+
+Una struttura minima può separare:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{API:} protocollo HTTP, autenticazione, mapping
+  request/response;
+\item
+  \textbf{Application:} casi d'uso e coordinamento;
+\item
+  \textbf{Domain:} regole e invarianti di business;
+\item
+  \textbf{Infrastructure:} database e integrazioni esterne.
+\end{itemize}
+
+Questi nomi non sono obbligatori. In un servizio piccolo, più progetti
+possono aggiungere overhead senza proteggere alcun confine. In un
+sistema con dominio complesso e più adapter, la separazione riduce
+l'accoppiamento. La direzione desiderata è che le regole del dominio non
+dipendano dal server web o dal provider database; i dettagli
+infrastrutturali implementano contratti necessari ai casi d'uso.
+
+Un layout possibile per feature:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{src/}
+\NormalTok{  Catalogo.Api/}
+\NormalTok{    Program.cs}
+\NormalTok{    Features/}
+\NormalTok{      Products/}
+\NormalTok{        ProductEndpoints.cs}
+\NormalTok{        CreateProductRequest.cs}
+\NormalTok{  Catalogo.Application/}
+\NormalTok{  Catalogo.Domain/}
+\NormalTok{  Catalogo.Infrastructure/}
+\NormalTok{tests/}
+\NormalTok{  Catalogo.UnitTests/}
+\NormalTok{  Catalogo.IntegrationTests/}
+\end{Highlighting}
+\end{Shaded}
+
+Questo è uno schema, non un requisito. Una cartella
+\texttt{Features/Products} può contenere endpoint e request specifiche,
+mentre servizi applicativi e dominio vivono in progetti distinti.
+Evitare cartelle generiche \texttt{Helpers}, \texttt{Common} o
+\texttt{Utils} come destinazione per qualsiasi codice non collocato:
+diventano rapidamente dipendenze senza ownership.
+
+\subsection{5.4.4 Dominio, DTO e mapping}\label{dominio-dto-e-mapping}
+
+Non esporre direttamente l'entità database come contratto pubblico per
+comodità. Una modifica interna allo schema potrebbe cambiare
+involontariamente l'API; inoltre l'entità può contenere campi che il
+client non deve vedere. Usare DTO di richiesta e risposta quando esiste
+un confine reale, definendo mapping espliciti per campi, null e valori
+predefiniti.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed}\NormalTok{ record }\FunctionTok{ProductResponse}\OperatorTok{(}
+    \DataTypeTok{int}\NormalTok{ Id}\OperatorTok{,} \DataTypeTok{string}\NormalTok{ Name}\OperatorTok{,} \DataTypeTok{decimal}\NormalTok{ Price}\OperatorTok{,} \DataTypeTok{string}\NormalTok{ Currency}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+La logica di conversione deve essere testata. Un mapping automatico può
+essere utile, ma non deve nascondere conversioni lossy, date senza
+timezone o proprietà omesse. Per ogni contratto documentare proprietà
+obbligatorie, formato, unità, precisione e compatibilità.
+
+\subsection{5.4.5 Hosting e Kestrel}\label{hosting-e-kestrel}
+
+\texttt{WebApplication.CreateBuilder(args)} compone configuration,
+logging, servizi e ambiente. L'app risultante può girare in foreground,
+in container o come servizio gestito. Kestrel gestisce HTTP; in
+produzione spesso c'è un reverse proxy o un ingress davanti. Questo
+proxy può terminare TLS, imporre limiti, fare routing e aggiungere
+header forwarded. L'app deve fidarsi solo dei proxy configurati, non di
+qualunque header fornito dal client.
+
+Il binding delle porte e degli URL deve provenire dalla configurazione
+dell'ambiente. Non codificare \texttt{localhost} o porte di sviluppo
+nell'immagine. Verificare che il processo ascolti sull'interfaccia
+prevista, che i controlli health siano raggiungibili dal sistema di
+orchestrazione e che lo shutdown consenta di terminare richieste in
+corso.
+
+\subsection{5.4.6 Processi web, worker e
+job}\label{processi-web-worker-e-job}
+
+Un'applicazione sorgente può eseguire job nello stesso processo HTTP. In
+.NET un \texttt{BackgroundService} è appropriato per lavoro persistente
+controllato dall'host, ma non è una coda durevole: se il processo si
+arresta, gli elementi in memoria possono andare persi. Per job che
+richiedono retry, scheduling distribuito o garanzie di consegna, usare
+una coda o un sistema di scheduling adeguato.
+
+I worker devono gestire cancellazione e shutdown, limitare concorrenza,
+registrare gli errori e rendere idempotenti le operazioni ripetibili.
+Non avviare thread detached da un endpoint e non ignorare eccezioni in
+task non osservati. Il lifecycle del lavoro deve essere parte della
+strategia di deployment e scaling.
+
+\subsection{5.4.7 Strutturare per comprendere, non per
+imitare}\label{strutturare-per-comprendere-non-per-imitare}
+
+Portare il modello mentale del vecchio framework è utile come punto di
+partenza, ma il target deve rispettare le sue convenzioni. Per ogni
+astrazione chiedersi: quale responsabilità protegge? Quale test la rende
+verificabile? Quale cambiamento futuro diventa più semplice? Se non c'è
+una risposta, l'astrazione probabilmente anticipa un problema non ancora
+dimostrato.
+
+Una migrazione ben strutturata è quella che permette di trovare
+rapidamente un endpoint, capire chi possiede una regola, sostituire una
+dipendenza esterna e testare il comportamento senza avviare l'intero
+sistema. Non è necessariamente quella con più progetti o livelli.
+
+\section{5.5 Richieste HTTP e pipeline}\label{richieste-http-e-pipeline}
+
+Un'API migra con successo solo se i suoi client osservano il contratto
+previsto. Cambiare framework spesso cambia dettagli che non erano
+scritti: codici di stato, forma degli errori, parsing di date,
+comportamento sui campi null, header, encoding e ordine delle
+operazioni. Questa sezione tratta la pipeline HTTP come un contratto da
+preservare e testare.
+
+\subsection{5.5.1 Ricostruire il contratto prima di spostare le
+route}\label{ricostruire-il-contratto-prima-di-spostare-le-route}
+
+Per ciascun endpoint registrare metodo e percorso, autenticazione,
+parametri, schema request/response, codici di stato, header,
+paginazione, ordinamento, idempotenza e limiti. Salvare esempi
+realistici, inclusi input invalidi e casi limite. OpenAPI aiuta a
+descrivere il contratto ma non sempre riflette il comportamento
+effettivo; confrontare specifica, implementazione e traffico
+anonimizzato.
+
+Attenzione alle differenze di parsing:
+
+\begin{itemize}
+\tightlist
+\item
+  distinzione maiuscole/minuscole nei nomi JSON e nei valori;
+\item
+  date locali, offset e precisione dei timestamp;
+\item
+  separatori decimali e formati numerici;
+\item
+  \texttt{null}, proprietà assente, stringa vuota e valore predefinito;
+\item
+  encoding, Unicode normalizzato e limiti sulla dimensione del body;
+\item
+  parametri duplicati, query string e codifica degli spazi.
+\end{itemize}
+
+Una modifica ``più corretta'' può essere breaking. Se si decide di
+correggere un comportamento, documentare la variazione e verificare la
+compatibilità dei consumer.
+
+\subsection{5.5.2 Middleware e ordine della
+pipeline}\label{middleware-e-ordine-della-pipeline}
+
+Il middleware è una sequenza. Un componente può modificare la richiesta
+prima del successivo, osservare la risposta dopo \texttt{await\ next()},
+oppure terminare la pipeline. L'ordine influenza error handling,
+routing, autenticazione e autorizzazione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ builder }\OperatorTok{=}\NormalTok{ WebApplication}\OperatorTok{.}\FunctionTok{CreateBuilder}\OperatorTok{(}\NormalTok{args}\OperatorTok{);}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddProblemDetails}\OperatorTok{();}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddControllers}\OperatorTok{();}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddAuthentication}\OperatorTok{();}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddAuthorization}\OperatorTok{();}
+
+\DataTypeTok{var}\NormalTok{ app }\OperatorTok{=}\NormalTok{ builder}\OperatorTok{.}\FunctionTok{Build}\OperatorTok{();}
+
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseExceptionHandler}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseHttpsRedirection}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseRouting}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseAuthentication}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseAuthorization}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapControllers}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{Run}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+Per rendere operativo il gestore standard, registrare prima
+\texttt{AddProblemDetails}. In assenza di un handler personalizzato, il
+middleware restituisce una risposta Problem Details quando il servizio è
+disponibile. L'ordine reale dipende da servizi e hosting: seguire la
+documentazione della versione ASP.NET Core scelta. In generale il
+gestore eccezioni deve avvolgere i componenti che si vogliono gestire;
+autenticazione deve precedere autorizzazione; il routing deve aver
+stabilito l'endpoint prima che componenti dipendenti dall'endpoint lo
+usino. Non copiare meccanicamente un ordine trovato in un progetto
+diverso.
+
+Un middleware per correlare le richieste deve propagare un
+identificatore sicuro e aggiungere contesto ai log, ma non deve fidarsi
+ciecamente di un valore arbitrario passato dall'esterno. Anche un header
+di correlazione può essere usato per iniettare caratteri o dati
+ingannevoli nei log; normalizzare e limitare la lunghezza.
+
+\subsection{5.5.3 Routing e binding}\label{routing-e-binding}
+
+Minimal API e controller offrono convenzioni diverse per dichiarare
+route e binding. Una route esplicita rende visibile il contratto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapGet}\OperatorTok{(}\StringTok{"/api/products/\{id:int\}"}\OperatorTok{,} \FunctionTok{async} \OperatorTok{(}
+    \DataTypeTok{int}\NormalTok{ id}\OperatorTok{,}\NormalTok{ IProductService service}\OperatorTok{,}\NormalTok{ CancellationToken ct}\OperatorTok{)} \OperatorTok{=\textgreater{}}
+\OperatorTok{\{}
+    \DataTypeTok{var}\NormalTok{ item }\OperatorTok{=}\NormalTok{ await service}\OperatorTok{.}\FunctionTok{FindAsync}\OperatorTok{(}\NormalTok{id}\OperatorTok{,}\NormalTok{ ct}\OperatorTok{);}
+    \KeywordTok{return}\NormalTok{ item }\KeywordTok{is} \KeywordTok{null}
+        \OperatorTok{?}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{NotFound}\OperatorTok{()}
+        \OperatorTok{:}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{Ok}\OperatorTok{(}\NormalTok{item}\OperatorTok{);}
+\OperatorTok{\});}
+\end{Highlighting}
+\end{Shaded}
+
+La constraint \texttt{:int} restringe il matching; non sostituisce una
+risposta coerente per input non valido. Per request complesse definire
+un tipo DTO anziché legare un'entità interna. Evitare parametri
+implicitamente ambigui e testare l'overload di route, slash finali,
+versioni e route non trovate.
+
+La validazione deve avvenire al confine e includere vincoli di dominio
+pertinenti. Un controllo sintattico (campo obbligatorio, lunghezza
+massima) è diverso da una regola di business (prodotto attivo, prezzo
+modificabile). Restituire errori leggibili e stabili, senza stack trace
+o dettagli di database.
+
+\subsection{5.5.4 Errori prevedibili}\label{errori-prevedibili}
+
+Definire una tassonomia di errori: input non valido, risorsa
+inesistente, conflitto, non autenticato, non autorizzato, dipendenza non
+disponibile e errore inatteso. Mappare ogni categoria a status code e
+corpo consistente. \texttt{ProblemDetails} è un formato standard utile
+per risposte HTTP, ma i dettagli sensibili devono essere esclusi in
+produzione.
+
+Le eccezioni non dovrebbero essere usate come controllo di flusso
+ordinario. La logica applicativa può restituire un risultato esplicito
+per conflitti attesi; il middleware centrale gestisce gli errori
+inattesi, registra l'eccezione e restituisce un identificatore di
+correlazione. Non restituire HTTP 200 con
+\texttt{\{\ "success":\ false\ \}} se il contratto prevede status
+semantici; non trasformare ogni errore in 500 senza classificazione.
+
+Un \texttt{catch} locale è appropriato se il componente può recuperare,
+aggiungere contesto utile o tradurre una specifica eccezione in un
+risultato noto. Altrimenti lasciar propagare al gestore centrale.
+Evitare log duplicati della stessa eccezione a ogni livello.
+
+\subsection{5.5.5 Filtri, middleware ed endpoint
+filter}\label{filtri-middleware-ed-endpoint-filter}
+
+La scelta del punto d'estensione dipende dall'ambito:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{middleware:} cross-cutting a livello di pipeline, per log,
+  header o gestione globale;
+\item
+  \textbf{filtro MVC:} comportamento nel lifecycle dei controller, per
+  endpoint MVC;
+\item
+  \textbf{endpoint filter:} logica riutilizzabile per gruppi di Minimal
+  API, inclusi controlli su argomenti;
+\item
+  \textbf{codice applicativo:} regole specifiche del caso d'uso che
+  devono essere testabili senza HTTP.
+\end{itemize}
+
+Non collocare regole di dominio in middleware solo perché è il primo
+hook conosciuto. Un middleware non dovrebbe conoscere il concetto di
+``ordine annullato'' o ``cliente premium''.
+
+\subsection{5.5.6 Timeout, cancellazione e
+resilienza}\label{timeout-cancellazione-e-resilienza}
+
+Ogni chiamata remota può fallire o impiegare troppo tempo. Propagare
+\texttt{CancellationToken} dalle API alle query e ai client HTTP;
+applicare timeout espliciti e limiti per componente. Un timeout del
+client non garantisce che l'operazione remota sia stata annullata:
+l'esito può essere ambiguo, quindi le operazioni di scrittura devono
+considerare idempotency key o meccanismi di verifica.
+
+Retry automatici sono adatti solo a errori transitori e operazioni
+sicure da ripetere. Non fare retry indiscriminati su ogni eccezione o su
+operazioni non idempotenti. Usare backoff con jitter, budget
+complessivo, circuit breaker se utile e telemetria che mostri i
+tentativi. Evitare retry annidati in più livelli: moltiplicano la
+pressione sul servizio già degradato.
+
+\subsection{5.5.7 CORS, rate limiting e
+documentazione}\label{cors-rate-limiting-e-documentazione}
+
+CORS è una policy applicata dai browser, non un'autenticazione.
+Consentire origini, metodi e header minimi; non combinare wildcard con
+credenziali. Il rate limiting protegge risorse e client equamente, ma
+una policy in memoria per istanza non produce limiti globali in un
+cluster. Scegliere chiave e storage coerenti con il deployment,
+proteggendo le chiavi da spoofing.
+
+OpenAPI descrive endpoint e schemi e può generare client, ma la
+specifica deve essere parte della revisione. Mantenere esempi, errori,
+autenticazione e versionamento aggiornati. Diff automatizzati tra
+specifiche aiutano a individuare breaking change prima del rilascio.
+
+\subsection{5.5.8 Checklist della parità
+HTTP}\label{checklist-della-parituxe0-http}
+
+Prima di spostare il traffico verificare: status code; schema e casing
+JSON; header; autenticazione; codici di errore; date e timezone;
+paginazione; ordinamento; CORS; timeout; payload grandi; input
+malformati; richieste duplicate; cancellazione e versionamento. Eseguire
+i test contro vecchio e nuovo sistema con gli stessi casi, confrontando
+gli output normalizzati e documentando ogni differenza intenzionale.
+
+\section{5.6 Configurazione, stato e
+dipendenze}\label{configurazione-stato-e-dipendenze}
+
+I framework di partenza spesso rendono facili da condividere servizi,
+configurazione e stato di richiesta. In ASP.NET Core queste
+responsabilità sono esplicite: il container DI crea le dipendenze, i
+provider di configurazione aggregano valori e i servizi di cache o
+sessione gestiscono lo stato. Esplicitarle è un vantaggio solo se il
+lifecycle scelto è corretto.
+
+\subsection{5.6.1 Dependency Injection
+integrata}\label{dependency-injection-integrata}
+
+La registrazione avviene prima di costruire l'applicazione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ builder }\OperatorTok{=}\NormalTok{ WebApplication}\OperatorTok{.}\FunctionTok{CreateBuilder}\OperatorTok{(}\NormalTok{args}\OperatorTok{);}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddScoped}\OperatorTok{\textless{}}\NormalTok{IOrderService}\OperatorTok{,}\NormalTok{ OrderService}\OperatorTok{\textgreater{}();}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddSingleton}\OperatorTok{\textless{}}\NormalTok{IClock}\OperatorTok{,}\NormalTok{ SystemClock}\OperatorTok{\textgreater{}();}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddHttpClient}\OperatorTok{\textless{}}\NormalTok{PaymentClient}\OperatorTok{\textgreater{}();}
+\DataTypeTok{var}\NormalTok{ app }\OperatorTok{=}\NormalTok{ builder}\OperatorTok{.}\FunctionTok{Build}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+Il container integrato risolve i servizi e li libera secondo il
+lifecycle. I tre lifetime principali sono:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Transient:} nuova istanza a ogni risoluzione. Adatto a oggetti
+  leggeri e senza stato condiviso.
+\item
+  \textbf{Scoped:} una istanza per scope; nelle API web di norma uno
+  scope per richiesta. \texttt{DbContext} è tipicamente scoped.
+\item
+  \textbf{Singleton:} una istanza per l'intera durata del processo. Deve
+  essere thread-safe e non conservare dati specifici della richiesta.
+\end{itemize}
+
+Il lifetime non definisce soltanto l'efficienza. Un singleton che
+dipende da uno scoped può catturare un oggetto oltre la sua durata
+(\emph{captive dependency}). Un servizio scoped risolto dal singleton
+può accedere a un \texttt{DbContext} condiviso in modo non sicuro; due
+richieste concorrenti potrebbero interferire. L'abilitazione delle
+verifiche di scope in sviluppo aiuta a rilevare configurazioni errate,
+ma i test devono coprire il comportamento reale.
+
+Iniettare attraverso il costruttore rende visibili le dipendenze:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed} \KeywordTok{class} \FunctionTok{OrderService}\OperatorTok{(}
+\NormalTok{    IOrderRepository repository}\OperatorTok{,}
+\NormalTok{    IClock clock}\OperatorTok{)} \OperatorTok{:}\NormalTok{ IOrderService}
+\OperatorTok{\{}
+    \KeywordTok{public}\NormalTok{ Task}\OperatorTok{\textless{}}\NormalTok{Order}\OperatorTok{?\textgreater{}} \FunctionTok{FindAsync}\OperatorTok{(}
+        \DataTypeTok{int}\NormalTok{ id}\OperatorTok{,}\NormalTok{ CancellationToken ct}\OperatorTok{)} \OperatorTok{=\textgreater{}}
+\NormalTok{        repository}\OperatorTok{.}\FunctionTok{FindAsync}\OperatorTok{(}\NormalTok{id}\OperatorTok{,}\NormalTok{ ct}\OperatorTok{);}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Una classe con moltissimi parametri può indicare che coordina troppe
+responsabilità. Non risolvere il problema iniettando il provider
+generico \texttt{IServiceProvider} e facendo service locator: le
+dipendenze diventano invisibili, l'errore emerge a runtime e i test
+richiedono più setup.
+
+\subsection{5.6.2 Configuration providers e
+priorità}\label{configuration-providers-e-priorituxe0}
+
+La configurazione standard combina valori da più fonti, tipicamente file
+JSON, variabili d'ambiente, user secrets in sviluppo e argomenti CLI. I
+provider successivi possono sovrascrivere valori precedenti; conoscere
+l'ordine è essenziale per capire quale valore è effettivamente attivo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"Catalog"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"PageSize"}\FunctionTok{:} \DecValTok{50}\FunctionTok{,}
+    \DataTypeTok{"EnableBetaSearch"}\FunctionTok{:} \KeywordTok{false}
+  \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Le variabili d'ambiente usano convenzioni come
+\texttt{Catalog\_\_PageSize=100} per rappresentare la gerarchia.
+\texttt{appsettings.json} contiene configurazione non segreta e valori
+predefiniti; non vi si inseriscono password, token o chiavi di
+produzione. La configurazione non è una stringa da leggere liberamente
+in ogni metodo: raggruppare opzioni correlate in tipi tipizzati,
+validarne i valori all'avvio e fallire esplicitamente se manca un
+requisito essenziale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}
+    \OperatorTok{.}\FunctionTok{AddOptions}\OperatorTok{\textless{}}\NormalTok{CatalogOptions}\OperatorTok{\textgreater{}()}
+    \OperatorTok{.}\FunctionTok{BindConfiguration}\OperatorTok{(}\StringTok{"Catalog"}\OperatorTok{)}
+    \OperatorTok{.}\FunctionTok{Validate}\OperatorTok{(}\NormalTok{o }\OperatorTok{=\textgreater{}}\NormalTok{ o}\OperatorTok{.}\FunctionTok{PageSize} \KeywordTok{is} \OperatorTok{\textgreater{}} \DecValTok{0}\NormalTok{ and }\OperatorTok{\textless{}=} \DecValTok{200}\OperatorTok{,}
+        \StringTok{"PageSize deve essere compreso tra 1 e 200."}\OperatorTok{)}
+    \OperatorTok{.}\FunctionTok{ValidateOnStart}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+Un default silenzioso per una configurazione obbligatoria può produrre
+un'applicazione che si avvia ma invia dati all'host sbagliato o
+disabilita una protezione. Preferire un errore chiaro in fase di avvio e
+loggare il nome della chiave mancante, non il suo valore segreto.
+
+\subsection{5.6.3 Secrets e ambienti}\label{secrets-e-ambienti}
+
+In sviluppo, User Secrets evita di commettere segreti nel repository, ma
+non è un vault di produzione. In produzione, usare il secret manager
+della piattaforma o un provider protetto, con rotazione, accesso minimo
+e audit. Evitare segreti in immagini container, argomenti di processo e
+log.
+
+Separare configurazione per ambiente senza duplicare interi file con
+valori divergenti. Il codice dovrebbe leggere la configurazione da
+un'unica interfaccia; è l'ambiente a fornire il valore. La pipeline deve
+poter distribuire lo stesso artefatto in ambienti diversi e applicare i
+parametri esternamente.
+
+Una chiave di produzione non deve essere copiata su una macchina locale
+per ``far funzionare'' il test. Usare credenziali effimere, identità
+gestite o servizi sostitutivi con permessi limitati.
+
+\subsection{5.6.4 Stato: richiesta, sessione e
+cache}\label{stato-richiesta-sessione-e-cache}
+
+Lo stato di una richiesta HTTP vive nell'oggetto \texttt{HttpContext} e
+non va conservato oltre la richiesta. Il server può servire richieste
+concorrenti su più thread: campi statici o singleton mutabili non sono
+un sostituto della sessione.
+
+Distinguere:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{stato di dominio persistente:} database o sistema autorevole;
+\item
+  \textbf{cache:} dato ricostruibile con scadenza, invalidazione e
+  comportamento in caso di miss;
+\item
+  \textbf{sessione:} dati temporanei legati a un utente, con
+  implicazioni di privacy e scalabilità;
+\item
+  \textbf{stato locale al processo:} utile per ottimizzazioni effimere,
+  mai fonte di verità in un cluster.
+\end{itemize}
+
+Con più istanze, cache o sessioni in memoria divergono. Una richiesta
+successiva può arrivare a un nodo diverso; sticky sessions riducono
+alcuni sintomi ma non sostituiscono storage distribuito e resilienza.
+Documentare durata, chiave, invalidazione, consistenza e comportamento
+in caso di indisponibilità della cache.
+
+Non mettere nella cache dati sensibili o per-utente usando chiavi non
+isolate. Stabilire un limite di memoria e TTL; un cache stampede può
+saturare database e servizi proprio quando una chiave scade. Le
+strategie di refresh in background, lock distribuiti o
+stale-while-revalidate vanno scelte in base alla tolleranza alla
+staleness.
+
+\subsection{5.6.5 Client HTTP e
+integrazione}\label{client-http-e-integrazione}
+
+Per chiamare servizi esterni usare \texttt{IHttpClientFactory} o client
+tipizzati; evitare di creare e distruggere \texttt{HttpClient} a ogni
+chiamata. Configurare base address, timeout, handler e credenziali in
+modo centralizzato. Un client tipizzato rende visibili gli endpoint
+esterni e facilita test, logging e policy di resilienza.
+
+Non registrare token nei log. Configurare timeout sia per la richiesta
+sia per operazioni specifiche; un timeout infinito può accumulare
+richieste e socket. Distinguere errori DNS, connessione rifiutata,
+timeout, status non riuscito e contenuto non valido. La risposta di un
+sistema remoto è input non attendibile anche quando usa TLS.
+
+\subsection{5.6.6 Background services e lavoro
+durevole}\label{background-services-e-lavoro-durevole}
+
+\texttt{BackgroundService} avvia un task con il lifecycle dell'host. È
+adatto a polling o lavori periodici semplici, non è una coda
+persistente. Se serve consegna affidabile, retry dopo crash, scheduling
+distribuito o visibilità operativa, usare un broker o un job scheduler
+con storage durevole.
+
+Quando il worker usa servizi scoped, creare uno scope per l'unità di
+lavoro:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed} \KeywordTok{class} \FunctionTok{ImportWorker}\OperatorTok{(}
+\NormalTok{    IServiceScopeFactory scopeFactory}\OperatorTok{,}
+\NormalTok{    ILogger}\OperatorTok{\textless{}}\NormalTok{ImportWorker}\OperatorTok{\textgreater{}}\NormalTok{ logger}\OperatorTok{)} \OperatorTok{:}\NormalTok{ BackgroundService}
+\OperatorTok{\{}
+    \KeywordTok{protected} \KeywordTok{override}\NormalTok{ async Task }\FunctionTok{ExecuteAsync}\OperatorTok{(}
+\NormalTok{        CancellationToken stoppingToken}\OperatorTok{)}
+    \OperatorTok{\{}
+        \KeywordTok{while} \OperatorTok{(!}\NormalTok{stoppingToken}\OperatorTok{.}\FunctionTok{IsCancellationRequested}\OperatorTok{)}
+        \OperatorTok{\{}
+\NormalTok{            await }\KeywordTok{using} \DataTypeTok{var}\NormalTok{ scope }\OperatorTok{=}\NormalTok{ scopeFactory}\OperatorTok{.}\FunctionTok{CreateAsyncScope}\OperatorTok{();}
+            \DataTypeTok{var}\NormalTok{ importer }\OperatorTok{=}\NormalTok{ scope}\OperatorTok{.}\FunctionTok{ServiceProvider}
+                \OperatorTok{.}\FunctionTok{GetRequiredService}\OperatorTok{\textless{}}\NormalTok{IImporter}\OperatorTok{\textgreater{}();}
+\NormalTok{            await importer}\OperatorTok{.}\FunctionTok{ProcessBatchAsync}\OperatorTok{(}\NormalTok{stoppingToken}\OperatorTok{);}
+\NormalTok{            await Task}\OperatorTok{.}\FunctionTok{Delay}\OperatorTok{(}\NormalTok{TimeSpan}\OperatorTok{.}\FunctionTok{FromSeconds}\OperatorTok{(}\DecValTok{10}\OperatorTok{),}\NormalTok{ stoppingToken}\OperatorTok{);}
+        \OperatorTok{\}}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In codice reale gestire cancellazione e backoff: un'eccezione non
+recuperata può terminare il worker o il processo secondo configurazione.
+Il batch deve essere ripetibile, limitato e osservabile. Non avviare un
+task fire-and-forget da una route, perché l'host non ne governa durata o
+errori.
+
+\subsection{5.6.7 Progettare le dipendenze come
+confini}\label{progettare-le-dipendenze-come-confini}
+
+Ogni dipendenza esterna dovrebbe essere descritta da un'interfaccia o da
+un adapter quando questo aiuta a isolare un confine reale: provider di
+pagamento, clock, file storage o API remota. Non serve creare
+un'interfaccia per ogni classe. L'obiettivo è sostituire un'integrazione
+durante test o migrazione senza nascondere le capacità utilizzate.
+
+Annotare chi possiede la configurazione e il lifecycle. Nei test, usare
+servizi in-memory soltanto se preservano la semantica necessaria; un
+dizionario non simula transazioni o concorrenza di un database
+relazionale. La sostituzione di una dipendenza deve essere esplicita e
+non attivata per errore in produzione.
+
+\section{5.7 Dati e integrazione con i sistemi
+esistenti}\label{dati-e-integrazione-con-i-sistemi-esistenti}
+
+Il database è spesso il vincolo più forte di una migrazione.
+L'applicazione nuova può essere distribuita in poche ore; i dati possono
+essere condivisi con altri servizi, avere anni di storia e contenere
+anomalie che nessun modello documenta. Pianificare insieme schema,
+codice, ownership, sincronizzazione e rollback.
+
+\subsection{5.7.1 EF Core e scelta dell'accesso ai
+dati}\label{ef-core-e-scelta-dellaccesso-ai-dati}
+
+Entity Framework Core è un ORM che traduce query LINQ in operazioni sul
+database e tiene traccia delle entità caricate. È adatto a molti casi
+applicativi, ma non è obbligatorio per ogni query. SQL esplicito o un
+micro-ORM possono essere più chiari per report, query complesse o
+requisiti di prestazione. La scelta va fatta per workload e misurazioni,
+non per fedeltà all'ORM sorgente.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Concetto di altri ORM
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+EF Core
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verifica necessaria
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Session/entity manager & \texttt{DbContext} & Scope, tracking e
+concorrenza \\
+Entity/model & Entità CLR & Identità, navigazioni e mapping \\
+Schema migration & EF migrations & SQL generato e deploy sicuro \\
+Lazy loading & Opzionale, non predefinito in ogni scenario & Query
+implicite e N+1 \\
+Unit of work & \texttt{SaveChanges}/transazione & Confini e atomicità \\
+\end{longtable}
+}
+
+\texttt{DbContext} è un'unità di lavoro breve, normalmente scoped per
+richiesta. Non è thread-safe: non lanciare query concorrenti sullo
+stesso contesto con \texttt{Task.WhenAll}. Usare query proiettate per
+leggere solo i campi necessari e \texttt{AsNoTracking} quando il
+risultato non verrà aggiornato tramite il context.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ products }\OperatorTok{=}\NormalTok{ await db}\OperatorTok{.}\FunctionTok{Products}
+    \OperatorTok{.}\FunctionTok{AsNoTracking}\OperatorTok{()}
+    \OperatorTok{.}\FunctionTok{Where}\OperatorTok{(}\NormalTok{p }\OperatorTok{=\textgreater{}}\NormalTok{ p}\OperatorTok{.}\FunctionTok{IsActive}\OperatorTok{)}
+    \OperatorTok{.}\FunctionTok{OrderBy}\OperatorTok{(}\NormalTok{p }\OperatorTok{=\textgreater{}}\NormalTok{ p}\OperatorTok{.}\FunctionTok{Name}\OperatorTok{)}
+    \OperatorTok{.}\FunctionTok{Select}\OperatorTok{(}\NormalTok{p }\OperatorTok{=\textgreater{}} \KeywordTok{new} \FunctionTok{ProductListItem}\OperatorTok{(}
+\NormalTok{        p}\OperatorTok{.}\FunctionTok{Id}\OperatorTok{,}\NormalTok{ p}\OperatorTok{.}\FunctionTok{Name}\OperatorTok{,}\NormalTok{ p}\OperatorTok{.}\FunctionTok{Price}\OperatorTok{,}\NormalTok{ p}\OperatorTok{.}\FunctionTok{Currency}\OperatorTok{))}
+    \OperatorTok{.}\FunctionTok{ToListAsync}\OperatorTok{(}\NormalTok{cancellationToken}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+La proiezione esplicita rende visibile il contratto della query e riduce
+trasferimento di dati. Non enumerare query infinite o materializzare
+grandi tabelle senza paginazione. \texttt{IQueryable} esegue lavoro
+quando enumerato; la query va mantenuta nel livello che conosce il
+database per evitare sorprese.
+
+\subsection{5.7.2 Modello, schema e
+confini}\label{modello-schema-e-confini}
+
+Non assumere che la struttura del modello sorgente si trasferisca
+direttamente. Identificare chiavi primarie e naturali, vincoli,
+nullability, precisione dei numeri, timezone, collations, indici,
+relazioni e politiche di cancellazione. Confrontare il tipo logico e il
+tipo fisico: \texttt{decimal} può avere scale diverse, un timestamp può
+essere locale oppure UTC, un \texttt{string} può avere limiti e
+collation.
+
+Separare modello persistito e DTO quando la forma pubblica o le regole
+del dominio differiscono dalla tabella. Non usare il database come unico
+documento del dominio, ma non duplicare ogni campo in modelli senza un
+confine utile. Le regole di integrità devono essere applicate anche nel
+database per proteggere da race condition e percorsi non HTTP.
+
+Prima di introdurre un nuovo database, capire quali altri componenti
+leggono o scrivono lo schema attuale. Uno schema condiviso è un
+contratto implicito. Migrare un servizio lasciando integrazioni non
+documentate può interrompere sistemi che non fanno parte del repository.
+
+\subsection{5.7.3 Migrazioni dello
+schema}\label{migrazioni-dello-schema}
+
+Le migrazioni EF Core descrivono evoluzioni dello schema; non
+sostituiscono revisione e piano di deploy. Ispezionare lo SQL generato,
+capire lock e durata, e distinguere modifiche additive da modifiche
+distruttive. Un \texttt{ALTER\ TABLE} può bloccare una tabella grande;
+il comportamento dipende dal provider e dalla versione del database.
+
+Un pattern compatibile è \textbf{expand--migrate--contract}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  aggiungere colonna o tabella compatibile con il codice precedente;
+\item
+  distribuire codice che legge/scrive nel formato compatibile;
+\item
+  copiare o trasformare i dati a batch e verificare conteggi;
+\item
+  passare la lettura al nuovo campo e osservare;
+\item
+  rimuovere il vecchio campo solo quando nessun consumer o rollback lo
+  richiede.
+\end{enumerate}
+
+Non eseguire automaticamente migrazioni potenzialmente lunghe all'avvio
+di ogni replica. Le istanze possono partire insieme e competere per
+lock; il processo applicativo potrebbe non avere permessi DDL in
+produzione. Preferire un passaggio controllato in pipeline o un job di
+deployment con un solo proprietario e log chiari.
+
+Per un rollback, la migrazione inversa deve essere realmente possibile.
+Se il nuovo codice scrive valori non rappresentabili nel vecchio schema,
+il downgrade non è sicuro. Conservare backup testati e definire una
+strategia di ripristino coerente con RPO e RTO; un backup mai
+ripristinato non è evidenza sufficiente.
+
+\subsection{5.7.4 Migrare i dati}\label{migrare-i-dati}
+
+Il piano dipende da volume, downtime consentito e possibilità di
+mantenere sincronizzati i sistemi. Opzioni comuni:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Finestra di fermo:} bloccare scritture, esportare,
+  trasformare, importare, verificare e riaprire. Semplice, ma richiede
+  una finestra accettabile.
+\item
+  \textbf{Snapshot e delta:} copiare una fotografia iniziale, poi
+  applicare le modifiche intervenute fino al cutover. Richiede un
+  meccanismo affidabile per identificare il delta.
+\item
+  \textbf{Replica/CDC:} acquisire cambiamenti dal log del database o da
+  un processo dedicato. Riduce il fermo, ma aggiunge dipendenze e
+  necessità di controllo della consistenza.
+\item
+  \textbf{Migrazione per partizioni/tenant:} trasferire porzioni
+  indipendenti e cambiare ownership progressivamente. Funziona solo se
+  il confine è stabile.
+\end{itemize}
+
+Per ciascuna opzione descrivere il punto di consistenza, il
+comportamento delle scritture durante la copia, l'ordine delle
+trasformazioni e come riprendere dopo un'interruzione. Gli script devono
+essere idempotenti o avere checkpoint persistenti. Registrare errori per
+record e consentire la ripresa senza duplicare dati.
+
+\subsection{5.7.5 Qualità e semantica dei
+dati}\label{qualituxe0-e-semantica-dei-dati}
+
+I dati storici possono violare le regole attuali: stringhe vuote al
+posto di null, date impossibili, duplicati, codici fuori dominio, valute
+miste o relazioni orfane. Non correggere silenziosamente senza una
+regola approvata. Classificare gli elementi in validi, trasformabili, da
+mettere in quarantena e bloccanti.
+
+Per date e orari distinguere istante UTC, orario locale e data civile.
+\texttt{DateTime} senza \texttt{Kind} esplicito può essere ambiguo;
+\texttt{DateTimeOffset} preserva offset ma non identifica da solo il
+fuso orario nominato. Convertire secondo il significato di business, non
+aggiungendo semplicemente \texttt{Z} alle stringhe.
+
+Per denaro definire valuta, scala e arrotondamento; non usare floating
+point binario per valori monetari senza una motivazione. Per testo
+considerare Unicode, normalizzazione e collation: due stringhe
+visivamente identiche possono avere rappresentazioni differenti. Per
+identificativi preservare zeri iniziali se fanno parte del valore.
+
+\subsection{5.7.6 Riconciliazione
+verificabile}\label{riconciliazione-verificabile}
+
+Il confronto tra origine e target deve andare oltre il conteggio righe.
+Verificare:
+
+\begin{itemize}
+\tightlist
+\item
+  conteggi per tabella, tenant e intervallo temporale;
+\item
+  checksum o hash di colonne canoniche;
+\item
+  riferimenti e vincoli;
+\item
+  aggregati di business, per esempio totali per stato;
+\item
+  campioni mirati di record complessi;
+\item
+  dati modificati durante il delta e record scartati.
+\end{itemize}
+
+Definire tolleranze solo dove la trasformazione le giustifica, come
+precisione numerica o normalizzazione. Conservare report firmati o
+immutabili del processo, con timestamp, versione dello script e
+conteggi. Un esito ``completato'' senza numeri è difficile da auditare.
+
+\subsection{5.7.7 Transazioni, concorrenza e
+query}\label{transazioni-concorrenza-e-query}
+
+Una transazione database protegge un insieme di modifiche all'interno
+del provider e del suo contesto; non rende atomica una chiamata HTTP più
+una scrittura. Non tenere una transazione aperta mentre si attende un
+servizio remoto. Per coordinare DB ed eventi usare pattern come outbox
+con consumer idempotente.
+
+Gestire concorrenza ottimistica con token o timestamp e restituire un
+conflitto comprensibile quando una versione è cambiata. Testare query
+reali con il provider di produzione: SQLite in memoria può differire per
+tipi, collations, transazioni e funzioni. I test rapidi con provider
+sostitutivo sono utili ma non sostituiscono test d'integrazione sul
+motore effettivo.
+
+Misurare query e piani d'esecuzione prima di aggiungere repository o
+cache. Attenzione a N+1, caricamento eccessivo, assenza di indici e
+paginazione con offset su dataset enormi. Non interpolare SQL con input;
+usare parametri e permessi minimi.
+
+\subsection{5.7.8 Connessioni e
+continuità}\label{connessioni-e-continuituxe0}
+
+Le stringhe di connessione provengono da configurazione protetta.
+Impostare pool, timeout, TLS e retry secondo provider; una connessione
+esaurita può apparire come lentezza dell'API. Il pool riduce l'overhead
+ma non aumenta la capacità del database: moltiplicare repliche
+moltiplica anche le connessioni potenziali.
+
+Durante la convivenza, definire quale sistema può scrivere ciascuna
+entità e come viene mantenuta la consistenza. Evitare di far dipendere
+la nuova API direttamente da uno schema che il vecchio sistema può
+cambiare senza coordinamento. Un contratto dati versionato o un adapter
+temporaneo può isolare la migrazione e rendere esplicita la dipendenza
+da rimuovere.
+
+\section{5.8 Sicurezza e identità}\label{sicurezza-e-identituxe0}
+
+La sicurezza non è un passaggio finale di hardening. Cambiare framework
+e identità modifica cookie, token, chiavi, policy e trust boundary. Una
+migrazione può mantenere gli endpoint e allo stesso tempo disconnettere
+gli utenti, accettare token non validi o rivelare dati. Definire i
+requisiti e verificare il flusso end-to-end prima del cutover.
+
+\subsection{5.8.1 Iniziare da threat model e
+inventario}\label{iniziare-da-threat-model-e-inventario}
+
+Identificare asset (dati personali, credenziali, pagamenti, sessioni),
+attori, confini di fiducia e minacce rilevanti. Per ogni flusso
+chiedersi chi può invocarlo, come viene autenticato, quali permessi
+servono, quali input controlla e cosa accade se la dipendenza fallisce.
+
+Mappare:
+
+\begin{itemize}
+\tightlist
+\item
+  provider di identità e modalità di login;
+\item
+  cookie, sessioni, token access e refresh, durata e revoca;
+\item
+  ruoli, claims, tenant e regole d'autorizzazione;
+\item
+  segreti applicativi, chiavi di firma e certificati;
+\item
+  dati sensibili nei log, backup, cache e telemetria;
+\item
+  protezioni esistenti, dipendenze vulnerabili e procedure d'incidente.
+\end{itemize}
+
+Le policy scritte nel codice possono essere incomplete rispetto alla
+configurazione del gateway o del provider. Verificare la catena
+completa, inclusi reverse proxy e client. Fare approvare i cambiamenti
+da chi è responsabile di sicurezza e identità.
+
+\subsection{5.8.2 Autenticazione e autorizzazione non sono la stessa
+cosa}\label{autenticazione-e-autorizzazione-non-sono-la-stessa-cosa}
+
+L'autenticazione stabilisce l'identità; l'autorizzazione decide cosa
+quell'identità può fare. In ASP.NET Core la pipeline usa handler di
+autenticazione e policy:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddAuthentication}\OperatorTok{()}
+    \OperatorTok{.}\FunctionTok{AddJwtBearer}\OperatorTok{();}
+
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddAuthorization}\OperatorTok{(}\NormalTok{options }\OperatorTok{=\textgreater{}}
+\OperatorTok{\{}
+\NormalTok{    options}\OperatorTok{.}\FunctionTok{AddPolicy}\OperatorTok{(}\StringTok{"CatalogEditors"}\OperatorTok{,}\NormalTok{ policy }\OperatorTok{=\textgreater{}}
+\NormalTok{        policy}\OperatorTok{.}\FunctionTok{RequireClaim}\OperatorTok{(}\StringTok{"permission"}\OperatorTok{,} \StringTok{"catalog.write"}\OperatorTok{));}
+\OperatorTok{\});}
+
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseAuthentication}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{UseAuthorization}\OperatorTok{();}
+
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapPost}\OperatorTok{(}\StringTok{"/api/products"}\OperatorTok{,}\NormalTok{ CreateProduct}\OperatorTok{)}
+   \OperatorTok{.}\FunctionTok{RequireAuthorization}\OperatorTok{(}\StringTok{"CatalogEditors"}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Il frammento mostra la forma generale, non una configurazione JWT
+completa: emittente (\texttt{iss}), destinatario (\texttt{aud}), chiavi,
+HTTPS, scarto orario e validazione dei claim vanno configurati secondo
+l'identity provider. Non disabilitare la validazione della firma o del
+destinatario per far passare un test.
+
+Ruoli e claims hanno semantiche diverse. Un ruolo descrive appartenenza
+a una categoria; un claim può rappresentare un attributo o permesso. Non
+affidarsi a un claim ricevuto da un client non autenticato. Per
+multi-tenant, verificare che l'identificativo tenant sia vincolato
+all'identità e che ogni query applichi il perimetro corretto.
+
+\subsection{5.8.3 Migrare password e
+account}\label{migrare-password-e-account}
+
+Gli hash delle password non sono password reversibili. Se il sistema
+nuovo usa un algoritmo o formato diverso, le opzioni includono:
+
+\begin{itemize}
+\tightlist
+\item
+  mantenere temporaneamente la verifica tramite il sistema identità
+  esistente;
+\item
+  validare al primo login con il vecchio verificatore e aggiornare
+  l'hash in modo sicuro;
+\item
+  richiedere reset password se la verifica compatibile non è
+  disponibile;
+\item
+  migrare verso un identity provider condiviso con processo supportato.
+\end{itemize}
+
+Non abbassare il costo dell'hash o introdurre una password universale
+per semplificare il passaggio. Non esportare hash in file non protetti.
+Proteggere il flusso di reset, limitare tentativi e non rivelare se un
+account esiste. Pianificare account bloccati, MFA, utenti disabilitati e
+audit.
+
+\subsection{5.8.4 Cookie, token e continuità di
+sessione}\label{cookie-token-e-continuituxe0-di-sessione}
+
+I cookie devono avere \texttt{Secure}, \texttt{HttpOnly} e una policy
+\texttt{SameSite} coerente con i flussi di login. Se contengono
+credenziali, gestire CSRF per richieste che modificano stato. La
+protezione CSRF non è sostituita da CORS.
+
+JWT è un formato di token, non una strategia di autorizzazione completa.
+Validare firma, emittente (\texttt{iss}), destinatario (\texttt{aud}),
+scadenza e algoritmo consentito; limitare durata e proteggere refresh
+token. Non usare token come sessione revocabile senza un meccanismo di
+revoca o rotazione. Ridurre i dati sensibili contenuti nel payload: il
+payload firmato non è necessariamente cifrato.
+
+I cookie di ASP.NET Core Identity o la Data Protection API possono
+essere specifici dell'applicazione e delle chiavi usate. Se durante il
+rollout vecchio e nuovo sistema devono accettare lo stesso cookie,
+verificare esplicitamente formato, scopo, chiavi e compatibilità
+supportata. Non improvvisare la condivisione delle chiavi:
+comprometterle può consentire la forgiatura di cookie o la decifratura
+di dati protetti.
+
+\subsection{5.8.5 Data Protection API e
+chiavi}\label{data-protection-api-e-chiavi}
+
+ASP.NET Core Data Protection protegge payload applicativi, inclusi
+cookie e token antiforgery. In sviluppo le chiavi possono essere locali;
+in produzione le istanze devono avere una configurazione durevole e
+coerente quando devono decifrare gli stessi payload. Conservare le
+chiavi in storage protetto, limitarne l'accesso, pianificare rotazione e
+backup e impostare un application name appropriato per isolare
+applicazioni.
+
+Un container effimero non deve essere l'unico luogo dove risiedono
+chiavi che servono dopo il riavvio. D'altra parte, condividere
+indiscriminatamente lo stesso key ring fra applicazioni aumenta
+l'impatto di una compromissione. Testare restart, scale-out e rotazione
+in un ambiente simile alla produzione.
+
+\subsection{5.8.6 Segreti e configurazione
+sicura}\label{segreti-e-configurazione-sicura}
+
+Usare identità gestite o secret store quando disponibili, permessi
+minimi, rotazione e audit. Evitare chiavi in
+\texttt{appsettings.Production.json}, Dockerfile, immagini, repository o
+log CI. Un secret presente nella history Git va considerato compromesso:
+rimuoverlo dal file non revoca la credenziale.
+
+Separare segreti e configurazione ordinaria, ma non trattare un URL
+interno o un nome utente come sicuro per definizione. Tutto ciò che
+compare nelle eccezioni o negli header può finire in un log. Definire
+redazione e classificazione dei dati per log, tracing e metriche.
+
+\subsection{5.8.7 Difese per API web}\label{difese-per-api-web}
+
+\begin{itemize}
+\tightlist
+\item
+  Validare input sul server, limitare dimensione e complessità delle
+  richieste.
+\item
+  Usare query parametrizzate; non costruire SQL concatenando input.
+\item
+  Codificare output secondo il contesto e non fidarsi di dati già
+  salvati.
+\item
+  Configurare CORS con origini esplicite; non è un controllo di accesso
+  per client non-browser.
+\item
+  Impostare TLS e forwarded headers solo per proxy fidati.
+\item
+  Applicare rate limiting, timeout e limiti di concorrenza appropriati.
+\item
+  Ridurre permessi di database, file system e identità cloud.
+\item
+  Mantenere pacchetti e immagini aggiornati e scansionare le dipendenze.
+\end{itemize}
+
+I middleware di sicurezza devono essere ordinati e testati in hosting
+reale. Una policy CORS corretta in locale può essere diversa dietro
+gateway. Non esporre stack trace in produzione; associare l'errore a un
+correlation id che il supporto può cercare.
+
+\subsection{5.8.8 Test di sicurezza nella
+transizione}\label{test-di-sicurezza-nella-transizione}
+
+Provare almeno: anonimo su route protetta; utente autenticato senza
+permesso; permesso valido; token scaduto, malfirmato o con destinatario
+(\texttt{aud}) errato; tenant diverso; cookie senza protezione CSRF;
+credenziale revocata; limite di rate; input e payload eccessivi.
+Verificare che gli errori non rivelino dati e che i log non contengano
+token o password.
+
+Mantenere una matrice delle policy per endpoint. Ogni route deve avere
+una decisione esplicita: anonima, autenticata o protetta da policy
+nominata. Le route nuove non devono diventare anonime per omissione.
+Integrare test automatici e una verifica di configurazione in CI.
+
+\subsection{5.8.9 Cutover dell'identità}\label{cutover-dellidentituxe0}
+
+Durante una migrazione incrementale è possibile che alcuni endpoint
+usino il vecchio provider e altri il nuovo. Definire chi emette il
+token, chi lo valida e quali claims sono autorevoli. Se si usa un
+gateway per tradurre identità, documentare i trust boundary e impedire
+che il client possa falsificare gli header interni.
+
+Preparare una strategia per sessioni non trasferibili: riautenticazione
+comunicata agli utenti, durata della transizione, revoca delle sessioni
+e supporto. Misurare i login falliti dopo il cutover e predisporre un
+rollback che non riattivi credenziali compromesse. La continuità non
+giustifica mantenere per sempre un algoritmo o un cookie legacy
+insicuro.
+
+\section{5.9 Testing e qualità}\label{testing-e-qualituxe0}
+
+La migrazione è l'occasione per rendere esplicito il comportamento del
+sistema, non per sostituire i test del vecchio stack con test che
+verificano solo dettagli interni del nuovo. I test più preziosi
+descrivono ciò che client e utenti possono osservare, e permettono di
+confrontare le due implementazioni sugli stessi casi.
+
+\subsection{5.9.1 Test di
+caratterizzazione}\label{test-di-caratterizzazione}
+
+Un test di caratterizzazione registra il comportamento attuale, anche
+quando la documentazione è incompleta. Si preparano input controllati,
+si invocano route o funzioni del sistema sorgente e si salvano status,
+header e payload normalizzati. Questi test diventano una specifica di
+compatibilità per il target.
+
+La normalizzazione va limitata a campi realmente variabili, come
+timestamp generati o identificativi casuali. Normalizzare interi payload
+può nascondere regressioni. Per dati sensibili usare fixture sintetiche
+o anonimizzate; non importare dump di produzione nei test senza
+autorizzazione e protezioni.
+
+Per endpoint rappresentativi raccogliere:
+
+\begin{itemize}
+\tightlist
+\item
+  risposta valida e codici di successo;
+\item
+  input mancante, malformato e ai limiti;
+\item
+  risorsa assente e conflitto;
+\item
+  chiamante anonimo e permessi insufficienti;
+\item
+  timeout o indisponibilità di una dipendenza;
+\item
+  richieste duplicate e concorrenza.
+\end{itemize}
+
+Il test di caratterizzazione non dichiara che il comportamento corrente
+sia ideale. Un bug noto può essere registrato come comportamento da
+cambiare, con un test che viene aggiornato nella stessa modifica della
+decisione e con l'approvazione del proprietario del contratto.
+
+\subsection{5.9.2 Piramide e livelli di
+test}\label{piramide-e-livelli-di-test}
+
+\textbf{Unit test} verificano funzioni e regole isolate, rapidamente e
+senza rete. Sono adatti a validazioni, calcoli, policy e transizioni di
+stato. Non devono ricreare l'intero framework con mock che duplicano
+l'implementazione.
+
+\textbf{Test d'integrazione} esercitano più componenti: hosting, route,
+serializzazione, DI, database e adapter. In ASP.NET Core
+\texttt{WebApplicationFactory\textless{}TEntryPoint\textgreater{}} avvia
+l'applicazione nel processo di test e permette richieste HTTP in
+memoria. Sostituire configurazione o dipendenze in modo controllato;
+verificare anche la pipeline vera.
+
+\textbf{Test end-to-end} attraversano deployment, gateway e servizi
+integrati. Sono più lenti e sensibili all'ambiente; riservarli ai flussi
+business critici, mantenere dati isolati e avere pulizia affidabile.
+
+La piramide è una guida alla velocità e al feedback, non una quota
+rigida. Un test d'integrazione diretto sul database può essere più
+attendibile di un grande insieme di mock che non simula transazioni e
+SQL.
+
+\subsection{5.9.3 Test HTTP con
+WebApplicationFactory}\label{test-http-con-webapplicationfactory}
+
+Un test concettuale può verificare un contratto HTTP:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed} \KeywordTok{class} \FunctionTok{ProductApiTests}\OperatorTok{(}
+\NormalTok{    WebApplicationFactory}\OperatorTok{\textless{}}\NormalTok{Program}\OperatorTok{\textgreater{}}\NormalTok{ factory}\OperatorTok{)}
+    \OperatorTok{:}\NormalTok{ IClassFixture}\OperatorTok{\textless{}}\NormalTok{WebApplicationFactory}\OperatorTok{\textless{}}\NormalTok{Program}\OperatorTok{\textgreater{}\textgreater{}}
+\OperatorTok{\{}
+    \OperatorTok{[}\NormalTok{Fact}\OperatorTok{]}
+    \KeywordTok{public}\NormalTok{ async Task }\FunctionTok{Missing\_product\_returns\_not\_found}\OperatorTok{()}
+    \OperatorTok{\{}
+        \KeywordTok{using} \DataTypeTok{var}\NormalTok{ client }\OperatorTok{=}\NormalTok{ factory}\OperatorTok{.}\FunctionTok{CreateClient}\OperatorTok{();}
+        \KeywordTok{using} \DataTypeTok{var}\NormalTok{ response }\OperatorTok{=}
+\NormalTok{            await client}\OperatorTok{.}\FunctionTok{GetAsync}\OperatorTok{(}\StringTok{"/api/products/987654"}\OperatorTok{);}
+
+\NormalTok{        Assert}\OperatorTok{.}\FunctionTok{Equal}\OperatorTok{(}\NormalTok{HttpStatusCode}\OperatorTok{.}\FunctionTok{NotFound}\OperatorTok{,}\NormalTok{ response}\OperatorTok{.}\FunctionTok{StatusCode}\OperatorTok{);}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Il progetto deve esporre il punto d'ingresso al test se necessario e
+configurare un database isolato. Non riutilizzare un database condiviso
+tra esecuzioni concorrenti senza namespace o transazioni pulite. Per
+test di persistenza, verificare vincoli, migrazioni e comportamento del
+provider adottato in produzione.
+
+Testare le risposte come farebbe un client: status, content type,
+header, schema e valori. Non verificare il nome di una classe interna
+quando l'obiettivo è la compatibilità API. Test specifici di unità
+possono invece verificare il dominio senza attraversare HTTP.
+
+\subsection{5.9.4 Parità differenziale}\label{parituxe0-differenziale}
+
+Quando entrambi i sistemi sono avviabili, inviare lo stesso caso a
+sorgente e target e confrontare gli output. Il test differenziale può
+essere automatizzato su una collezione di casi deterministici. Escludere
+o normalizzare solo campi non deterministici, mantenendo visibili
+differenze nei codici, nei valori e negli errori.
+
+Non inviare automaticamente richieste di scrittura reali a entrambe le
+versioni: potrebbero creare effetti duplicati, inviare email o
+addebitare un pagamento. Per i casi mutativi usare database isolati,
+simulazioni senza effetti collaterali o una modalità di shadow che
+calcola la risposta senza committare.
+
+Il confronto deve considerare anche proprietà mancanti e ordine delle
+liste quando l'ordine è contrattuale. Per importi, date e testo,
+confrontare con regole esplicite; non applicare una tolleranza generica
+che renda irrilevanti differenze di business.
+
+\subsection{5.9.5 Dipendenze nei test}\label{dipendenze-nei-test}
+
+Mock e fake hanno valore quando isolano un confine, per esempio un
+servizio di pagamento. Non mockare il database con una collezione in
+memoria e concludere che le transazioni reali funzionano. Usare
+container effimeri o istanze dedicate per testare provider SQL, code o
+identity server quando la compatibilità è importante.
+
+Ogni fake deve avere semantica dichiarata. Un fake cache senza scadenza
+non verifica TTL; un fake storage senza errori non prova retry; un fake
+repository che restituisce sempre l'entità non esercita i vincoli.
+Preferire test a contratto per verificare che adapter diversi rispettino
+lo stesso protocollo.
+
+\subsection{5.9.6 Flakiness, dati e
+parallelismo}\label{flakiness-dati-e-parallelismo}
+
+Un test che dipende dall'orologio reale, da un endpoint esterno o da
+dati condivisi può essere intermittente. Iniettare un clock quando il
+tempo è parte del comportamento, controllare il seed e isolare risorse.
+Non disabilitare l'esecuzione parallela dell'intera suite per nascondere
+una race: identificare lo stato condiviso e isolare il test interessato.
+
+I test devono poter essere ripetuti. Ogni esecuzione dovrebbe creare e
+rimuovere i propri dati, usare nomi univoci e produrre log utili in caso
+di fallimento. Non riutilizzare credenziali di produzione. La cleanup
+deve funzionare anche dopo un errore, senza cancellare database o
+namespace condivisi.
+
+\subsection{5.9.7 Qualità e pipeline CI}\label{qualituxe0-e-pipeline-ci}
+
+Una pipeline minima esegue restore, build Release, test, analisi e
+pubblicazione di artefatti. Aggiungere scansione dipendenze,
+formattazione e analisi statiche secondo il rischio e gli standard del
+team. Bloccare la release su fallimenti significativi e rendere i
+risultati rintracciabili con commit, versione SDK e configurazione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dotnet restore}
+\NormalTok{dotnet format {-}{-}verify{-}no{-}changes}
+\NormalTok{dotnet build {-}c Release {-}{-}no{-}restore}
+\NormalTok{dotnet test {-}c Release {-}{-}no{-}build {-}{-}logger "trx"}
+\NormalTok{dotnet publish src/Catalogo.Api {-}c Release {-}o artifacts/publish}
+\end{Highlighting}
+\end{Shaded}
+
+La pipeline deve funzionare da checkout pulito e non dipendere da file
+generati presenti sulla workstation. Separare test che richiedono
+servizi esterni e rendere espliciti prerequisiti e cleanup. Verificare
+che il pacchetto pubblicato sia lo stesso che verrà promosso, non
+ricostruire da sorgenti diversi in ogni ambiente.
+
+\subsection{5.9.8 Copertura orientata al
+rischio}\label{copertura-orientata-al-rischio}
+
+La percentuale di line coverage non misura quanto i test proteggono il
+contratto. Dare priorità a flussi con impatto alto, transizioni di
+stato, permessi, calcoli finanziari, migrazione dati e fallback. Un
+singolo test di integrazione ben progettato può coprire un rischio non
+espresso da decine di test di getter.
+
+Per ogni capacità migrata, associare requisito, test, output e owner. I
+criteri di uscita possono richiedere: test di parità superati;
+regressioni spiegate; contratti aggiornati; test sul provider reale;
+nessun difetto bloccante; report di qualità archiviato. Se una parte non
+è testabile, registrare il rischio e una mitigazione alternativa.
+
+\section{5.10 Prestazioni e comportamento del
+runtime}\label{prestazioni-e-comportamento-del-runtime}
+
+Una migrazione cambia runtime, librerie, scheduling, serializer e
+modalità di accesso ai dati. Il nuovo servizio può risultare più
+efficiente, equivalente o peggiore: la risposta si misura sul workload
+reale. Ottimizzare sulla reputazione del linguaggio o su un benchmark
+isolato porta a decisioni costose e poco attendibili.
+
+\subsection{5.10.1 Baseline e carichi
+confrontabili}\label{baseline-e-carichi-confrontabili}
+
+Scegliere scenari che rappresentino uso, picchi e operazioni costose:
+lettura cache hit, miss, query DB, payload grande, dipendenza lenta e
+endpoint mutativo. Usare dataset e distribuzione dei dati confrontabili;
+una tabella con mille righe non simula una con milioni.
+
+Misurare latenza p50/p95/p99, throughput, errori, CPU, memoria,
+allocazioni, connessioni e tempi di avvio. Includere warm-up e durata
+sufficiente a osservare garbage collection e saturazione delle
+dipendenze. Separare misure del client e del server: una rete più lenta
+non è una regressione del codice applicativo.
+
+Per ogni test annotare versione runtime, build Release, hardware,
+container limits, numero istanze, configurazione, seed e commit. I
+confronti devono essere ripetibili; se il rumore è alto, raccogliere più
+campioni e indicare intervalli, non il singolo valore migliore.
+
+\subsection{5.10.2 Asincronia e
+concorrenza}\label{asincronia-e-concorrenza}
+
+ASP.NET Core gestisce molte richieste concorrenti senza assegnare
+necessariamente un thread dedicato a ogni attesa I/O.
+\texttt{async}/\texttt{await} consente di restituire il thread mentre si
+aspetta rete o disco. Non rende un calcolo CPU-bound più rapido, né
+elimina i limiti di database e upstream.
+
+Evitare \texttt{.Result}, \texttt{.Wait()} e
+\texttt{GetAwaiter().GetResult()} sul percorso HTTP: il blocco occupa
+thread e sotto carico può causare starvation. Propagare
+\texttt{CancellationToken} fino ai client e alla persistenza. Se il
+client annulla la richiesta, il server dovrebbe interrompere lavoro
+inutile quando è sicuro farlo.
+
+Non avviare operazioni parallele sullo stesso \texttt{DbContext}. Se più
+query indipendenti sono davvero necessarie, usare scope/contesti
+distinti con limite di concorrenza e verificare che il database possa
+sostenere il carico. Il parallelismo indiscriminato peggiora la latenza
+quando satura pool e connessioni.
+
+\subsection{5.10.3 Memoria e garbage
+collection}\label{memoria-e-garbage-collection}
+
+Il runtime .NET usa garbage collector generazionale; allocazioni
+temporanee sono spesso economiche, ma allocazioni eccessive aumentano
+pressione GC e latenza. Profilare prima di introdurre pooling o
+strutture più complesse. Riutilizzare buffer in modo scorretto può
+causare corruzione o esposizione di dati tra richieste.
+
+Evitare di leggere file o payload illimitati in memoria. Applicare
+limiti, streaming e backpressure dove appropriato. Cache, singleton e
+collezioni statiche possono trattenere oggetti per tutta la vita del
+processo; monitorare dimensioni e politiche di eviction. Un processo
+containerizzato deve rispettare limiti memoria: essere stabile sulla
+workstation non prova che lo sia con un memory limit ridotto.
+
+\subsection{5.10.4 Query, serializzazione e
+caching}\label{query-serializzazione-e-caching}
+
+La causa dominante di lentezza è spesso I/O o query non efficienti.
+Usare log delle query e strumenti del database per diagnosticare N+1,
+full scan, lock e attese. Proiettare i campi necessari, paginare,
+aggiungere indici motivati dal piano e misurare dopo la modifica.
+
+La serializzazione JSON può diventare significativa per payload grandi o
+grafi complessi. Definire DTO, evitare cicli nelle navigazioni e
+misurare allocazioni e dimensione della risposta. Cambiare serializer o
+opzioni di naming può rompere il contratto, anche se migliora le
+prestazioni.
+
+La cache è utile quando riduce lavoro ripetuto e la staleness è
+accettabile. Definire TTL, invalidazione, chiave, isolamento tenant,
+limite memoria e comportamento in caso di errore. Misurare hit ratio e
+costo di riempimento. Non aggiungere cache per compensare query senza
+aver compreso la causa.
+
+\subsection{5.10.5 Profiling e Native AOT}\label{profiling-e-native-aot}
+
+Usare profiler e tracing per individuare il tratto costoso, confrontando
+CPU sample, allocation, thread pool e dipendenze. Un flame graph aiuta a
+trovare hot path, ma va letto insieme a metriche applicative. Gli
+strumenti di tracing devono essere configurati per minimizzare overhead
+e non registrare payload sensibili.
+
+Trimming e Native AOT possono ridurre footprint o tempo di avvio per
+scenari specifici, ma imposero vincoli a reflection, serializzazione,
+plugin e librerie. Abilitare l'analisi e correggere warning, non
+silenziarli indiscriminatamente. Misurare cold start, dimensione e
+throughput nel target effettivo. Non assumere che AOT migliori un
+servizio dominato da I/O o database.
+
+\subsection{5.10.6 Prestazioni come criterio di
+cutover}\label{prestazioni-come-criterio-di-cutover}
+
+Definire budget per operazione e soglie di rollback prima del rollout.
+Durante canary confrontare gruppi equivalenti per traffico, carico e
+dipendenze. Osservare code, errori e saturazione, non soltanto latenza
+media. Se il target peggiora, poterlo disattivare deve essere più rapido
+che applicare una patch d'emergenza.
+
+La decisione finale non è ``più veloce a ogni costo''. Un sistema con
+latenza entro budget, meno incidenti e costo prevedibile può essere
+preferibile a un microbenchmark migliore ma a scapito di complessità e
+manutenibilità.
+
+\section{5.11 Container, CI/CD e
+produzione}\label{container-cicd-e-produzione}
+
+La migrazione termina quando il sistema è esercibile dal team che lo
+mantiene: build riproducibile, artifact identificabile, configurazione
+esterna, deploy osservabile, rollback eseguibile e responsabilità di
+supporto chiare. Un endpoint che funziona sul computer dello
+sviluppatore non è ancora un servizio migrato.
+
+\subsection{5.11.1 Pubblicazione e
+artefatti}\label{pubblicazione-e-artefatti}
+
+\texttt{dotnet\ publish\ -c\ Release} prepara output per un runtime e un
+ambiente di distribuzione. La pipeline deve compilare una volta e
+promuovere lo stesso artefatto tra gli ambienti, aggiungendo
+configurazione esterna. Ricostruire a ogni stage può produrre binari
+differenti senza che il team se ne accorga.
+
+Registrare commit, versione SDK, dipendenze e provenance dell'immagine.
+Per applicazioni framework-dependent, il server deve avere un runtime
+compatibile; per self-contained, il pacchetto include runtime e richiede
+patching e dimensioni gestite diversamente. La scelta va documentata in
+relazione a hosting e policy di aggiornamento.
+
+\subsection{5.11.2 Dockerfile multi-stage}\label{dockerfile-multi-stage}
+
+Un Dockerfile multi-stage separa compilazione e runtime:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{FROM}\NormalTok{ mcr.microsoft.com/dotnet/sdk:10.0 }\KeywordTok{AS}\NormalTok{ build}
+\KeywordTok{WORKDIR}\NormalTok{ /src}
+\KeywordTok{COPY}\NormalTok{ [}\StringTok{"src/Catalogo.Api/Catalogo.Api.csproj"}\NormalTok{, }\StringTok{"src/Catalogo.Api/"}\NormalTok{]}
+\KeywordTok{COPY}\NormalTok{ [}\StringTok{"src/Catalogo.Infrastructure/Catalogo.Infrastructure.csproj"}\NormalTok{, }\StringTok{"src/Catalogo.Infrastructure/"}\NormalTok{]}
+\KeywordTok{RUN} \ExtensionTok{dotnet}\NormalTok{ restore }\StringTok{"src/Catalogo.Api/Catalogo.Api.csproj"}
+\KeywordTok{COPY}\NormalTok{ . .}
+\KeywordTok{RUN} \ExtensionTok{dotnet}\NormalTok{ publish }\StringTok{"src/Catalogo.Api/Catalogo.Api.csproj"} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}c}\NormalTok{ Release }\AttributeTok{{-}o}\NormalTok{ /app/publish }\AttributeTok{{-}{-}no{-}restore}
+
+\KeywordTok{FROM}\NormalTok{ mcr.microsoft.com/dotnet/aspnet:10.0 }\KeywordTok{AS}\NormalTok{ final}
+\KeywordTok{WORKDIR}\NormalTok{ /app}
+\KeywordTok{COPY} \OperatorTok{{-}{-}from=build}\NormalTok{ /app/publish .}
+\KeywordTok{USER}\NormalTok{ $APP\_UID}
+\KeywordTok{ENTRYPOINT}\NormalTok{ [}\StringTok{"dotnet"}\NormalTok{, }\StringTok{"Catalogo.Api.dll"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Adattare path, identità e immagini alla versione supportata e alla
+policy organizzativa. Non copiare segreti nel build context; usare
+\texttt{.dockerignore} per escludere \texttt{.git}, artefatti e file
+locali. Pinning e aggiornamento delle immagini devono essere governati:
+fissare un digest aumenta riproducibilità, ma richiede un processo per
+ricevere patch.
+
+Eseguire con utente non root quando supportato; configurare porte e
+variabili dal runtime, non codificarle nel Dockerfile. Analizzare
+l'immagine, limitare capability e filesystem scrivibile, e verificare i
+certificati CA necessari alle chiamate HTTPS. Un container piccolo non è
+un container sicuro se contiene vulnerabilità non aggiornate.
+
+\subsection{5.11.3 CI/CD}\label{cicd}
+
+La pipeline dovrebbe effettuare restore, build, test, analisi,
+pubblicazione, scansione, firma/provenance se prevista e deploy. I
+passaggi devono fallire in modo esplicito. Non stampare token in output
+e limitare i permessi del runner. Usare credenziali effimere o federate
+quando disponibili.
+
+Separare build da deploy: il job di build produce artefatto immutabile;
+gli stage successivi applicano configurazione e promuovono lo stesso
+digest. Le approvazioni manuali possono essere necessarie per ambienti
+sensibili, ma non devono sostituire test automatizzati. Conservare log e
+report in un sistema accessibile al team durante incidenti.
+
+La strategia di database va coordinata con la pipeline: le migrazioni
+non devono partire in parallelo da ogni replica. Le modifiche
+incompatibili richiedono deployment in più fasi. La pipeline dovrebbe
+rendere visibili script SQL generati e l'approvazione necessaria.
+
+\subsection{5.11.4 Reverse proxy e
+hosting}\label{reverse-proxy-e-hosting}
+
+In produzione Kestrel può essere dietro IIS, Nginx, un ingress
+Kubernetes o un gateway cloud. Configurare forwarded headers da proxy
+fidati per ricostruire schema e IP originali. Se si accettano header
+forwarded da qualunque client, un chiamante può falsificare indirizzi o
+aggirare regole basate sull'IP.
+
+Terminare TLS nel punto previsto, proteggere il collegamento tra proxy e
+applicazione quando richiesto e configurare redirect HTTPS coerenti.
+Verificare \texttt{PathBase} se il gateway pubblica l'app sotto un
+prefisso. Controllare upload size, timeout, buffering e idle timeout a
+ogni livello: il limite effettivo è spesso quello più basso della
+catena.
+
+\subsection{5.11.5 Health, osservabilità e
+shutdown}\label{health-osservabilituxe0-e-shutdown}
+
+Distinguere:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{liveness:} il processo è in grado di continuare a funzionare?
+\item
+  \textbf{readiness:} l'istanza può ricevere traffico?
+\item
+  \textbf{startup:} l'inizializzazione è completata?
+\end{itemize}
+
+Un health check che prova ogni dipendenza a ogni intervallo può
+amplificare un guasto. Separare controlli superficiali da diagnostica
+profonda e usare timeout. Non esporre endpoint di diagnostica
+dettagliati al pubblico.
+
+Usare log strutturati con trace/correlation id, metriche aggregate e
+distributed tracing per seguire chiamate tra servizi. Evitare
+identificativi personali o token nei label delle metriche: cardinalità e
+privacy. Definire dashboard e alert collegati a obiettivi di servizio,
+con runbook e owner.
+
+Lo shutdown deve cessare l'accettazione di nuovo traffico e consentire
+il completamento del lavoro entro il grace period dell'orchestratore. I
+worker devono ricevere cancellation token e fermarsi in modo
+controllato. Testare terminazione con richieste in corso e drain del
+load balancer.
+
+\subsection{5.11.6 Scalabilità, storage e
+resilienza}\label{scalabilituxe0-storage-e-resilienza}
+
+Un'applicazione web stateless è più facile da scalare, ma cache locale,
+sessione, chiavi Data Protection, file caricati e job in memoria
+introducono stato di istanza. Documentare dove vive ciascun dato e cosa
+succede se un nodo viene rimosso.
+
+Usare storage condiviso per file che devono sopravvivere al container;
+non considerare il filesystem locale una fonte durevole. Se sono
+necessari sticky session, documentare i limiti e pianificare una
+migrazione verso stato distribuito quando opportuno. Limitare pool di
+connessioni in relazione al numero massimo di repliche e alla capacità
+database.
+
+Resilienza non significa retry illimitato. Configurare timeout, retry
+limitati con backoff, circuit breaker o bulkhead secondo il failure
+mode. L'operazione deve avere semantica idempotente o un identificatore
+di deduplicazione. Un upstream degradato non deve esaurire thread,
+connessioni e code del servizio migrato.
+
+\subsection{5.11.7 Rollout progressivo e rollback
+operativo}\label{rollout-progressivo-e-rollback-operativo}
+
+Con canary o blue/green, spostare percentuali di traffico e confrontare
+errori e latenza su gruppi simili. Impostare soglie automatiche e un
+responsabile umano per l'arresto. Un rollout graduale senza metriche
+segmentate è solo un deploy lento.
+
+Il rollback del codice deve essere compatibile con lo schema dati e con
+gli eventi già prodotti. Se i messaggi sono stati consumati o i dati
+trasformati, tornare al binario precedente potrebbe non bastare.
+Preparare procedure per fermare consumer, drenare code, ripristinare
+dati o completare una compensazione.
+
+Provare l'intero runbook in un ambiente rappresentativo: identificare la
+versione attiva, cambiare routing, confermare i segnali, annunciare lo
+stato e raccogliere evidenze. Registrare durata e impedimenti; assegnare
+le correzioni prima del cutover reale.
+
+\subsection{5.11.8 Costi, supporto e
+dismissione}\label{costi-supporto-e-dismissione}
+
+Calcolare costo complessivo includendo doppio runtime durante la
+transizione, database, log, traffico, build runner, licenze e tempo
+operativo. La coesistenza dovrebbe avere una data o un criterio di
+uscita. Ogni dipendenza residua dal vecchio sistema va assegnata a un
+owner e classificata: necessaria, temporanea o da eliminare.
+
+Prima di spegnere l'origine, verificare traffico residuo, job
+schedulati, webhook, client sconosciuti, backup, requisiti di audit e
+retention. Conservare solo ciò che è richiesto e con accessi limitati;
+spegnere credenziali e endpoint non più necessari. La riduzione della
+superficie d'attacco e del costo è parte del risultato della migrazione.
+
+\section{5.13 Approfondire la mappa dai principali
+ecosistemi}\label{approfondire-la-mappa-dai-principali-ecosistemi}
+
+I confronti tra ecosistemi diventano utili quando partono da
+un'applicazione concreta. Questa sezione raccoglie differenze ricorrenti
+che una migrazione dovrebbe provare esplicitamente. Non sono regole
+assolute: framework e versioni cambiano, e un progetto può adottare
+convenzioni diverse da quelle più comuni.
+
+\subsection{5.13.1 Da PHP e framework PHP}\label{da-php-e-framework-php}
+
+In una classica applicazione PHP, il modello di esecuzione può essere
+per richiesta: un web server inoltra la richiesta al runtime, che carica
+codice e bootstrap. Framework come Laravel o Symfony introducono
+container, middleware, routing, ORM, sessioni e console command. In .NET
+il processo web rimane tipicamente attivo e gestisce molte richieste
+durante la propria vita.
+
+Questa differenza impone di cercare stato globale mutabile e risorse
+inizializzate una sola volta. Un singleton .NET non viene ricreato per
+ogni richiesta; non deve trattenere l'utente corrente o un
+\texttt{DbContext}. L'applicazione deve essere thread-safe e non
+affidarsi al teardown implicito che il processo PHP poteva offrire.
+
+Mappare:
+
+\begin{itemize}
+\tightlist
+\item
+  route e controller PHP verso endpoint/controller ASP.NET Core,
+  conservando metodi, status e formati;
+\item
+  service container e service providers verso registrazioni DI con
+  lifetime appropriato;
+\item
+  middleware e kernel events verso pipeline ASP.NET Core, distinguendo
+  codice globale da logica endpoint;
+\item
+  Eloquent o Doctrine verso EF Core o SQL esplicito, verificando lazy
+  loading, transazioni e naming;
+\item
+  queue worker e scheduler verso broker, worker o orchestratore, non
+  necessariamente \texttt{BackgroundService};
+\item
+  sessioni e file upload verso storage distribuito e limiti HTTP
+  espliciti.
+\end{itemize}
+
+Un aspetto spesso trascurato è il tipo dinamico dei dati. PHP può
+convertire implicitamente stringhe numeriche, valori booleani o date;
+C\# richiede parsing e conversioni più visibili. Non replicare
+coercizioni ambigue senza capire quali client ne dipendano. Per
+importare valori storici, definire cultura, decimal separator, encoding
+e regole per stringhe vuote.
+
+\subsection{5.13.2 Da Python e framework
+ASGI/WSGI}\label{da-python-e-framework-asgiwsgi}
+
+In Python distinguere il modello WSGI dal modello ASGI e capire se
+l'applicazione è davvero asincrona. Un endpoint \texttt{async} che
+chiama una libreria sincrona può bloccare l'event loop. In .NET,
+chiamare un metodo sincrono di I/O in una route non viene reso asincrono
+dalla firma del delegate: occorre usare API asincrone della libreria o
+isolare il lavoro secondo un piano di capacità.
+
+Django, Flask e FastAPI offrono convenzioni diverse per middleware,
+dependency override, serializzazione, migrazioni e background task.
+FastAPI genera OpenAPI da tipi e dichiarazioni, ma la specifica
+esistente va verificata contro le response effettive. Non assumere che
+il target generi gli stessi schema, descrizioni o default.
+
+Per la persistenza, confrontare SQLAlchemy, Django ORM e l'eventuale SQL
+diretto con il modello EF Core. Verificare transazioni implicite,
+autoflush, session lifecycle, timezone e query lazy. Un Python
+\texttt{None} serializzato come \texttt{null} può diventare una
+proprietà assente se il serializer .NET è configurato diversamente.
+
+Python consente spesso di distribuire sorgenti e dipendenze in un
+ambiente virtuale. In .NET l'artefatto publish, il runtime e il
+container sono parte della consegna. La pipeline dovrebbe ricreare
+l'output da checkout pulito, non riutilizzare un \texttt{venv} o un
+output locale. Le dipendenze native Python hanno analoghi problemi di
+piattaforma nelle librerie .NET con componenti nativi: provare
+l'immagine target, non soltanto il test locale.
+
+\subsection{5.13.3 Da JavaScript/Node.js}\label{da-javascriptnode.js}
+
+Node.js usa un event loop e un modello di I/O non bloccante. Il codice
+CPU-bound può bloccare l'event loop; in ASP.NET Core un lavoro CPU-bound
+può occupare thread del pool e saturare l'applicazione. In entrambi i
+casi servono limiti, profiling e un eventuale worker separato. Non
+trasferire un \texttt{setTimeout} o una promise non attesa come se
+fossero una coda affidabile.
+
+Express compone middleware con convenzioni proprie, mentre NestJS
+introduce moduli, guard, pipe e interceptor. Mappare ciascuna
+responsabilità, senza trasformare ogni middleware in un servizio DI o
+ogni provider Nest in singleton .NET. Controllare l'ordine di
+middleware, la gestione degli errori asincroni e l'effetto delle route
+non corrispondenti.
+
+TypeScript fornisce controlli statici durante la build ma i dati HTTP
+restano dinamici a runtime. C\# offre un sistema statico integrato nel
+compilatore, tuttavia il binding JSON non sostituisce validazione. Non
+rimuovere i controlli runtime perché il DTO ha proprietà non-nullable:
+client non conformi possono inviare body incompleti.
+
+Controllare differenze di serializzazione: \texttt{undefined} in
+JavaScript può essere omesso, \texttt{null} è distinto; in JSON non
+esiste \texttt{undefined}. Le opzioni di naming camelCase, enum come
+stringhe o numeri, date e proprietà ignorate devono essere definite e
+testate. Verificare inoltre gli stream: bufferizzare tutto il body può
+aumentare memoria e latenza rispetto a una pipeline che processava dati
+incrementali.
+
+\subsection{5.13.4 Da Java e Spring Boot}\label{da-java-e-spring-boot}
+
+Java e .NET condividono alcuni concetti di runtime gestito, garbage
+collection, compilazione e applicazioni server long-running, ma il
+modello di librerie e framework resta specifico. In Spring, confrontare
+bean scope, filtri servlet, interceptor, controller advice,
+configurazione e transazioni con i componenti ASP.NET Core
+corrispondenti.
+
+Un bean \texttt{singleton} Spring e un singleton DI .NET hanno entrambi
+una durata ampia, ma il comportamento effettivo dipende da proxy, scope
+e lifecycle del framework. Controllare le dipendenze scoped e la
+sicurezza concorrente. Non assumere che un \texttt{@Transactional} si
+traduca in una transazione che attraversa chiamate HTTP o eventi.
+
+Confrontare JPA/Hibernate con EF Core su tracking, flush, lazy loading,
+cascade, lock ottimistico e query generation. Le due tecnologie possono
+produrre SQL diverso e differire nei limiti del provider. Provare query
+e migrazioni sullo stesso motore database; una conversione di annotation
+non è un piano dati.
+
+Confrontare Maven/Gradle con NuGet e i file \texttt{.csproj} riguardo a
+versioni, dipendenze transitive, plugin e packaging. Verificare profili
+di build, variabili ambientali e configurazione del server. I test su
+Spring Test o container di test vanno sostituiti da test equivalenti sul
+target e sul provider effettivo, non semplicemente rimossi.
+
+\subsection{5.13.5 Tabella di mapping delle
+responsabilità}\label{tabella-di-mapping-delle-responsabilituxe0}
+
+Durante l'assessment costruire una tabella concreta. Esempio:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Sistema sorgente
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Comportamento osservato
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Candidato .NET
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Prova di migrazione
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Middleware Laravel & Aggiunge tenant da un claim e blocca utenti sospesi
+& Middleware più policy o servizio endpoint & Test anonimo, utente
+sospeso e tenant valido \\
+Dependency FastAPI & Fornisce repository per richiesta & Servizio scoped
+e repository/query service & Due richieste non condividono stato \\
+Middleware Express & Trasforma errori asincroni in JSON & Exception
+handler centrale & Eccezioni note e inattese con status coerente \\
+Filtro Spring & Verifica permesso di scrittura & Policy authorization &
+Token scaduto, claim mancante e claim valido \\
+Job Celery & Import idempotente con retry & Worker e broker/job
+scheduler & Crash durante batch e replay senza duplicati \\
+Migrazione Doctrine & Aggiunge campo con backfill & Script controllato
+expand--migrate--contract & Rollout con vecchia versione ancora
+attiva \\
+\end{longtable}
+}
+
+La colonna ``candidato .NET'' è un'ipotesi finché la prova non la
+conferma. Annotare anche alternative e decisione. Se il comportamento
+sorgente non è determinabile, creare prima un test o una sessione di
+discovery.
+
+\subsection{5.13.6 Scheda di decisione per un
+concetto}\label{scheda-di-decisione-per-un-concetto}
+
+Una scheda riutilizzabile può avere questi campi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Concetto sorgente:}
+\NormalTok{Versione e configurazione:}
+\NormalTok{Responsabilità osservata:}
+\NormalTok{Input e output:}
+\NormalTok{Lifecycle e scope:}
+\NormalTok{Dipendenze e side effect:}
+\NormalTok{Candidato ASP.NET Core:}
+\NormalTok{Differenze semantiche:}
+\NormalTok{Test che dimostra il mapping:}
+\NormalTok{Decisione e motivazione:}
+\NormalTok{Owner e data di revisione:}
+\end{Highlighting}
+\end{Shaded}
+
+La scheda impedisce due errori opposti: tradurre tutto meccanicamente o
+ricominciare senza preservare nulla. I dettagli si possono archiviare
+vicino alla decisione tecnica e collegare ai test; il capitolo o la
+documentazione di progetto deve conservare almeno la motivazione e le
+incompatibilità ancora aperte.
+
+\subsection{5.13.7 Quando mantenere un componente nel sistema
+originario}\label{quando-mantenere-un-componente-nel-sistema-originario}
+
+Non tutto deve essere migrato immediatamente. Un motore di report con
+dipendenze non portabili, un adapter verso hardware o un job stabile
+possono restare temporaneamente dietro un contratto di servizio. La
+decisione va confrontata con il costo di mantenere runtime, competenze,
+security patch e pipeline separate.
+
+Un componente mantenuto deve avere:
+
+\begin{itemize}
+\tightlist
+\item
+  owner, responsabile degli aggiornamenti e processo di incident
+  response;
+\item
+  interfaccia di rete o messaggio documentata, con autenticazione e
+  timeout;
+\item
+  monitoraggio e piano di continuità;
+\item
+  dipendenze e dati che ne definiscono la vita residua;
+\item
+  criterio e data di revisione della decisione.
+\end{itemize}
+
+La coesistenza è una strategia, non un risultato finale implicito. Se la
+migrazione completa non è conveniente, dichiarare il confine come
+architettura permanente e finanziarne la manutenzione; se è transitorio,
+misurarne la riduzione.
+
+\section{5.14 Prove di migrazione dei dati: runbook e
+controlli}\label{prove-di-migrazione-dei-dati-runbook-e-controlli}
+
+Lo spostamento dei dati è un processo controllato con input, checkpoint
+e report. Il runbook seguente aiuta a trasformare uno script una tantum
+in un'attività ripetibile, verificabile e recuperabile.
+
+\subsection{5.14.1 Preparare il runbook}\label{preparare-il-runbook}
+
+Prima di eseguire una copia reale, documentare:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  database sorgente e target, versioni, region e responsabili;
+\item
+  oggetti e intervalli inclusi, esclusioni e regole di trasformazione;
+\item
+  permessi minimi delle identità usate e scadenza delle credenziali;
+\item
+  volume previsto, throughput, durata stimata e impatto sulle query;
+\item
+  punto di consistenza, strategia delta e trattamento delle scritture
+  concorrenti;
+\item
+  checkpoint, retry, deduplicazione e ripresa dopo interruzione;
+\item
+  validazioni, soglie di errore, approvatore e piano di rollback;
+\item
+  retention e protezione dei file temporanei e dei report.
+\end{enumerate}
+
+Il runbook non deve includere segreti in chiaro. I riferimenti alle
+credenziali devono indicare il secret store e l'identità autorizzata.
+Limitare accesso ai dump, cifrarli in transito e a riposo e cancellarli
+secondo retention approvata.
+
+\subsection{5.14.2 Snapshot, delta e
+freeze}\label{snapshot-delta-e-freeze}
+
+Il piano di migrazione deve definire cosa significa ``dati coerenti''.
+Una fotografia estratta in più query a orari diversi può contenere righe
+incompatibili tra loro se il sistema continua a scrivere. Usare snapshot
+transazionali o un meccanismo CDC quando il provider lo supporta e la
+finestra di consistenza è necessaria.
+
+Se si effettua un freeze:
+
+\begin{itemize}
+\tightlist
+\item
+  comunicare in anticipo il blocco e identificare tutte le write path,
+  incluso back office;
+\item
+  fermare job e consumer in ordine concordato;
+\item
+  attendere che le transazioni in corso si completino;
+\item
+  registrare watermark temporale o identificativo dell'ultimo record;
+\item
+  estrarre, trasformare e importare;
+\item
+  eseguire riconciliazione e test applicativi;
+\item
+  riaprire le scritture una sola volta deciso il sistema owner.
+\end{itemize}
+
+Se il freeze non è possibile, usare uno snapshot più un delta ordinato e
+definire come trattare update e delete. Il timestamp
+\texttt{updated\_at} da solo può non bastare se non è monotono, ha
+precisione insufficiente o non registra cancellazioni. Un log
+transazionale o una tabella outbox può fornire una sorgente di
+cambiamenti più affidabile.
+
+\subsection{5.14.3 Trasformazioni
+versionate}\label{trasformazioni-versionate}
+
+Ogni trasformazione deve essere identificata da una versione dello
+script e avere esempi prima/dopo. Separare parsing, validazione, mapping
+e scrittura per poter testare le regole senza connettersi ai database.
+
+Esempi di trasformazioni che richiedono approvazione:
+
+\begin{itemize}
+\tightlist
+\item
+  stringa vuota convertita in \texttt{null};
+\item
+  codice paese normalizzato;
+\item
+  date locali interpretate in un fuso nominato;
+\item
+  enum legacy mappati a nuovi valori;
+\item
+  importi con scala differente;
+\item
+  record duplicati uniti secondo una regola di dominio.
+\end{itemize}
+
+Non inferire unità o timezone da un nome di campo ambiguo. Se un dato
+non può essere interpretato, metterlo in quarantena con ragione e chiave
+tecnica; non scartarlo silenziosamente. I report non devono esporre
+valori personali se bastano conteggio, categoria di errore e
+identificativo pseudonimo.
+
+\subsection{5.14.4 Importazione
+riprendibile}\label{importazione-riprendibile}
+
+Per dataset grandi elaborare batch limitati, registrando il checkpoint
+in storage durevole. La chiave di ripresa deve rappresentare un ordine
+stabile, come una chiave primaria o un cursore monotono, non l'offset di
+una query che cambia mentre si importano righe.
+
+Ogni batch può seguire questo ciclo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  leggere un intervallo consistente;
+\item
+  trasformare e validare in memoria limitata;
+\item
+  scrivere in transazione o staging;
+\item
+  verificare il batch;
+\item
+  registrare il checkpoint solo dopo il commit;
+\item
+  proseguire o fermarsi su soglia di errore.
+\end{enumerate}
+
+Se il processo termina dopo il commit ma prima del checkpoint, il batch
+può essere ripetuto. Usare upsert con chiave stabile o una tabella di
+deduplicazione; non assumere consegna exactly-once. Il checkpoint prima
+del commit può invece saltare dati. Definire una strategia per ripetere
+in sicurezza.
+
+\subsection{5.14.5 Staging e cutover}\label{staging-e-cutover}
+
+Una tabella di staging consente di importare e validare senza esporre
+immediatamente i record agli utenti. Può contenere migration id,
+origine, timestamp e stato di validazione. Proteggere lo staging come il
+dato originale; non lasciarlo diventare un archivio permanente di copie
+non governate.
+
+Il cutover richiede una decisione sulla lettura autorevole. Possibili
+percorsi: cambiare connection string, attivare un routing di tenant,
+promuovere tabelle o aggiornare un alias. Documentare la cache e la
+propagazione della configurazione, perché il cambio potrebbe non essere
+istantaneo.
+
+Prima dell'attivazione, congelare le scritture secondo il piano oppure
+completare il delta, validare i criteri e verificare accesso e
+performance. Dopo l'attivazione, monitorare errori e mismatch per un
+periodo concordato; mantenere l'origine in sola lettura finché il
+rollback dati è ancora possibile.
+
+\subsection{5.14.6 Report di
+riconciliazione}\label{report-di-riconciliazione}
+
+Un report utile include:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2143}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2857}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2857}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2143}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Verifica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Origine
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Target
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Esito
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Righe lette, scritte, scartate & conteggio & conteggio &
+riconciliato? \\
+Record per stato e tenant & aggregato & aggregato & scostamento \\
+Chiavi orfane & conteggio & conteggio & soglia \\
+Hash di campioni canonici & hash & hash & corrispondenza \\
+Valori non trasformabili & conteggio & quarantena & owner \\
+\end{longtable}
+}
+
+I checksum devono essere calcolati su una rappresentazione canonica che
+definisce ordinamento, encoding e null. Un hash dell'intero file può
+rilevare differenze, ma non spiega quale record o trasformazione le
+abbia causate. Combinare aggregati, campioni e conteggi per localizzare
+rapidamente il problema.
+
+Il report include migration id, commit dello script, configurazione non
+segreta, orari, watermark, durata e identità esecutrice. Conservare il
+report secondo policy e rendere riproducibili le query di verifica.
+
+\subsection{5.14.7 Criteri di stop}\label{criteri-di-stop}
+
+Interrompere l'importazione o il cutover se:
+
+\begin{itemize}
+\tightlist
+\item
+  gli errori superano la soglia concordata o coinvolgono dati critici;
+\item
+  il delta non ha un watermark affidabile;
+\item
+  la replica o il database supera il budget di carico;
+\item
+  gli aggregati divergono senza una regola approvata;
+\item
+  non è chiaro quale sistema possiede le scritture;
+\item
+  il rollback richiesto non è più praticabile.
+\end{itemize}
+
+Fermarsi è un esito valido. Il runbook deve indicare come lasciare il
+sistema in uno stato consistente e chi decide se riprendere,
+ripristinare o applicare una correzione.
+
+\section{5.15 Diagnosi operativa durante la
+migrazione}\label{diagnosi-operativa-durante-la-migrazione}
+
+Gli incidenti di migrazione spesso emergono solo quando il target
+incontra rete, proxy, credenziali e carichi reali. Una diagnosi efficace
+parte dai segnali e dal percorso della richiesta, non dalla modifica
+casuale di configurazioni.
+
+\subsection{5.15.1 La readiness fallisce, ma il processo è
+attivo}\label{la-readiness-fallisce-ma-il-processo-uxe8-attivo}
+
+Separare liveness da readiness e leggere il dettaglio del controllo che
+fallisce. Verificare che hostname, certificati, DNS, accessi database e
+timeout siano quelli dell'ambiente target. Un health check che dipende
+da tutte le API esterne può rendere indisponibile l'intero servizio per
+una dipendenza non critica.
+
+Confrontare configurazione attiva e sorgente attesa senza stampare
+segreti. Registrare quali provider di configurazione sono abilitati e
+validare opzioni all'avvio. Se il servizio si avvia con un endpoint
+esterno vuoto o un valore di default, correggere la validazione invece
+di aggiungere retry indefiniti.
+
+\subsection{5.15.2 Errori 401 o 403 dopo il
+cutover}\label{errori-401-o-403-dopo-il-cutover}
+
+401 indica in genere un problema di autenticazione; 403 indica identità
+riconosciuta ma non autorizzata, anche se il contratto può variare.
+Verificare emittente (\texttt{iss}), destinatario (\texttt{aud}),
+scadenze, chiavi di firma, scarto orario e claim ricevuti. Confrontare
+il token in modo sicuro senza copiarlo nei ticket o nei log.
+
+Controllare mapping di claim e differenze di casing o nomi tra provider.
+Un framework sorgente può convertire automaticamente gruppi in ruoli,
+mentre il target richiede una policy esplicita. Testare un utente
+rappresentativo per ogni profilo e distinguere permesso mancante da
+route non autenticata. Non disabilitare authorization per ``sbloccare il
+deploy''.
+
+\subsection{5.15.3 502, 503 e timeout
+intermittenti}\label{e-timeout-intermittenti}
+
+Seguire la richiesta attraverso client, gateway, ingress, Kestrel e
+dipendenze. Confrontare timeout configurati a ogni livello e verificare
+se un proxy chiude la connessione prima dell'applicazione. Correlare
+trace id e timestamp tra sistemi; senza sincronizzazione oraria i log
+possono sembrare contraddittori.
+
+Osservare pool connessioni, thread pool, code, DNS e saturazione
+database. Un retry su un timeout può moltiplicare il carico e peggiorare
+l'incidente. Ridurre temporaneamente il traffico o disattivare la
+capability può essere più sicuro che aumentare tutti i timeout.
+
+\subsection{5.15.4 Differenze di
+serializzazione}\label{differenze-di-serializzazione}
+
+Se i test passano ma un client rifiuta la response, confrontare byte e
+schema: \texttt{Content-Type}, casing, proprietà omesse, enum, formato
+data, precisione numerica e encoding. Verificare opzioni globali del
+serializer e attributi sul DTO. Un aggiornamento del serializer o un
+modello con nullability diversa può cambiare il JSON senza modificare la
+route.
+
+Riprodurre con fixture minime e un test contrattuale. Non patchare la
+risposta in middleware per correggere un singolo DTO: la regola deve
+vivere nel mapping o nella configurazione condivisa documentata.
+
+\subsection{5.15.5 Mismatch di database dopo la
+migrazione}\label{mismatch-di-database-dopo-la-migrazione}
+
+Prima di correggere i record, verificare query, filtri, timezone,
+collations, precisione e ordine. Calcolare differenze per categoria e
+chiave, usando dati minimizzati. Una differenza può provenire da una
+query N+1 o da una proprietà null, non dalla copia dati.
+
+Confrontare SQL generato e piani d'esecuzione. Verificare se il vecchio
+ORM applicava soft-delete, tenant filter o conversioni implicite. Non
+riparare manualmente il database live prima di sapere se il processo di
+importazione può riprodurre il problema.
+
+\subsection{5.15.6 Runbook di incidente}\label{runbook-di-incidente}
+
+Per un errore in rollout:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  identificare release, percentuale traffico e capability coinvolta;
+\item
+  verificare alert e impatto utente, distinguendo sintomo e causa;
+\item
+  applicare la soglia predefinita: fermare incremento o attivare
+  rollback;
+\item
+  proteggere dati e fermare eventuali writer duplicati;
+\item
+  salvare log e metriche necessari, redigendo segreti e dati personali;
+\item
+  assegnare un responsabile tecnico e un comunicatore;
+\item
+  dopo la stabilizzazione, documentare causa, rilevazione e prevenzione.
+\end{enumerate}
+
+Non fare debug direttamente in produzione con logging verboso permanente
+o query non controllate. Ogni modifica temporanea ha owner, scadenza e
+piano di rimozione.
+
+\section{5.16 Verifica finale: criteri di
+successo}\label{verifica-finale-criteri-di-successo}
+
+Considerare la migrazione conclusa solo quando il target possiede
+chiaramente le capability previste e il sistema sorgente non mantiene
+dipendenze operative nascoste. Account, job, backup, credenziali e
+supporto devono avere un owner nel nuovo assetto o una data di
+dismissione.
+
+Misurare il successo con criteri concordati: flussi critici conformi,
+error rate e latenza entro budget, dati riconciliati, sicurezza
+approvata, rollback provato, operatori formati e costi del vecchio
+sistema rimossi o motivati. Conservare le decisioni e i report in modo
+accessibile al team che sarà on-call.
+
+\subsection{5.16.1 Fonti ufficiali e
+aggiornamento}\label{fonti-ufficiali-e-aggiornamento}
+
+Consultare documentazione ufficiale e controllare la versione target
+prima di applicare un esempio. Le pagine evolvono; per un progetto reale
+annotare la data di verifica e la versione .NET:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://learn.microsoft.com/dotnet/core/porting/}{.NET ---
+  Porting to .NET}
+\item
+  \href{https://dotnet.microsoft.com/platform/support/policy/dotnet-core}{.NET
+  --- Panoramica del ciclo di vita}
+\item
+  \href{https://learn.microsoft.com/aspnet/core/introduction-to-aspnet-core}{ASP.NET
+  Core --- Panoramica}
+\item
+  \href{https://learn.microsoft.com/aspnet/core/fundamentals/middleware/}{ASP.NET
+  Core --- Middleware}
+\item
+  \href{https://learn.microsoft.com/dotnet/core/extensions/dependency-injection}{ASP.NET
+  Core --- Dependency Injection}
+\item
+  \href{https://learn.microsoft.com/aspnet/core/fundamentals/configuration/}{ASP.NET
+  Core --- Configurazione}
+\item
+  \href{https://learn.microsoft.com/aspnet/core/security/authentication/}{ASP.NET
+  Core --- Autenticazione}
+\item
+  \href{https://learn.microsoft.com/aspnet/core/test/integration-tests}{ASP.NET
+  Core --- Test d'integrazione}
+\item
+  \href{https://learn.microsoft.com/ef/core/managing-schemas/migrations/}{Entity
+  Framework Core --- Migrazioni}
+\item
+  \href{https://learn.microsoft.com/ef/core/performance/}{Entity
+  Framework Core --- Performance}
+\item
+  \href{https://learn.microsoft.com/dotnet/core/docker/}{.NET ---
+  Docker}
+\item
+  \href{https://learn.microsoft.com/dotnet/architecture/}{.NET ---
+  Architettura delle applicazioni}
+\end{itemize}
+
+\section{5.12 Caso pratico: migrare un servizio
+catalogo}\label{caso-pratico-migrare-un-servizio-catalogo}
+
+Per collegare le decisioni, immaginiamo di migrare un servizio catalogo
+esistente, scritto in Python con FastAPI, verso ASP.NET Core. Il
+servizio pubblica prodotti, legge un database PostgreSQL condiviso con
+un back office e viene consumato da un sito e da un'app mobile.
+L'esempio non è un tutorial per ricostruire un catalogo completo: mostra
+come delimitare il lavoro, mantenere il contratto e produrre evidenze
+prima di spostare il traffico.
+
+\subsection{5.12.1 Scenario e vincoli}\label{scenario-e-vincoli}
+
+Il sistema attuale espone:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{GET\ /api/products?category=...\&page=...} per elencare
+  prodotti attivi;
+\item
+  \texttt{GET\ /api/products/\{id\}} per leggere un prodotto;
+\item
+  \texttt{POST\ /api/products} per creare un prodotto, riservato agli
+  editor;
+\item
+  un job notturno che importa disponibilità da un partner.
+\end{itemize}
+
+Il database contiene milioni di righe storiche, mentre l'endpoint
+pubblico restituisce solo prodotti attivi. Il back office continua a
+scrivere nello schema durante la migrazione. L'app mobile non può essere
+aggiornata rapidamente. La disponibilità richiesta non consente un fermo
+lungo e l'autenticazione usa un identity provider aziendale.
+
+L'assessment mostra che le letture pubbliche sono il primo candidato:
+sono frequenti, hanno contratto documentabile e possono rimanere
+read-only sul database esistente. La scrittura di prodotti resta sul
+servizio sorgente nella prima fase; non si duplicano gli effetti di
+\texttt{POST}. Il job notturno viene migrato separatamente perché ha un
+lifecycle e un profilo di retry diversi.
+
+\subsection{5.12.2 Baseline e test di
+caratterizzazione}\label{baseline-e-test-di-caratterizzazione}
+
+Prima di scrivere il target si raccolgono:
+
+\begin{itemize}
+\tightlist
+\item
+  esempi di response per prodotto attivo, assente e non visibile;
+\item
+  comportamento dei filtri e paginazione;
+\item
+  status e schema per query non valide;
+\item
+  requisiti di autorizzazione del \texttt{POST};
+\item
+  p95/p99, richieste al secondo, error rate e carico sul database;
+\item
+  piano query corrente e indici usati.
+\end{itemize}
+
+Le fixture contengono dati sintetici con casi di null, descrizione
+lunga, prezzo al limite e categoria inesistente. Per i casi di
+produzione si usano payload anonimizzati, senza identificativi o
+informazioni personali. I test memorizzano anche ordinamento e proprietà
+JSON richieste dai client.
+
+Si concorda che l'implementazione nuova deve restituire la stessa
+semantica dei filtri e i medesimi codici, salvo variazioni approvate. Il
+nuovo sistema deve mantenere il budget di latenza del servizio e non
+superare il limite di connessioni assegnato al database.
+
+\subsection{5.12.3 Creazione del progetto}\label{creazione-del-progetto}
+
+La solution può iniziare con API e test, senza creare tutti i progetti
+architetturali possibili:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Catalogo.sln}
+\NormalTok{src/}
+\NormalTok{  Catalogo.Api/}
+\NormalTok{  Catalogo.Infrastructure/}
+\NormalTok{tests/}
+\NormalTok{  Catalogo.Api.Tests/}
+\end{Highlighting}
+\end{Shaded}
+
+Il progetto API configura hosting, autenticazione, logging, endpoint e
+composizione dei servizi. Infrastructure contiene \texttt{DbContext},
+mapping e query SQL/EF Core. Se le regole del dominio diventano
+complesse, si può introdurre un progetto Domain con una decisione
+esplicita, non come prerequisito per un endpoint di lettura.
+
+La foundation si considera pronta quando un commit pulito passa
+\texttt{dotnet\ restore}, \texttt{dotnet\ build}, \texttt{dotnet\ test},
+produce l'immagine, gira nel namespace di test e legge configurazione
+esterna. Un health check minimale può essere registrato e mappato così:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ builder }\OperatorTok{=}\NormalTok{ WebApplication}\OperatorTok{.}\FunctionTok{CreateBuilder}\OperatorTok{(}\NormalTok{args}\OperatorTok{);}
+\NormalTok{builder}\OperatorTok{.}\FunctionTok{Services}\OperatorTok{.}\FunctionTok{AddHealthChecks}\OperatorTok{();}
+
+\DataTypeTok{var}\NormalTok{ app }\OperatorTok{=}\NormalTok{ builder}\OperatorTok{.}\FunctionTok{Build}\OperatorTok{();}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapHealthChecks}\OperatorTok{(}\StringTok{"/health"}\OperatorTok{);}
+\NormalTok{app}\OperatorTok{.}\FunctionTok{Run}\OperatorTok{();}
+\end{Highlighting}
+\end{Shaded}
+
+Questo endpoint verifica che l'applicazione risponda; controlli di
+readiness sulle dipendenze vanno aggiunti solo se richiesti. La pipeline
+non usa una connection string reale nei log.
+
+\subsection{5.12.4 Contratto e query di
+lettura}\label{contratto-e-query-di-lettura}
+
+Il DTO è separato dal modello persistito:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{sealed}\NormalTok{ record }\FunctionTok{ProductListItem}\OperatorTok{(}
+    \DataTypeTok{int}\NormalTok{ Id}\OperatorTok{,}
+    \DataTypeTok{string}\NormalTok{ Name}\OperatorTok{,}
+    \DataTypeTok{decimal}\NormalTok{ Price}\OperatorTok{,}
+    \DataTypeTok{string}\NormalTok{ Currency}\OperatorTok{);}
+
+\KeywordTok{public} \KeywordTok{sealed}\NormalTok{ record }\FunctionTok{ProductPage}\OperatorTok{(}
+\NormalTok{    IReadOnlyList}\OperatorTok{\textless{}}\NormalTok{ProductListItem}\OperatorTok{\textgreater{}}\NormalTok{ Items}\OperatorTok{,}
+    \DataTypeTok{int}\NormalTok{ Page}\OperatorTok{,}
+    \DataTypeTok{int}\NormalTok{ PageSize}\OperatorTok{,}
+    \DataTypeTok{int}\NormalTok{ TotalCount}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+La paginazione deve essere limitata lato server; non accettare page size
+illimitata. Per dataset in crescita, una paginazione a cursore può
+essere più stabile ed efficiente di un offset elevato, ma cambiare il
+contratto va coordinato con i client. Nella prima fase si mantiene
+l'interfaccia esistente e si usa il piano database per verificare il
+costo.
+
+Un service applicativo riceve filtri già validati e restituisce un
+risultato; l'endpoint mappa il risultato a HTTP:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{app}\OperatorTok{.}\FunctionTok{MapGet}\OperatorTok{(}\StringTok{"/api/products"}\OperatorTok{,} \FunctionTok{async} \OperatorTok{(}
+    \DataTypeTok{string}\OperatorTok{?}\NormalTok{ category}\OperatorTok{,}
+    \DataTypeTok{int}\NormalTok{ page}\OperatorTok{,}
+    \DataTypeTok{int}\NormalTok{ pageSize}\OperatorTok{,}
+\NormalTok{    IProductQueries queries}\OperatorTok{,}
+\NormalTok{    CancellationToken ct}\OperatorTok{)} \OperatorTok{=\textgreater{}}
+\OperatorTok{\{}
+    \KeywordTok{if} \OperatorTok{(}\NormalTok{page }\OperatorTok{\textless{}} \DecValTok{1} \OperatorTok{||}\NormalTok{ pageSize }\KeywordTok{is} \OperatorTok{\textless{}} \DecValTok{1}\NormalTok{ or }\OperatorTok{\textgreater{}} \DecValTok{100}\OperatorTok{)}
+        \KeywordTok{return}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{BadRequest}\OperatorTok{();}
+
+    \DataTypeTok{var}\NormalTok{ result }\OperatorTok{=}\NormalTok{ await queries}\OperatorTok{.}\FunctionTok{ListAsync}\OperatorTok{(}
+\NormalTok{        category}\OperatorTok{,}\NormalTok{ page}\OperatorTok{,}\NormalTok{ pageSize}\OperatorTok{,}\NormalTok{ ct}\OperatorTok{);}
+    \KeywordTok{return}\NormalTok{ Results}\OperatorTok{.}\FunctionTok{Ok}\OperatorTok{(}\NormalTok{result}\OperatorTok{);}
+\OperatorTok{\});}
+\end{Highlighting}
+\end{Shaded}
+
+Il frammento illustra il flusso e non definisce da solo tutte le regole:
+i default per i parametri, il formato errore, i limiti e l'ordinamento
+vanno allineati al contratto sorgente. In codice di produzione la
+validazione restituisce una risposta coerente e documentata; l'endpoint
+non deve trasformare un errore database in lista vuota.
+
+\subsection{5.12.5 Mantenere il database condiviso in
+sicurezza}\label{mantenere-il-database-condiviso-in-sicurezza}
+
+Il nuovo servizio apre un accesso read-only se il provider e i permessi
+lo consentono. Questo riduce il rischio di alterare dati durante la
+prima fase. Le query sono proiettate sui campi necessari, limitano
+risultati e usano parametri. Si controllano indici e piani; l'utente DB
+non ha permessi DDL o scrittura non necessari.
+
+Prima del deploy si verificano schema e tipi con i proprietari del back
+office. Se il vecchio sistema cambia una colonna, il target deve fallire
+con log diagnostico e alert, non continuare con un risultato parziale
+apparentemente valido. Un contratto dati o una vista stabile può isolare
+il nuovo servizio dalle tabelle interne, se il team database può
+mantenerli.
+
+Il modello EF Core mappa solo la parte necessaria dello schema, senza
+avviare migrazioni automatiche. Il target non è proprietario del
+database in questa fase; non può quindi presumere di aggiornare tabelle
+condivise. Le migrazioni future richiedono un piano separato con tutti i
+writer coinvolti.
+
+\subsection{5.12.6 Test differenziale e osservazione in
+shadow}\label{test-differenziale-e-osservazione-in-shadow}
+
+La suite d'integrazione invia richieste al sistema sorgente e al target
+usando un database di test fissato. Le risposte sono confrontate su
+status, schema e valori. Timestamp e campi variabili sono normalizzati
+solo dove il contratto li dichiara non deterministici.
+
+In ambiente di preproduzione il traffico sintetico esercita route e
+limiti. In produzione, se privacy, policy e architettura lo permettono,
+il gateway può duplicare \textbf{solo richieste di lettura} verso il
+target in modalità shadow. Il target esegue il calcolo ma la sua
+risposta non viene restituita all'utente. Si confrontano risultati in
+forma redatta e si misurano query e latenza.
+
+Non duplicare il \texttt{POST} o il job di importazione: un secondo
+invio potrebbe creare un prodotto, inviare notifiche o alterare stock.
+Shadow traffic non è una licenza a replicare dati personali; minimizzare
+payload, applicare retention breve e ottenere le approvazioni
+necessarie.
+
+Un report giornaliero classifica differenze per categoria: status,
+proprietà mancanti, ordinamento, valori numerici, null e timeout. Ogni
+differenza ha owner e decisione: bug nel nuovo codice, bug sorgente da
+correggere, differenza intenzionale o dato invalido. Il traffico non
+viene spostato finché le differenze critiche non sono comprese.
+
+\subsection{5.12.7 Canary e cutover}\label{canary-e-cutover}
+
+Con test differenziali soddisfacenti, il gateway indirizza al target una
+piccola percentuale di richieste di lettura, mantenendo identificabile
+la coorte. Si controllano:
+
+\begin{itemize}
+\tightlist
+\item
+  error rate e status per route e versione;
+\item
+  p95/p99 e timeout;
+\item
+  pool connessioni, CPU, memoria e query lente;
+\item
+  differenze di contenuto e errori di deserializzazione client;
+\item
+  log di autenticazione e richieste senza tenant.
+\end{itemize}
+
+Si amplia gradualmente la percentuale solo se le metriche restano entro
+budget per una finestra definita. Il criterio non è ``nessuna
+segnalazione'': un client mobile può essere usato poco e segnalare
+tardi. Gli alert e i log devono offrire copertura tecnica indipendente
+dal feedback degli utenti.
+
+Per rollback, il gateway riporta la route al servizio Python. Poiché il
+target è read-only e usa lo schema invariato, il rollback non richiede
+sincronizzare nuove scritture. Si prova prima in preproduzione,
+verificando cache, DNS, warm-up e propagazione della configurazione. Il
+piano include un referente che può arrestare il rollout.
+
+\subsection{5.12.8 Migrare la scrittura}\label{migrare-la-scrittura}
+
+Una volta stabile la lettura, la creazione prodotto diventa una capacità
+separata. Il team decide se il nuovo servizio assume la scrittura oppure
+se il vecchio sistema resta owner temporaneamente. Non basta duplicare
+le scritture: si deve evitare che back office e API sovrascrivano
+modifiche in modo inconsistente.
+
+Se il target assume ownership, il rollout della scrittura avviene solo
+dopo aver verificato:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  policy di autorizzazione e mapping claims;
+\item
+  validazione e invarianti condivise con il back office;
+\item
+  unicità e concorrenza nel database;
+\item
+  audit e notifiche prodotte una sola volta;
+\item
+  idempotenza delle richieste ritentate;
+\item
+  schema compatibile con la versione precedente durante il rollback.
+\end{enumerate}
+
+Una chiave di idempotenza può aiutare per richieste ripetibili, ma deve
+avere storage e scadenza definiti. L'outbox può garantire che un evento
+venga registrato nella stessa transazione della creazione, con consegna
+asincrona e consumer deduplicante. Non rende transazionale il sistema
+esterno.
+
+\subsection{5.12.9 Migrare il job
+notturno}\label{migrare-il-job-notturno}
+
+Il job è una capacità distinta dall'API. Si verificano frequenza,
+finestra, volume, checkpoint, dati parziali e comportamento al retry. Un
+\texttt{BackgroundService} può ospitare un ciclo semplice, ma se il job
+deve sopravvivere a riavvii, essere schedulato da più istanze o
+riprendere da un checkpoint, si usa un orchestratore o una coda
+durevole.
+
+Durante la prova, il target importa in un ambiente isolato e confronta
+conteggi e aggregati con il job esistente. Non si eseguono entrambi in
+scrittura sullo stesso dataset senza una strategia d'idempotenza. Il
+cutover del job ha un lock o un singolo scheduler owner, un run id,
+report e procedura di replay.
+
+\subsection{5.12.10 Risultato e lezioni}\label{risultato-e-lezioni}
+
+Il servizio di lettura può essere considerato migrato quando il target
+ha sostenuto il traffico previsto, rispetta contratto e budget, è
+osservabile, ha un rollback provato e il sistema sorgente non riceve più
+quelle route. Il capitolo di progetto non si chiude però finché
+scrittura, job, integrazioni residue e dismissione non hanno owner e
+date.
+
+Le decisioni hanno mantenuto il perimetro piccolo, ma non hanno ignorato
+il sistema completo. Si è iniziato con letture reversibili; dati
+condivisi e scritture sono rimasti sotto un owner; test e telemetria
+hanno preceduto il cutover; infine ogni capability ha avuto il suo
+piano. In un caso PHP o Java cambierebbero framework, tool e dettagli di
+persistenza, non il metodo di mappatura, caratterizzazione e rollout.
+
+\subsection{5.12.11 Adattare il caso ad altri
+ecosistemi}\label{adattare-il-caso-ad-altri-ecosistemi}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{PHP/Laravel o Symfony:} inventariare middleware, service
+  container, queue worker, session driver e convenzioni
+  Eloquent/Doctrine. Verificare differenze di null, timezone e gestione
+  dei job.
+\item
+  \textbf{Python/Django o FastAPI:} distinguere ASGI/WSGI, dependency
+  overrides, task asincroni, ORM e migration framework. Non assumere che
+  codice \texttt{async} sia non bloccante se una libreria sottostante è
+  sincrona.
+\item
+  \textbf{Node.js/Express o NestJS:} mappare middleware e
+  pipe/interceptor, controllare event loop, stream e dipendenze native
+  dei pacchetti.
+\item
+  \textbf{Java/Spring Boot:} confrontare lifecycle bean, scope request,
+  filtri, transazioni e thread pool. Verificare semantica di ORM, lazy
+  loading e gestione delle eccezioni.
+\end{itemize}
+
+Per ciascuno, costruire una scheda per concetto: comportamento sorgente,
+candidato ASP.NET Core, differenza osservabile, test di prova, impatto e
+decisione. Un mapping documentato riduce il rischio che una differenza
+venga scoperta solo da un utente in produzione.
+
+\section{5.17 Checklist, glossario e
+anti-pattern}\label{checklist-glossario-e-anti-pattern}
+
+Una migrazione efficace è una sequenza di decisioni verificabili. Le
+checklist che seguono non sostituiscono il giudizio del team: aiutano a
+non dimenticare dipendenze e criteri prima di una fase irreversibile.
+
+\subsection{5.17.1 Checklist di
+assessment}\label{checklist-di-assessment}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  Sono stati identificati owner funzionali e tecnici per ogni capacità?
+\item[$\square$]
+  Sono state inventariate route, job, consumer, webhook e strumenti
+  amministrativi?
+\item[$\square$]
+  Sono noti database, writer, volumi, vincoli e consumer dello schema?
+\item[$\square$]
+  Sono state elencate integrazioni, librerie, licenze e dipendenze non
+  supportate?
+\item[$\square$]
+  Esistono baseline di latenza, throughput, errori, disponibilità e
+  costi?
+\item[$\square$]
+  Sono documentati RTO, RPO, retention e requisiti di sicurezza?
+\item[$\square$]
+  I comportamenti impliciti e i casi limite sono stati verificati con
+  client reali o test?
+\item[$\square$]
+  Le incertezze sono attività con owner, evidenza attesa e scadenza?
+\end{itemize}
+
+\subsection{5.17.2 Checklist di
+progettazione}\label{checklist-di-progettazione}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  La strategia (big bang, componenti, strangler o ibrida) è motivata dal
+  rischio?
+\item[$\square$]
+  Ogni unità migrabile ha un confine e un proprietario dei dati?
+\item[$\square$]
+  È definito come instradare traffico e come disattivare il nuovo
+  percorso?
+\item[$\square$]
+  I contratti API/dati hanno versioni, esempi e test?
+\item[$\square$]
+  Il modello di autenticazione e la migrazione delle sessioni sono
+  approvati?
+\item[$\square$]
+  Le modifiche schema sono compatibili e il rollback è possibile?
+\item[$\square$]
+  Sono stati definiti timeout, retry, idempotenza e cancellazione?
+\item[$\square$]
+  Le differenze intenzionali rispetto alla sorgente sono state
+  approvate?
+\end{itemize}
+
+\subsection{5.17.3 Checklist prima del
+cutover}\label{checklist-prima-del-cutover}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  Build, test, scansioni e pubblicazione passano da checkout pulito.
+\item[$\square$]
+  Il target è stato avviato in un ambiente simile alla produzione.
+\item[$\square$]
+  Test di caratterizzazione e differenziali non hanno differenze
+  critiche.
+\item[$\square$]
+  Sono verificati status, JSON, date, autorizzazioni, paginazione e
+  limiti.
+\item[$\square$]
+  Dashboard, alert, log strutturati e correlation id funzionano.
+\item[$\square$]
+  Health check e shutdown sono provati con il load balancer.
+\item[$\square$]
+  Backup e restore sono stati testati; lo schema è compatibile con
+  rollback.
+\item[$\square$]
+  Runbook identifica responsabili, soglie, canali e comandi di ritorno.
+\item[$\square$]
+  Il canary ha una durata, percentuale e criterio per proseguire.
+\item[$\square$]
+  Le operazioni di scrittura non vengono replicate senza idempotenza.
+\end{itemize}
+
+\subsection{5.17.4 Checklist per la
+dismissione}\label{checklist-per-la-dismissione}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  Non esiste traffico, job, webhook o client che dipenda ancora dalla
+  sorgente.
+\item[$\square$]
+  I dati sono riconciliati e la retention dei backup è approvata.
+\item[$\square$]
+  Credenziali, chiavi e route obsolete sono revocate.
+\item[$\square$]
+  Le dipendenze residue e la coesistenza hanno owner o data di
+  rimozione.
+\item[$\square$]
+  Runbook, supporto e dashboard sono aggiornati sul sistema definitivo.
+\item[$\square$]
+  Costi e risorse del sistema precedente sono stati rimossi o motivati.
+\end{itemize}
+
+\subsection{5.17.5 Glossario essenziale}\label{glossario-essenziale}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Termine
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Significato nel capitolo
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Assessment & Raccolta di evidenze sul sistema, i suoi contratti, vincoli
+e rischi \\
+Baseline & Misure del sistema sorgente usate per confrontare il
+target \\
+Cutover & Passaggio del traffico o della proprietà di una capacità al
+target \\
+Strangler & Strategia che sostituisce un sistema per capacità,
+mantenendo temporaneamente l'originale \\
+Canary & Rilascio progressivo a una parte del traffico prima
+dell'estensione \\
+Parità funzionale & Equivalenza del comportamento osservabile per i
+flussi concordati \\
+Idempotenza & Proprietà per cui ripetere un'operazione non duplica
+l'effetto \\
+Outbox & Registro transazionale degli eventi da consegnare dopo il
+commit \\
+RTO/RPO & Obiettivo di tempo di ripristino e perdita dati massima
+accettabile \\
+Expand--migrate--contract & Evoluzione graduale di schema e codice
+mantenendo compatibilità temporanea \\
+\end{longtable}
+}
+
+\subsection{5.17.6 Gli errori da evitare}\label{gli-errori-da-evitare}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Riscrivere senza caratterizzare.} Il team si affida a ricordi
+  e documenti incompleti; i test sul comportamento esistente vanno
+  creati prima del cutover.
+\item
+  \textbf{Confondere parità e miglioramento.} Cambiare contratto, dati e
+  architettura nello stesso rilascio rende impossibile isolare le cause
+  delle regressioni.
+\item
+  \textbf{Tradurre i nomi invece delle responsabilità.} Un middleware o
+  un service container con nome simile può avere lifecycle diverso;
+  verificare semantica e scope.
+\item
+  \textbf{Ignorare il database condiviso.} Le tabelle possono essere un
+  contratto di altri servizi; identificare tutti i writer e reader prima
+  di migrare.
+\item
+  \textbf{Duplicare scritture senza protocollo.} Due sistemi non sono
+  sincronizzati perché entrambi hanno ricevuto una chiamata; progettare
+  idempotenza e riconciliazione.
+\item
+  \textbf{Confondere rollback applicativo e rollback dati.} La versione
+  precedente può non interpretare i dati scritti dalla nuova.
+\item
+  \textbf{Ottimizzare prima di misurare.} AOT, cache o parallelismo
+  aumentano complessità se il collo di bottiglia è altrove.
+\item
+  \textbf{Considerare test unitari come prova di produzione.} Database,
+  proxy, identity e container richiedono test d'integrazione mirati.
+\item
+  \textbf{Lasciare la coesistenza senza data di uscita.} Il doppio
+  sistema raddoppia costi e superficie di rischio; assegnare owner e
+  milestone di dismissione.
+\item
+  \textbf{Fare del cutover una scommessa.} Soglie, responsabilità e
+  rollback devono essere definiti e provati prima che il traffico venga
+  spostato.
+\end{enumerate}
+
+\section{5.18 Appendice: piano di migrazione
+riutilizzabile}\label{appendice-piano-di-migrazione-riutilizzabile}
+
+Il seguente schema può essere copiato nel backlog di un progetto e
+adattato. Ogni riga deve avere owner, data, evidenza e stato; non
+lasciare caselle spuntate sulla sola base di una dichiarazione.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fase
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deliverable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Criterio di completamento
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Discovery & Inventario, baseline, rischi e contratti & Owner e
+dipendenze identificati; lacune tracciate \\
+Foundation & Repo, SDK, CI, ambiente, logging & Build pulita, deploy e
+health check provati \\
+Caratterizzazione & Fixture e test sorgente & Flussi critici
+riproducibili e approvati \\
+Vertical slice & Endpoint target completo & HTTP, dominio, storage e
+test passano \\
+Parità & Confronto sorgente/target & Differenze critiche risolte o
+approvate \\
+Canary & Traffico controllato & Soglie rispettate per la finestra
+concordata \\
+Cutover & Ownership e routing aggiornati & Target proprietario; rollback
+ancora possibile \\
+Stabilizzazione & Runbook e supporto & Incidenti e metriche entro
+obiettivi \\
+Dismissione & Sistema sorgente spento & Traffico nullo, accessi
+revocati, dati conservati \\
+\end{longtable}
+}
+
+Per ogni capacità, annotare un punteggio qualitativo di rischio
+(basso/medio/alto) e le evidenze: non sommare numeri senza significato.
+Se il criterio non è raggiunto, la decisione corretta può essere
+fermarsi e ridurre l'incertezza, non accelerare il rilascio.
+
+\backmatter
+\end{document}

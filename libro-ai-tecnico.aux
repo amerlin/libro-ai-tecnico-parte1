@@ -1,0 +1,1914 @@
+\relax 
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
+\@nameuse{bbl@beforestart}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/r>>}
+\def\@LN@column{1}
+\babel@aux{italian}{}
+\babel@aux{italian}{}
+\def\@LN@column{1}
+\HyPL@Entry{2<</S/r>>}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\HyPL@Entry{4<</S/r>>}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\HyPL@Entry{10<</S/D>>}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {chapter}{Capitolo 1}{1}{chapter*.2}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{capitolo-1}{{}{1}{Capitolo 1}{chapter*.2}{}}
+\@writefile{toc}{\contentsline {section}{Model Context Protocol: fondamenti e implementazione di un MCP Server in .NET 10}{1}{section*.3}\protected@file@percent }
+\newlabel{model-context-protocol-fondamenti-e-implementazione-di-un-mcp-server-in-.net-10}{{}{1}{Model Context Protocol: fondamenti e implementazione di un MCP Server in .NET 10}{section*.3}{}}
+\@writefile{toc}{\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}\protected@file@percent }
+\newlabel{cosa-imparerai-in-questo-capitolo}{{}{1}{Cosa imparerai in questo capitolo}{section*.4}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Prerequisiti}{2}{section*.5}\protected@file@percent }
+\newlabel{prerequisiti}{{}{2}{Prerequisiti}{section*.5}{}}
+\@writefile{toc}{\contentsline {subsection}{Convenzioni tipografiche}{2}{section*.6}\protected@file@percent }
+\newlabel{convenzioni-tipografiche}{{}{2}{Convenzioni tipografiche}{section*.6}{}}
+\@writefile{toc}{\contentsline {section}{1.1 Il problema: modelli intelligenti ma isolati}{2}{section*.7}\protected@file@percent }
+\newlabel{il-problema-modelli-intelligenti-ma-isolati}{{}{2}{1.1 Il problema: modelli intelligenti ma isolati}{section*.7}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.1.1 L'analogia con le prese di corrente}{3}{section*.8}\protected@file@percent }
+\newlabel{lanalogia-con-le-prese-di-corrente}{{}{3}{1.1.1 L'analogia con le prese di corrente}{section*.8}{}}
+\@writefile{toc}{\contentsline {subsection}{1.1.2 Cosa serve davvero a un LLM per essere utile}{3}{section*.9}\protected@file@percent }
+\newlabel{cosa-serve-davvero-a-un-llm-per-essere-utile}{{}{3}{1.1.2 Cosa serve davvero a un LLM per essere utile}{section*.9}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.1.3 Perché serve un \emph  {protocollo} e non una libreria}{4}{section*.10}\protected@file@percent }
+\newlabel{perchuxe9-serve-un-protocollo-e-non-una-libreria}{{}{4}{\texorpdfstring {1.1.3 Perché serve un \emph {protocollo} e non una libreria}{1.1.3 Perché serve un protocollo e non una libreria}}{section*.10}{}}
+\@writefile{toc}{\contentsline {section}{1.2 Che cos'è il Model Context Protocol}{4}{section*.11}\protected@file@percent }
+\newlabel{che-cosuxe8-il-model-context-protocol}{{}{4}{1.2 Che cos'è il Model Context Protocol}{section*.11}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.2.1 Chi c'è dietro MCP}{5}{section*.12}\protected@file@percent }
+\newlabel{chi-cuxe8-dietro-mcp}{{}{5}{1.2.1 Chi c'è dietro MCP}{section*.12}{}}
+\@writefile{toc}{\contentsline {subsection}{1.2.2 Gli obiettivi di progetto}{5}{section*.13}\protected@file@percent }
+\newlabel{gli-obiettivi-di-progetto}{{}{5}{1.2.2 Gli obiettivi di progetto}{section*.13}{}}
+\@writefile{toc}{\contentsline {subsection}{1.2.3 Un server, molti client}{5}{section*.14}\protected@file@percent }
+\newlabel{un-server-molti-client}{{}{5}{1.2.3 Un server, molti client}{section*.14}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.2.4 MCP e LSP: una parentela naturale}{6}{section*.15}\protected@file@percent }
+\newlabel{mcp-e-lsp-una-parentela-naturale}{{}{6}{1.2.4 MCP e LSP: una parentela naturale}{section*.15}{}}
+\@writefile{toc}{\contentsline {section}{1.3 Architettura: Host, Client e Server}{6}{section*.16}\protected@file@percent }
+\newlabel{architettura-host-client-e-server}{{}{6}{1.3 Architettura: Host, Client e Server}{section*.16}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architettura di MCP: un host, uno o più client (uno per server) e i server che espongono le capacità}}{7}{figure.caption.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{1.3.1 Cosa fa l'host}{7}{section*.18}\protected@file@percent }
+\newlabel{cosa-fa-lhost}{{}{7}{1.3.1 Cosa fa l'host}{section*.18}{}}
+\@writefile{toc}{\contentsline {subsection}{1.3.2 Cosa fa il client}{7}{section*.19}\protected@file@percent }
+\newlabel{cosa-fa-il-client}{{}{7}{1.3.2 Cosa fa il client}{section*.19}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.3.3 Cosa fa il server}{8}{section*.20}\protected@file@percent }
+\newlabel{cosa-fa-il-server}{{}{8}{1.3.3 Cosa fa il server}{section*.20}{}}
+\@writefile{toc}{\contentsline {subsection}{1.3.4 La negoziazione delle capabilities}{8}{section*.21}\protected@file@percent }
+\newlabel{la-negoziazione-delle-capabilities}{{}{8}{1.3.4 La negoziazione delle capabilities}{section*.21}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.4 I primitivi del protocollo: Tools, Resources e Prompts}{9}{section*.22}\protected@file@percent }
+\newlabel{i-primitivi-del-protocollo-tools-resources-e-prompts}{{}{9}{1.4 I primitivi del protocollo: Tools, Resources e Prompts}{section*.22}{}}
+\@writefile{toc}{\contentsline {subsection}{1.4.1 Tools: le azioni}{9}{section*.23}\protected@file@percent }
+\newlabel{tools-le-azioni}{{}{9}{1.4.1 Tools: le azioni}{section*.23}{}}
+\@writefile{toc}{\contentsline {subsection}{1.4.2 Resources: i dati}{9}{section*.24}\protected@file@percent }
+\newlabel{resources-i-dati}{{}{9}{1.4.2 Resources: i dati}{section*.24}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.4.3 Prompts: i modelli di istruzione}{10}{section*.25}\protected@file@percent }
+\newlabel{prompts-i-modelli-di-istruzione}{{}{10}{1.4.3 Prompts: i modelli di istruzione}{section*.25}{}}
+\@writefile{toc}{\contentsline {subsection}{1.4.4 Gli altri primitivi}{10}{section*.26}\protected@file@percent }
+\newlabel{gli-altri-primitivi}{{}{10}{1.4.4 Gli altri primitivi}{section*.26}{}}
+\@writefile{toc}{\contentsline {subsection}{1.4.5 La tabella riassuntiva}{10}{section*.27}\protected@file@percent }
+\newlabel{la-tabella-riassuntiva}{{}{10}{1.4.5 La tabella riassuntiva}{section*.27}{}}
+\gdef \LT@i {\LT@entry 
+    {1}{69.76242pt}\LT@entry 
+    {1}{162.75296pt}\LT@entry 
+    {1}{52.59058pt}\LT@entry 
+    {1}{58.1765pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.5 JSON-RPC 2.0: il linguaggio del protocollo}{11}{section*.28}\protected@file@percent }
+\newlabel{json-rpc-2.0-il-linguaggio-del-protocollo}{{}{11}{1.5 JSON-RPC 2.0: il linguaggio del protocollo}{section*.28}{}}
+\@writefile{toc}{\contentsline {subsection}{1.5.1 La richiesta (request)}{11}{section*.29}\protected@file@percent }
+\newlabel{la-richiesta-request}{{}{11}{1.5.1 La richiesta (request)}{section*.29}{}}
+\gdef \LT@ii {\LT@entry 
+    {1}{35.72002pt}\LT@entry 
+    {3}{85.75003pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.5.2 La risposta (response)}{12}{section*.30}\protected@file@percent }
+\newlabel{la-risposta-response}{{}{12}{1.5.2 La risposta (response)}{section*.30}{}}
+\@writefile{toc}{\contentsline {subsection}{1.5.3 La variante di errore della risposta}{12}{section*.31}\protected@file@percent }
+\newlabel{la-variante-di-errore-della-risposta}{{}{12}{1.5.3 La variante di errore della risposta}{section*.31}{}}
+\gdef \LT@iii {\LT@entry 
+    {1}{182.67119pt}\LT@entry 
+    {1}{160.6113pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.5.4 La notifica (notification)}{13}{section*.32}\protected@file@percent }
+\newlabel{la-notifica-notification}{{}{13}{1.5.4 La notifica (notification)}{section*.32}{}}
+\@writefile{toc}{\contentsline {subsection}{1.5.5 I metodi standard di MCP}{13}{section*.33}\protected@file@percent }
+\newlabel{i-metodi-standard-di-mcp}{{}{13}{1.5.5 I metodi standard di MCP}{section*.33}{}}
+\@writefile{toc}{\contentsline {subsection}{1.5.6 Un esempio completo di scambio}{13}{section*.34}\protected@file@percent }
+\newlabel{un-esempio-completo-di-scambio}{{}{13}{1.5.6 Un esempio completo di scambio}{section*.34}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.6 I trasporti: stdio, Streamable HTTP e SSE}{14}{section*.35}\protected@file@percent }
+\newlabel{i-trasporti-stdio-streamable-http-e-sse}{{}{14}{1.6 I trasporti: stdio, Streamable HTTP e SSE}{section*.35}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.6.1 stdio: il trasporto dei processi locali}{15}{section*.36}\protected@file@percent }
+\newlabel{stdio-il-trasporto-dei-processi-locali}{{}{15}{1.6.1 stdio: il trasporto dei processi locali}{section*.36}{}}
+\@writefile{toc}{\contentsline {subsection}{1.6.2 Streamable HTTP: il trasporto di rete}{15}{section*.37}\protected@file@percent }
+\newlabel{streamable-http-il-trasporto-di-rete}{{}{15}{1.6.2 Streamable HTTP: il trasporto di rete}{section*.37}{}}
+\@writefile{toc}{\contentsline {subsection}{1.6.3 Il vecchio trasporto HTTP+SSE}{15}{section*.38}\protected@file@percent }
+\newlabel{il-vecchio-trasporto-httpsse}{{}{15}{1.6.3 Il vecchio trasporto HTTP+SSE}{section*.38}{}}
+\gdef \LT@iv {\LT@entry 
+    {1}{103.42947pt}\LT@entry 
+    {1}{239.85301pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.6.4 Come scegliere il trasporto}{16}{section*.39}\protected@file@percent }
+\newlabel{come-scegliere-il-trasporto}{{}{16}{1.6.4 Come scegliere il trasporto}{section*.39}{}}
+\@writefile{toc}{\contentsline {subsection}{1.6.5 Il ruolo dell'SDK}{16}{section*.40}\protected@file@percent }
+\newlabel{il-ruolo-dellsdk}{{}{16}{1.6.5 Il ruolo dell'SDK}{section*.40}{}}
+\@writefile{toc}{\contentsline {section}{1.7 Il ciclo di vita di una sessione MCP}{16}{section*.41}\protected@file@percent }
+\newlabel{il-ciclo-di-vita-di-una-sessione-mcp}{{}{16}{1.7 Il ciclo di vita di una sessione MCP}{section*.41}{}}
+\@writefile{toc}{\contentsline {subsection}{1.7.1 Fase 1: l'inizializzazione}{16}{section*.42}\protected@file@percent }
+\newlabel{fase-1-linizializzazione}{{}{16}{1.7.1 Fase 1: l'inizializzazione}{section*.42}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.7.2 Fase 2: la notifica di ``initialized''}{17}{section*.43}\protected@file@percent }
+\newlabel{fase-2-la-notifica-di-initialized}{{}{17}{1.7.2 Fase 2: la notifica di ``initialized''}{section*.43}{}}
+\@writefile{toc}{\contentsline {subsection}{1.7.3 Fase 3: l'operatività}{17}{section*.44}\protected@file@percent }
+\newlabel{fase-3-loperativituxe0}{{}{17}{1.7.3 Fase 3: l'operatività}{section*.44}{}}
+\@writefile{toc}{\contentsline {subsection}{1.7.4 Fase 4: la chiusura}{17}{section*.45}\protected@file@percent }
+\newlabel{fase-4-la-chiusura}{{}{17}{1.7.4 Fase 4: la chiusura}{section*.45}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.7.5 La sequenza riassunta}{18}{section*.46}\protected@file@percent }
+\newlabel{la-sequenza-riassunta}{{}{18}{1.7.5 La sequenza riassunta}{section*.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Sequenza completa del ciclo di vita di una sessione MCP}}{18}{figure.caption.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{1.7.6 Cosa significa per il nostro codice}{18}{section*.48}\protected@file@percent }
+\newlabel{cosa-significa-per-il-nostro-codice}{{}{18}{1.7.6 Cosa significa per il nostro codice}{section*.48}{}}
+\@writefile{toc}{\contentsline {section}{1.8 MCP vs REST API: un confronto approfondito}{18}{section*.49}\protected@file@percent }
+\newlabel{mcp-vs-rest-api-un-confronto-approfondito}{{}{18}{1.8 MCP vs REST API: un confronto approfondito}{section*.49}{}}
+\@writefile{toc}{\contentsline {subsection}{1.8.1 Cos'è una REST API}{18}{section*.50}\protected@file@percent }
+\newlabel{cosuxe8-una-rest-api}{{}{18}{1.8.1 Cos'è una REST API}{section*.50}{}}
+\gdef \LT@v {\LT@entry 
+    {1}{83.07289pt}\LT@entry 
+    {1}{122.08951pt}\LT@entry 
+    {1}{138.12009pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.8.2 Cos'è un MCP server}{19}{section*.51}\protected@file@percent }
+\newlabel{cosuxe8-un-mcp-server}{{}{19}{1.8.2 Cos'è un MCP server}{section*.51}{}}
+\@writefile{toc}{\contentsline {subsection}{1.8.3 La differenza fondamentale: chi decide cosa chiamare}{19}{section*.52}\protected@file@percent }
+\newlabel{la-differenza-fondamentale-chi-decide-cosa-chiamare}{{}{19}{1.8.3 La differenza fondamentale: chi decide cosa chiamare}{section*.52}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.8.4 L'autodescrizione è il vero valore}{20}{section*.53}\protected@file@percent }
+\newlabel{lautodescrizione-uxe8-il-vero-valore}{{}{20}{1.8.4 L'autodescrizione è il vero valore}{section*.53}{}}
+\@writefile{toc}{\contentsline {subsection}{1.8.5 Il problema M×N, di nuovo}{20}{section*.54}\protected@file@percent }
+\newlabel{il-problema-mn-di-nuovo}{{}{20}{1.8.5 Il problema M×N, di nuovo}{section*.54}{}}
+\@writefile{toc}{\contentsline {subsection}{1.8.6 Quando usare cosa}{20}{section*.55}\protected@file@percent }
+\newlabel{quando-usare-cosa}{{}{20}{1.8.6 Quando usare cosa}{section*.55}{}}
+\gdef \LT@vi {\LT@entry 
+    {1}{105.77577pt}\LT@entry 
+    {1}{111.77577pt}\LT@entry 
+    {1}{125.73093pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.8.7 Un esempio concreto di differenza}{21}{section*.56}\protected@file@percent }
+\newlabel{un-esempio-concreto-di-differenza}{{}{21}{1.8.7 Un esempio concreto di differenza}{section*.56}{}}
+\@writefile{toc}{\contentsline {subsection}{1.8.8 Tabella di sintesi operativa}{21}{section*.57}\protected@file@percent }
+\newlabel{tabella-di-sintesi-operativa}{{}{21}{1.8.8 Tabella di sintesi operativa}{section*.57}{}}
+\gdef \LT@vii {\LT@entry 
+    {1}{208.44647pt}\LT@entry 
+    {1}{134.83601pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.9 L'ecosistema .NET: pacchetti e namespaces}{22}{section*.58}\protected@file@percent }
+\newlabel{lecosistema-.net-pacchetti-e-namespaces}{{}{22}{1.9 L'ecosistema .NET: pacchetti e namespaces}{section*.58}{}}
+\@writefile{toc}{\contentsline {subsection}{1.9.1 I pacchetti}{22}{section*.59}\protected@file@percent }
+\newlabel{i-pacchetti}{{}{22}{1.9.1 I pacchetti}{section*.59}{}}
+\gdef \LT@viii {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{137.76717pt}\LT@entry 
+    {1}{93.06995pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.9.2 I namespaces principali}{23}{section*.60}\protected@file@percent }
+\newlabel{i-namespaces-principali}{{}{23}{1.9.2 I namespaces principali}{section*.60}{}}
+\@writefile{toc}{\contentsline {subsection}{1.9.3 Gli attributi di registrazione}{23}{section*.61}\protected@file@percent }
+\newlabel{gli-attributi-di-registrazione}{{}{23}{1.9.3 Gli attributi di registrazione}{section*.61}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.9.4 Il modello di hosting}{24}{section*.62}\protected@file@percent }
+\newlabel{il-modello-di-hosting}{{}{24}{1.9.4 Il modello di hosting}{section*.62}{}}
+\@writefile{toc}{\contentsline {subsection}{1.9.5 Versioni e compatibilità con .NET 10}{24}{section*.63}\protected@file@percent }
+\newlabel{versioni-e-compatibilituxe0-con-.net-10}{{}{24}{1.9.5 Versioni e compatibilità con .NET 10}{section*.63}{}}
+\@writefile{toc}{\contentsline {section}{1.10 Preparare l'ambiente di sviluppo}{24}{section*.64}\protected@file@percent }
+\newlabel{preparare-lambiente-di-sviluppo}{{}{24}{1.10 Preparare l'ambiente di sviluppo}{section*.64}{}}
+\@writefile{toc}{\contentsline {subsection}{1.10.1 Verificare l'installazione di .NET}{24}{section*.65}\protected@file@percent }
+\newlabel{verificare-linstallazione-di-.net}{{}{24}{1.10.1 Verificare l'installazione di .NET}{section*.65}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.10.2 Creare la cartella del progetto}{25}{section*.66}\protected@file@percent }
+\newlabel{creare-la-cartella-del-progetto}{{}{25}{1.10.2 Creare la cartella del progetto}{section*.66}{}}
+\@writefile{toc}{\contentsline {subsection}{1.10.3 Creare il progetto .NET}{25}{section*.67}\protected@file@percent }
+\newlabel{creare-il-progetto-.net}{{}{25}{1.10.3 Creare il progetto .NET}{section*.67}{}}
+\@writefile{toc}{\contentsline {subsection}{1.10.4 Aggiungere i pacchetti NuGet}{25}{section*.68}\protected@file@percent }
+\newlabel{aggiungere-i-pacchetti-nuget}{{}{25}{1.10.4 Aggiungere i pacchetti NuGet}{section*.68}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.10.5 Verificare il ripristino}{26}{section*.69}\protected@file@percent }
+\newlabel{verificare-il-ripristino}{{}{26}{1.10.5 Verificare il ripristino}{section*.69}{}}
+\@writefile{toc}{\contentsline {subsection}{1.10.6 Uno sguardo a ciò che abbiamo installato}{26}{section*.70}\protected@file@percent }
+\newlabel{uno-sguardo-a-ciuxf2-che-abbiamo-installato}{{}{26}{1.10.6 Uno sguardo a ciò che abbiamo installato}{section*.70}{}}
+\@writefile{toc}{\contentsline {section}{1.11 Il tuo primo MCP server (stdio)}{26}{section*.71}\protected@file@percent }
+\newlabel{il-tuo-primo-mcp-server-stdio}{{}{26}{1.11 Il tuo primo MCP server (stdio)}{section*.71}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.11.1 Il codice completo}{27}{section*.72}\protected@file@percent }
+\newlabel{il-codice-completo}{{}{27}{1.11.1 Il codice completo}{section*.72}{}}
+\@writefile{toc}{\contentsline {subsection}{1.11.2 Lettura riga per riga}{27}{section*.73}\protected@file@percent }
+\newlabel{lettura-riga-per-riga}{{}{27}{1.11.2 Lettura riga per riga}{section*.73}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.11.3 Eseguire e provare il server}{28}{section*.74}\protected@file@percent }
+\newlabel{eseguire-e-provare-il-server}{{}{28}{1.11.3 Eseguire e provare il server}{section*.74}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.11.4 Un dettaglio importante: il nome in minuscolo}{29}{section*.75}\protected@file@percent }
+\newlabel{un-dettaglio-importante-il-nome-in-minuscolo}{{}{29}{1.11.4 Un dettaglio importante: il nome in minuscolo}{section*.75}{}}
+\@writefile{toc}{\contentsline {subsection}{1.11.5 Cosa abbiamo ottenuto}{29}{section*.76}\protected@file@percent }
+\newlabel{cosa-abbiamo-ottenuto}{{}{29}{1.11.5 Cosa abbiamo ottenuto}{section*.76}{}}
+\gdef \LT@ix {\LT@entry 
+    {3}{127.61002pt}\LT@entry 
+    {3}{124.51001pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.12 I Tools in dettaglio}{30}{section*.77}\protected@file@percent }
+\newlabel{i-tools-in-dettaglio}{{}{30}{1.12 I Tools in dettaglio}{section*.77}{}}
+\@writefile{toc}{\contentsline {subsection}{1.12.1 L'anatomia di un metodo-tool}{30}{section*.78}\protected@file@percent }
+\newlabel{lanatomia-di-un-metodo-tool}{{}{30}{1.12.1 L'anatomia di un metodo-tool}{section*.78}{}}
+\@writefile{toc}{\contentsline {subsection}{1.12.2 I tipi di parametro supportati}{30}{section*.79}\protected@file@percent }
+\newlabel{i-tipi-di-parametro-supportati}{{}{30}{1.12.2 I tipi di parametro supportati}{section*.79}{}}
+\@writefile{toc}{\contentsline {subsection}{1.12.3 I tipi di ritorno supportati}{30}{section*.80}\protected@file@percent }
+\newlabel{i-tipi-di-ritorno-supportati}{{}{30}{1.12.3 I tipi di ritorno supportati}{section*.80}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.12.4 Tool asincroni e annullamento}{31}{section*.81}\protected@file@percent }
+\newlabel{tool-asincroni-e-annullamento}{{}{31}{1.12.4 Tool asincroni e annullamento}{section*.81}{}}
+\gdef \LT@x {\LT@entry 
+    {1}{157.826pt}\LT@entry 
+    {1}{185.45648pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.12.5 Iniezione delle dipendenze nei tool}{32}{section*.82}\protected@file@percent }
+\newlabel{iniezione-delle-dipendenze-nei-tool}{{}{32}{1.12.5 Iniezione delle dipendenze nei tool}{section*.82}{}}
+\@writefile{toc}{\contentsline {subsection}{1.12.6 Le annotazioni dei tool}{32}{section*.83}\protected@file@percent }
+\newlabel{le-annotazioni-dei-tool}{{}{32}{1.12.6 Le annotazioni dei tool}{section*.83}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.12.7 Best practices}{33}{section*.84}\protected@file@percent }
+\newlabel{best-practices}{{}{33}{1.12.7 Best practices}{section*.84}{}}
+\@writefile{toc}{\contentsline {section}{1.13 Esempio pratico: un server per il file system}{33}{section*.85}\protected@file@percent }
+\newlabel{esempio-pratico-un-server-per-il-file-system}{{}{33}{1.13 Esempio pratico: un server per il file system}{section*.85}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.13.1 Progettazione}{34}{section*.86}\protected@file@percent }
+\newlabel{progettazione}{{}{34}{1.13.1 Progettazione}{section*.86}{}}
+\@writefile{toc}{\contentsline {subsection}{1.13.2 Il codice completo}{34}{section*.87}\protected@file@percent }
+\newlabel{il-codice-completo-1}{{}{34}{1.13.2 Il codice completo}{section*.87}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.13.3 Lettura guidata}{36}{section*.88}\protected@file@percent }
+\newlabel{lettura-guidata}{{}{36}{1.13.3 Lettura guidata}{section*.88}{}}
+\@writefile{toc}{\contentsline {subsection}{1.13.4 Provare il server}{36}{section*.89}\protected@file@percent }
+\newlabel{provare-il-server}{{}{36}{1.13.4 Provare il server}{section*.89}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.13.5 Limitazioni e possibili evoluzioni}{37}{section*.90}\protected@file@percent }
+\newlabel{limitazioni-e-possibili-evoluzioni}{{}{37}{1.13.5 Limitazioni e possibili evoluzioni}{section*.90}{}}
+\@writefile{toc}{\contentsline {section}{1.14 Esempio pratico: un server meteo con HTTP}{37}{section*.91}\protected@file@percent }
+\newlabel{esempio-pratico-un-server-meteo-con-http}{{}{37}{1.14 Esempio pratico: un server meteo con HTTP}{section*.91}{}}
+\@writefile{toc}{\contentsline {subsection}{1.14.1 La scelta dell'API}{37}{section*.92}\protected@file@percent }
+\newlabel{la-scelta-dellapi}{{}{37}{1.14.1 La scelta dell'API}{section*.92}{}}
+\@writefile{toc}{\contentsline {subsection}{1.14.2 Il codice completo}{37}{section*.93}\protected@file@percent }
+\newlabel{il-codice-completo-2}{{}{37}{1.14.2 Il codice completo}{section*.93}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.14.3 Lettura guidata}{39}{section*.94}\protected@file@percent }
+\newlabel{lettura-guidata-1}{{}{39}{1.14.3 Lettura guidata}{section*.94}{}}
+\@writefile{toc}{\contentsline {subsection}{1.14.4 Gestire gli errori dell'API esterna}{39}{section*.95}\protected@file@percent }
+\newlabel{gestire-gli-errori-dellapi-esterna}{{}{39}{1.14.4 Gestire gli errori dell'API esterna}{section*.95}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.14.5 Provare il server}{40}{section*.96}\protected@file@percent }
+\newlabel{provare-il-server-1}{{}{40}{1.14.5 Provare il server}{section*.96}{}}
+\@writefile{toc}{\contentsline {section}{1.15 Le Risorse}{40}{section*.97}\protected@file@percent }
+\newlabel{le-risorse}{{}{40}{1.15 Le Risorse}{section*.97}{}}
+\@writefile{toc}{\contentsline {subsection}{1.15.1 Una risorsa semplice}{40}{section*.98}\protected@file@percent }
+\newlabel{una-risorsa-semplice}{{}{40}{1.15.1 Una risorsa semplice}{section*.98}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.15.2 I template di risorsa parametrizzati}{41}{section*.99}\protected@file@percent }
+\newlabel{i-template-di-risorsa-parametrizzati}{{}{41}{1.15.2 I template di risorsa parametrizzati}{section*.99}{}}
+\@writefile{toc}{\contentsline {subsection}{1.15.3 Risorse e sottoscrizioni}{41}{section*.100}\protected@file@percent }
+\newlabel{risorse-e-sottoscrizioni}{{}{41}{1.15.3 Risorse e sottoscrizioni}{section*.100}{}}
+\@writefile{toc}{\contentsline {subsection}{1.15.4 Tool o risorsa?}{41}{section*.101}\protected@file@percent }
+\newlabel{tool-o-risorsa}{{}{41}{1.15.4 Tool o risorsa?}{section*.101}{}}
+\gdef \LT@xi {\LT@entry 
+    {3}{111.86002pt}\LT@entry 
+    {3}{111.10004pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.15.5 Il tipo MIME giusto}{42}{section*.102}\protected@file@percent }
+\newlabel{il-tipo-mime-giusto}{{}{42}{1.15.5 Il tipo MIME giusto}{section*.102}{}}
+\@writefile{toc}{\contentsline {section}{1.16 I Prompt}{42}{section*.103}\protected@file@percent }
+\newlabel{i-prompt}{{}{42}{1.16 I Prompt}{section*.103}{}}
+\@writefile{toc}{\contentsline {subsection}{1.16.1 Un prompt semplice}{42}{section*.104}\protected@file@percent }
+\newlabel{un-prompt-semplice}{{}{42}{1.16.1 Un prompt semplice}{section*.104}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.16.2 I prompt con argomenti}{43}{section*.105}\protected@file@percent }
+\newlabel{i-prompt-con-argomenti}{{}{43}{1.16.2 I prompt con argomenti}{section*.105}{}}
+\@writefile{toc}{\contentsline {subsection}{1.16.3 Prompt o tool?}{43}{section*.106}\protected@file@percent }
+\newlabel{prompt-o-tool}{{}{43}{1.16.3 Prompt o tool?}{section*.106}{}}
+\@writefile{toc}{\contentsline {subsection}{1.16.4 Un caso d'uso reale}{43}{section*.107}\protected@file@percent }
+\newlabel{un-caso-duso-reale}{{}{43}{1.16.4 Un caso d'uso reale}{section*.107}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.17 Server HTTP con ASP.NET Core}{44}{section*.108}\protected@file@percent }
+\newlabel{server-http-con-asp.net-core}{{}{44}{1.17 Server HTTP con ASP.NET Core}{section*.108}{}}
+\@writefile{toc}{\contentsline {subsection}{1.17.1 Il pacchetto aggiuntivo}{44}{section*.109}\protected@file@percent }
+\newlabel{il-pacchetto-aggiuntivo}{{}{44}{1.17.1 Il pacchetto aggiuntivo}{section*.109}{}}
+\@writefile{toc}{\contentsline {subsection}{1.17.2 Il codice completo}{44}{section*.110}\protected@file@percent }
+\newlabel{il-codice-completo-3}{{}{44}{1.17.2 Il codice completo}{section*.110}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.17.3 Le differenze rispetto a stdio}{45}{section*.111}\protected@file@percent }
+\newlabel{le-differenze-rispetto-a-stdio}{{}{45}{1.17.3 Le differenze rispetto a stdio}{section*.111}{}}
+\@writefile{toc}{\contentsline {subsection}{1.17.4 Il percorso dell'endpoint}{45}{section*.112}\protected@file@percent }
+\newlabel{il-percorso-dellendpoint}{{}{45}{1.17.4 Il percorso dell'endpoint}{section*.112}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.17.5 Eseguire e provare}{46}{section*.113}\protected@file@percent }
+\newlabel{eseguire-e-provare}{{}{46}{1.17.5 Eseguire e provare}{section*.113}{}}
+\@writefile{toc}{\contentsline {subsection}{1.17.6 Streamable HTTP e modalità stateless}{46}{section*.114}\protected@file@percent }
+\newlabel{streamable-http-e-modalituxe0-stateless}{{}{46}{1.17.6 Streamable HTTP e modalità stateless}{section*.114}{}}
+\@writefile{toc}{\contentsline {subsection}{1.17.7 Coesistere con altre API}{46}{section*.115}\protected@file@percent }
+\newlabel{coesistere-con-altre-api}{{}{46}{1.17.7 Coesistere con altre API}{section*.115}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.18 Configurare i client: Claude Desktop e VS Code}{47}{section*.116}\protected@file@percent }
+\newlabel{configurare-i-client-claude-desktop-e-vs-code}{{}{47}{1.18 Configurare i client: Claude Desktop e VS Code}{section*.116}{}}
+\@writefile{toc}{\contentsline {subsection}{1.18.1 Claude Desktop con un server stdio}{47}{section*.117}\protected@file@percent }
+\newlabel{claude-desktop-con-un-server-stdio}{{}{47}{1.18.1 Claude Desktop con un server stdio}{section*.117}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.18.2 Claude Desktop con un server HTTP}{48}{section*.118}\protected@file@percent }
+\newlabel{claude-desktop-con-un-server-http}{{}{48}{1.18.2 Claude Desktop con un server HTTP}{section*.118}{}}
+\@writefile{toc}{\contentsline {subsection}{1.18.3 Visual Studio Code (GitHub Copilot)}{48}{section*.119}\protected@file@percent }
+\newlabel{visual-studio-code-github-copilot}{{}{48}{1.18.3 Visual Studio Code (GitHub Copilot)}{section*.119}{}}
+\@writefile{toc}{\contentsline {subsection}{1.18.4 Il formato comune}{48}{section*.120}\protected@file@percent }
+\newlabel{il-formato-comune}{{}{48}{1.18.4 Il formato comune}{section*.120}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.18.5 Variabili d'ambiente e segreti}{49}{section*.121}\protected@file@percent }
+\newlabel{variabili-dambiente-e-segreti}{{}{49}{1.18.5 Variabili d'ambiente e segreti}{section*.121}{}}
+\@writefile{toc}{\contentsline {section}{1.19 Testare con MCP Inspector}{49}{section*.122}\protected@file@percent }
+\newlabel{testare-con-mcp-inspector}{{}{49}{1.19 Testare con MCP Inspector}{section*.122}{}}
+\@writefile{toc}{\contentsline {subsection}{1.19.1 Avviare l'Inspector con un server stdio}{49}{section*.123}\protected@file@percent }
+\newlabel{avviare-linspector-con-un-server-stdio}{{}{49}{1.19.1 Avviare l'Inspector con un server stdio}{section*.123}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.19.2 Avviare l'Inspector con un server HTTP}{50}{section*.124}\protected@file@percent }
+\newlabel{avviare-linspector-con-un-server-http}{{}{50}{1.19.2 Avviare l'Inspector con un server HTTP}{section*.124}{}}
+\@writefile{toc}{\contentsline {subsection}{1.19.3 Cosa verificare}{50}{section*.125}\protected@file@percent }
+\newlabel{cosa-verificare}{{}{50}{1.19.3 Cosa verificare}{section*.125}{}}
+\@writefile{toc}{\contentsline {subsection}{1.19.4 Leggere i messaggi grezzi}{50}{section*.126}\protected@file@percent }
+\newlabel{leggere-i-messaggi-grezzi}{{}{50}{1.19.4 Leggere i messaggi grezzi}{section*.126}{}}
+\@writefile{toc}{\contentsline {subsection}{1.19.5 L'Inspector come strumento di sviluppo quotidiano}{50}{section*.127}\protected@file@percent }
+\newlabel{linspector-come-strumento-di-sviluppo-quotidiano}{{}{50}{1.19.5 L'Inspector come strumento di sviluppo quotidiano}{section*.127}{}}
+\gdef \LT@xii {\LT@entry 
+    {1}{138.63162pt}\LT@entry 
+    {1}{51.30132pt}\LT@entry 
+    {1}{153.34953pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{1.20 Errori, logging e best practice}{51}{section*.128}\protected@file@percent }
+\newlabel{errori-logging-e-best-practice}{{}{51}{1.20 Errori, logging e best practice}{section*.128}{}}
+\@writefile{toc}{\contentsline {subsection}{1.20.1 Gestire gli errori nei tool}{51}{section*.129}\protected@file@percent }
+\newlabel{gestire-gli-errori-nei-tool}{{}{51}{1.20.1 Gestire gli errori nei tool}{section*.129}{}}
+\@writefile{toc}{\contentsline {subsection}{1.20.2 Gli errori JSON-RPC di protocollo}{51}{section*.130}\protected@file@percent }
+\newlabel{gli-errori-json-rpc-di-protocollo}{{}{51}{1.20.2 Gli errori JSON-RPC di protocollo}{section*.130}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.20.3 Validare gli argomenti in ingresso}{52}{section*.131}\protected@file@percent }
+\newlabel{validare-gli-argomenti-in-ingresso}{{}{52}{1.20.3 Validare gli argomenti in ingresso}{section*.131}{}}
+\@writefile{toc}{\contentsline {subsection}{1.20.4 Il logging: dove e come}{52}{section*.132}\protected@file@percent }
+\newlabel{il-logging-dove-e-come}{{}{52}{1.20.4 Il logging: dove e come}{section*.132}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.20.5 Dipendenze e testabilità}{53}{section*.133}\protected@file@percent }
+\newlabel{dipendenze-e-testabilituxe0}{{}{53}{1.20.5 Dipendenze e testabilità}{section*.133}{}}
+\@writefile{toc}{\contentsline {subsection}{1.20.6 Naming e coerenza}{53}{section*.134}\protected@file@percent }
+\newlabel{naming-e-coerenza}{{}{53}{1.20.6 Naming e coerenza}{section*.134}{}}
+\@writefile{toc}{\contentsline {subsection}{1.20.7 Piccole cose che fanno la differenza}{53}{section*.135}\protected@file@percent }
+\newlabel{piccole-cose-che-fanno-la-differenza}{{}{53}{1.20.7 Piccole cose che fanno la differenza}{section*.135}{}}
+\@writefile{toc}{\contentsline {subsection}{1.21.1 Risoluzione dei problemi comuni}{53}{section*.136}\protected@file@percent }
+\newlabel{risoluzione-dei-problemi-comuni}{{}{53}{1.21.1 Risoluzione dei problemi comuni}{section*.136}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Il server ``non risponde'' (stdio)}{53}{section*.137}\protected@file@percent }
+\newlabel{il-server-non-risponde-stdio}{{}{53}{Il server ``non risponde'' (stdio)}{section*.137}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsubsection}{``Unknown tool: `X'\,''}{54}{section*.138}\protected@file@percent }
+\newlabel{unknown-tool-x}{{}{54}{``Unknown tool: `X'\,''}{section*.138}{}}
+\@writefile{toc}{\contentsline {subsubsection}{``MCP server process exited unexpectedly''}{54}{section*.139}\protected@file@percent }
+\newlabel{mcp-server-process-exited-unexpectedly}{{}{54}{``MCP server process exited unexpectedly''}{section*.139}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsubsection}{Errore di versione del protocollo (-32022)}{55}{section*.140}\protected@file@percent }
+\newlabel{errore-di-versione-del-protocollo--32022}{{}{55}{Errore di versione del protocollo (-32022)}{section*.140}{}}
+\@writefile{toc}{\contentsline {subsubsection}{``Porta già in uso'' (server HTTP)}{55}{section*.141}\protected@file@percent }
+\newlabel{porta-giuxe0-in-uso-server-http}{{}{55}{``Porta già in uso'' (server HTTP)}{section*.141}{}}
+\@writefile{toc}{\contentsline {subsubsection}{L'Inspector non si connette}{55}{section*.142}\protected@file@percent }
+\newlabel{linspector-non-si-connette}{{}{55}{L'Inspector non si connette}{section*.142}{}}
+\@writefile{toc}{\contentsline {subsubsection}{``API non trovata'' dopo un aggiornamento}{55}{section*.143}\protected@file@percent }
+\newlabel{api-non-trovata-dopo-un-aggiornamento}{{}{55}{``API non trovata'' dopo un aggiornamento}{section*.143}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Metodo di diagnosi universale}{55}{section*.144}\protected@file@percent }
+\newlabel{metodo-di-diagnosi-universale}{{}{55}{Metodo di diagnosi universale}{section*.144}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.21.2 Scrivere un client .NET}{56}{section*.145}\protected@file@percent }
+\newlabel{scrivere-un-client-.net}{{}{56}{1.21.2 Scrivere un client .NET}{section*.145}{}}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.1 I pacchetti lato client}{56}{section*.146}\protected@file@percent }
+\newlabel{i-pacchetti-lato-client}{{}{56}{1.21.2.1 I pacchetti lato client}{section*.146}{}}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.2 Connettere un client a un server stdio}{56}{section*.147}\protected@file@percent }
+\newlabel{connettere-un-client-a-un-server-stdio}{{}{56}{1.21.2.2 Connettere un client a un server stdio}{section*.147}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.3 Invocare un tool}{57}{section*.148}\protected@file@percent }
+\newlabel{invocare-un-tool}{{}{57}{1.21.2.3 Invocare un tool}{section*.148}{}}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.4 Connettere un client a un server HTTP}{57}{section*.149}\protected@file@percent }
+\newlabel{connettere-un-client-a-un-server-http}{{}{57}{1.21.2.4 Connettere un client a un server HTTP}{section*.149}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.5 Un client per i test}{58}{section*.150}\protected@file@percent }
+\newlabel{un-client-per-i-test}{{}{58}{1.21.2.5 Un client per i test}{section*.150}{}}
+\@writefile{toc}{\contentsline {subsubsection}{1.21.2.6 Client e server nello stesso ecosistema}{58}{section*.151}\protected@file@percent }
+\newlabel{client-e-server-nello-stesso-ecosistema}{{}{58}{1.21.2.6 Client e server nello stesso ecosistema}{section*.151}{}}
+\@writefile{toc}{\contentsline {section}{1.21 Sicurezza e operatività}{58}{section*.152}\protected@file@percent }
+\newlabel{sicurezza-e-operativituxe0}{{}{58}{1.21 Sicurezza e operatività}{section*.152}{}}
+\@writefile{toc}{\contentsline {subsection}{Il principio del minimo privilegio}{58}{section*.153}\protected@file@percent }
+\newlabel{il-principio-del-minimo-privilegio}{{}{58}{Il principio del minimo privilegio}{section*.153}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{La minaccia della prompt injection}{59}{section*.154}\protected@file@percent }
+\newlabel{la-minaccia-della-prompt-injection}{{}{59}{La minaccia della prompt injection}{section*.154}{}}
+\@writefile{toc}{\contentsline {subsection}{Autenticazione e autorizzazione}{59}{section*.155}\protected@file@percent }
+\newlabel{autenticazione-e-autorizzazione}{{}{59}{Autenticazione e autorizzazione}{section*.155}{}}
+\@writefile{toc}{\contentsline {subsection}{Segreti e configurazione}{59}{section*.156}\protected@file@percent }
+\newlabel{segreti-e-configurazione}{{}{59}{Segreti e configurazione}{section*.156}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Controllare l'esposizione di rete}{60}{section*.157}\protected@file@percent }
+\newlabel{controllare-lesposizione-di-rete}{{}{60}{Controllare l'esposizione di rete}{section*.157}{}}
+\@writefile{toc}{\contentsline {subsection}{Checklist di sicurezza}{60}{section*.158}\protected@file@percent }
+\newlabel{checklist-di-sicurezza}{{}{60}{Checklist di sicurezza}{section*.158}{}}
+\@writefile{toc}{\contentsline {section}{1.22 Riepilogo, glossario ed esercizi}{60}{section*.159}\protected@file@percent }
+\newlabel{riepilogo-glossario-ed-esercizi}{{}{60}{1.22 Riepilogo, glossario ed esercizi}{section*.159}{}}
+\@writefile{toc}{\contentsline {subsection}{1.22.1 Riepilogo}{60}{section*.160}\protected@file@percent }
+\newlabel{riepilogo}{{}{60}{1.22.1 Riepilogo}{section*.160}{}}
+\gdef \LT@xiii {\LT@entry 
+    {1}{141.5288pt}\LT@entry 
+    {1}{201.7537pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.22.2 Glossario}{61}{section*.161}\protected@file@percent }
+\newlabel{glossario}{{}{61}{1.22.2 Glossario}{section*.161}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{1.22.3 Esercizi proposti}{62}{section*.162}\protected@file@percent }
+\newlabel{esercizi-proposti}{{}{62}{1.22.3 Esercizi proposti}{section*.162}{}}
+\@writefile{toc}{\contentsline {subsection}{1.22.4 Nel prossimo capitolo}{62}{section*.163}\protected@file@percent }
+\newlabel{nel-prossimo-capitolo}{{}{62}{1.22.4 Nel prossimo capitolo}{section*.163}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {chapter}{Capitolo 2}{63}{chapter*.164}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{capitolo-2}{{}{63}{Capitolo 2}{chapter*.164}{}}
+\@writefile{toc}{\contentsline {section}{Un MCP Server con Entity Framework Core: dati, query e primitivi avanzati}{63}{section*.165}\protected@file@percent }
+\newlabel{un-mcp-server-con-entity-framework-core-dati-query-e-primitivi-avanzati}{{}{63}{Un MCP Server con Entity Framework Core: dati, query e primitivi avanzati}{section*.165}{}}
+\@writefile{toc}{\contentsline {subsection}{Cosa imparerai in questo capitolo}{63}{section*.166}\protected@file@percent }
+\newlabel{cosa-imparerai-in-questo-capitolo-1}{{}{63}{Cosa imparerai in questo capitolo}{section*.166}{}}
+\@writefile{toc}{\contentsline {subsection}{Prerequisiti}{63}{section*.167}\protected@file@percent }
+\newlabel{prerequisiti-1}{{}{63}{Prerequisiti}{section*.167}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Convenzioni}{64}{section*.168}\protected@file@percent }
+\newlabel{convenzioni}{{}{64}{Convenzioni}{section*.168}{}}
+\@writefile{toc}{\contentsline {section}{2.1 Perché un database in un MCP server}{64}{section*.169}\protected@file@percent }
+\newlabel{perchuxe9-un-database-in-un-mcp-server}{{}{64}{2.1 Perché un database in un MCP server}{section*.169}{}}
+\@writefile{toc}{\contentsline {subsection}{2.1.1 Cosa chiede un agente a un database}{64}{section*.170}\protected@file@percent }
+\newlabel{cosa-chiede-un-agente-a-un-database}{{}{64}{2.1.1 Cosa chiede un agente a un database}{section*.170}{}}
+\@writefile{toc}{\contentsline {subsection}{2.1.2 Il ruolo del MCP server}{64}{section*.171}\protected@file@percent }
+\newlabel{il-ruolo-del-mcp-server}{{}{64}{2.1.2 Il ruolo del MCP server}{section*.171}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.1.3 Perché Entity Framework Core}{65}{section*.172}\protected@file@percent }
+\newlabel{perchuxe9-entity-framework-core}{{}{65}{2.1.3 Perché Entity Framework Core}{section*.172}{}}
+\@writefile{toc}{\contentsline {subsection}{2.1.4 La sfida specifica di MCP: il lifetime del DbContext}{65}{section*.173}\protected@file@percent }
+\newlabel{la-sfida-specifica-di-mcp-il-lifetime-del-dbcontext}{{}{65}{2.1.4 La sfida specifica di MCP: il lifetime del DbContext}{section*.173}{}}
+\@writefile{toc}{\contentsline {subsection}{2.1.5 La mappa del capitolo}{65}{section*.174}\protected@file@percent }
+\newlabel{la-mappa-del-capitolo}{{}{65}{2.1.5 La mappa del capitolo}{section*.174}{}}
+\@writefile{toc}{\contentsline {section}{2.2 Entity Framework Core in sintesi}{65}{section*.175}\protected@file@percent }
+\newlabel{entity-framework-core-in-sintesi}{{}{65}{2.2 Entity Framework Core in sintesi}{section*.175}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.2.1 Cos'è un ORM}{66}{section*.176}\protected@file@percent }
+\newlabel{cosuxe8-un-orm}{{}{66}{2.2.1 Cos'è un ORM}{section*.176}{}}
+\@writefile{toc}{\contentsline {subsection}{2.2.2 Le entità}{66}{section*.177}\protected@file@percent }
+\newlabel{le-entituxe0}{{}{66}{2.2.2 Le entità}{section*.177}{}}
+\@writefile{toc}{\contentsline {subsection}{2.2.3 Il DbContext}{66}{section*.178}\protected@file@percent }
+\newlabel{il-dbcontext}{{}{66}{2.2.3 Il DbContext}{section*.178}{}}
+\@writefile{toc}{\contentsline {subsection}{2.2.4 Le query LINQ}{66}{section*.179}\protected@file@percent }
+\newlabel{le-query-linq}{{}{66}{2.2.4 Le query LINQ}{section*.179}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.2.5 Le operazioni di scrittura}{67}{section*.180}\protected@file@percent }
+\newlabel{le-operazioni-di-scrittura}{{}{67}{2.2.5 Le operazioni di scrittura}{section*.180}{}}
+\@writefile{toc}{\contentsline {subsection}{2.2.6 I provider}{67}{section*.181}\protected@file@percent }
+\newlabel{i-provider}{{}{67}{2.2.6 I provider}{section*.181}{}}
+\@writefile{toc}{\contentsline {subsection}{2.2.7 La configurazione tramite DI}{67}{section*.182}\protected@file@percent }
+\newlabel{la-configurazione-tramite-di}{{}{67}{2.2.7 La configurazione tramite DI}{section*.182}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{2.3 Il dominio di esempio: un catalogo prodotti}{68}{section*.183}\protected@file@percent }
+\newlabel{il-dominio-di-esempio-un-catalogo-prodotti}{{}{68}{2.3 Il dominio di esempio: un catalogo prodotti}{section*.183}{}}
+\@writefile{toc}{\contentsline {subsection}{2.3.1 Il modello concettuale}{68}{section*.184}\protected@file@percent }
+\newlabel{il-modello-concettuale}{{}{68}{2.3.1 Il modello concettuale}{section*.184}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Relazione uno-a-molti tra \texttt {Category} e \texttt {Product}}}{68}{figure.caption.185}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{2.3.2 Le entità C\#}{68}{section*.186}\protected@file@percent }
+\newlabel{le-entituxe0-c}{{}{68}{2.3.2 Le entità C\#}{section*.186}{}}
+\gdef \LT@xiv {\LT@entry 
+    {1}{82.62955pt}\LT@entry 
+    {1}{88.62955pt}\LT@entry 
+    {1}{172.02826pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.3.3 Cosa esporremo come tool}{69}{section*.187}\protected@file@percent }
+\newlabel{cosa-esporremo-come-tool}{{}{69}{2.3.3 Cosa esporremo come tool}{section*.187}{}}
+\@writefile{toc}{\contentsline {subsection}{2.3.4 Il tipo di ritorno: un DTO}{69}{section*.188}\protected@file@percent }
+\newlabel{il-tipo-di-ritorno-un-dto}{{}{69}{2.3.4 Il tipo di ritorno: un DTO}{section*.188}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.3.5 Il principio guida del capitolo}{70}{section*.189}\protected@file@percent }
+\newlabel{il-principio-guida-del-capitolo}{{}{70}{2.3.5 Il principio guida del capitolo}{section*.189}{}}
+\@writefile{toc}{\contentsline {section}{2.4 Setup del progetto e pacchetti}{70}{section*.190}\protected@file@percent }
+\newlabel{setup-del-progetto-e-pacchetti}{{}{70}{2.4 Setup del progetto e pacchetti}{section*.190}{}}
+\@writefile{toc}{\contentsline {subsection}{2.4.1 Creare il progetto}{70}{section*.191}\protected@file@percent }
+\newlabel{creare-il-progetto}{{}{70}{2.4.1 Creare il progetto}{section*.191}{}}
+\@writefile{toc}{\contentsline {subsection}{2.4.2 Aggiungere i pacchetti}{70}{section*.192}\protected@file@percent }
+\newlabel{aggiungere-i-pacchetti}{{}{70}{2.4.2 Aggiungere i pacchetti}{section*.192}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.4.3 Il file di progetto risultante}{71}{section*.193}\protected@file@percent }
+\newlabel{il-file-di-progetto-risultante}{{}{71}{2.4.3 Il file di progetto risultante}{section*.193}{}}
+\@writefile{toc}{\contentsline {subsection}{2.4.4 Installare gli strumenti EF Core (una tantum)}{71}{section*.194}\protected@file@percent }
+\newlabel{installare-gli-strumenti-ef-core-una-tantum}{{}{71}{2.4.4 Installare gli strumenti EF Core (una tantum)}{section*.194}{}}
+\@writefile{toc}{\contentsline {subsection}{2.4.5 Verificare la compilazione}{71}{section*.195}\protected@file@percent }
+\newlabel{verificare-la-compilazione}{{}{71}{2.4.5 Verificare la compilazione}{section*.195}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{2.5 Entità e DbContext}{72}{section*.196}\protected@file@percent }
+\newlabel{entituxe0-e-dbcontext}{{}{72}{2.5 Entità e DbContext}{section*.196}{}}
+\@writefile{toc}{\contentsline {subsection}{2.5.1 Le entità}{72}{section*.197}\protected@file@percent }
+\newlabel{le-entituxe0-1}{{}{72}{2.5.1 Le entità}{section*.197}{}}
+\@writefile{toc}{\contentsline {subsection}{2.5.2 Il DbContext}{72}{section*.198}\protected@file@percent }
+\newlabel{il-dbcontext-1}{{}{72}{2.5.2 Il DbContext}{section*.198}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.5.3 La configurazione del modello}{73}{section*.199}\protected@file@percent }
+\newlabel{la-configurazione-del-modello}{{}{73}{2.5.3 La configurazione del modello}{section*.199}{}}
+\@writefile{toc}{\contentsline {subsection}{2.5.4 Un vincolo utile: il nome categoria univoco}{73}{section*.200}\protected@file@percent }
+\newlabel{un-vincolo-utile-il-nome-categoria-univoco}{{}{73}{2.5.4 Un vincolo utile: il nome categoria univoco}{section*.200}{}}
+\@writefile{toc}{\contentsline {subsection}{2.5.5 Perché \texttt  {required} e nullable}{73}{section*.201}\protected@file@percent }
+\newlabel{perchuxe9-required-e-nullable}{{}{73}{\texorpdfstring {2.5.5 Perché \texttt {required} e nullable}{2.5.5 Perché required e nullable}}{section*.201}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.5.6 Il prossimo passo}{74}{section*.202}\protected@file@percent }
+\newlabel{il-prossimo-passo}{{}{74}{2.5.6 Il prossimo passo}{section*.202}{}}
+\@writefile{toc}{\contentsline {section}{2.6 Connessione e creazione del database}{74}{section*.203}\protected@file@percent }
+\newlabel{connessione-e-creazione-del-database}{{}{74}{2.6 Connessione e creazione del database}{section*.203}{}}
+\@writefile{toc}{\contentsline {subsection}{2.6.1 La stringa di connessione}{74}{section*.204}\protected@file@percent }
+\newlabel{la-stringa-di-connessione}{{}{74}{2.6.1 La stringa di connessione}{section*.204}{}}
+\@writefile{toc}{\contentsline {subsection}{2.6.2 AddDbContextFactory}{74}{section*.205}\protected@file@percent }
+\newlabel{adddbcontextfactory}{{}{74}{2.6.2 AddDbContextFactory}{section*.205}{}}
+\@writefile{toc}{\contentsline {subsection}{2.6.3 Creare lo schema con EnsureCreated}{74}{section*.206}\protected@file@percent }
+\newlabel{creare-lo-schema-con-ensurecreated}{{}{74}{2.6.3 Creare lo schema con EnsureCreated}{section*.206}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.6.4 Seed dei dati di esempio}{75}{section*.207}\protected@file@percent }
+\newlabel{seed-dei-dati-di-esempio}{{}{75}{2.6.4 Seed dei dati di esempio}{section*.207}{}}
+\@writefile{toc}{\contentsline {subsection}{2.6.5 Dove mettere questa inizializzazione}{75}{section*.208}\protected@file@percent }
+\newlabel{dove-mettere-questa-inizializzazione}{{}{75}{2.6.5 Dove mettere questa inizializzazione}{section*.208}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{2.7 Le migrazioni}{76}{section*.209}\protected@file@percent }
+\newlabel{le-migrazioni}{{}{76}{2.7 Le migrazioni}{section*.209}{}}
+\@writefile{toc}{\contentsline {subsection}{2.7.1 Come funzionano}{76}{section*.210}\protected@file@percent }
+\newlabel{come-funzionano}{{}{76}{2.7.1 Come funzionano}{section*.210}{}}
+\@writefile{toc}{\contentsline {subsection}{2.7.2 Creare la prima migrazione}{76}{section*.211}\protected@file@percent }
+\newlabel{creare-la-prima-migrazione}{{}{76}{2.7.2 Creare la prima migrazione}{section*.211}{}}
+\@writefile{toc}{\contentsline {subsection}{2.7.3 Applicare la migrazione}{76}{section*.212}\protected@file@percent }
+\newlabel{applicare-la-migrazione}{{}{76}{2.7.3 Applicare la migrazione}{section*.212}{}}
+\@writefile{toc}{\contentsline {subsection}{2.7.4 Il ciclo di lavoro quotidiano}{76}{section*.213}\protected@file@percent }
+\newlabel{il-ciclo-di-lavoro-quotidiano}{{}{76}{2.7.4 Il ciclo di lavoro quotidiano}{section*.213}{}}
+\gdef \LT@xv {\LT@entry 
+    {1}{140.09805pt}\LT@entry 
+    {3}{95.01169pt}\LT@entry 
+    {3}{108.17273pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.7.5 Migrazioni vs EnsureCreated}{77}{section*.214}\protected@file@percent }
+\newlabel{migrazioni-vs-ensurecreated}{{}{77}{2.7.5 Migrazioni vs EnsureCreated}{section*.214}{}}
+\@writefile{toc}{\contentsline {subsection}{2.7.6 Migrazioni e server MCP}{77}{section*.215}\protected@file@percent }
+\newlabel{migrazioni-e-server-mcp}{{}{77}{2.7.6 Migrazioni e server MCP}{section*.215}{}}
+\@writefile{toc}{\contentsline {section}{2.8 I tool di lettura}{77}{section*.216}\protected@file@percent }
+\newlabel{i-tool-di-lettura}{{}{77}{2.8 I tool di lettura}{section*.216}{}}
+\@writefile{toc}{\contentsline {subsection}{2.8.1 La classe dei tool}{77}{section*.217}\protected@file@percent }
+\newlabel{la-classe-dei-tool}{{}{77}{2.8.1 La classe dei tool}{section*.217}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.8.2 Elencare i prodotti}{78}{section*.218}\protected@file@percent }
+\newlabel{elencare-i-prodotti}{{}{78}{2.8.2 Elencare i prodotti}{section*.218}{}}
+\@writefile{toc}{\contentsline {subsection}{2.8.3 Cercare per nome}{78}{section*.219}\protected@file@percent }
+\newlabel{cercare-per-nome}{{}{78}{2.8.3 Cercare per nome}{section*.219}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.8.4 Ottenere un singolo prodotto}{79}{section*.220}\protected@file@percent }
+\newlabel{ottenere-un-singolo-prodotto}{{}{79}{2.8.4 Ottenere un singolo prodotto}{section*.220}{}}
+\@writefile{toc}{\contentsline {subsection}{2.8.5 Schema generato}{79}{section*.221}\protected@file@percent }
+\newlabel{schema-generato}{{}{79}{2.8.5 Schema generato}{section*.221}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.8.6 Un'osservazione sulle performance}{80}{section*.222}\protected@file@percent }
+\newlabel{unosservazione-sulle-performance}{{}{80}{2.8.6 Un'osservazione sulle performance}{section*.222}{}}
+\@writefile{toc}{\contentsline {section}{2.9 I tool di scrittura}{80}{section*.223}\protected@file@percent }
+\newlabel{i-tool-di-scrittura}{{}{80}{2.9 I tool di scrittura}{section*.223}{}}
+\@writefile{toc}{\contentsline {subsection}{2.9.1 Creare un prodotto}{80}{section*.224}\protected@file@percent }
+\newlabel{creare-un-prodotto}{{}{80}{2.9.1 Creare un prodotto}{section*.224}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.9.2 Cancellare un prodotto}{81}{section*.225}\protected@file@percent }
+\newlabel{cancellare-un-prodotto}{{}{81}{2.9.2 Cancellare un prodotto}{section*.225}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.9.3 Gestire i vincoli del database}{82}{section*.226}\protected@file@percent }
+\newlabel{gestire-i-vincoli-del-database}{{}{82}{2.9.3 Gestire i vincoli del database}{section*.226}{}}
+\@writefile{toc}{\contentsline {subsection}{2.9.4 Un tool di aggiornamento}{82}{section*.227}\protected@file@percent }
+\newlabel{un-tool-di-aggiornamento}{{}{82}{2.9.4 Un tool di aggiornamento}{section*.227}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.9.5 Validazione degli input}{83}{section*.228}\protected@file@percent }
+\newlabel{validazione-degli-input}{{}{83}{2.9.5 Validazione degli input}{section*.228}{}}
+\@writefile{toc}{\contentsline {section}{2.10 Il pattern IDbContextFactory}{83}{section*.229}\protected@file@percent }
+\newlabel{il-pattern-idbcontextfactory}{{}{83}{2.10 Il pattern IDbContextFactory}{section*.229}{}}
+\@writefile{toc}{\contentsline {subsection}{2.10.1 Il problema del DbContext condiviso}{83}{section*.230}\protected@file@percent }
+\newlabel{il-problema-del-dbcontext-condiviso}{{}{83}{2.10.1 Il problema del DbContext condiviso}{section*.230}{}}
+\gdef \LT@xvi {\LT@entry 
+    {1}{64.04338pt}\LT@entry 
+    {1}{166.78886pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.10.2 La soluzione: una factory}{84}{section*.231}\protected@file@percent }
+\newlabel{la-soluzione-una-factory}{{}{84}{2.10.2 La soluzione: una factory}{section*.231}{}}
+\@writefile{toc}{\contentsline {subsection}{2.10.3 Perché funziona bene con MCP}{84}{section*.232}\protected@file@percent }
+\newlabel{perchuxe9-funziona-bene-con-mcp}{{}{84}{2.10.3 Perché funziona bene con MCP}{section*.232}{}}
+\@writefile{toc}{\contentsline {subsection}{2.10.4 Factory vs contesto diretto}{84}{section*.233}\protected@file@percent }
+\newlabel{factory-vs-contesto-diretto}{{}{84}{2.10.4 Factory vs contesto diretto}{section*.233}{}}
+\@writefile{toc}{\contentsline {subsection}{2.10.5 Un'alternativa valida: il contesto ``short-lived'' per tool}{84}{section*.234}\protected@file@percent }
+\newlabel{unalternativa-valida-il-contesto-short-lived-per-tool}{{}{84}{2.10.5 Un'alternativa valida: il contesto ``short-lived'' per tool}{section*.234}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.10.6 Cosa ricordare}{85}{section*.235}\protected@file@percent }
+\newlabel{cosa-ricordare}{{}{85}{2.10.6 Cosa ricordare}{section*.235}{}}
+\@writefile{toc}{\contentsline {section}{2.11 Il server stdio completo}{85}{section*.236}\protected@file@percent }
+\newlabel{il-server-stdio-completo}{{}{85}{2.11 Il server stdio completo}{section*.236}{}}
+\@writefile{toc}{\contentsline {subsection}{2.11.1 Il codice completo}{85}{section*.237}\protected@file@percent }
+\newlabel{il-codice-completo-4}{{}{85}{2.11.1 Il codice completo}{section*.237}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.11.2 Eseguire e provare}{89}{section*.238}\protected@file@percent }
+\newlabel{eseguire-e-provare-1}{{}{89}{2.11.2 Eseguire e provare}{section*.238}{}}
+\@writefile{toc}{\contentsline {subsection}{2.11.3 Osservazioni sul codice completo}{89}{section*.239}\protected@file@percent }
+\newlabel{osservazioni-sul-codice-completo}{{}{89}{2.11.3 Osservazioni sul codice completo}{section*.239}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.11.4 Separare i file}{90}{section*.240}\protected@file@percent }
+\newlabel{separare-i-file}{{}{90}{2.11.4 Separare i file}{section*.240}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Struttura consigliata del progetto \texttt {CatalogMcpServer}}}{90}{figure.caption.241}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{2.12 Il server HTTP completo}{90}{section*.242}\protected@file@percent }
+\newlabel{il-server-http-completo}{{}{90}{2.12 Il server HTTP completo}{section*.242}{}}
+\@writefile{toc}{\contentsline {subsection}{2.12.1 Il pacchetto aggiuntivo}{90}{section*.243}\protected@file@percent }
+\newlabel{il-pacchetto-aggiuntivo-1}{{}{90}{2.12.1 Il pacchetto aggiuntivo}{section*.243}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.12.2 Le differenze rispetto a stdio}{91}{section*.244}\protected@file@percent }
+\newlabel{le-differenze-rispetto-a-stdio-1}{{}{91}{2.12.2 Le differenze rispetto a stdio}{section*.244}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.12.3 Avviare e collegare}{92}{section*.245}\protected@file@percent }
+\newlabel{avviare-e-collegare}{{}{92}{2.12.3 Avviare e collegare}{section*.245}{}}
+\@writefile{toc}{\contentsline {subsection}{2.12.4 Considerazioni per il database in HTTP}{92}{section*.246}\protected@file@percent }
+\newlabel{considerazioni-per-il-database-in-http}{{}{92}{2.12.4 Considerazioni per il database in HTTP}{section*.246}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.12.5 Un consiglio di architettura}{93}{section*.247}\protected@file@percent }
+\newlabel{un-consiglio-di-architettura}{{}{93}{2.12.5 Un consiglio di architettura}{section*.247}{}}
+\@writefile{toc}{\contentsline {section}{2.13 Testare il server con l'MCP Inspector}{93}{section*.248}\protected@file@percent }
+\newlabel{testare-il-server-con-lmcp-inspector}{{}{93}{2.13 Testare il server con l'MCP Inspector}{section*.248}{}}
+\@writefile{toc}{\contentsline {subsection}{2.13.1 Avviare l'Inspector}{93}{section*.249}\protected@file@percent }
+\newlabel{avviare-linspector}{{}{93}{2.13.1 Avviare l'Inspector}{section*.249}{}}
+\@writefile{toc}{\contentsline {subsection}{2.13.2 La sequenza di collaudo}{93}{section*.250}\protected@file@percent }
+\newlabel{la-sequenza-di-collaudo}{{}{93}{2.13.2 La sequenza di collaudo}{section*.250}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.13.3 Cosa osservare negli errori}{94}{section*.251}\protected@file@percent }
+\newlabel{cosa-osservare-negli-errori}{{}{94}{2.13.3 Cosa osservare negli errori}{section*.251}{}}
+\@writefile{toc}{\contentsline {subsection}{2.13.4 Testare la persistenza attraverso il riavvio}{94}{section*.252}\protected@file@percent }
+\newlabel{testare-la-persistenza-attraverso-il-riavvio}{{}{94}{2.13.4 Testare la persistenza attraverso il riavvio}{section*.252}{}}
+\@writefile{toc}{\contentsline {subsection}{2.13.5 Test automatici con un client .NET}{94}{section*.253}\protected@file@percent }
+\newlabel{test-automatici-con-un-client-.net}{{}{94}{2.13.5 Test automatici con un client .NET}{section*.253}{}}
+\@writefile{toc}{\contentsline {section}{2.14 Primitivi avanzati: il Progress}{94}{section*.254}\protected@file@percent }
+\newlabel{primitivi-avanzati-il-progress}{{}{94}{2.14 Primitivi avanzati: il Progress}{section*.254}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.14.1 Il meccanismo}{95}{section*.255}\protected@file@percent }
+\newlabel{il-meccanismo}{{}{95}{2.14.1 Il meccanismo}{section*.255}{}}
+\@writefile{toc}{\contentsline {subsection}{2.14.2 Un tool con progress}{95}{section*.256}\protected@file@percent }
+\newlabel{un-tool-con-progress}{{}{95}{2.14.2 Un tool con progress}{section*.256}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.14.3 Perché è utile}{96}{section*.257}\protected@file@percent }
+\newlabel{perchuxe9-uxe8-utile}{{}{96}{2.14.3 Perché è utile}{section*.257}{}}
+\@writefile{toc}{\contentsline {subsection}{2.14.4 Una nota sul token}{96}{section*.258}\protected@file@percent }
+\newlabel{una-nota-sul-token}{{}{96}{2.14.4 Una nota sul token}{section*.258}{}}
+\@writefile{toc}{\contentsline {section}{2.15 Riepilogo, glossario ed esercizi}{96}{section*.259}\protected@file@percent }
+\newlabel{riepilogo-glossario-ed-esercizi-1}{{}{96}{2.15 Riepilogo, glossario ed esercizi}{section*.259}{}}
+\@writefile{toc}{\contentsline {subsection}{2.15.1 Riepilogo}{96}{section*.260}\protected@file@percent }
+\newlabel{riepilogo-1}{{}{96}{2.15.1 Riepilogo}{section*.260}{}}
+\gdef \LT@xvii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{2.15.2 Glossario}{97}{section*.261}\protected@file@percent }
+\newlabel{glossario-1}{{}{97}{2.15.2 Glossario}{section*.261}{}}
+\@writefile{toc}{\contentsline {subsection}{2.15.3 Esercizi proposti}{97}{section*.262}\protected@file@percent }
+\newlabel{esercizi-proposti-1}{{}{97}{2.15.3 Esercizi proposti}{section*.262}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {chapter}{Capitolo 3}{99}{chapter*.263}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{capitolo-3}{{}{99}{Capitolo 3}{chapter*.263}{}}
+\@writefile{toc}{\contentsline {section}{GitHub Spec Kit: sviluppo guidato dalle specifiche con esempi in C\#}{99}{section*.264}\protected@file@percent }
+\newlabel{github-spec-kit-sviluppo-guidato-dalle-specifiche-con-esempi-in-c}{{}{99}{GitHub Spec Kit: sviluppo guidato dalle specifiche con esempi in C\#}{section*.264}{}}
+\@writefile{toc}{\contentsline {subsection}{Cosa imparerai in questo capitolo}{99}{section*.265}\protected@file@percent }
+\newlabel{cosa-imparerai-in-questo-capitolo-2}{{}{99}{Cosa imparerai in questo capitolo}{section*.265}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Prerequisiti}{100}{section*.266}\protected@file@percent }
+\newlabel{prerequisiti-2}{{}{100}{Prerequisiti}{section*.266}{}}
+\@writefile{toc}{\contentsline {subsection}{Una nota sulla versione}{100}{section*.267}\protected@file@percent }
+\newlabel{una-nota-sulla-versione}{{}{100}{Una nota sulla versione}{section*.267}{}}
+\@writefile{toc}{\contentsline {section}{3.1 Lo spec-driven development: invertire la piramide}{100}{section*.268}\protected@file@percent }
+\newlabel{lo-spec-driven-development-invertire-la-piramide}{{}{100}{3.1 Lo spec-driven development: invertire la piramide}{section*.268}{}}
+\@writefile{toc}{\contentsline {subsection}{3.1.1 Il potere invertito}{100}{section*.269}\protected@file@percent }
+\newlabel{il-potere-invertito}{{}{100}{3.1.1 Il potere invertito}{section*.269}{}}
+\@writefile{toc}{\contentsline {subsection}{3.1.2 Perché proprio adesso}{100}{section*.270}\protected@file@percent }
+\newlabel{perchuxe9-proprio-adesso}{{}{100}{3.1.2 Perché proprio adesso}{section*.270}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.1.3 L'idea in una frase}{101}{section*.271}\protected@file@percent }
+\newlabel{lidea-in-una-frase}{{}{101}{3.1.3 L'idea in una frase}{section*.271}{}}
+\@writefile{toc}{\contentsline {subsection}{3.1.4 Il flusso SDD in pratica}{101}{section*.272}\protected@file@percent }
+\newlabel{il-flusso-sdd-in-pratica}{{}{101}{3.1.4 Il flusso SDD in pratica}{section*.272}{}}
+\@writefile{toc}{\contentsline {subsection}{3.1.5 Il ruolo dei template}{101}{section*.273}\protected@file@percent }
+\newlabel{il-ruolo-dei-template}{{}{101}{3.1.5 Il ruolo dei template}{section*.273}{}}
+\gdef \LT@xviii {\LT@entry 
+    {1}{139.04573pt}\LT@entry 
+    {1}{100.69716pt}\LT@entry 
+    {1}{103.57368pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.1.6 Cosa NON è lo SDD}{102}{section*.274}\protected@file@percent }
+\newlabel{cosa-non-uxe8-lo-sdd}{{}{102}{3.1.6 Cosa NON è lo SDD}{section*.274}{}}
+\@writefile{toc}{\contentsline {section}{3.2 Cos'è GitHub Spec Kit}{102}{section*.275}\protected@file@percent }
+\newlabel{cosuxe8-github-spec-kit}{{}{102}{3.2 Cos'è GitHub Spec Kit}{section*.275}{}}
+\@writefile{toc}{\contentsline {subsection}{3.2.1 I tre processi pronti all'uso}{102}{section*.276}\protected@file@percent }
+\newlabel{i-tre-processi-pronti-alluso}{{}{102}{3.2.1 I tre processi pronti all'uso}{section*.276}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.2.2 Le capabilities: un toolkit componibile}{103}{section*.277}\protected@file@percent }
+\newlabel{le-capabilities-un-toolkit-componibile}{{}{103}{3.2.2 Le capabilities: un toolkit componibile}{section*.277}{}}
+\@writefile{toc}{\contentsline {subsection}{3.2.3 Come si usa, in estrema sintesi}{103}{section*.278}\protected@file@percent }
+\newlabel{come-si-usa-in-estrema-sintesi}{{}{103}{3.2.3 Come si usa, in estrema sintesi}{section*.278}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.2.4 Una breve storia}{104}{section*.279}\protected@file@percent }
+\newlabel{una-breve-storia}{{}{104}{3.2.4 Una breve storia}{section*.279}{}}
+\@writefile{toc}{\contentsline {subsection}{3.2.5 Perché dovrebbe interessarti}{104}{section*.280}\protected@file@percent }
+\newlabel{perchuxe9-dovrebbe-interessarti}{{}{104}{3.2.5 Perché dovrebbe interessarti}{section*.280}{}}
+\@writefile{toc}{\contentsline {section}{3.3 Installazione e inizializzazione}{104}{section*.281}\protected@file@percent }
+\newlabel{installazione-e-inizializzazione}{{}{104}{3.3 Installazione e inizializzazione}{section*.281}{}}
+\@writefile{toc}{\contentsline {subsection}{3.3.1 I prerequisiti}{104}{section*.282}\protected@file@percent }
+\newlabel{i-prerequisiti}{{}{104}{3.3.1 I prerequisiti}{section*.282}{}}
+\@writefile{toc}{\contentsline {subsection}{3.3.2 Installare il CLI}{104}{section*.283}\protected@file@percent }
+\newlabel{installare-il-cli}{{}{104}{3.3.2 Installare il CLI}{section*.283}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.3.3 Inizializzare un progetto}{105}{section*.284}\protected@file@percent }
+\newlabel{inizializzare-un-progetto}{{}{105}{3.3.3 Inizializzare un progetto}{section*.284}{}}
+\@writefile{toc}{\contentsline {subsection}{3.3.4 Inizializzare in un progetto esistente}{105}{section*.285}\protected@file@percent }
+\newlabel{inizializzare-in-un-progetto-esistente}{{}{105}{3.3.4 Inizializzare in un progetto esistente}{section*.285}{}}
+\@writefile{toc}{\contentsline {subsection}{3.3.5 Le opzioni di \texttt  {init}}{105}{section*.286}\protected@file@percent }
+\newlabel{le-opzioni-di-init}{{}{105}{\texorpdfstring {3.3.5 Le opzioni di \texttt {init}}{3.3.5 Le opzioni di init}}{section*.286}{}}
+\gdef \LT@xix {\LT@entry 
+    {1}{192.3464pt}\LT@entry 
+    {1}{150.93608pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.3.6 Aggiornare}{106}{section*.287}\protected@file@percent }
+\newlabel{aggiornare}{{}{106}{3.3.6 Aggiornare}{section*.287}{}}
+\@writefile{toc}{\contentsline {subsection}{3.3.7 Cosa succede alla prima esecuzione}{106}{section*.288}\protected@file@percent }
+\newlabel{cosa-succede-alla-prima-esecuzione}{{}{106}{3.3.7 Cosa succede alla prima esecuzione}{section*.288}{}}
+\@writefile{toc}{\contentsline {section}{3.4 La struttura di un progetto Spec Kit}{106}{section*.289}\protected@file@percent }
+\newlabel{la-struttura-di-un-progetto-spec-kit}{{}{106}{3.4 La struttura di un progetto Spec Kit}{section*.289}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.4.1 La struttura d'insieme}{107}{section*.290}\protected@file@percent }
+\newlabel{la-struttura-dinsieme}{{}{107}{3.4.1 La struttura d'insieme}{section*.290}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Anatomia di un progetto Spec Kit dopo \texttt {specify\ init}}}{107}{figure.caption.291}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.4.2 La cartella \texttt  {.specify/}}{107}{section*.292}\protected@file@percent }
+\newlabel{la-cartella-.specify}{{}{107}{\texorpdfstring {3.4.2 La cartella \texttt {.specify/}}{3.4.2 La cartella .specify/}}{section*.292}{}}
+\gdef \LT@xx {\LT@entry 
+    {1}{158.88756pt}\LT@entry 
+    {1}{184.39493pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.4.3 La cartella \texttt  {specs/}}{108}{section*.293}\protected@file@percent }
+\newlabel{la-cartella-specs}{{}{108}{\texorpdfstring {3.4.3 La cartella \texttt {specs/}}{3.4.3 La cartella specs/}}{section*.293}{}}
+\@writefile{toc}{\contentsline {subsection}{3.4.4 Lo stato della feature attiva}{108}{section*.294}\protected@file@percent }
+\newlabel{lo-stato-della-feature-attiva}{{}{108}{3.4.4 Lo stato della feature attiva}{section*.294}{}}
+\@writefile{toc}{\contentsline {subsection}{3.4.5 Il codice sorgente}{108}{section*.295}\protected@file@percent }
+\newlabel{il-codice-sorgente}{{}{108}{3.4.5 Il codice sorgente}{section*.295}{}}
+\@writefile{toc}{\contentsline {subsection}{3.4.6 Dove vengono creati i file: un riepilogo}{108}{section*.296}\protected@file@percent }
+\newlabel{dove-vengono-creati-i-file-un-riepilogo}{{}{108}{3.4.6 Dove vengono creati i file: un riepilogo}{section*.296}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.5 Il workflow a colpo d'occhio}{109}{section*.297}\protected@file@percent }
+\newlabel{il-workflow-a-colpo-docchio}{{}{109}{3.5 Il workflow a colpo d'occhio}{section*.297}{}}
+\@writefile{toc}{\contentsline {subsection}{3.5.1 Il percorso breve}{109}{section*.298}\protected@file@percent }
+\newlabel{il-percorso-breve}{{}{109}{3.5.1 Il percorso breve}{section*.298}{}}
+\@writefile{toc}{\contentsline {subsection}{3.5.2 Il percorso completo}{109}{section*.299}\protected@file@percent }
+\newlabel{il-percorso-completo}{{}{109}{3.5.2 Il percorso completo}{section*.299}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.5.3 Il diagramma del flusso}{110}{section*.300}\protected@file@percent }
+\newlabel{il-diagramma-del-flusso}{{}{110}{3.5.3 Il diagramma del flusso}{section*.300}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Il flusso completo di Spec Kit: comandi a sinistra, artefatti prodotti a destra}}{110}{figure.caption.301}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.5.4 Le regole d'uso}{110}{section*.302}\protected@file@percent }
+\newlabel{le-regole-duso}{{}{110}{3.5.4 Le regole d'uso}{section*.302}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.5.5 Cosa produce la convergenza}{111}{section*.303}\protected@file@percent }
+\newlabel{cosa-produce-la-convergenza}{{}{111}{3.5.5 Cosa produce la convergenza}{section*.303}{}}
+\@writefile{toc}{\contentsline {section}{3.6 La Constitution: i principi del progetto}{111}{section*.304}\protected@file@percent }
+\newlabel{la-constitution-i-principi-del-progetto}{{}{111}{3.6 La Constitution: i principi del progetto}{section*.304}{}}
+\@writefile{toc}{\contentsline {subsection}{3.6.1 Cosa contiene}{111}{section*.305}\protected@file@percent }
+\newlabel{cosa-contiene}{{}{111}{3.6.1 Cosa contiene}{section*.305}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.6.2 Un esempio per un progetto .NET}{112}{section*.306}\protected@file@percent }
+\newlabel{un-esempio-per-un-progetto-.net}{{}{112}{3.6.2 Un esempio per un progetto .NET}{section*.306}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.6.3 Come viene usata}{113}{section*.307}\protected@file@percent }
+\newlabel{come-viene-usata}{{}{113}{3.6.3 Come viene usata}{section*.307}{}}
+\@writefile{toc}{\contentsline {subsection}{3.6.4 La creazione con \texttt  {/speckit-constitution}}{113}{section*.308}\protected@file@percent }
+\newlabel{la-creazione-con-speckit-constitution}{{}{113}{\texorpdfstring {3.6.4 La creazione con \texttt {/speckit-constitution}}{3.6.4 La creazione con /speckit-constitution}}{section*.308}{}}
+\@writefile{toc}{\contentsline {subsection}{3.6.5 Perché è potente}{113}{section*.309}\protected@file@percent }
+\newlabel{perchuxe9-uxe8-potente}{{}{113}{3.6.5 Perché è potente}{section*.309}{}}
+\@writefile{toc}{\contentsline {section}{3.7 \texttt  {/speckit-specify}: dalla richiesta alla specifica}{113}{section*.310}\protected@file@percent }
+\newlabel{speckit-specify-dalla-richiesta-alla-specifica}{{}{113}{\texorpdfstring {3.7 \texttt {/speckit-specify}: dalla richiesta alla specifica}{3.7 /speckit-specify: dalla richiesta alla specifica}}{section*.310}{}}
+\gdef \LT@xxi {\LT@entry 
+    {1}{192.3464pt}\LT@entry 
+    {1}{150.93608pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.7.1 Come si invoca}{114}{section*.311}\protected@file@percent }
+\newlabel{come-si-invoca}{{}{114}{3.7.1 Come si invoca}{section*.311}{}}
+\@writefile{toc}{\contentsline {subsection}{3.7.2 La struttura di \texttt  {spec.md}}{114}{section*.312}\protected@file@percent }
+\newlabel{la-struttura-di-spec.md}{{}{114}{\texorpdfstring {3.7.2 La struttura di \texttt {spec.md}}{3.7.2 La struttura di spec.md}}{section*.312}{}}
+\@writefile{toc}{\contentsline {subsection}{3.7.3 Le user story prioritarie e indipendenti}{114}{section*.313}\protected@file@percent }
+\newlabel{le-user-story-prioritarie-e-indipendenti}{{}{114}{3.7.3 Le user story prioritarie e indipendenti}{section*.313}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.7.4 L'esempio C\#: la specifica}{115}{section*.314}\protected@file@percent }
+\newlabel{lesempio-c-la-specifica}{{}{115}{3.7.4 L'esempio C\#: la specifica}{section*.314}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.7.5 I punti chiave del template}{117}{section*.315}\protected@file@percent }
+\newlabel{i-punti-chiave-del-template}{{}{117}{3.7.5 I punti chiave del template}{section*.315}{}}
+\@writefile{toc}{\contentsline {section}{3.8 \texttt  {/speckit-clarify}: risolvere le ambiguità}{117}{section*.316}\protected@file@percent }
+\newlabel{speckit-clarify-risolvere-le-ambiguituxe0}{{}{117}{\texorpdfstring {3.8 \texttt {/speckit-clarify}: risolvere le ambiguità}{3.8 /speckit-clarify: risolvere le ambiguità}}{section*.316}{}}
+\@writefile{toc}{\contentsline {subsection}{3.8.1 Cosa fa}{117}{section*.317}\protected@file@percent }
+\newlabel{cosa-fa}{{}{117}{3.8.1 Cosa fa}{section*.317}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.8.2 Il marcatore \texttt  {{[}NEEDS\ CLARIFICATION{]}}}{118}{section*.318}\protected@file@percent }
+\newlabel{il-marcatore-needs-clarification}{{}{118}{\texorpdfstring {3.8.2 Il marcatore \texttt {{[}NEEDS\ CLARIFICATION{]}}}{3.8.2 Il marcatore {[}NEEDS CLARIFICATION{]}}}{section*.318}{}}
+\@writefile{toc}{\contentsline {subsection}{3.8.3 Esempi di domande per la nostra feature}{118}{section*.319}\protected@file@percent }
+\newlabel{esempi-di-domande-per-la-nostra-feature}{{}{118}{3.8.3 Esempi di domande per la nostra feature}{section*.319}{}}
+\@writefile{toc}{\contentsline {subsection}{3.8.4 Quando usarlo}{118}{section*.320}\protected@file@percent }
+\newlabel{quando-usarlo}{{}{118}{3.8.4 Quando usarlo}{section*.320}{}}
+\@writefile{toc}{\contentsline {subsection}{3.8.5 Il valore per il team}{118}{section*.321}\protected@file@percent }
+\newlabel{il-valore-per-il-team}{{}{118}{3.8.5 Il valore per il team}{section*.321}{}}
+\@writefile{toc}{\contentsline {section}{3.9 \texttt  {/speckit-plan}: il piano tecnico}{118}{section*.322}\protected@file@percent }
+\newlabel{speckit-plan-il-piano-tecnico}{{}{118}{\texorpdfstring {3.9 \texttt {/speckit-plan}: il piano tecnico}{3.9 /speckit-plan: il piano tecnico}}{section*.322}{}}
+\gdef \LT@xxii {\LT@entry 
+    {1}{155.07611pt}\LT@entry 
+    {1}{188.20638pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.9.1 Come si invoca}{119}{section*.323}\protected@file@percent }
+\newlabel{come-si-invoca-1}{{}{119}{3.9.1 Come si invoca}{section*.323}{}}
+\@writefile{toc}{\contentsline {subsection}{3.9.2 Le fasi del piano}{119}{section*.324}\protected@file@percent }
+\newlabel{le-fasi-del-piano}{{}{119}{3.9.2 Le fasi del piano}{section*.324}{}}
+\@writefile{toc}{\contentsline {subsection}{3.9.3 La struttura di \texttt  {plan.md}}{119}{section*.325}\protected@file@percent }
+\newlabel{la-struttura-di-plan.md}{{}{119}{\texorpdfstring {3.9.3 La struttura di \texttt {plan.md}}{3.9.3 La struttura di plan.md}}{section*.325}{}}
+\@writefile{toc}{\contentsline {subsection}{3.9.4 L'esempio C\#: il piano}{119}{section*.326}\protected@file@percent }
+\newlabel{lesempio-c-il-piano}{{}{119}{3.9.4 L'esempio C\#: il piano}{section*.326}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.9.5 Il modello dati e i contratti}{121}{section*.327}\protected@file@percent }
+\newlabel{il-modello-dati-e-i-contratti}{{}{121}{3.9.5 Il modello dati e i contratti}{section*.327}{}}
+\@writefile{toc}{\contentsline {subsection}{3.9.6 Perché il piano è verificato rispetto alla constitution}{121}{section*.328}\protected@file@percent }
+\newlabel{perchuxe9-il-piano-uxe8-verificato-rispetto-alla-constitution}{{}{121}{3.9.6 Perché il piano è verificato rispetto alla constitution}{section*.328}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.10 \texttt  {/speckit-checklist}: i gate di qualità della specifica}{122}{section*.329}\protected@file@percent }
+\newlabel{speckit-checklist-i-gate-di-qualituxe0-della-specifica}{{}{122}{\texorpdfstring {3.10 \texttt {/speckit-checklist}: i gate di qualità della specifica}{3.10 /speckit-checklist: i gate di qualità della specifica}}{section*.329}{}}
+\@writefile{toc}{\contentsline {subsection}{3.10.1 Cosa fa}{122}{section*.330}\protected@file@percent }
+\newlabel{cosa-fa-1}{{}{122}{3.10.1 Cosa fa}{section*.330}{}}
+\@writefile{toc}{\contentsline {subsection}{3.10.2 Un esempio di checklist}{122}{section*.331}\protected@file@percent }
+\newlabel{un-esempio-di-checklist}{{}{122}{3.10.2 Un esempio di checklist}{section*.331}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.10.3 Chi mantiene cosa}{123}{section*.332}\protected@file@percent }
+\newlabel{chi-mantiene-cosa}{{}{123}{3.10.3 Chi mantiene cosa}{section*.332}{}}
+\@writefile{toc}{\contentsline {subsection}{3.10.4 Il gate in \texttt  {/speckit-implement}}{123}{section*.333}\protected@file@percent }
+\newlabel{il-gate-in-speckit-implement}{{}{123}{\texorpdfstring {3.10.4 Il gate in \texttt {/speckit-implement}}{3.10.4 Il gate in /speckit-implement}}{section*.333}{}}
+\@writefile{toc}{\contentsline {subsection}{3.10.5 Il valore}{123}{section*.334}\protected@file@percent }
+\newlabel{il-valore}{{}{123}{3.10.5 Il valore}{section*.334}{}}
+\@writefile{toc}{\contentsline {section}{3.11 \texttt  {/speckit-tasks}: la scomposizione in task}{123}{section*.335}\protected@file@percent }
+\newlabel{speckit-tasks-la-scomposizione-in-task}{{}{123}{\texorpdfstring {3.11 \texttt {/speckit-tasks}: la scomposizione in task}{3.11 /speckit-tasks: la scomposizione in task}}{section*.335}{}}
+\@writefile{toc}{\contentsline {subsection}{3.11.1 Come si invoca}{123}{section*.336}\protected@file@percent }
+\newlabel{come-si-invoca-2}{{}{123}{3.11.1 Come si invoca}{section*.336}{}}
+\@writefile{toc}{\contentsline {subsection}{3.11.2 Il formato dei task}{123}{section*.337}\protected@file@percent }
+\newlabel{il-formato-dei-task}{{}{123}{3.11.2 Il formato dei task}{section*.337}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.11.3 Le fasi}{124}{section*.338}\protected@file@percent }
+\newlabel{le-fasi}{{}{124}{3.11.3 Le fasi}{section*.338}{}}
+\@writefile{toc}{\contentsline {subsection}{3.11.4 L'esempio C\#: i task}{124}{section*.339}\protected@file@percent }
+\newlabel{lesempio-c-i-task}{{}{124}{3.11.4 L'esempio C\#: i task}{section*.339}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.11.5 Il test-first nei task}{125}{section*.340}\protected@file@percent }
+\newlabel{il-test-first-nei-task}{{}{125}{3.11.5 Il test-first nei task}{section*.340}{}}
+\@writefile{toc}{\contentsline {subsection}{3.11.6 Perché i task funzionano}{125}{section*.341}\protected@file@percent }
+\newlabel{perchuxe9-i-task-funzionano}{{}{125}{3.11.6 Perché i task funzionano}{section*.341}{}}
+\@writefile{toc}{\contentsline {section}{3.12 \texttt  {/speckit-analyze}: la verifica di coerenza}{125}{section*.342}\protected@file@percent }
+\newlabel{speckit-analyze-la-verifica-di-coerenza}{{}{125}{\texorpdfstring {3.12 \texttt {/speckit-analyze}: la verifica di coerenza}{3.12 /speckit-analyze: la verifica di coerenza}}{section*.342}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.12.1 Cosa fa}{126}{section*.343}\protected@file@percent }
+\newlabel{cosa-fa-2}{{}{126}{3.12.1 Cosa fa}{section*.343}{}}
+\@writefile{toc}{\contentsline {subsection}{3.12.2 Esempi di segnalazioni}{126}{section*.344}\protected@file@percent }
+\newlabel{esempi-di-segnalazioni}{{}{126}{3.12.2 Esempi di segnalazioni}{section*.344}{}}
+\@writefile{toc}{\contentsline {subsection}{3.12.3 Cosa fare con le segnalazioni}{126}{section*.345}\protected@file@percent }
+\newlabel{cosa-fare-con-le-segnalazioni}{{}{126}{3.12.3 Cosa fare con le segnalazioni}{section*.345}{}}
+\@writefile{toc}{\contentsline {subsection}{3.12.4 Il posto nel flusso}{126}{section*.346}\protected@file@percent }
+\newlabel{il-posto-nel-flusso}{{}{126}{3.12.4 Il posto nel flusso}{section*.346}{}}
+\@writefile{toc}{\contentsline {subsection}{3.12.5 La filosofia}{126}{section*.347}\protected@file@percent }
+\newlabel{la-filosofia}{{}{126}{3.12.5 La filosofia}{section*.347}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.13 Implement e Converge}{127}{section*.348}\protected@file@percent }
+\newlabel{implement-e-converge}{{}{127}{3.13 Implement e Converge}{section*.348}{}}
+\@writefile{toc}{\contentsline {subsection}{3.13.1 \texttt  {/speckit-implement}}{127}{section*.349}\protected@file@percent }
+\newlabel{speckit-implement}{{}{127}{\texorpdfstring {3.13.1 \texttt {/speckit-implement}}{3.13.1 /speckit-implement}}{section*.349}{}}
+\@writefile{toc}{\contentsline {subsection}{3.13.2 Cosa produce}{127}{section*.350}\protected@file@percent }
+\newlabel{cosa-produce}{{}{127}{3.13.2 Cosa produce}{section*.350}{}}
+\@writefile{toc}{\contentsline {subsection}{3.13.3 \texttt  {/speckit-converge}}{127}{section*.351}\protected@file@percent }
+\newlabel{speckit-converge}{{}{127}{\texorpdfstring {3.13.3 \texttt {/speckit-converge}}{3.13.3 /speckit-converge}}{section*.351}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.13.4 Il ciclo implement--converge}{128}{section*.352}\protected@file@percent }
+\newlabel{il-ciclo-implementconverge}{{}{128}{3.13.4 Il ciclo implement--converge}{section*.352}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Il ciclo implement--converge}}{128}{figure.caption.353}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.13.5 Cosa garantisce la convergenza}{128}{section*.354}\protected@file@percent }
+\newlabel{cosa-garantisce-la-convergenza}{{}{128}{3.13.5 Cosa garantisce la convergenza}{section*.354}{}}
+\@writefile{toc}{\contentsline {subsection}{3.13.6 Il risultato finale}{128}{section*.355}\protected@file@percent }
+\newlabel{il-risultato-finale}{{}{128}{3.13.6 Il risultato finale}{section*.355}{}}
+\@writefile{toc}{\contentsline {section}{3.14 Il CLI \texttt  {specify}}{128}{section*.356}\protected@file@percent }
+\newlabel{il-cli-specify}{{}{128}{\texorpdfstring {3.14 Il CLI \texttt {specify}}{3.14 Il CLI specify}}{section*.356}{}}
+\@writefile{toc}{\contentsline {subsection}{3.14.1 I comandi principali}{128}{section*.357}\protected@file@percent }
+\newlabel{i-comandi-principali}{{}{128}{3.14.1 I comandi principali}{section*.357}{}}
+\gdef \LT@xxiii {\LT@entry 
+    {1}{192.3464pt}\LT@entry 
+    {1}{150.93608pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.14.2 \texttt  {specify\ check}}{129}{section*.358}\protected@file@percent }
+\newlabel{specify-check}{{}{129}{\texorpdfstring {3.14.2 \texttt {specify\ check}}{3.14.2 specify check}}{section*.358}{}}
+\@writefile{toc}{\contentsline {subsection}{3.14.3 Le estensioni: bug fixing e assessment}{129}{section*.359}\protected@file@percent }
+\newlabel{le-estensioni-bug-fixing-e-assessment}{{}{129}{3.14.3 Le estensioni: bug fixing e assessment}{section*.359}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.14.4 Preset e workflow}{130}{section*.360}\protected@file@percent }
+\newlabel{preset-e-workflow}{{}{130}{3.14.4 Preset e workflow}{section*.360}{}}
+\@writefile{toc}{\contentsline {subsection}{3.14.5 Estensioni e hook}{130}{section*.361}\protected@file@percent }
+\newlabel{estensioni-e-hook}{{}{130}{3.14.5 Estensioni e hook}{section*.361}{}}
+\@writefile{toc}{\contentsline {subsection}{3.14.6 Quando usare il CLI}{130}{section*.362}\protected@file@percent }
+\newlabel{quando-usare-il-cli}{{}{130}{3.14.6 Quando usare il CLI}{section*.362}{}}
+\@writefile{toc}{\contentsline {section}{3.15 Esempio C\#: entità, DbContext e DTO}{130}{section*.363}\protected@file@percent }
+\newlabel{esempio-c-entituxe0-dbcontext-e-dto}{{}{130}{3.15 Esempio C\#: entità, DbContext e DTO}{section*.363}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.15.1 L'entità \texttt  {TaskItem}}{131}{section*.364}\protected@file@percent }
+\newlabel{lentituxe0-taskitem}{{}{131}{\texorpdfstring {3.15.1 L'entità \texttt {TaskItem}}{3.15.1 L'entità TaskItem}}{section*.364}{}}
+\@writefile{toc}{\contentsline {subsection}{3.15.2 Il \texttt  {DbContext}}{131}{section*.365}\protected@file@percent }
+\newlabel{il-dbcontext-2}{{}{131}{\texorpdfstring {3.15.2 Il \texttt {DbContext}}{3.15.2 Il DbContext}}{section*.365}{}}
+\gdef \LT@xxiv {\LT@entry 
+    {3}{145.28003pt}\LT@entry 
+    {3}{130.95003pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.15.3 I DTO}{132}{section*.366}\protected@file@percent }
+\newlabel{i-dto}{{}{132}{3.15.3 I DTO}{section*.366}{}}
+\@writefile{toc}{\contentsline {subsection}{3.15.4 La tracciabilità spec → codice}{132}{section*.367}\protected@file@percent }
+\newlabel{la-tracciabilituxe0-spec-codice}{{}{132}{3.15.4 La tracciabilità spec → codice}{section*.367}{}}
+\@writefile{toc}{\contentsline {subsection}{3.15.5 La registrazione dei servizi}{132}{section*.368}\protected@file@percent }
+\newlabel{la-registrazione-dei-servizi}{{}{132}{3.15.5 La registrazione dei servizi}{section*.368}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.16 Esempio C\#: gli endpoint della Minimal API}{133}{section*.369}\protected@file@percent }
+\newlabel{esempio-c-gli-endpoint-della-minimal-api}{{}{133}{3.16 Esempio C\#: gli endpoint della Minimal API}{section*.369}{}}
+\@writefile{toc}{\contentsline {subsection}{3.16.1 Il codice completo}{133}{section*.370}\protected@file@percent }
+\newlabel{il-codice-completo-5}{{}{133}{3.16.1 Il codice completo}{section*.370}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.16.2 Lettura guidata}{135}{section*.371}\protected@file@percent }
+\newlabel{lettura-guidata-2}{{}{135}{3.16.2 Lettura guidata}{section*.371}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.16.3 Il progetto}{136}{section*.372}\protected@file@percent }
+\newlabel{il-progetto}{{}{136}{3.16.3 Il progetto}{section*.372}{}}
+\@writefile{toc}{\contentsline {section}{3.17 Esempio C\#: i test (test-first)}{136}{section*.373}\protected@file@percent }
+\newlabel{esempio-c-i-test-test-first}{{}{136}{3.17 Esempio C\#: i test (test-first)}{section*.373}{}}
+\@writefile{toc}{\contentsline {subsection}{3.17.1 Il progetto di test}{136}{section*.374}\protected@file@percent }
+\newlabel{il-progetto-di-test}{{}{136}{3.17.1 Il progetto di test}{section*.374}{}}
+\@writefile{toc}{\contentsline {subsection}{3.17.2 I test}{136}{section*.375}\protected@file@percent }
+\newlabel{i-test}{{}{136}{3.17.2 I test}{section*.375}{}}
+\def\@LN@column{1}
+\gdef \LT@xxv {\LT@entry 
+    {3}{221.25002pt}\LT@entry 
+    {1}{111.02002pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.17.3 La corrispondenza con gli scenari di accettazione}{138}{section*.376}\protected@file@percent }
+\newlabel{la-corrispondenza-con-gli-scenari-di-accettazione}{{}{138}{3.17.3 La corrispondenza con gli scenari di accettazione}{section*.376}{}}
+\@writefile{toc}{\contentsline {subsection}{3.17.4 Il ciclo Red-Green-Refactor}{138}{section*.377}\protected@file@percent }
+\newlabel{il-ciclo-red-green-refactor}{{}{138}{3.17.4 Il ciclo Red-Green-Refactor}{section*.377}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.17.5 Eseguire i test}{139}{section*.378}\protected@file@percent }
+\newlabel{eseguire-i-test}{{}{139}{3.17.5 Eseguire i test}{section*.378}{}}
+\@writefile{toc}{\contentsline {section}{3.18 Esempio C\#: eseguire, verificare e convergere}{139}{section*.379}\protected@file@percent }
+\newlabel{esempio-c-eseguire-verificare-e-convergere}{{}{139}{3.18 Esempio C\#: eseguire, verificare e convergere}{section*.379}{}}
+\@writefile{toc}{\contentsline {subsection}{3.18.1 Avviare l'applicazione}{139}{section*.380}\protected@file@percent }
+\newlabel{avviare-lapplicazione}{{}{139}{3.18.1 Avviare l'applicazione}{section*.380}{}}
+\@writefile{toc}{\contentsline {subsection}{3.18.2 Creare un task}{139}{section*.381}\protected@file@percent }
+\newlabel{creare-un-task}{{}{139}{3.18.2 Creare un task}{section*.381}{}}
+\@writefile{toc}{\contentsline {subsection}{3.18.3 Elencare con filtro}{139}{section*.382}\protected@file@percent }
+\newlabel{elencare-con-filtro}{{}{139}{3.18.3 Elencare con filtro}{section*.382}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.18.4 Completare ed eliminare}{140}{section*.383}\protected@file@percent }
+\newlabel{completare-ed-eliminare}{{}{140}{3.18.4 Completare ed eliminare}{section*.383}{}}
+\@writefile{toc}{\contentsline {subsection}{3.18.5 La convergenza}{140}{section*.384}\protected@file@percent }
+\newlabel{la-convergenza}{{}{140}{3.18.5 La convergenza}{section*.384}{}}
+\@writefile{toc}{\contentsline {subsection}{3.18.6 Il risultato completo}{140}{section*.385}\protected@file@percent }
+\newlabel{il-risultato-completo}{{}{140}{3.18.6 Il risultato completo}{section*.385}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Struttura finale del repository dopo il flusso completo}}{141}{figure.caption.386}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{3.19 Integrazione con Copilot e VS Code}{141}{section*.387}\protected@file@percent }
+\newlabel{integrazione-con-copilot-e-vs-code}{{}{141}{3.19 Integrazione con Copilot e VS Code}{section*.387}{}}
+\@writefile{toc}{\contentsline {subsection}{3.19.1 L'integrazione Copilot}{141}{section*.388}\protected@file@percent }
+\newlabel{lintegrazione-copilot}{{}{141}{3.19.1 L'integrazione Copilot}{section*.388}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.19.2 Dove vivono le skill}{142}{section*.389}\protected@file@percent }
+\newlabel{dove-vivono-le-skill}{{}{142}{3.19.2 Dove vivono le skill}{section*.389}{}}
+\@writefile{toc}{\contentsline {subsection}{3.19.3 Il flusso in VS Code}{142}{section*.390}\protected@file@percent }
+\newlabel{il-flusso-in-vs-code}{{}{142}{3.19.3 Il flusso in VS Code}{section*.390}{}}
+\@writefile{toc}{\contentsline {subsection}{3.19.4 Altri agenti}{142}{section*.391}\protected@file@percent }
+\newlabel{altri-agenti}{{}{142}{3.19.4 Altri agenti}{section*.391}{}}
+\@writefile{toc}{\contentsline {subsection}{3.19.5 Rivedere e modificare a mano}{142}{section*.392}\protected@file@percent }
+\newlabel{rivedere-e-modificare-a-mano}{{}{142}{3.19.5 Rivedere e modificare a mano}{section*.392}{}}
+\@writefile{toc}{\contentsline {subsection}{3.19.6 VS Code e Git}{142}{section*.393}\protected@file@percent }
+\newlabel{vs-code-e-git}{{}{142}{3.19.6 VS Code e Git}{section*.393}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.20 CI/CD e automazione}{143}{section*.394}\protected@file@percent }
+\newlabel{cicd-e-automazione}{{}{143}{3.20 CI/CD e automazione}{section*.394}{}}
+\@writefile{toc}{\contentsline {subsection}{3.20.1 \texttt  {specify\ check} non è un gate degli artefatti}{143}{section*.395}\protected@file@percent }
+\newlabel{specify-check-non-uxe8-un-gate-degli-artefatti}{{}{143}{\texorpdfstring {3.20.1 \texttt {specify\ check} non è un gate degli artefatti}{3.20.1 specify check non è un gate degli artefatti}}{section*.395}{}}
+\@writefile{toc}{\contentsline {subsection}{3.20.2 Build e test del progetto .NET}{143}{section*.396}\protected@file@percent }
+\newlabel{build-e-test-del-progetto-.net}{{}{143}{3.20.2 Build e test del progetto .NET}{section*.396}{}}
+\@writefile{toc}{\contentsline {subsection}{3.20.3 Workflow e hook}{143}{section*.397}\protected@file@percent }
+\newlabel{workflow-e-hook}{{}{143}{3.20.3 Workflow e hook}{section*.397}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.20.4 L'automazione non sostituisce la revisione}{144}{section*.398}\protected@file@percent }
+\newlabel{lautomazione-non-sostituisce-la-revisione}{{}{144}{3.20.4 L'automazione non sostituisce la revisione}{section*.398}{}}
+\@writefile{toc}{\contentsline {subsection}{3.20.5 Un esempio di pipeline completa}{144}{section*.399}\protected@file@percent }
+\newlabel{un-esempio-di-pipeline-completa}{{}{144}{3.20.5 Un esempio di pipeline completa}{section*.399}{}}
+\gdef \LT@xxvi {\LT@entry 
+    {3}{48.00002pt}\LT@entry 
+    {3}{211.41002pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.22 Il processo di bug fixing}{145}{section*.400}\protected@file@percent }
+\newlabel{il-processo-di-bug-fixing}{{}{145}{3.22 Il processo di bug fixing}{section*.400}{}}
+\@writefile{toc}{\contentsline {subsection}{Come si installa}{145}{section*.401}\protected@file@percent }
+\newlabel{come-si-installa}{{}{145}{Come si installa}{section*.401}{}}
+\@writefile{toc}{\contentsline {subsection}{Il flusso in tre passi}{145}{section*.402}\protected@file@percent }
+\newlabel{il-flusso-in-tre-passi}{{}{145}{Il flusso in tre passi}{section*.402}{}}
+\@writefile{toc}{\contentsline {subsection}{Il verdetto}{145}{section*.403}\protected@file@percent }
+\newlabel{il-verdetto}{{}{145}{Il verdetto}{section*.403}{}}
+\@writefile{toc}{\contentsline {subsection}{Un esempio in C\#}{145}{section*.404}\protected@file@percent }
+\newlabel{un-esempio-in-c}{{}{145}{Un esempio in C\#}{section*.404}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Bug fixing vs feature workflow}{146}{section*.405}\protected@file@percent }
+\newlabel{bug-fixing-vs-feature-workflow}{{}{146}{Bug fixing vs feature workflow}{section*.405}{}}
+\@writefile{toc}{\contentsline {section}{3.21 Best practice e anti-pattern}{146}{section*.406}\protected@file@percent }
+\newlabel{best-practice-e-anti-pattern}{{}{146}{3.21 Best practice e anti-pattern}{section*.406}{}}
+\@writefile{toc}{\contentsline {subsection}{3.21.1 Le best practice}{146}{section*.407}\protected@file@percent }
+\newlabel{le-best-practice}{{}{146}{3.21.1 Le best practice}{section*.407}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.21.2 Gli anti-pattern}{147}{section*.408}\protected@file@percent }
+\newlabel{gli-anti-pattern}{{}{147}{3.21.2 Gli anti-pattern}{section*.408}{}}
+\@writefile{toc}{\contentsline {subsection}{3.21.3 La regola d'oro}{147}{section*.409}\protected@file@percent }
+\newlabel{la-regola-doro}{{}{147}{3.21.3 La regola d'oro}{section*.409}{}}
+\gdef \LT@xxvii {\LT@entry 
+    {1}{157.826pt}\LT@entry 
+    {1}{185.45648pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.23 Il processo di idea assessment}{148}{section*.410}\protected@file@percent }
+\newlabel{il-processo-di-idea-assessment}{{}{148}{3.23 Il processo di idea assessment}{section*.410}{}}
+\@writefile{toc}{\contentsline {subsection}{Come si installa}{148}{section*.411}\protected@file@percent }
+\newlabel{come-si-installa-1}{{}{148}{Come si installa}{section*.411}{}}
+\@writefile{toc}{\contentsline {subsection}{Le cinque fasi}{148}{section*.412}\protected@file@percent }
+\newlabel{le-cinque-fasi}{{}{148}{Le cinque fasi}{section*.412}{}}
+\@writefile{toc}{\contentsline {subsection}{La decisione}{148}{section*.413}\protected@file@percent }
+\newlabel{la-decisione}{{}{148}{La decisione}{section*.413}{}}
+\gdef \LT@xxviii {\LT@entry 
+    {1}{82.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{82.82062pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Un esempio (concettuale)}{149}{section*.414}\protected@file@percent }
+\newlabel{un-esempio-concettuale}{{}{149}{Un esempio (concettuale)}{section*.414}{}}
+\@writefile{toc}{\contentsline {subsection}{Il valore dell'assessment}{149}{section*.415}\protected@file@percent }
+\newlabel{il-valore-dellassessment}{{}{149}{Il valore dell'assessment}{section*.415}{}}
+\@writefile{toc}{\contentsline {section}{3.24 Confronti, evoluzione e progetti esistenti}{149}{section*.416}\protected@file@percent }
+\newlabel{confronti-evoluzione-e-progetti-esistenti}{{}{149}{3.24 Confronti, evoluzione e progetti esistenti}{section*.416}{}}
+\@writefile{toc}{\contentsline {subsection}{Confronto con TDD e BDD}{149}{section*.417}\protected@file@percent }
+\newlabel{confronto-con-tdd-e-bdd}{{}{149}{Confronto con TDD e BDD}{section*.417}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Confronto con i design doc tradizionali}{150}{section*.418}\protected@file@percent }
+\newlabel{confronto-con-i-design-doc-tradizionali}{{}{150}{Confronto con i design doc tradizionali}{section*.418}{}}
+\@writefile{toc}{\contentsline {subsection}{Far evolvere una specifica esistente}{150}{section*.419}\protected@file@percent }
+\newlabel{far-evolvere-una-specifica-esistente}{{}{150}{Far evolvere una specifica esistente}{section*.419}{}}
+\@writefile{toc}{\contentsline {subsection}{Adottare Spec Kit su un progetto esistente}{150}{section*.420}\protected@file@percent }
+\newlabel{adottare-spec-kit-su-un-progetto-esistente}{{}{150}{Adottare Spec Kit su un progetto esistente}{section*.420}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Quando (non) usare Spec Kit}{151}{section*.421}\protected@file@percent }
+\newlabel{quando-non-usare-spec-kit}{{}{151}{Quando (non) usare Spec Kit}{section*.421}{}}
+\@writefile{toc}{\contentsline {section}{3.25 Risoluzione dei problemi comuni}{151}{section*.422}\protected@file@percent }
+\newlabel{risoluzione-dei-problemi-comuni-1}{{}{151}{3.25 Risoluzione dei problemi comuni}{section*.422}{}}
+\@writefile{toc}{\contentsline {subsection}{Il comando \texttt  {/speckit-*} non viene trovato dall'agente}{151}{section*.423}\protected@file@percent }
+\newlabel{il-comando-speckit--non-viene-trovato-dallagente}{{}{151}{\texorpdfstring {Il comando \texttt {/speckit-*} non viene trovato dall'agente}{Il comando /speckit-* non viene trovato dall'agente}}{section*.423}{}}
+\@writefile{toc}{\contentsline {subsection}{\texttt  {specify} non è riconosciuto come comando}{151}{section*.424}\protected@file@percent }
+\newlabel{specify-non-uxe8-riconosciuto-come-comando}{{}{151}{\texorpdfstring {\texttt {specify} non è riconosciuto come comando}{specify non è riconosciuto come comando}}{section*.424}{}}
+\@writefile{toc}{\contentsline {subsection}{Il comando lavora sulla feature sbagliata}{151}{section*.425}\protected@file@percent }
+\newlabel{il-comando-lavora-sulla-feature-sbagliata}{{}{151}{Il comando lavora sulla feature sbagliata}{section*.425}{}}
+\@writefile{toc}{\contentsline {subsection}{\texttt  {/speckit-implement} si rifiuta di partire}{151}{section*.426}\protected@file@percent }
+\newlabel{speckit-implement-si-rifiuta-di-partire}{{}{151}{\texorpdfstring {\texttt {/speckit-implement} si rifiuta di partire}{/speckit-implement si rifiuta di partire}}{section*.426}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\texttt  {/speckit-analyze} segnala conflitti}{152}{section*.427}\protected@file@percent }
+\newlabel{speckit-analyze-segnala-conflitti}{{}{152}{\texorpdfstring {\texttt {/speckit-analyze} segnala conflitti}{/speckit-analyze segnala conflitti}}{section*.427}{}}
+\@writefile{toc}{\contentsline {subsection}{\texttt  {/speckit-converge} aggiunge task all'infinito}{152}{section*.428}\protected@file@percent }
+\newlabel{speckit-converge-aggiunge-task-allinfinito}{{}{152}{\texorpdfstring {\texttt {/speckit-converge} aggiunge task all'infinito}{/speckit-converge aggiunge task all'infinito}}{section*.428}{}}
+\@writefile{toc}{\contentsline {subsection}{Il comando ha una sintassi diversa da quella dell'esempio}{152}{section*.429}\protected@file@percent }
+\newlabel{il-comando-ha-una-sintassi-diversa-da-quella-dellesempio}{{}{152}{Il comando ha una sintassi diversa da quella dell'esempio}{section*.429}{}}
+\@writefile{toc}{\contentsline {subsection}{\texttt  {specify\ check} segnala prerequisiti mancanti}{152}{section*.430}\protected@file@percent }
+\newlabel{specify-check-segnala-prerequisiti-mancanti}{{}{152}{\texorpdfstring {\texttt {specify\ check} segnala prerequisiti mancanti}{specify check segnala prerequisiti mancanti}}{section*.430}{}}
+\@writefile{toc}{\contentsline {subsection}{Metodo di diagnosi universale}{152}{section*.431}\protected@file@percent }
+\newlabel{metodo-di-diagnosi-universale-1}{{}{152}{Metodo di diagnosi universale}{section*.431}{}}
+\gdef \LT@xxix {\LT@entry 
+    {1}{141.5288pt}\LT@entry 
+    {1}{201.7537pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{3.26 Riepilogo, glossario ed esercizi}{153}{section*.432}\protected@file@percent }
+\newlabel{riepilogo-glossario-ed-esercizi-2}{{}{153}{3.26 Riepilogo, glossario ed esercizi}{section*.432}{}}
+\@writefile{toc}{\contentsline {subsection}{3.26.1 Riepilogo}{153}{section*.433}\protected@file@percent }
+\newlabel{riepilogo-2}{{}{153}{3.26.1 Riepilogo}{section*.433}{}}
+\@writefile{toc}{\contentsline {subsection}{3.26.2 Glossario}{153}{section*.434}\protected@file@percent }
+\newlabel{glossario-2}{{}{153}{3.26.2 Glossario}{section*.434}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{3.26.3 Esercizi proposti}{154}{section*.435}\protected@file@percent }
+\newlabel{esercizi-proposti-2}{{}{154}{3.26.3 Esercizi proposti}{section*.435}{}}
+\@writefile{toc}{\contentsline {subsection}{3.26.4 Il filo conduttore}{154}{section*.436}\protected@file@percent }
+\newlabel{il-filo-conduttore}{{}{154}{3.26.4 Il filo conduttore}{section*.436}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {chapter}{Capitolo 4}{155}{chapter*.437}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{capitolo-4}{{}{155}{Capitolo 4}{chapter*.437}{}}
+\@writefile{toc}{\contentsline {section}{Istruzioni, skill, agenti e plugin: estendere un agente di codifica}{155}{section*.438}\protected@file@percent }
+\newlabel{istruzioni-skill-agenti-e-plugin-estendere-un-agente-di-codifica}{{}{155}{Istruzioni, skill, agenti e plugin: estendere un agente di codifica}{section*.438}{}}
+\@writefile{toc}{\contentsline {subsection}{Cosa imparerai in questo capitolo}{155}{section*.439}\protected@file@percent }
+\newlabel{cosa-imparerai-in-questo-capitolo-3}{{}{155}{Cosa imparerai in questo capitolo}{section*.439}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Prerequisiti}{156}{section*.440}\protected@file@percent }
+\newlabel{prerequisiti-3}{{}{156}{Prerequisiti}{section*.440}{}}
+\@writefile{toc}{\contentsline {subsection}{Convenzioni}{156}{section*.441}\protected@file@percent }
+\newlabel{convenzioni-1}{{}{156}{Convenzioni}{section*.441}{}}
+\@writefile{toc}{\contentsline {section}{4.1 Perché personalizzare un agente}{156}{section*.442}\protected@file@percent }
+\newlabel{perchuxe9-personalizzare-un-agente}{{}{156}{4.1 Perché personalizzare un agente}{section*.442}{}}
+\@writefile{toc}{\contentsline {subsection}{4.1.1 Il problema del contesto}{156}{section*.443}\protected@file@percent }
+\newlabel{il-problema-del-contesto}{{}{156}{4.1.1 Il problema del contesto}{section*.443}{}}
+\gdef \LT@xxx {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.1.2 Quattro strumenti, quattro scopi}{157}{section*.444}\protected@file@percent }
+\newlabel{quattro-strumenti-quattro-scopi}{{}{157}{4.1.2 Quattro strumenti, quattro scopi}{section*.444}{}}
+\@writefile{toc}{\contentsline {subsection}{4.1.3 Un esempio concreto}{157}{section*.445}\protected@file@percent }
+\newlabel{un-esempio-concreto}{{}{157}{4.1.3 Un esempio concreto}{section*.445}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.2 Il modello mentale: quattro livelli}{158}{section*.446}\protected@file@percent }
+\newlabel{il-modello-mentale-quattro-livelli}{{}{158}{4.2 Il modello mentale: quattro livelli}{section*.446}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces I quattro livelli di personalizzazione, dal contenuto sempre presente alla confezione distribuibile}}{158}{figure.caption.447}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.2.1 Livello 1: il contesto persistente}{158}{section*.448}\protected@file@percent }
+\newlabel{livello-1-il-contesto-persistente}{{}{158}{4.2.1 Livello 1: il contesto persistente}{section*.448}{}}
+\@writefile{toc}{\contentsline {subsection}{4.2.2 Livello 2: la conoscenza su richiesta}{158}{section*.449}\protected@file@percent }
+\newlabel{livello-2-la-conoscenza-su-richiesta}{{}{158}{4.2.2 Livello 2: la conoscenza su richiesta}{section*.449}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.2.3 Livello 3: il contesto isolato}{159}{section*.450}\protected@file@percent }
+\newlabel{livello-3-il-contesto-isolato}{{}{159}{4.2.3 Livello 3: il contesto isolato}{section*.450}{}}
+\@writefile{toc}{\contentsline {subsection}{4.2.4 Livello 4: la distribuzione}{159}{section*.451}\protected@file@percent }
+\newlabel{livello-4-la-distribuzione}{{}{159}{4.2.4 Livello 4: la distribuzione}{section*.451}{}}
+\@writefile{toc}{\contentsline {subsection}{4.2.5 Come si compongono}{159}{section*.452}\protected@file@percent }
+\newlabel{come-si-compongono}{{}{159}{4.2.5 Come si compongono}{section*.452}{}}
+\@writefile{toc}{\contentsline {section}{4.3 Le istruzioni}{159}{section*.453}\protected@file@percent }
+\newlabel{le-istruzioni}{{}{159}{4.3 Le istruzioni}{section*.453}{}}
+\gdef \LT@xxxi {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.3.1 Che cosa scrivere (e che cosa no)}{160}{section*.454}\protected@file@percent }
+\newlabel{che-cosa-scrivere-e-che-cosa-no}{{}{160}{4.3.1 Che cosa scrivere (e che cosa no)}{section*.454}{}}
+\@writefile{toc}{\contentsline {subsection}{4.3.2 Un file di progetto}{160}{section*.455}\protected@file@percent }
+\newlabel{un-file-di-progetto}{{}{160}{4.3.2 Un file di progetto}{section*.455}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.3.3 Istruzioni mirate: \texttt  {applyTo} e \texttt  {globs}}{161}{section*.456}\protected@file@percent }
+\newlabel{istruzioni-mirate-applyto-e-globs}{{}{161}{\texorpdfstring {4.3.3 Istruzioni mirate: \texttt {applyTo} e \texttt {globs}}{4.3.3 Istruzioni mirate: applyTo e globs}}{section*.456}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.3.4 La trappola delle istruzioni duplicate}{162}{section*.457}\protected@file@percent }
+\newlabel{la-trappola-delle-istruzioni-duplicate}{{}{162}{4.3.4 La trappola delle istruzioni duplicate}{section*.457}{}}
+\@writefile{toc}{\contentsline {section}{4.4 Le skill}{162}{section*.458}\protected@file@percent }
+\newlabel{le-skill}{{}{162}{4.4 Le skill}{section*.458}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Anatomia di una skill: un file obbligatorio e tre cartelle opzionali, con caricamento progressivo}}{162}{figure.caption.459}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.4.1 Il formato minimo}{162}{section*.460}\protected@file@percent }
+\newlabel{il-formato-minimo}{{}{162}{4.4.1 Il formato minimo}{section*.460}{}}
+\gdef \LT@xxxii {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.4.2 La struttura consigliata}{163}{section*.461}\protected@file@percent }
+\newlabel{la-struttura-consigliata}{{}{163}{4.4.2 La struttura consigliata}{section*.461}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.4.3 Perché gli script cambiano le regole del gioco}{164}{section*.462}\protected@file@percent }
+\newlabel{perchuxe9-gli-script-cambiano-le-regole-del-gioco}{{}{164}{4.4.3 Perché gli script cambiano le regole del gioco}{section*.462}{}}
+\@writefile{toc}{\contentsline {subsection}{4.4.4 Skill, comandi e prompt}{164}{section*.463}\protected@file@percent }
+\newlabel{skill-comandi-e-prompt}{{}{164}{4.4.4 Skill, comandi e prompt}{section*.463}{}}
+\@writefile{toc}{\contentsline {section}{4.5 Gli agenti}{164}{section*.464}\protected@file@percent }
+\newlabel{gli-agenti}{{}{164}{4.5 Gli agenti}{section*.464}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.5.1 A cosa serve davvero}{165}{section*.465}\protected@file@percent }
+\newlabel{a-cosa-serve-davvero}{{}{165}{4.5.1 A cosa serve davvero}{section*.465}{}}
+\@writefile{toc}{\contentsline {subsection}{4.5.2 Il formato del file}{165}{section*.466}\protected@file@percent }
+\newlabel{il-formato-del-file}{{}{165}{4.5.2 Il formato del file}{section*.466}{}}
+\@writefile{toc}{\contentsline {subsection}{4.5.3 Due proprietà che vale la pena conoscere}{165}{section*.467}\protected@file@percent }
+\newlabel{due-proprietuxe0-che-vale-la-pena-conoscere}{{}{165}{4.5.3 Due proprietà che vale la pena conoscere}{section*.467}{}}
+\gdef \LT@xxxiii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.5.4 Handoff: passare la palla}{166}{section*.468}\protected@file@percent }
+\newlabel{handoff-passare-la-palla}{{}{166}{4.5.4 Handoff: passare la palla}{section*.468}{}}
+\@writefile{toc}{\contentsline {subsection}{4.5.5 Agente o skill?}{166}{section*.469}\protected@file@percent }
+\newlabel{agente-o-skill}{{}{166}{4.5.5 Agente o skill?}{section*.469}{}}
+\@writefile{toc}{\contentsline {section}{4.6 I plugin}{166}{section*.470}\protected@file@percent }
+\newlabel{i-plugin}{{}{166}{4.6 I plugin}{section*.470}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Struttura di un plugin: componenti portabili e componenti specifici del client}}{167}{figure.caption.471}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.6.1 Perché servono}{167}{section*.472}\protected@file@percent }
+\newlabel{perchuxe9-servono}{{}{167}{4.6.1 Perché servono}{section*.472}{}}
+\@writefile{toc}{\contentsline {subsection}{4.6.2 Lo standard e le estensioni}{167}{section*.473}\protected@file@percent }
+\newlabel{lo-standard-e-le-estensioni}{{}{167}{4.6.2 Lo standard e le estensioni}{section*.473}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.6.3 Il formato Claude}{168}{section*.474}\protected@file@percent }
+\newlabel{il-formato-claude}{{}{168}{4.6.3 Il formato Claude}{section*.474}{}}
+\@writefile{toc}{\contentsline {subsection}{4.6.4 Marketplace e fiducia}{168}{section*.475}\protected@file@percent }
+\newlabel{marketplace-e-fiducia}{{}{168}{4.6.4 Marketplace e fiducia}{section*.475}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.7 Dove vivono i file: GitHub Copilot in VS Code}{170}{section*.476}\protected@file@percent }
+\newlabel{dove-vivono-i-file-github-copilot-in-vs-code}{{}{170}{4.7 Dove vivono i file: GitHub Copilot in VS Code}{section*.476}{}}
+\@writefile{toc}{\contentsline {subsection}{4.7.1 I file di progetto}{170}{section*.477}\protected@file@percent }
+\newlabel{i-file-di-progetto}{{}{170}{4.7.1 I file di progetto}{section*.477}{}}
+\gdef \LT@xxxiv {\LT@entry 
+    {3}{79.17001pt}\LT@entry 
+    {3}{191.81001pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.7.2 I file utente}{171}{section*.478}\protected@file@percent }
+\newlabel{i-file-utente}{{}{171}{4.7.2 I file utente}{section*.478}{}}
+\@writefile{toc}{\contentsline {subsection}{4.7.3 Il formato Claude dentro VS Code}{171}{section*.479}\protected@file@percent }
+\newlabel{il-formato-claude-dentro-vs-code}{{}{171}{4.7.3 Il formato Claude dentro VS Code}{section*.479}{}}
+\@writefile{toc}{\contentsline {subsection}{4.7.4 Un esempio completo e verificabile}{171}{section*.480}\protected@file@percent }
+\newlabel{un-esempio-completo-e-verificabile}{{}{171}{4.7.4 Un esempio completo e verificabile}{section*.480}{}}
+\gdef \LT@xxxv {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.8 Dove vivono i file: Claude Code}{172}{section*.481}\protected@file@percent }
+\newlabel{dove-vivono-i-file-claude-code}{{}{172}{4.8 Dove vivono i file: Claude Code}{section*.481}{}}
+\@writefile{toc}{\contentsline {subsection}{4.8.1 La gerarchia di \texttt  {CLAUDE.md}}{172}{section*.482}\protected@file@percent }
+\newlabel{la-gerarchia-di-claude.md}{{}{172}{\texorpdfstring {4.8.1 La gerarchia di \texttt {CLAUDE.md}}{4.8.1 La gerarchia di CLAUDE.md}}{section*.482}{}}
+\@writefile{toc}{\contentsline {subsection}{4.8.2 Le regole per percorso}{172}{section*.483}\protected@file@percent }
+\newlabel{le-regole-per-percorso}{{}{172}{4.8.2 Le regole per percorso}{section*.483}{}}
+\gdef \LT@xxxvi {\LT@entry 
+    {1}{78.57129pt}\LT@entry 
+    {1}{142.61955pt}\LT@entry 
+    {1}{122.09164pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.8.3 Skill, agenti, comandi}{173}{section*.484}\protected@file@percent }
+\newlabel{skill-agenti-comandi}{{}{173}{4.8.3 Skill, agenti, comandi}{section*.484}{}}
+\@writefile{toc}{\contentsline {subsection}{4.8.4 L'albero completo}{173}{section*.485}\protected@file@percent }
+\newlabel{lalbero-completo}{{}{173}{4.8.4 L'albero completo}{section*.485}{}}
+\gdef \LT@xxxvii {\LT@entry 
+    {1}{82.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{82.82062pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.8.5 Come verificare cosa è stato caricato}{174}{section*.486}\protected@file@percent }
+\newlabel{come-verificare-cosa-uxe8-stato-caricato}{{}{174}{4.8.5 Come verificare cosa è stato caricato}{section*.486}{}}
+\@writefile{toc}{\contentsline {section}{4.9 Dove vivono i file: Cursor, Gemini CLI e Codex}{174}{section*.487}\protected@file@percent }
+\newlabel{dove-vivono-i-file-cursor-gemini-cli-e-codex}{{}{174}{4.9 Dove vivono i file: Cursor, Gemini CLI e Codex}{section*.487}{}}
+\@writefile{toc}{\contentsline {subsection}{4.9.1 Cursor}{174}{section*.488}\protected@file@percent }
+\newlabel{cursor}{{}{174}{4.9.1 Cursor}{section*.488}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.9.2 Gemini CLI}{175}{section*.489}\protected@file@percent }
+\newlabel{gemini-cli}{{}{175}{4.9.2 Gemini CLI}{section*.489}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.9.3 Codex}{176}{section*.490}\protected@file@percent }
+\newlabel{codex}{{}{176}{4.9.3 Codex}{section*.490}{}}
+\@writefile{toc}{\contentsline {subsection}{4.9.4 Gli altri}{176}{section*.491}\protected@file@percent }
+\newlabel{gli-altri}{{}{176}{4.9.4 Gli altri}{section*.491}{}}
+\@writefile{toc}{\contentsline {section}{4.10 Il caso DeepSeek: un motore senza formato}{176}{section*.492}\protected@file@percent }
+\newlabel{il-caso-deepseek-un-motore-senza-formato}{{}{176}{4.10 Il caso DeepSeek: un motore senza formato}{section*.492}{}}
+\gdef \LT@xxxviii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.10.1 Modello, host e formato}{177}{section*.493}\protected@file@percent }
+\newlabel{modello-host-e-formato}{{}{177}{4.10.1 Modello, host e formato}{section*.493}{}}
+\@writefile{toc}{\contentsline {subsection}{4.10.2 L'eccezione: DeepSeek Harness}{177}{section*.494}\protected@file@percent }
+\newlabel{leccezione-deepseek-harness}{{}{177}{4.10.2 L'eccezione: DeepSeek Harness}{section*.494}{}}
+\gdef \LT@xxxix {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.10.3 Che cosa insegna questo caso}{178}{section*.495}\protected@file@percent }
+\newlabel{che-cosa-insegna-questo-caso}{{}{178}{4.10.3 Che cosa insegna questo caso}{section*.495}{}}
+\@writefile{toc}{\contentsline {subsection}{4.10.4 In pratica}{178}{section*.496}\protected@file@percent }
+\newlabel{in-pratica}{{}{178}{4.10.4 In pratica}{section*.496}{}}
+\@writefile{toc}{\contentsline {section}{4.11 La mappa comparata: sei ambienti}{178}{section*.497}\protected@file@percent }
+\newlabel{la-mappa-comparata-sei-ambienti}{{}{178}{4.11 La mappa comparata: sei ambienti}{section*.497}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Mappa delle cartelle di personalizzazione nei sei ambienti del capitolo}}{179}{figure.caption.498}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.11.1 Tabella di orientamento}{179}{section*.499}\protected@file@percent }
+\newlabel{tabella-di-orientamento}{{}{179}{4.11.1 Tabella di orientamento}{section*.499}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.11.2 Tre letture utili}{180}{section*.500}\protected@file@percent }
+\newlabel{tre-letture-utili}{{}{180}{4.11.2 Tre letture utili}{section*.500}{}}
+\@writefile{toc}{\contentsline {subsection}{4.11.3 Il rischio della mappa}{180}{section*.501}\protected@file@percent }
+\newlabel{il-rischio-della-mappa}{{}{180}{4.11.3 Il rischio della mappa}{section*.501}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.12 Precedenza, merge e conflitti}{181}{section*.502}\protected@file@percent }
+\newlabel{precedenza-merge-e-conflitti}{{}{181}{4.12 Precedenza, merge e conflitti}{section*.502}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Come si combinano i livelli: stratificazione additiva e precedenza a cascata}}{181}{figure.caption.503}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.12.1 Due modelli: somma e sostituzione}{181}{section*.504}\protected@file@percent }
+\newlabel{due-modelli-somma-e-sostituzione}{{}{181}{4.12.1 Due modelli: somma e sostituzione}{section*.504}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.12.2 Livelli tipici, non ordine universale}{182}{section*.505}\protected@file@percent }
+\newlabel{livelli-tipici-non-ordine-universale}{{}{182}{4.12.2 Livelli tipici, non ordine universale}{section*.505}{}}
+\@writefile{toc}{\contentsline {subsection}{4.12.3 Il caso più frequente: la regola duplicata}{182}{section*.506}\protected@file@percent }
+\newlabel{il-caso-piuxf9-frequente-la-regola-duplicata}{{}{182}{4.12.3 Il caso più frequente: la regola duplicata}{section*.506}{}}
+\gdef \LT@xl {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.12.4 Scrivere regole che non collidono}{183}{section*.507}\protected@file@percent }
+\newlabel{scrivere-regole-che-non-collidono}{{}{183}{4.12.4 Scrivere regole che non collidono}{section*.507}{}}
+\@writefile{toc}{\contentsline {section}{4.13 Portabilità: cosa è standard e cosa no}{183}{section*.508}\protected@file@percent }
+\newlabel{portabilituxe0-cosa-uxe8-standard-e-cosa-no}{{}{183}{4.13 Portabilità: cosa è standard e cosa no}{section*.508}{}}
+\@writefile{toc}{\contentsline {subsection}{4.13.1 La scala della portabilità}{183}{section*.509}\protected@file@percent }
+\newlabel{la-scala-della-portabilituxe0}{{}{183}{4.13.1 La scala della portabilità}{section*.509}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.13.2 La strategia della fonte unica}{184}{section*.510}\protected@file@percent }
+\newlabel{la-strategia-della-fonte-unica}{{}{184}{4.13.2 La strategia della fonte unica}{section*.510}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.13.3 Il formato delle skill è portabile, la scoperta no}{185}{section*.511}\protected@file@percent }
+\newlabel{il-formato-delle-skill-uxe8-portabile-la-scoperta-no}{{}{185}{4.13.3 Il formato delle skill è portabile, la scoperta no}{section*.511}{}}
+\@writefile{toc}{\contentsline {subsection}{4.13.4 Un criterio di decisione}{185}{section*.512}\protected@file@percent }
+\newlabel{un-criterio-di-decisione}{{}{185}{4.13.4 Un criterio di decisione}{section*.512}{}}
+\@writefile{toc}{\contentsline {section}{4.14 Scrivere una skill: esempio completo}{185}{section*.513}\protected@file@percent }
+\newlabel{scrivere-una-skill-esempio-completo}{{}{185}{4.14 Scrivere una skill: esempio completo}{section*.513}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.14.1 La cartella}{186}{section*.514}\protected@file@percent }
+\newlabel{la-cartella}{{}{186}{4.14.1 La cartella}{section*.514}{}}
+\@writefile{toc}{\contentsline {subsection}{4.14.2 Il file \texttt  {SKILL.md}}{186}{section*.515}\protected@file@percent }
+\newlabel{il-file-skill.md}{{}{186}{\texorpdfstring {4.14.2 Il file \texttt {SKILL.md}}{4.14.2 Il file SKILL.md}}{section*.515}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.14.3 Lo script}{187}{section*.516}\protected@file@percent }
+\newlabel{lo-script}{{}{187}{4.14.3 Lo script}{section*.516}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.14.4 Perché questa skill funziona}{188}{section*.517}\protected@file@percent }
+\newlabel{perchuxe9-questa-skill-funziona}{{}{188}{4.14.4 Perché questa skill funziona}{section*.517}{}}
+\@writefile{toc}{\contentsline {subsection}{4.14.5 Dove metterla}{188}{section*.518}\protected@file@percent }
+\newlabel{dove-metterla}{{}{188}{4.14.5 Dove metterla}{section*.518}{}}
+\@writefile{toc}{\contentsline {section}{4.15 Scrivere un agente: revisione in sola lettura}{188}{section*.519}\protected@file@percent }
+\newlabel{scrivere-un-agente-revisione-in-sola-lettura}{{}{188}{4.15 Scrivere un agente: revisione in sola lettura}{section*.519}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.15.1 Il file}{189}{section*.520}\protected@file@percent }
+\newlabel{il-file}{{}{189}{4.15.1 Il file}{section*.520}{}}
+\@writefile{toc}{\contentsline {subsection}{4.15.2 Le tre scelte che contano}{189}{section*.521}\protected@file@percent }
+\newlabel{le-tre-scelte-che-contano}{{}{189}{4.15.2 Le tre scelte che contano}{section*.521}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.15.3 Usarlo come subagente}{190}{section*.522}\protected@file@percent }
+\newlabel{usarlo-come-subagente}{{}{190}{4.15.3 Usarlo come subagente}{section*.522}{}}
+\@writefile{toc}{\contentsline {subsection}{4.15.4 Handoff: planner → implementer → revisore}{190}{section*.523}\protected@file@percent }
+\newlabel{handoff-planner-implementer-revisore}{{}{190}{4.15.4 Handoff: planner → implementer → revisore}{section*.523}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.15.5 Un avvertimento}{191}{section*.524}\protected@file@percent }
+\newlabel{un-avvertimento}{{}{191}{4.15.5 Un avvertimento}{section*.524}{}}
+\@writefile{toc}{\contentsline {section}{4.16 Scrivere un plugin}{191}{section*.525}\protected@file@percent }
+\newlabel{scrivere-un-plugin}{{}{191}{4.16 Scrivere un plugin}{section*.525}{}}
+\@writefile{toc}{\contentsline {subsection}{4.16.1 La struttura}{191}{section*.526}\protected@file@percent }
+\newlabel{la-struttura}{{}{191}{4.16.1 La struttura}{section*.526}{}}
+\@writefile{toc}{\contentsline {subsection}{4.16.2 Il manifest}{191}{section*.527}\protected@file@percent }
+\newlabel{il-manifest}{{}{191}{4.16.2 Il manifest}{section*.527}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.16.3 I server MCP}{192}{section*.528}\protected@file@percent }
+\newlabel{i-server-mcp}{{}{192}{4.16.3 I server MCP}{section*.528}{}}
+\@writefile{toc}{\contentsline {subsection}{4.16.4 Gli hook}{192}{section*.529}\protected@file@percent }
+\newlabel{gli-hook}{{}{192}{4.16.4 Gli hook}{section*.529}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.16.5 La versione Claude}{193}{section*.530}\protected@file@percent }
+\newlabel{la-versione-claude}{{}{193}{4.16.5 La versione Claude}{section*.530}{}}
+\@writefile{toc}{\contentsline {subsection}{4.16.6 Pubblicare}{193}{section*.531}\protected@file@percent }
+\newlabel{pubblicare}{{}{193}{4.16.6 Pubblicare}{section*.531}{}}
+\@writefile{toc}{\contentsline {section}{4.17 Verificare che funzioni}{193}{section*.532}\protected@file@percent }
+\newlabel{verificare-che-funzioni}{{}{193}{4.17 Verificare che funzioni}{section*.532}{}}
+\gdef \LT@xli {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.17.1 Le quattro verifiche, in ordine}{194}{section*.533}\protected@file@percent }
+\newlabel{le-quattro-verifiche-in-ordine}{{}{194}{4.17.1 Le quattro verifiche, in ordine}{section*.533}{}}
+\@writefile{toc}{\contentsline {subsection}{4.17.2 Un test automatico per il frontmatter}{194}{section*.534}\protected@file@percent }
+\newlabel{un-test-automatico-per-il-frontmatter}{{}{194}{4.17.2 Un test automatico per il frontmatter}{section*.534}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.17.3 Verificare il comportamento, non solo la sintassi}{195}{section*.535}\protected@file@percent }
+\newlabel{verificare-il-comportamento-non-solo-la-sintassi}{{}{195}{4.17.3 Verificare il comportamento, non solo la sintassi}{section*.535}{}}
+\gdef \LT@xlii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.17.4 Un consiglio di manutenzione}{196}{section*.536}\protected@file@percent }
+\newlabel{un-consiglio-di-manutenzione}{{}{196}{4.17.4 Un consiglio di manutenzione}{section*.536}{}}
+\@writefile{toc}{\contentsline {section}{4.18 Sicurezza}{196}{section*.537}\protected@file@percent }
+\newlabel{sicurezza}{{}{196}{4.18 Sicurezza}{section*.537}{}}
+\@writefile{toc}{\contentsline {subsection}{4.18.1 Superficie di rischio}{196}{section*.538}\protected@file@percent }
+\newlabel{superficie-di-rischio}{{}{196}{4.18.1 Superficie di rischio}{section*.538}{}}
+\gdef \LT@xliii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.18.2 La regola di fondo}{197}{section*.539}\protected@file@percent }
+\newlabel{la-regola-di-fondo}{{}{197}{4.18.2 La regola di fondo}{section*.539}{}}
+\@writefile{toc}{\contentsline {subsection}{4.18.3 Cose da fare sempre}{197}{section*.540}\protected@file@percent }
+\newlabel{cose-da-fare-sempre}{{}{197}{4.18.3 Cose da fare sempre}{section*.540}{}}
+\@writefile{toc}{\contentsline {subsection}{4.18.4 Cose da evitare}{197}{section*.541}\protected@file@percent }
+\newlabel{cose-da-evitare}{{}{197}{4.18.4 Cose da evitare}{section*.541}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.18.5 Un controllo di sicurezza in CI}{198}{section*.542}\protected@file@percent }
+\newlabel{un-controllo-di-sicurezza-in-ci}{{}{198}{4.18.5 Un controllo di sicurezza in CI}{section*.542}{}}
+\@writefile{toc}{\contentsline {subsection}{4.18.6 Il principio da portarsi a casa}{198}{section*.543}\protected@file@percent }
+\newlabel{il-principio-da-portarsi-a-casa}{{}{198}{4.18.6 Il principio da portarsi a casa}{section*.543}{}}
+\gdef \LT@xliv {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.19 Governance del team e versionamento}{199}{section*.544}\protected@file@percent }
+\newlabel{governance-del-team-e-versionamento}{{}{199}{4.19 Governance del team e versionamento}{section*.544}{}}
+\@writefile{toc}{\contentsline {subsection}{4.19.1 I tre ambiti e chi li possiede}{199}{section*.545}\protected@file@percent }
+\newlabel{i-tre-ambiti-e-chi-li-possiede}{{}{199}{4.19.1 I tre ambiti e chi li possiede}{section*.545}{}}
+\@writefile{toc}{\contentsline {subsection}{4.19.2 Le regole come artefatto di progetto}{199}{section*.546}\protected@file@percent }
+\newlabel{le-regole-come-artefatto-di-progetto}{{}{199}{4.19.2 Le regole come artefatto di progetto}{section*.546}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.19.3 Il monorepo}{200}{section*.547}\protected@file@percent }
+\newlabel{il-monorepo}{{}{200}{4.19.3 Il monorepo}{section*.547}{}}
+\@writefile{toc}{\contentsline {subsection}{4.19.4 Migrazioni e cambi di motore}{200}{section*.548}\protected@file@percent }
+\newlabel{migrazioni-e-cambi-di-motore}{{}{200}{4.19.4 Migrazioni e cambi di motore}{section*.548}{}}
+\@writefile{toc}{\contentsline {subsection}{4.19.5 Un esempio di organizzazione realistica}{200}{section*.549}\protected@file@percent }
+\newlabel{un-esempio-di-organizzazione-realistica}{{}{200}{4.19.5 Un esempio di organizzazione realistica}{section*.549}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.20 Best practice}{201}{section*.550}\protected@file@percent }
+\newlabel{best-practice}{{}{201}{4.20 Best practice}{section*.550}{}}
+\@writefile{toc}{\contentsline {subsection}{4.20.1 Sul contenuto}{201}{section*.551}\protected@file@percent }
+\newlabel{sul-contenuto}{{}{201}{4.20.1 Sul contenuto}{section*.551}{}}
+\@writefile{toc}{\contentsline {subsection}{4.20.2 Sulla struttura}{201}{section*.552}\protected@file@percent }
+\newlabel{sulla-struttura}{{}{201}{4.20.2 Sulla struttura}{section*.552}{}}
+\@writefile{toc}{\contentsline {subsection}{4.20.3 Sulla sicurezza}{201}{section*.553}\protected@file@percent }
+\newlabel{sulla-sicurezza}{{}{201}{4.20.3 Sulla sicurezza}{section*.553}{}}
+\@writefile{toc}{\contentsline {subsection}{4.20.4 Il criterio del ``dopo''}{201}{section*.554}\protected@file@percent }
+\newlabel{il-criterio-del-dopo}{{}{201}{4.20.4 Il criterio del ``dopo''}{section*.554}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{4.21 Anti-pattern}{202}{section*.555}\protected@file@percent }
+\newlabel{anti-pattern}{{}{202}{4.21 Anti-pattern}{section*.555}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.1 La «bibbia» di progetto}{202}{section*.556}\protected@file@percent }
+\newlabel{la-bibbia-di-progetto}{{}{202}{4.21.1 La «bibbia» di progetto}{section*.556}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.2 La skill invisibile}{202}{section*.557}\protected@file@percent }
+\newlabel{la-skill-invisibile}{{}{202}{4.21.2 La skill invisibile}{section*.557}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.3 L'agente tuttofare}{202}{section*.558}\protected@file@percent }
+\newlabel{lagente-tuttofare}{{}{202}{4.21.3 L'agente tuttofare}{section*.558}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.4 Il duplicato silenzioso}{202}{section*.559}\protected@file@percent }
+\newlabel{il-duplicato-silenzioso}{{}{202}{4.21.4 Il duplicato silenzioso}{section*.559}{}}
+\gdef \LT@xlv {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.21.5 Il plugin «proviamolo»}{203}{section*.560}\protected@file@percent }
+\newlabel{il-plugin-proviamolo}{{}{203}{4.21.5 Il plugin «proviamolo»}{section*.560}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.6 La configurazione non versionata}{203}{section*.561}\protected@file@percent }
+\newlabel{la-configurazione-non-versionata}{{}{203}{4.21.6 La configurazione non versionata}{section*.561}{}}
+\@writefile{toc}{\contentsline {subsection}{4.21.7 Il riepilogo degli anti-pattern}{203}{section*.562}\protected@file@percent }
+\newlabel{il-riepilogo-degli-anti-pattern}{{}{203}{4.21.7 Il riepilogo degli anti-pattern}{section*.562}{}}
+\@writefile{toc}{\contentsline {section}{4.22 Risoluzione dei problemi}{203}{section*.563}\protected@file@percent }
+\newlabel{risoluzione-dei-problemi}{{}{203}{4.22 Risoluzione dei problemi}{section*.563}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.1 «L'agente ignora il mio file di istruzioni»}{203}{section*.564}\protected@file@percent }
+\newlabel{lagente-ignora-il-mio-file-di-istruzioni}{{}{203}{4.22.1 «L'agente ignora il mio file di istruzioni»}{section*.564}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.22.2 «La skill non viene mai attivata»}{204}{section*.565}\protected@file@percent }
+\newlabel{la-skill-non-viene-mai-attivata}{{}{204}{4.22.2 «La skill non viene mai attivata»}{section*.565}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.3 «L'agente non modifica i file»}{204}{section*.566}\protected@file@percent }
+\newlabel{lagente-non-modifica-i-file}{{}{204}{4.22.3 «L'agente non modifica i file»}{section*.566}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.4 «Il plugin non compare»}{204}{section*.567}\protected@file@percent }
+\newlabel{il-plugin-non-compare}{{}{204}{4.22.4 «Il plugin non compare»}{section*.567}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.5 «Dopo l'aggiornamento del motore non funziona più nulla»}{204}{section*.568}\protected@file@percent }
+\newlabel{dopo-laggiornamento-del-motore-non-funziona-piuxf9-nulla}{{}{204}{4.22.5 «Dopo l'aggiornamento del motore non funziona più nulla»}{section*.568}{}}
+\gdef \LT@xlvi {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.22.6 «Le risposte sono più lente e più care»}{205}{section*.569}\protected@file@percent }
+\newlabel{le-risposte-sono-piuxf9-lente-e-piuxf9-care}{{}{205}{4.22.6 «Le risposte sono più lente e più care»}{section*.569}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.7 «Su Windows i percorsi non funzionano»}{205}{section*.570}\protected@file@percent }
+\newlabel{su-windows-i-percorsi-non-funzionano}{{}{205}{4.22.7 «Su Windows i percorsi non funzionano»}{section*.570}{}}
+\@writefile{toc}{\contentsline {subsection}{4.22.8 Tabella riassuntiva}{205}{section*.571}\protected@file@percent }
+\newlabel{tabella-riassuntiva}{{}{205}{4.22.8 Tabella riassuntiva}{section*.571}{}}
+\@writefile{toc}{\contentsline {section}{4.23 Riepilogo}{205}{section*.572}\protected@file@percent }
+\newlabel{riepilogo-3}{{}{205}{4.23 Riepilogo}{section*.572}{}}
+\@writefile{toc}{\contentsline {subsection}{4.23.1 I quattro livelli}{205}{section*.573}\protected@file@percent }
+\newlabel{i-quattro-livelli}{{}{205}{4.23.1 I quattro livelli}{section*.573}{}}
+\gdef \LT@xlvii {\LT@entry 
+    {1}{82.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{82.82062pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.23.2 Dove mettere i file}{206}{section*.574}\protected@file@percent }
+\newlabel{dove-mettere-i-file}{{}{206}{4.23.2 Dove mettere i file}{section*.574}{}}
+\@writefile{toc}{\contentsline {subsection}{4.23.3 Le tre idee da portarsi a casa}{206}{section*.575}\protected@file@percent }
+\newlabel{le-tre-idee-da-portarsi-a-casa}{{}{206}{4.23.3 Le tre idee da portarsi a casa}{section*.575}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{4.23.4 Il filo con i capitoli precedenti}{207}{section*.576}\protected@file@percent }
+\newlabel{il-filo-con-i-capitoli-precedenti}{{}{207}{4.23.4 Il filo con i capitoli precedenti}{section*.576}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {chapter}{Capitolo 5}{209}{chapter*.577}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{capitolo-5}{{}{209}{Capitolo 5}{chapter*.577}{}}
+\@writefile{toc}{\contentsline {section}{Migrare a .NET da altri linguaggi e piattaforme}{209}{section*.578}\protected@file@percent }
+\newlabel{migrare-a-.net-da-altri-linguaggi-e-piattaforme}{{}{209}{Migrare a .NET da altri linguaggi e piattaforme}{section*.578}{}}
+\@writefile{toc}{\contentsline {subsection}{Cosa imparerai in questo capitolo}{209}{section*.579}\protected@file@percent }
+\newlabel{cosa-imparerai-in-questo-capitolo-4}{{}{209}{Cosa imparerai in questo capitolo}{section*.579}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{Prerequisiti}{210}{section*.580}\protected@file@percent }
+\newlabel{prerequisiti-4}{{}{210}{Prerequisiti}{section*.580}{}}
+\@writefile{toc}{\contentsline {subsection}{Convenzioni}{210}{section*.581}\protected@file@percent }
+\newlabel{convenzioni-2}{{}{210}{Convenzioni}{section*.581}{}}
+\@writefile{toc}{\contentsline {subsection}{Indice concettuale}{210}{section*.582}\protected@file@percent }
+\newlabel{indice-concettuale}{{}{210}{Indice concettuale}{section*.582}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{5.1 Perché migrare e come valutare il progetto}{211}{section*.583}\protected@file@percent }
+\newlabel{perchuxe9-migrare-e-come-valutare-il-progetto}{{}{211}{5.1 Perché migrare e come valutare il progetto}{section*.583}{}}
+\@writefile{toc}{\contentsline {subsection}{5.1.1 Migrazione non è traduzione}{211}{section*.584}\protected@file@percent }
+\newlabel{migrazione-non-uxe8-traduzione}{{}{211}{5.1.1 Migrazione non è traduzione}{section*.584}{}}
+\@writefile{toc}{\contentsline {subsection}{5.1.2 Motivazioni e controindicazioni}{211}{section*.585}\protected@file@percent }
+\newlabel{motivazioni-e-controindicazioni}{{}{211}{5.1.2 Motivazioni e controindicazioni}{section*.585}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.1.3 Inventario tecnico e funzionale}{212}{section*.586}\protected@file@percent }
+\newlabel{inventario-tecnico-e-funzionale}{{}{212}{5.1.3 Inventario tecnico e funzionale}{section*.586}{}}
+\@writefile{toc}{\contentsline {subsection}{5.1.4 Requisiti non funzionali e baseline}{212}{section*.587}\protected@file@percent }
+\newlabel{requisiti-non-funzionali-e-baseline}{{}{212}{5.1.4 Requisiti non funzionali e baseline}{section*.587}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.1.5 Registro delle decisioni e dei rischi}{213}{section*.588}\protected@file@percent }
+\newlabel{registro-delle-decisioni-e-dei-rischi}{{}{213}{5.1.5 Registro delle decisioni e dei rischi}{section*.588}{}}
+\@writefile{toc}{\contentsline {section}{5.2 Mappare linguaggi, runtime e strumenti}{213}{section*.589}\protected@file@percent }
+\newlabel{mappare-linguaggi-runtime-e-strumenti}{{}{213}{5.2 Mappare linguaggi, runtime e strumenti}{section*.589}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.2.1 Da .NET Core a .NET moderno}{214}{section*.590}\protected@file@percent }
+\newlabel{da-.net-core-a-.net-moderno}{{}{214}{5.2.1 Da .NET Core a .NET moderno}{section*.590}{}}
+\@writefile{toc}{\contentsline {subsection}{5.2.2 Concetti e strumenti a confronto}{214}{section*.591}\protected@file@percent }
+\newlabel{concetti-e-strumenti-a-confronto}{{}{214}{5.2.2 Concetti e strumenti a confronto}{section*.591}{}}
+\@writefile{toc}{\contentsline {subsection}{5.2.3 SDK, runtime e CLI}{214}{section*.592}\protected@file@percent }
+\newlabel{sdk-runtime-e-cli}{{}{214}{5.2.3 SDK, runtime e CLI}{section*.592}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.2.4 Sintassi C\# per chi conosce già un linguaggio}{215}{section*.593}\protected@file@percent }
+\newlabel{sintassi-c-per-chi-conosce-giuxe0-un-linguaggio}{{}{215}{5.2.4 Sintassi C\# per chi conosce già un linguaggio}{section*.593}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.2.5 Lifecycle e hosting}{216}{section*.594}\protected@file@percent }
+\newlabel{lifecycle-e-hosting}{{}{216}{5.2.5 Lifecycle e hosting}{section*.594}{}}
+\@writefile{toc}{\contentsline {subsection}{5.2.6 Pacchetti e dipendenze}{216}{section*.595}\protected@file@percent }
+\newlabel{pacchetti-e-dipendenze}{{}{216}{5.2.6 Pacchetti e dipendenze}{section*.595}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.2.7 Un primo servizio e le verifiche di ambiente}{217}{section*.596}\protected@file@percent }
+\newlabel{un-primo-servizio-e-le-verifiche-di-ambiente}{{}{217}{5.2.7 Un primo servizio e le verifiche di ambiente}{section*.596}{}}
+\@writefile{toc}{\contentsline {subsection}{5.2.8 La mappa deve essere verificata sul caso reale}{217}{section*.597}\protected@file@percent }
+\newlabel{la-mappa-deve-essere-verificata-sul-caso-reale}{{}{217}{5.2.8 La mappa deve essere verificata sul caso reale}{section*.597}{}}
+\@writefile{toc}{\contentsline {section}{5.3 Pianificare una migrazione controllata}{217}{section*.598}\protected@file@percent }
+\newlabel{pianificare-una-migrazione-controllata}{{}{217}{5.3 Pianificare una migrazione controllata}{section*.598}{}}
+\@writefile{toc}{\contentsline {subsection}{5.3.1 Tre strategie, non due}{217}{section*.599}\protected@file@percent }
+\newlabel{tre-strategie-non-due}{{}{217}{5.3.1 Tre strategie, non due}{section*.599}{}}
+\gdef \LT@xlviii {\LT@entry 
+    {1}{82.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{82.82062pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.3.2 Scegliere la prima capacità}{218}{section*.600}\protected@file@percent }
+\newlabel{scegliere-la-prima-capacituxe0}{{}{218}{5.3.2 Scegliere la prima capacità}{section*.600}{}}
+\@writefile{toc}{\contentsline {subsection}{5.3.3 Compatibilità durante la coesistenza}{218}{section*.601}\protected@file@percent }
+\newlabel{compatibilituxe0-durante-la-coesistenza}{{}{218}{5.3.3 Compatibilità durante la coesistenza}{section*.601}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.3.4 Fasi con condizioni di uscita}{219}{section*.602}\protected@file@percent }
+\newlabel{fasi-con-condizioni-di-uscita}{{}{219}{5.3.4 Fasi con condizioni di uscita}{section*.602}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.3.5 Cutover e rollback}{220}{section*.603}\protected@file@percent }
+\newlabel{cutover-e-rollback}{{}{220}{5.3.5 Cutover e rollback}{section*.603}{}}
+\@writefile{toc}{\contentsline {subsection}{5.3.6 Organizzazione e dipendenze}{220}{section*.604}\protected@file@percent }
+\newlabel{organizzazione-e-dipendenze}{{}{220}{5.3.6 Organizzazione e dipendenze}{section*.604}{}}
+\@writefile{toc}{\contentsline {section}{5.4 Architettura e organizzazione del codice}{220}{section*.605}\protected@file@percent }
+\newlabel{architettura-e-organizzazione-del-codice}{{}{220}{5.4 Architettura e organizzazione del codice}{section*.605}{}}
+\@writefile{toc}{\contentsline {subsection}{5.4.1 Dal framework sorgente alle responsabilità ASP.NET Core}{220}{section*.606}\protected@file@percent }
+\newlabel{dal-framework-sorgente-alle-responsabilituxe0-asp.net-core}{{}{220}{5.4.1 Dal framework sorgente alle responsabilità ASP.NET Core}{section*.606}{}}
+\gdef \LT@xlix {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.4.2 Minimal API o controller?}{221}{section*.607}\protected@file@percent }
+\newlabel{minimal-api-o-controller}{{}{221}{5.4.2 Minimal API o controller?}{section*.607}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.4.3 Confini applicativi e dipendenze}{222}{section*.608}\protected@file@percent }
+\newlabel{confini-applicativi-e-dipendenze}{{}{222}{5.4.3 Confini applicativi e dipendenze}{section*.608}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.4.4 Dominio, DTO e mapping}{223}{section*.609}\protected@file@percent }
+\newlabel{dominio-dto-e-mapping}{{}{223}{5.4.4 Dominio, DTO e mapping}{section*.609}{}}
+\@writefile{toc}{\contentsline {subsection}{5.4.5 Hosting e Kestrel}{223}{section*.610}\protected@file@percent }
+\newlabel{hosting-e-kestrel}{{}{223}{5.4.5 Hosting e Kestrel}{section*.610}{}}
+\@writefile{toc}{\contentsline {subsection}{5.4.6 Processi web, worker e job}{223}{section*.611}\protected@file@percent }
+\newlabel{processi-web-worker-e-job}{{}{223}{5.4.6 Processi web, worker e job}{section*.611}{}}
+\@writefile{toc}{\contentsline {subsection}{5.4.7 Strutturare per comprendere, non per imitare}{223}{section*.612}\protected@file@percent }
+\newlabel{strutturare-per-comprendere-non-per-imitare}{{}{223}{5.4.7 Strutturare per comprendere, non per imitare}{section*.612}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{5.5 Richieste HTTP e pipeline}{224}{section*.613}\protected@file@percent }
+\newlabel{richieste-http-e-pipeline}{{}{224}{5.5 Richieste HTTP e pipeline}{section*.613}{}}
+\@writefile{toc}{\contentsline {subsection}{5.5.1 Ricostruire il contratto prima di spostare le route}{224}{section*.614}\protected@file@percent }
+\newlabel{ricostruire-il-contratto-prima-di-spostare-le-route}{{}{224}{5.5.1 Ricostruire il contratto prima di spostare le route}{section*.614}{}}
+\@writefile{toc}{\contentsline {subsection}{5.5.2 Middleware e ordine della pipeline}{224}{section*.615}\protected@file@percent }
+\newlabel{middleware-e-ordine-della-pipeline}{{}{224}{5.5.2 Middleware e ordine della pipeline}{section*.615}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.5.3 Routing e binding}{225}{section*.616}\protected@file@percent }
+\newlabel{routing-e-binding}{{}{225}{5.5.3 Routing e binding}{section*.616}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.5.4 Errori prevedibili}{226}{section*.617}\protected@file@percent }
+\newlabel{errori-prevedibili}{{}{226}{5.5.4 Errori prevedibili}{section*.617}{}}
+\@writefile{toc}{\contentsline {subsection}{5.5.5 Filtri, middleware ed endpoint filter}{226}{section*.618}\protected@file@percent }
+\newlabel{filtri-middleware-ed-endpoint-filter}{{}{226}{5.5.5 Filtri, middleware ed endpoint filter}{section*.618}{}}
+\@writefile{toc}{\contentsline {subsection}{5.5.6 Timeout, cancellazione e resilienza}{226}{section*.619}\protected@file@percent }
+\newlabel{timeout-cancellazione-e-resilienza}{{}{226}{5.5.6 Timeout, cancellazione e resilienza}{section*.619}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.5.7 CORS, rate limiting e documentazione}{227}{section*.620}\protected@file@percent }
+\newlabel{cors-rate-limiting-e-documentazione}{{}{227}{5.5.7 CORS, rate limiting e documentazione}{section*.620}{}}
+\@writefile{toc}{\contentsline {subsection}{5.5.8 Checklist della parità HTTP}{227}{section*.621}\protected@file@percent }
+\newlabel{checklist-della-parituxe0-http}{{}{227}{5.5.8 Checklist della parità HTTP}{section*.621}{}}
+\@writefile{toc}{\contentsline {section}{5.6 Configurazione, stato e dipendenze}{227}{section*.622}\protected@file@percent }
+\newlabel{configurazione-stato-e-dipendenze}{{}{227}{5.6 Configurazione, stato e dipendenze}{section*.622}{}}
+\@writefile{toc}{\contentsline {subsection}{5.6.1 Dependency Injection integrata}{227}{section*.623}\protected@file@percent }
+\newlabel{dependency-injection-integrata}{{}{227}{5.6.1 Dependency Injection integrata}{section*.623}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.6.2 Configuration providers e priorità}{228}{section*.624}\protected@file@percent }
+\newlabel{configuration-providers-e-priorituxe0}{{}{228}{5.6.2 Configuration providers e priorità}{section*.624}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.6.3 Secrets e ambienti}{229}{section*.625}\protected@file@percent }
+\newlabel{secrets-e-ambienti}{{}{229}{5.6.3 Secrets e ambienti}{section*.625}{}}
+\@writefile{toc}{\contentsline {subsection}{5.6.4 Stato: richiesta, sessione e cache}{229}{section*.626}\protected@file@percent }
+\newlabel{stato-richiesta-sessione-e-cache}{{}{229}{5.6.4 Stato: richiesta, sessione e cache}{section*.626}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.6.5 Client HTTP e integrazione}{230}{section*.627}\protected@file@percent }
+\newlabel{client-http-e-integrazione}{{}{230}{5.6.5 Client HTTP e integrazione}{section*.627}{}}
+\@writefile{toc}{\contentsline {subsection}{5.6.6 Background services e lavoro durevole}{230}{section*.628}\protected@file@percent }
+\newlabel{background-services-e-lavoro-durevole}{{}{230}{5.6.6 Background services e lavoro durevole}{section*.628}{}}
+\gdef \LT@l {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.6.7 Progettare le dipendenze come confini}{231}{section*.629}\protected@file@percent }
+\newlabel{progettare-le-dipendenze-come-confini}{{}{231}{5.6.7 Progettare le dipendenze come confini}{section*.629}{}}
+\@writefile{toc}{\contentsline {section}{5.7 Dati e integrazione con i sistemi esistenti}{231}{section*.630}\protected@file@percent }
+\newlabel{dati-e-integrazione-con-i-sistemi-esistenti}{{}{231}{5.7 Dati e integrazione con i sistemi esistenti}{section*.630}{}}
+\@writefile{toc}{\contentsline {subsection}{5.7.1 EF Core e scelta dell'accesso ai dati}{231}{section*.631}\protected@file@percent }
+\newlabel{ef-core-e-scelta-dellaccesso-ai-dati}{{}{231}{5.7.1 EF Core e scelta dell'accesso ai dati}{section*.631}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.7.2 Modello, schema e confini}{232}{section*.632}\protected@file@percent }
+\newlabel{modello-schema-e-confini}{{}{232}{5.7.2 Modello, schema e confini}{section*.632}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.7.3 Migrazioni dello schema}{233}{section*.633}\protected@file@percent }
+\newlabel{migrazioni-dello-schema}{{}{233}{5.7.3 Migrazioni dello schema}{section*.633}{}}
+\@writefile{toc}{\contentsline {subsection}{5.7.4 Migrare i dati}{233}{section*.634}\protected@file@percent }
+\newlabel{migrare-i-dati}{{}{233}{5.7.4 Migrare i dati}{section*.634}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.7.5 Qualità e semantica dei dati}{234}{section*.635}\protected@file@percent }
+\newlabel{qualituxe0-e-semantica-dei-dati}{{}{234}{5.7.5 Qualità e semantica dei dati}{section*.635}{}}
+\@writefile{toc}{\contentsline {subsection}{5.7.6 Riconciliazione verificabile}{234}{section*.636}\protected@file@percent }
+\newlabel{riconciliazione-verificabile}{{}{234}{5.7.6 Riconciliazione verificabile}{section*.636}{}}
+\@writefile{toc}{\contentsline {subsection}{5.7.7 Transazioni, concorrenza e query}{234}{section*.637}\protected@file@percent }
+\newlabel{transazioni-concorrenza-e-query}{{}{234}{5.7.7 Transazioni, concorrenza e query}{section*.637}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.7.8 Connessioni e continuità}{235}{section*.638}\protected@file@percent }
+\newlabel{connessioni-e-continuituxe0}{{}{235}{5.7.8 Connessioni e continuità}{section*.638}{}}
+\@writefile{toc}{\contentsline {section}{5.8 Sicurezza e identità}{235}{section*.639}\protected@file@percent }
+\newlabel{sicurezza-e-identituxe0}{{}{235}{5.8 Sicurezza e identità}{section*.639}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.1 Iniziare da threat model e inventario}{235}{section*.640}\protected@file@percent }
+\newlabel{iniziare-da-threat-model-e-inventario}{{}{235}{5.8.1 Iniziare da threat model e inventario}{section*.640}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.8.2 Autenticazione e autorizzazione non sono la stessa cosa}{236}{section*.641}\protected@file@percent }
+\newlabel{autenticazione-e-autorizzazione-non-sono-la-stessa-cosa}{{}{236}{5.8.2 Autenticazione e autorizzazione non sono la stessa cosa}{section*.641}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.3 Migrare password e account}{236}{section*.642}\protected@file@percent }
+\newlabel{migrare-password-e-account}{{}{236}{5.8.3 Migrare password e account}{section*.642}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.8.4 Cookie, token e continuità di sessione}{237}{section*.643}\protected@file@percent }
+\newlabel{cookie-token-e-continuituxe0-di-sessione}{{}{237}{5.8.4 Cookie, token e continuità di sessione}{section*.643}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.5 Data Protection API e chiavi}{237}{section*.644}\protected@file@percent }
+\newlabel{data-protection-api-e-chiavi}{{}{237}{5.8.5 Data Protection API e chiavi}{section*.644}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.6 Segreti e configurazione sicura}{237}{section*.645}\protected@file@percent }
+\newlabel{segreti-e-configurazione-sicura}{{}{237}{5.8.6 Segreti e configurazione sicura}{section*.645}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.7 Difese per API web}{237}{section*.646}\protected@file@percent }
+\newlabel{difese-per-api-web}{{}{237}{5.8.7 Difese per API web}{section*.646}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.8.8 Test di sicurezza nella transizione}{238}{section*.647}\protected@file@percent }
+\newlabel{test-di-sicurezza-nella-transizione}{{}{238}{5.8.8 Test di sicurezza nella transizione}{section*.647}{}}
+\@writefile{toc}{\contentsline {subsection}{5.8.9 Cutover dell'identità}{238}{section*.648}\protected@file@percent }
+\newlabel{cutover-dellidentituxe0}{{}{238}{5.8.9 Cutover dell'identità}{section*.648}{}}
+\@writefile{toc}{\contentsline {section}{5.9 Testing e qualità}{238}{section*.649}\protected@file@percent }
+\newlabel{testing-e-qualituxe0}{{}{238}{5.9 Testing e qualità}{section*.649}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.9.1 Test di caratterizzazione}{239}{section*.650}\protected@file@percent }
+\newlabel{test-di-caratterizzazione}{{}{239}{5.9.1 Test di caratterizzazione}{section*.650}{}}
+\@writefile{toc}{\contentsline {subsection}{5.9.2 Piramide e livelli di test}{239}{section*.651}\protected@file@percent }
+\newlabel{piramide-e-livelli-di-test}{{}{239}{5.9.2 Piramide e livelli di test}{section*.651}{}}
+\@writefile{toc}{\contentsline {subsection}{5.9.3 Test HTTP con WebApplicationFactory}{239}{section*.652}\protected@file@percent }
+\newlabel{test-http-con-webapplicationfactory}{{}{239}{5.9.3 Test HTTP con WebApplicationFactory}{section*.652}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.9.4 Parità differenziale}{240}{section*.653}\protected@file@percent }
+\newlabel{parituxe0-differenziale}{{}{240}{5.9.4 Parità differenziale}{section*.653}{}}
+\@writefile{toc}{\contentsline {subsection}{5.9.5 Dipendenze nei test}{240}{section*.654}\protected@file@percent }
+\newlabel{dipendenze-nei-test}{{}{240}{5.9.5 Dipendenze nei test}{section*.654}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.9.6 Flakiness, dati e parallelismo}{241}{section*.655}\protected@file@percent }
+\newlabel{flakiness-dati-e-parallelismo}{{}{241}{5.9.6 Flakiness, dati e parallelismo}{section*.655}{}}
+\@writefile{toc}{\contentsline {subsection}{5.9.7 Qualità e pipeline CI}{241}{section*.656}\protected@file@percent }
+\newlabel{qualituxe0-e-pipeline-ci}{{}{241}{5.9.7 Qualità e pipeline CI}{section*.656}{}}
+\@writefile{toc}{\contentsline {subsection}{5.9.8 Copertura orientata al rischio}{241}{section*.657}\protected@file@percent }
+\newlabel{copertura-orientata-al-rischio}{{}{241}{5.9.8 Copertura orientata al rischio}{section*.657}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{5.10 Prestazioni e comportamento del runtime}{242}{section*.658}\protected@file@percent }
+\newlabel{prestazioni-e-comportamento-del-runtime}{{}{242}{5.10 Prestazioni e comportamento del runtime}{section*.658}{}}
+\@writefile{toc}{\contentsline {subsection}{5.10.1 Baseline e carichi confrontabili}{242}{section*.659}\protected@file@percent }
+\newlabel{baseline-e-carichi-confrontabili}{{}{242}{5.10.1 Baseline e carichi confrontabili}{section*.659}{}}
+\@writefile{toc}{\contentsline {subsection}{5.10.2 Asincronia e concorrenza}{242}{section*.660}\protected@file@percent }
+\newlabel{asincronia-e-concorrenza}{{}{242}{5.10.2 Asincronia e concorrenza}{section*.660}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.10.3 Memoria e garbage collection}{243}{section*.661}\protected@file@percent }
+\newlabel{memoria-e-garbage-collection}{{}{243}{5.10.3 Memoria e garbage collection}{section*.661}{}}
+\@writefile{toc}{\contentsline {subsection}{5.10.4 Query, serializzazione e caching}{243}{section*.662}\protected@file@percent }
+\newlabel{query-serializzazione-e-caching}{{}{243}{5.10.4 Query, serializzazione e caching}{section*.662}{}}
+\@writefile{toc}{\contentsline {subsection}{5.10.5 Profiling e Native AOT}{243}{section*.663}\protected@file@percent }
+\newlabel{profiling-e-native-aot}{{}{243}{5.10.5 Profiling e Native AOT}{section*.663}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.10.6 Prestazioni come criterio di cutover}{244}{section*.664}\protected@file@percent }
+\newlabel{prestazioni-come-criterio-di-cutover}{{}{244}{5.10.6 Prestazioni come criterio di cutover}{section*.664}{}}
+\@writefile{toc}{\contentsline {section}{5.11 Container, CI/CD e produzione}{244}{section*.665}\protected@file@percent }
+\newlabel{container-cicd-e-produzione}{{}{244}{5.11 Container, CI/CD e produzione}{section*.665}{}}
+\@writefile{toc}{\contentsline {subsection}{5.11.1 Pubblicazione e artefatti}{244}{section*.666}\protected@file@percent }
+\newlabel{pubblicazione-e-artefatti}{{}{244}{5.11.1 Pubblicazione e artefatti}{section*.666}{}}
+\@writefile{toc}{\contentsline {subsection}{5.11.2 Dockerfile multi-stage}{244}{section*.667}\protected@file@percent }
+\newlabel{dockerfile-multi-stage}{{}{244}{5.11.2 Dockerfile multi-stage}{section*.667}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.11.3 CI/CD}{245}{section*.668}\protected@file@percent }
+\newlabel{cicd}{{}{245}{5.11.3 CI/CD}{section*.668}{}}
+\@writefile{toc}{\contentsline {subsection}{5.11.4 Reverse proxy e hosting}{245}{section*.669}\protected@file@percent }
+\newlabel{reverse-proxy-e-hosting}{{}{245}{5.11.4 Reverse proxy e hosting}{section*.669}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.11.5 Health, osservabilità e shutdown}{246}{section*.670}\protected@file@percent }
+\newlabel{health-osservabilituxe0-e-shutdown}{{}{246}{5.11.5 Health, osservabilità e shutdown}{section*.670}{}}
+\@writefile{toc}{\contentsline {subsection}{5.11.6 Scalabilità, storage e resilienza}{246}{section*.671}\protected@file@percent }
+\newlabel{scalabilituxe0-storage-e-resilienza}{{}{246}{5.11.6 Scalabilità, storage e resilienza}{section*.671}{}}
+\@writefile{toc}{\contentsline {subsection}{5.11.7 Rollout progressivo e rollback operativo}{246}{section*.672}\protected@file@percent }
+\newlabel{rollout-progressivo-e-rollback-operativo}{{}{246}{5.11.7 Rollout progressivo e rollback operativo}{section*.672}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.11.8 Costi, supporto e dismissione}{247}{section*.673}\protected@file@percent }
+\newlabel{costi-supporto-e-dismissione}{{}{247}{5.11.8 Costi, supporto e dismissione}{section*.673}{}}
+\@writefile{toc}{\contentsline {section}{5.13 Approfondire la mappa dai principali ecosistemi}{247}{section*.674}\protected@file@percent }
+\newlabel{approfondire-la-mappa-dai-principali-ecosistemi}{{}{247}{5.13 Approfondire la mappa dai principali ecosistemi}{section*.674}{}}
+\@writefile{toc}{\contentsline {subsection}{5.13.1 Da PHP e framework PHP}{247}{section*.675}\protected@file@percent }
+\newlabel{da-php-e-framework-php}{{}{247}{5.13.1 Da PHP e framework PHP}{section*.675}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.13.2 Da Python e framework ASGI/WSGI}{248}{section*.676}\protected@file@percent }
+\newlabel{da-python-e-framework-asgiwsgi}{{}{248}{5.13.2 Da Python e framework ASGI/WSGI}{section*.676}{}}
+\@writefile{toc}{\contentsline {subsection}{5.13.3 Da JavaScript/Node.js}{248}{section*.677}\protected@file@percent }
+\newlabel{da-javascriptnode.js}{{}{248}{5.13.3 Da JavaScript/Node.js}{section*.677}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.13.4 Da Java e Spring Boot}{249}{section*.678}\protected@file@percent }
+\newlabel{da-java-e-spring-boot}{{}{249}{5.13.4 Da Java e Spring Boot}{section*.678}{}}
+\gdef \LT@li {\LT@entry 
+    {1}{82.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{88.82062pt}\LT@entry 
+    {1}{82.82062pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.13.5 Tabella di mapping delle responsabilità}{250}{section*.679}\protected@file@percent }
+\newlabel{tabella-di-mapping-delle-responsabilituxe0}{{}{250}{5.13.5 Tabella di mapping delle responsabilità}{section*.679}{}}
+\@writefile{toc}{\contentsline {subsection}{5.13.6 Scheda di decisione per un concetto}{250}{section*.680}\protected@file@percent }
+\newlabel{scheda-di-decisione-per-un-concetto}{{}{250}{5.13.6 Scheda di decisione per un concetto}{section*.680}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.13.7 Quando mantenere un componente nel sistema originario}{251}{section*.681}\protected@file@percent }
+\newlabel{quando-mantenere-un-componente-nel-sistema-originario}{{}{251}{5.13.7 Quando mantenere un componente nel sistema originario}{section*.681}{}}
+\@writefile{toc}{\contentsline {section}{5.14 Prove di migrazione dei dati: runbook e controlli}{251}{section*.682}\protected@file@percent }
+\newlabel{prove-di-migrazione-dei-dati-runbook-e-controlli}{{}{251}{5.14 Prove di migrazione dei dati: runbook e controlli}{section*.682}{}}
+\@writefile{toc}{\contentsline {subsection}{5.14.1 Preparare il runbook}{251}{section*.683}\protected@file@percent }
+\newlabel{preparare-il-runbook}{{}{251}{5.14.1 Preparare il runbook}{section*.683}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.14.2 Snapshot, delta e freeze}{252}{section*.684}\protected@file@percent }
+\newlabel{snapshot-delta-e-freeze}{{}{252}{5.14.2 Snapshot, delta e freeze}{section*.684}{}}
+\@writefile{toc}{\contentsline {subsection}{5.14.3 Trasformazioni versionate}{252}{section*.685}\protected@file@percent }
+\newlabel{trasformazioni-versionate}{{}{252}{5.14.3 Trasformazioni versionate}{section*.685}{}}
+\gdef \LT@lii {\LT@entry 
+    {1}{71.84892pt}\LT@entry 
+    {1}{99.79231pt}\LT@entry 
+    {1}{99.79231pt}\LT@entry 
+    {1}{71.84892pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.14.4 Importazione riprendibile}{253}{section*.686}\protected@file@percent }
+\newlabel{importazione-riprendibile}{{}{253}{5.14.4 Importazione riprendibile}{section*.686}{}}
+\@writefile{toc}{\contentsline {subsection}{5.14.5 Staging e cutover}{253}{section*.687}\protected@file@percent }
+\newlabel{staging-e-cutover}{{}{253}{5.14.5 Staging e cutover}{section*.687}{}}
+\@writefile{toc}{\contentsline {subsection}{5.14.6 Report di riconciliazione}{253}{section*.688}\protected@file@percent }
+\newlabel{report-di-riconciliazione}{{}{253}{5.14.6 Report di riconciliazione}{section*.688}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.14.7 Criteri di stop}{254}{section*.689}\protected@file@percent }
+\newlabel{criteri-di-stop}{{}{254}{5.14.7 Criteri di stop}{section*.689}{}}
+\@writefile{toc}{\contentsline {section}{5.15 Diagnosi operativa durante la migrazione}{254}{section*.690}\protected@file@percent }
+\newlabel{diagnosi-operativa-durante-la-migrazione}{{}{254}{5.15 Diagnosi operativa durante la migrazione}{section*.690}{}}
+\@writefile{toc}{\contentsline {subsection}{5.15.1 La readiness fallisce, ma il processo è attivo}{254}{section*.691}\protected@file@percent }
+\newlabel{la-readiness-fallisce-ma-il-processo-uxe8-attivo}{{}{254}{5.15.1 La readiness fallisce, ma il processo è attivo}{section*.691}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.15.2 Errori 401 o 403 dopo il cutover}{255}{section*.692}\protected@file@percent }
+\newlabel{errori-401-o-403-dopo-il-cutover}{{}{255}{5.15.2 Errori 401 o 403 dopo il cutover}{section*.692}{}}
+\@writefile{toc}{\contentsline {subsection}{5.15.3 502, 503 e timeout intermittenti}{255}{section*.693}\protected@file@percent }
+\newlabel{e-timeout-intermittenti}{{}{255}{5.15.3 502, 503 e timeout intermittenti}{section*.693}{}}
+\@writefile{toc}{\contentsline {subsection}{5.15.4 Differenze di serializzazione}{255}{section*.694}\protected@file@percent }
+\newlabel{differenze-di-serializzazione}{{}{255}{5.15.4 Differenze di serializzazione}{section*.694}{}}
+\@writefile{toc}{\contentsline {subsection}{5.15.5 Mismatch di database dopo la migrazione}{255}{section*.695}\protected@file@percent }
+\newlabel{mismatch-di-database-dopo-la-migrazione}{{}{255}{5.15.5 Mismatch di database dopo la migrazione}{section*.695}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.15.6 Runbook di incidente}{256}{section*.696}\protected@file@percent }
+\newlabel{runbook-di-incidente}{{}{256}{5.15.6 Runbook di incidente}{section*.696}{}}
+\@writefile{toc}{\contentsline {section}{5.16 Verifica finale: criteri di successo}{256}{section*.697}\protected@file@percent }
+\newlabel{verifica-finale-criteri-di-successo}{{}{256}{5.16 Verifica finale: criteri di successo}{section*.697}{}}
+\@writefile{toc}{\contentsline {subsection}{5.16.1 Fonti ufficiali e aggiornamento}{256}{section*.698}\protected@file@percent }
+\newlabel{fonti-ufficiali-e-aggiornamento}{{}{256}{5.16.1 Fonti ufficiali e aggiornamento}{section*.698}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{5.12 Caso pratico: migrare un servizio catalogo}{257}{section*.699}\protected@file@percent }
+\newlabel{caso-pratico-migrare-un-servizio-catalogo}{{}{257}{5.12 Caso pratico: migrare un servizio catalogo}{section*.699}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.1 Scenario e vincoli}{257}{section*.700}\protected@file@percent }
+\newlabel{scenario-e-vincoli}{{}{257}{5.12.1 Scenario e vincoli}{section*.700}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.2 Baseline e test di caratterizzazione}{257}{section*.701}\protected@file@percent }
+\newlabel{baseline-e-test-di-caratterizzazione}{{}{257}{5.12.2 Baseline e test di caratterizzazione}{section*.701}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.12.3 Creazione del progetto}{258}{section*.702}\protected@file@percent }
+\newlabel{creazione-del-progetto}{{}{258}{5.12.3 Creazione del progetto}{section*.702}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.4 Contratto e query di lettura}{258}{section*.703}\protected@file@percent }
+\newlabel{contratto-e-query-di-lettura}{{}{258}{5.12.4 Contratto e query di lettura}{section*.703}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.12.5 Mantenere il database condiviso in sicurezza}{259}{section*.704}\protected@file@percent }
+\newlabel{mantenere-il-database-condiviso-in-sicurezza}{{}{259}{5.12.5 Mantenere il database condiviso in sicurezza}{section*.704}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.12.6 Test differenziale e osservazione in shadow}{260}{section*.705}\protected@file@percent }
+\newlabel{test-differenziale-e-osservazione-in-shadow}{{}{260}{5.12.6 Test differenziale e osservazione in shadow}{section*.705}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.7 Canary e cutover}{260}{section*.706}\protected@file@percent }
+\newlabel{canary-e-cutover}{{}{260}{5.12.7 Canary e cutover}{section*.706}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.12.8 Migrare la scrittura}{261}{section*.707}\protected@file@percent }
+\newlabel{migrare-la-scrittura}{{}{261}{5.12.8 Migrare la scrittura}{section*.707}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.9 Migrare il job notturno}{261}{section*.708}\protected@file@percent }
+\newlabel{migrare-il-job-notturno}{{}{261}{5.12.9 Migrare il job notturno}{section*.708}{}}
+\@writefile{toc}{\contentsline {subsection}{5.12.10 Risultato e lezioni}{261}{section*.709}\protected@file@percent }
+\newlabel{risultato-e-lezioni}{{}{261}{5.12.10 Risultato e lezioni}{section*.709}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.12.11 Adattare il caso ad altri ecosistemi}{262}{section*.710}\protected@file@percent }
+\newlabel{adattare-il-caso-ad-altri-ecosistemi}{{}{262}{5.12.11 Adattare il caso ad altri ecosistemi}{section*.710}{}}
+\@writefile{toc}{\contentsline {section}{5.17 Checklist, glossario e anti-pattern}{262}{section*.711}\protected@file@percent }
+\newlabel{checklist-glossario-e-anti-pattern}{{}{262}{5.17 Checklist, glossario e anti-pattern}{section*.711}{}}
+\@writefile{toc}{\contentsline {subsection}{5.17.1 Checklist di assessment}{262}{section*.712}\protected@file@percent }
+\newlabel{checklist-di-assessment}{{}{262}{5.17.1 Checklist di assessment}{section*.712}{}}
+\gdef \LT@liii {\LT@entry 
+    {1}{171.64125pt}\LT@entry 
+    {1}{171.64125pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.17.2 Checklist di progettazione}{263}{section*.713}\protected@file@percent }
+\newlabel{checklist-di-progettazione}{{}{263}{5.17.2 Checklist di progettazione}{section*.713}{}}
+\@writefile{toc}{\contentsline {subsection}{5.17.3 Checklist prima del cutover}{263}{section*.714}\protected@file@percent }
+\newlabel{checklist-prima-del-cutover}{{}{263}{5.17.3 Checklist prima del cutover}{section*.714}{}}
+\@writefile{toc}{\contentsline {subsection}{5.17.4 Checklist per la dismissione}{263}{section*.715}\protected@file@percent }
+\newlabel{checklist-per-la-dismissione}{{}{263}{5.17.4 Checklist per la dismissione}{section*.715}{}}
+\@writefile{toc}{\contentsline {subsection}{5.17.5 Glossario essenziale}{263}{section*.716}\protected@file@percent }
+\newlabel{glossario-essenziale}{{}{263}{5.17.5 Glossario essenziale}{section*.716}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{5.17.6 Gli errori da evitare}{264}{section*.717}\protected@file@percent }
+\newlabel{gli-errori-da-evitare}{{}{264}{5.17.6 Gli errori da evitare}{section*.717}{}}
+\gdef \LT@liv {\LT@entry 
+    {1}{112.41612pt}\LT@entry 
+    {1}{118.41612pt}\LT@entry 
+    {1}{112.41612pt}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{5.18 Appendice: piano di migrazione riutilizzabile}{265}{section*.718}\protected@file@percent }
+\newlabel{appendice-piano-di-migrazione-riutilizzabile}{{}{265}{5.18 Appendice: piano di migrazione riutilizzabile}{section*.718}{}}
+\def\@LN@column{1}
+\gdef \@abspage@last{276}

@@ -1,0 +1,144 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Capitolo 5}{1}{chapter*.2}%
+\contentsline {section}{Migrare a .NET da altri linguaggi e piattaforme}{1}{section*.3}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}%
+\contentsline {subsection}{Prerequisiti}{2}{section*.5}%
+\contentsline {subsection}{Convenzioni}{2}{section*.6}%
+\contentsline {subsection}{Indice concettuale}{2}{section*.7}%
+\contentsline {section}{5.1 Perché migrare e come valutare il progetto}{3}{section*.8}%
+\contentsline {subsection}{5.1.1 Migrazione non è traduzione}{3}{section*.9}%
+\contentsline {subsection}{5.1.2 Motivazioni e controindicazioni}{3}{section*.10}%
+\contentsline {subsection}{5.1.3 Inventario tecnico e funzionale}{4}{section*.11}%
+\contentsline {subsection}{5.1.4 Requisiti non funzionali e baseline}{4}{section*.12}%
+\contentsline {subsection}{5.1.5 Registro delle decisioni e dei rischi}{5}{section*.13}%
+\contentsline {section}{5.2 Mappare linguaggi, runtime e strumenti}{5}{section*.14}%
+\contentsline {subsection}{5.2.1 Da .NET Core a .NET moderno}{6}{section*.15}%
+\contentsline {subsection}{5.2.2 Concetti e strumenti a confronto}{6}{section*.16}%
+\contentsline {subsection}{5.2.3 SDK, runtime e CLI}{6}{section*.17}%
+\contentsline {subsection}{5.2.4 Sintassi C\# per chi conosce già un linguaggio}{7}{section*.18}%
+\contentsline {subsection}{5.2.5 Lifecycle e hosting}{8}{section*.19}%
+\contentsline {subsection}{5.2.6 Pacchetti e dipendenze}{8}{section*.20}%
+\contentsline {subsection}{5.2.7 Un primo servizio e le verifiche di ambiente}{9}{section*.21}%
+\contentsline {subsection}{5.2.8 La mappa deve essere verificata sul caso reale}{9}{section*.22}%
+\contentsline {section}{5.3 Pianificare una migrazione controllata}{9}{section*.23}%
+\contentsline {subsection}{5.3.1 Tre strategie, non due}{9}{section*.24}%
+\contentsline {subsection}{5.3.2 Scegliere la prima capacità}{10}{section*.25}%
+\contentsline {subsection}{5.3.3 Compatibilità durante la coesistenza}{10}{section*.26}%
+\contentsline {subsection}{5.3.4 Fasi con condizioni di uscita}{11}{section*.27}%
+\contentsline {subsection}{5.3.5 Cutover e rollback}{12}{section*.28}%
+\contentsline {subsection}{5.3.6 Organizzazione e dipendenze}{12}{section*.29}%
+\contentsline {section}{5.4 Architettura e organizzazione del codice}{12}{section*.30}%
+\contentsline {subsection}{5.4.1 Dal framework sorgente alle responsabilità ASP.NET Core}{12}{section*.31}%
+\contentsline {subsection}{5.4.2 Minimal API o controller?}{13}{section*.32}%
+\contentsline {subsection}{5.4.3 Confini applicativi e dipendenze}{14}{section*.33}%
+\contentsline {subsection}{5.4.4 Dominio, DTO e mapping}{15}{section*.34}%
+\contentsline {subsection}{5.4.5 Hosting e Kestrel}{15}{section*.35}%
+\contentsline {subsection}{5.4.6 Processi web, worker e job}{15}{section*.36}%
+\contentsline {subsection}{5.4.7 Strutturare per comprendere, non per imitare}{15}{section*.37}%
+\contentsline {section}{5.5 Richieste HTTP e pipeline}{16}{section*.38}%
+\contentsline {subsection}{5.5.1 Ricostruire il contratto prima di spostare le route}{16}{section*.39}%
+\contentsline {subsection}{5.5.2 Middleware e ordine della pipeline}{16}{section*.40}%
+\contentsline {subsection}{5.5.3 Routing e binding}{17}{section*.41}%
+\contentsline {subsection}{5.5.4 Errori prevedibili}{18}{section*.42}%
+\contentsline {subsection}{5.5.5 Filtri, middleware ed endpoint filter}{18}{section*.43}%
+\contentsline {subsection}{5.5.6 Timeout, cancellazione e resilienza}{18}{section*.44}%
+\contentsline {subsection}{5.5.7 CORS, rate limiting e documentazione}{19}{section*.45}%
+\contentsline {subsection}{5.5.8 Checklist della parità HTTP}{19}{section*.46}%
+\contentsline {section}{5.6 Configurazione, stato e dipendenze}{19}{section*.47}%
+\contentsline {subsection}{5.6.1 Dependency Injection integrata}{19}{section*.48}%
+\contentsline {subsection}{5.6.2 Configuration providers e priorità}{20}{section*.49}%
+\contentsline {subsection}{5.6.3 Secrets e ambienti}{21}{section*.50}%
+\contentsline {subsection}{5.6.4 Stato: richiesta, sessione e cache}{21}{section*.51}%
+\contentsline {subsection}{5.6.5 Client HTTP e integrazione}{22}{section*.52}%
+\contentsline {subsection}{5.6.6 Background services e lavoro durevole}{22}{section*.53}%
+\contentsline {subsection}{5.6.7 Progettare le dipendenze come confini}{23}{section*.54}%
+\contentsline {section}{5.7 Dati e integrazione con i sistemi esistenti}{23}{section*.55}%
+\contentsline {subsection}{5.7.1 EF Core e scelta dell'accesso ai dati}{23}{section*.56}%
+\contentsline {subsection}{5.7.2 Modello, schema e confini}{24}{section*.57}%
+\contentsline {subsection}{5.7.3 Migrazioni dello schema}{25}{section*.58}%
+\contentsline {subsection}{5.7.4 Migrare i dati}{25}{section*.59}%
+\contentsline {subsection}{5.7.5 Qualità e semantica dei dati}{26}{section*.60}%
+\contentsline {subsection}{5.7.6 Riconciliazione verificabile}{26}{section*.61}%
+\contentsline {subsection}{5.7.7 Transazioni, concorrenza e query}{26}{section*.62}%
+\contentsline {subsection}{5.7.8 Connessioni e continuità}{27}{section*.63}%
+\contentsline {section}{5.8 Sicurezza e identità}{27}{section*.64}%
+\contentsline {subsection}{5.8.1 Iniziare da threat model e inventario}{27}{section*.65}%
+\contentsline {subsection}{5.8.2 Autenticazione e autorizzazione non sono la stessa cosa}{28}{section*.66}%
+\contentsline {subsection}{5.8.3 Migrare password e account}{28}{section*.67}%
+\contentsline {subsection}{5.8.4 Cookie, token e continuità di sessione}{29}{section*.68}%
+\contentsline {subsection}{5.8.5 Data Protection API e chiavi}{29}{section*.69}%
+\contentsline {subsection}{5.8.6 Segreti e configurazione sicura}{29}{section*.70}%
+\contentsline {subsection}{5.8.7 Difese per API web}{29}{section*.71}%
+\contentsline {subsection}{5.8.8 Test di sicurezza nella transizione}{30}{section*.72}%
+\contentsline {subsection}{5.8.9 Cutover dell'identità}{30}{section*.73}%
+\contentsline {section}{5.9 Testing e qualità}{30}{section*.74}%
+\contentsline {subsection}{5.9.1 Test di caratterizzazione}{31}{section*.75}%
+\contentsline {subsection}{5.9.2 Piramide e livelli di test}{31}{section*.76}%
+\contentsline {subsection}{5.9.3 Test HTTP con WebApplicationFactory}{31}{section*.77}%
+\contentsline {subsection}{5.9.4 Parità differenziale}{32}{section*.78}%
+\contentsline {subsection}{5.9.5 Dipendenze nei test}{32}{section*.79}%
+\contentsline {subsection}{5.9.6 Flakiness, dati e parallelismo}{33}{section*.80}%
+\contentsline {subsection}{5.9.7 Qualità e pipeline CI}{33}{section*.81}%
+\contentsline {subsection}{5.9.8 Copertura orientata al rischio}{33}{section*.82}%
+\contentsline {section}{5.10 Prestazioni e comportamento del runtime}{34}{section*.83}%
+\contentsline {subsection}{5.10.1 Baseline e carichi confrontabili}{34}{section*.84}%
+\contentsline {subsection}{5.10.2 Asincronia e concorrenza}{34}{section*.85}%
+\contentsline {subsection}{5.10.3 Memoria e garbage collection}{35}{section*.86}%
+\contentsline {subsection}{5.10.4 Query, serializzazione e caching}{35}{section*.87}%
+\contentsline {subsection}{5.10.5 Profiling e Native AOT}{35}{section*.88}%
+\contentsline {subsection}{5.10.6 Prestazioni come criterio di cutover}{36}{section*.89}%
+\contentsline {section}{5.11 Container, CI/CD e produzione}{36}{section*.90}%
+\contentsline {subsection}{5.11.1 Pubblicazione e artefatti}{36}{section*.91}%
+\contentsline {subsection}{5.11.2 Dockerfile multi-stage}{36}{section*.92}%
+\contentsline {subsection}{5.11.3 CI/CD}{37}{section*.93}%
+\contentsline {subsection}{5.11.4 Reverse proxy e hosting}{37}{section*.94}%
+\contentsline {subsection}{5.11.5 Health, osservabilità e shutdown}{38}{section*.95}%
+\contentsline {subsection}{5.11.6 Scalabilità, storage e resilienza}{38}{section*.96}%
+\contentsline {subsection}{5.11.7 Rollout progressivo e rollback operativo}{38}{section*.97}%
+\contentsline {subsection}{5.11.8 Costi, supporto e dismissione}{39}{section*.98}%
+\contentsline {section}{5.13 Approfondire la mappa dai principali ecosistemi}{39}{section*.99}%
+\contentsline {subsection}{5.13.1 Da PHP e framework PHP}{39}{section*.100}%
+\contentsline {subsection}{5.13.2 Da Python e framework ASGI/WSGI}{40}{section*.101}%
+\contentsline {subsection}{5.13.3 Da JavaScript/Node.js}{40}{section*.102}%
+\contentsline {subsection}{5.13.4 Da Java e Spring Boot}{41}{section*.103}%
+\contentsline {subsection}{5.13.5 Tabella di mapping delle responsabilità}{42}{section*.104}%
+\contentsline {subsection}{5.13.6 Scheda di decisione per un concetto}{42}{section*.105}%
+\contentsline {subsection}{5.13.7 Quando mantenere un componente nel sistema originario}{43}{section*.106}%
+\contentsline {section}{5.14 Prove di migrazione dei dati: runbook e controlli}{43}{section*.107}%
+\contentsline {subsection}{5.14.1 Preparare il runbook}{43}{section*.108}%
+\contentsline {subsection}{5.14.2 Snapshot, delta e freeze}{44}{section*.109}%
+\contentsline {subsection}{5.14.3 Trasformazioni versionate}{44}{section*.110}%
+\contentsline {subsection}{5.14.4 Importazione riprendibile}{45}{section*.111}%
+\contentsline {subsection}{5.14.5 Staging e cutover}{45}{section*.112}%
+\contentsline {subsection}{5.14.6 Report di riconciliazione}{45}{section*.113}%
+\contentsline {subsection}{5.14.7 Criteri di stop}{46}{section*.114}%
+\contentsline {section}{5.15 Diagnosi operativa durante la migrazione}{46}{section*.115}%
+\contentsline {subsection}{5.15.1 La readiness fallisce, ma il processo è attivo}{46}{section*.116}%
+\contentsline {subsection}{5.15.2 Errori 401 o 403 dopo il cutover}{47}{section*.117}%
+\contentsline {subsection}{5.15.3 502, 503 e timeout intermittenti}{47}{section*.118}%
+\contentsline {subsection}{5.15.4 Differenze di serializzazione}{47}{section*.119}%
+\contentsline {subsection}{5.15.5 Mismatch di database dopo la migrazione}{47}{section*.120}%
+\contentsline {subsection}{5.15.6 Runbook di incidente}{48}{section*.121}%
+\contentsline {section}{5.16 Verifica finale: criteri di successo}{48}{section*.122}%
+\contentsline {subsection}{5.16.1 Fonti ufficiali e aggiornamento}{48}{section*.123}%
+\contentsline {section}{5.12 Caso pratico: migrare un servizio catalogo}{49}{section*.124}%
+\contentsline {subsection}{5.12.1 Scenario e vincoli}{49}{section*.125}%
+\contentsline {subsection}{5.12.2 Baseline e test di caratterizzazione}{49}{section*.126}%
+\contentsline {subsection}{5.12.3 Creazione del progetto}{50}{section*.127}%
+\contentsline {subsection}{5.12.4 Contratto e query di lettura}{50}{section*.128}%
+\contentsline {subsection}{5.12.5 Mantenere il database condiviso in sicurezza}{51}{section*.129}%
+\contentsline {subsection}{5.12.6 Test differenziale e osservazione in shadow}{52}{section*.130}%
+\contentsline {subsection}{5.12.7 Canary e cutover}{52}{section*.131}%
+\contentsline {subsection}{5.12.8 Migrare la scrittura}{53}{section*.132}%
+\contentsline {subsection}{5.12.9 Migrare il job notturno}{53}{section*.133}%
+\contentsline {subsection}{5.12.10 Risultato e lezioni}{53}{section*.134}%
+\contentsline {subsection}{5.12.11 Adattare il caso ad altri ecosistemi}{54}{section*.135}%
+\contentsline {section}{5.17 Checklist, glossario e anti-pattern}{54}{section*.136}%
+\contentsline {subsection}{5.17.1 Checklist di assessment}{54}{section*.137}%
+\contentsline {subsection}{5.17.2 Checklist di progettazione}{55}{section*.138}%
+\contentsline {subsection}{5.17.3 Checklist prima del cutover}{55}{section*.139}%
+\contentsline {subsection}{5.17.4 Checklist per la dismissione}{55}{section*.140}%
+\contentsline {subsection}{5.17.5 Glossario essenziale}{55}{section*.141}%
+\contentsline {subsection}{5.17.6 Gli errori da evitare}{56}{section*.142}%
+\contentsline {section}{5.18 Appendice: piano di migrazione riutilizzabile}{57}{section*.143}%

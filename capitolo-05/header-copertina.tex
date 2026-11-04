@@ -1,0 +1,16 @@
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{coverNavy}{HTML}{101B36}
+\definecolor{coverBlue}{HTML}{173B68}
+\definecolor{coverCyan}{HTML}{55D6D2}
+\definecolor{coverOrange}{HTML}{FF9D5C}
+\definecolor{coverPale}{HTML}{DCE8F4}
+\colorlet{coverLine}{coverCyan}
+\usepackage{etoolbox}
+\apptocmd{\maketitle}{\input{capitolo-05/pagina-autore.tex}}{}{%
+  \PackageError{copertina}{Impossibile inserire la pagina autore dopo il frontespizio}{}
+}
+\apptocmd{\maketitle}{\input{capitolo-05/dedica.tex}}{}{%
+  \PackageError{copertina}{Impossibile inserire la pagina di dedica dopo la pagina autore}{}
+}

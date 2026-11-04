@@ -1,0 +1,706 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Capitolo 1}{1}{chapter*.2}%
+\contentsline {section}{Model Context Protocol: fondamenti e implementazione di un MCP Server in .NET 10}{1}{section*.3}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}%
+\contentsline {subsection}{Prerequisiti}{2}{section*.5}%
+\contentsline {subsection}{Convenzioni tipografiche}{2}{section*.6}%
+\contentsline {section}{1.1 Il problema: modelli intelligenti ma isolati}{2}{section*.7}%
+\contentsline {subsection}{1.1.1 L'analogia con le prese di corrente}{3}{section*.8}%
+\contentsline {subsection}{1.1.2 Cosa serve davvero a un LLM per essere utile}{3}{section*.9}%
+\contentsline {subsection}{1.1.3 Perché serve un \emph {protocollo} e non una libreria}{4}{section*.10}%
+\contentsline {section}{1.2 Che cos'è il Model Context Protocol}{4}{section*.11}%
+\contentsline {subsection}{1.2.1 Chi c'è dietro MCP}{5}{section*.12}%
+\contentsline {subsection}{1.2.2 Gli obiettivi di progetto}{5}{section*.13}%
+\contentsline {subsection}{1.2.3 Un server, molti client}{5}{section*.14}%
+\contentsline {subsection}{1.2.4 MCP e LSP: una parentela naturale}{6}{section*.15}%
+\contentsline {section}{1.3 Architettura: Host, Client e Server}{6}{section*.16}%
+\contentsline {subsection}{1.3.1 Cosa fa l'host}{7}{section*.18}%
+\contentsline {subsection}{1.3.2 Cosa fa il client}{7}{section*.19}%
+\contentsline {subsection}{1.3.3 Cosa fa il server}{8}{section*.20}%
+\contentsline {subsection}{1.3.4 La negoziazione delle capabilities}{8}{section*.21}%
+\contentsline {section}{1.4 I primitivi del protocollo: Tools, Resources e Prompts}{9}{section*.22}%
+\contentsline {subsection}{1.4.1 Tools: le azioni}{9}{section*.23}%
+\contentsline {subsection}{1.4.2 Resources: i dati}{9}{section*.24}%
+\contentsline {subsection}{1.4.3 Prompts: i modelli di istruzione}{10}{section*.25}%
+\contentsline {subsection}{1.4.4 Gli altri primitivi}{10}{section*.26}%
+\contentsline {subsection}{1.4.5 La tabella riassuntiva}{10}{section*.27}%
+\contentsline {section}{1.5 JSON-RPC 2.0: il linguaggio del protocollo}{11}{section*.28}%
+\contentsline {subsection}{1.5.1 La richiesta (request)}{11}{section*.29}%
+\contentsline {subsection}{1.5.2 La risposta (response)}{12}{section*.30}%
+\contentsline {subsection}{1.5.3 La variante di errore della risposta}{12}{section*.31}%
+\contentsline {subsection}{1.5.4 La notifica (notification)}{13}{section*.32}%
+\contentsline {subsection}{1.5.5 I metodi standard di MCP}{13}{section*.33}%
+\contentsline {subsection}{1.5.6 Un esempio completo di scambio}{13}{section*.34}%
+\contentsline {section}{1.6 I trasporti: stdio, Streamable HTTP e SSE}{14}{section*.35}%
+\contentsline {subsection}{1.6.1 stdio: il trasporto dei processi locali}{15}{section*.36}%
+\contentsline {subsection}{1.6.2 Streamable HTTP: il trasporto di rete}{15}{section*.37}%
+\contentsline {subsection}{1.6.3 Il vecchio trasporto HTTP+SSE}{15}{section*.38}%
+\contentsline {subsection}{1.6.4 Come scegliere il trasporto}{16}{section*.39}%
+\contentsline {subsection}{1.6.5 Il ruolo dell'SDK}{16}{section*.40}%
+\contentsline {section}{1.7 Il ciclo di vita di una sessione MCP}{16}{section*.41}%
+\contentsline {subsection}{1.7.1 Fase 1: l'inizializzazione}{16}{section*.42}%
+\contentsline {subsection}{1.7.2 Fase 2: la notifica di ``initialized''}{17}{section*.43}%
+\contentsline {subsection}{1.7.3 Fase 3: l'operatività}{17}{section*.44}%
+\contentsline {subsection}{1.7.4 Fase 4: la chiusura}{17}{section*.45}%
+\contentsline {subsection}{1.7.5 La sequenza riassunta}{18}{section*.46}%
+\contentsline {subsection}{1.7.6 Cosa significa per il nostro codice}{18}{section*.48}%
+\contentsline {section}{1.8 MCP vs REST API: un confronto approfondito}{18}{section*.49}%
+\contentsline {subsection}{1.8.1 Cos'è una REST API}{18}{section*.50}%
+\contentsline {subsection}{1.8.2 Cos'è un MCP server}{19}{section*.51}%
+\contentsline {subsection}{1.8.3 La differenza fondamentale: chi decide cosa chiamare}{19}{section*.52}%
+\contentsline {subsection}{1.8.4 L'autodescrizione è il vero valore}{20}{section*.53}%
+\contentsline {subsection}{1.8.5 Il problema M×N, di nuovo}{20}{section*.54}%
+\contentsline {subsection}{1.8.6 Quando usare cosa}{20}{section*.55}%
+\contentsline {subsection}{1.8.7 Un esempio concreto di differenza}{21}{section*.56}%
+\contentsline {subsection}{1.8.8 Tabella di sintesi operativa}{21}{section*.57}%
+\contentsline {section}{1.9 L'ecosistema .NET: pacchetti e namespaces}{22}{section*.58}%
+\contentsline {subsection}{1.9.1 I pacchetti}{22}{section*.59}%
+\contentsline {subsection}{1.9.2 I namespaces principali}{23}{section*.60}%
+\contentsline {subsection}{1.9.3 Gli attributi di registrazione}{23}{section*.61}%
+\contentsline {subsection}{1.9.4 Il modello di hosting}{24}{section*.62}%
+\contentsline {subsection}{1.9.5 Versioni e compatibilità con .NET 10}{24}{section*.63}%
+\contentsline {section}{1.10 Preparare l'ambiente di sviluppo}{24}{section*.64}%
+\contentsline {subsection}{1.10.1 Verificare l'installazione di .NET}{24}{section*.65}%
+\contentsline {subsection}{1.10.2 Creare la cartella del progetto}{25}{section*.66}%
+\contentsline {subsection}{1.10.3 Creare il progetto .NET}{25}{section*.67}%
+\contentsline {subsection}{1.10.4 Aggiungere i pacchetti NuGet}{25}{section*.68}%
+\contentsline {subsection}{1.10.5 Verificare il ripristino}{26}{section*.69}%
+\contentsline {subsection}{1.10.6 Uno sguardo a ciò che abbiamo installato}{26}{section*.70}%
+\contentsline {section}{1.11 Il tuo primo MCP server (stdio)}{26}{section*.71}%
+\contentsline {subsection}{1.11.1 Il codice completo}{27}{section*.72}%
+\contentsline {subsection}{1.11.2 Lettura riga per riga}{27}{section*.73}%
+\contentsline {subsection}{1.11.3 Eseguire e provare il server}{28}{section*.74}%
+\contentsline {subsection}{1.11.4 Un dettaglio importante: il nome in minuscolo}{29}{section*.75}%
+\contentsline {subsection}{1.11.5 Cosa abbiamo ottenuto}{29}{section*.76}%
+\contentsline {section}{1.12 I Tools in dettaglio}{30}{section*.77}%
+\contentsline {subsection}{1.12.1 L'anatomia di un metodo-tool}{30}{section*.78}%
+\contentsline {subsection}{1.12.2 I tipi di parametro supportati}{30}{section*.79}%
+\contentsline {subsection}{1.12.3 I tipi di ritorno supportati}{30}{section*.80}%
+\contentsline {subsection}{1.12.4 Tool asincroni e annullamento}{31}{section*.81}%
+\contentsline {subsection}{1.12.5 Iniezione delle dipendenze nei tool}{32}{section*.82}%
+\contentsline {subsection}{1.12.6 Le annotazioni dei tool}{32}{section*.83}%
+\contentsline {subsection}{1.12.7 Best practices}{33}{section*.84}%
+\contentsline {section}{1.13 Esempio pratico: un server per il file system}{33}{section*.85}%
+\contentsline {subsection}{1.13.1 Progettazione}{34}{section*.86}%
+\contentsline {subsection}{1.13.2 Il codice completo}{34}{section*.87}%
+\contentsline {subsection}{1.13.3 Lettura guidata}{36}{section*.88}%
+\contentsline {subsection}{1.13.4 Provare il server}{36}{section*.89}%
+\contentsline {subsection}{1.13.5 Limitazioni e possibili evoluzioni}{37}{section*.90}%
+\contentsline {section}{1.14 Esempio pratico: un server meteo con HTTP}{37}{section*.91}%
+\contentsline {subsection}{1.14.1 La scelta dell'API}{37}{section*.92}%
+\contentsline {subsection}{1.14.2 Il codice completo}{37}{section*.93}%
+\contentsline {subsection}{1.14.3 Lettura guidata}{39}{section*.94}%
+\contentsline {subsection}{1.14.4 Gestire gli errori dell'API esterna}{39}{section*.95}%
+\contentsline {subsection}{1.14.5 Provare il server}{40}{section*.96}%
+\contentsline {section}{1.15 Le Risorse}{40}{section*.97}%
+\contentsline {subsection}{1.15.1 Una risorsa semplice}{40}{section*.98}%
+\contentsline {subsection}{1.15.2 I template di risorsa parametrizzati}{41}{section*.99}%
+\contentsline {subsection}{1.15.3 Risorse e sottoscrizioni}{41}{section*.100}%
+\contentsline {subsection}{1.15.4 Tool o risorsa?}{41}{section*.101}%
+\contentsline {subsection}{1.15.5 Il tipo MIME giusto}{42}{section*.102}%
+\contentsline {section}{1.16 I Prompt}{42}{section*.103}%
+\contentsline {subsection}{1.16.1 Un prompt semplice}{42}{section*.104}%
+\contentsline {subsection}{1.16.2 I prompt con argomenti}{43}{section*.105}%
+\contentsline {subsection}{1.16.3 Prompt o tool?}{43}{section*.106}%
+\contentsline {subsection}{1.16.4 Un caso d'uso reale}{43}{section*.107}%
+\contentsline {section}{1.17 Server HTTP con ASP.NET Core}{44}{section*.108}%
+\contentsline {subsection}{1.17.1 Il pacchetto aggiuntivo}{44}{section*.109}%
+\contentsline {subsection}{1.17.2 Il codice completo}{44}{section*.110}%
+\contentsline {subsection}{1.17.3 Le differenze rispetto a stdio}{45}{section*.111}%
+\contentsline {subsection}{1.17.4 Il percorso dell'endpoint}{45}{section*.112}%
+\contentsline {subsection}{1.17.5 Eseguire e provare}{46}{section*.113}%
+\contentsline {subsection}{1.17.6 Streamable HTTP e modalità stateless}{46}{section*.114}%
+\contentsline {subsection}{1.17.7 Coesistere con altre API}{46}{section*.115}%
+\contentsline {section}{1.18 Configurare i client: Claude Desktop e VS Code}{47}{section*.116}%
+\contentsline {subsection}{1.18.1 Claude Desktop con un server stdio}{47}{section*.117}%
+\contentsline {subsection}{1.18.2 Claude Desktop con un server HTTP}{48}{section*.118}%
+\contentsline {subsection}{1.18.3 Visual Studio Code (GitHub Copilot)}{48}{section*.119}%
+\contentsline {subsection}{1.18.4 Il formato comune}{48}{section*.120}%
+\contentsline {subsection}{1.18.5 Variabili d'ambiente e segreti}{49}{section*.121}%
+\contentsline {section}{1.19 Testare con MCP Inspector}{49}{section*.122}%
+\contentsline {subsection}{1.19.1 Avviare l'Inspector con un server stdio}{49}{section*.123}%
+\contentsline {subsection}{1.19.2 Avviare l'Inspector con un server HTTP}{50}{section*.124}%
+\contentsline {subsection}{1.19.3 Cosa verificare}{50}{section*.125}%
+\contentsline {subsection}{1.19.4 Leggere i messaggi grezzi}{50}{section*.126}%
+\contentsline {subsection}{1.19.5 L'Inspector come strumento di sviluppo quotidiano}{50}{section*.127}%
+\contentsline {section}{1.20 Errori, logging e best practice}{51}{section*.128}%
+\contentsline {subsection}{1.20.1 Gestire gli errori nei tool}{51}{section*.129}%
+\contentsline {subsection}{1.20.2 Gli errori JSON-RPC di protocollo}{51}{section*.130}%
+\contentsline {subsection}{1.20.3 Validare gli argomenti in ingresso}{52}{section*.131}%
+\contentsline {subsection}{1.20.4 Il logging: dove e come}{52}{section*.132}%
+\contentsline {subsection}{1.20.5 Dipendenze e testabilità}{53}{section*.133}%
+\contentsline {subsection}{1.20.6 Naming e coerenza}{53}{section*.134}%
+\contentsline {subsection}{1.20.7 Piccole cose che fanno la differenza}{53}{section*.135}%
+\contentsline {subsection}{1.21.1 Risoluzione dei problemi comuni}{53}{section*.136}%
+\contentsline {subsubsection}{Il server ``non risponde'' (stdio)}{53}{section*.137}%
+\contentsline {subsubsection}{``Unknown tool: `X'\,''}{54}{section*.138}%
+\contentsline {subsubsection}{``MCP server process exited unexpectedly''}{54}{section*.139}%
+\contentsline {subsubsection}{Errore di versione del protocollo (-32022)}{55}{section*.140}%
+\contentsline {subsubsection}{``Porta già in uso'' (server HTTP)}{55}{section*.141}%
+\contentsline {subsubsection}{L'Inspector non si connette}{55}{section*.142}%
+\contentsline {subsubsection}{``API non trovata'' dopo un aggiornamento}{55}{section*.143}%
+\contentsline {subsubsection}{Metodo di diagnosi universale}{55}{section*.144}%
+\contentsline {subsection}{1.21.2 Scrivere un client .NET}{56}{section*.145}%
+\contentsline {subsubsection}{1.21.2.1 I pacchetti lato client}{56}{section*.146}%
+\contentsline {subsubsection}{1.21.2.2 Connettere un client a un server stdio}{56}{section*.147}%
+\contentsline {subsubsection}{1.21.2.3 Invocare un tool}{57}{section*.148}%
+\contentsline {subsubsection}{1.21.2.4 Connettere un client a un server HTTP}{57}{section*.149}%
+\contentsline {subsubsection}{1.21.2.5 Un client per i test}{58}{section*.150}%
+\contentsline {subsubsection}{1.21.2.6 Client e server nello stesso ecosistema}{58}{section*.151}%
+\contentsline {section}{1.21 Sicurezza e operatività}{58}{section*.152}%
+\contentsline {subsection}{Il principio del minimo privilegio}{58}{section*.153}%
+\contentsline {subsection}{La minaccia della prompt injection}{59}{section*.154}%
+\contentsline {subsection}{Autenticazione e autorizzazione}{59}{section*.155}%
+\contentsline {subsection}{Segreti e configurazione}{59}{section*.156}%
+\contentsline {subsection}{Controllare l'esposizione di rete}{60}{section*.157}%
+\contentsline {subsection}{Checklist di sicurezza}{60}{section*.158}%
+\contentsline {section}{1.22 Riepilogo, glossario ed esercizi}{60}{section*.159}%
+\contentsline {subsection}{1.22.1 Riepilogo}{60}{section*.160}%
+\contentsline {subsection}{1.22.2 Glossario}{61}{section*.161}%
+\contentsline {subsection}{1.22.3 Esercizi proposti}{62}{section*.162}%
+\contentsline {subsection}{1.22.4 Nel prossimo capitolo}{62}{section*.163}%
+\contentsline {chapter}{Capitolo 2}{63}{chapter*.164}%
+\contentsline {section}{Un MCP Server con Entity Framework Core: dati, query e primitivi avanzati}{63}{section*.165}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{63}{section*.166}%
+\contentsline {subsection}{Prerequisiti}{63}{section*.167}%
+\contentsline {subsection}{Convenzioni}{64}{section*.168}%
+\contentsline {section}{2.1 Perché un database in un MCP server}{64}{section*.169}%
+\contentsline {subsection}{2.1.1 Cosa chiede un agente a un database}{64}{section*.170}%
+\contentsline {subsection}{2.1.2 Il ruolo del MCP server}{64}{section*.171}%
+\contentsline {subsection}{2.1.3 Perché Entity Framework Core}{65}{section*.172}%
+\contentsline {subsection}{2.1.4 La sfida specifica di MCP: il lifetime del DbContext}{65}{section*.173}%
+\contentsline {subsection}{2.1.5 La mappa del capitolo}{65}{section*.174}%
+\contentsline {section}{2.2 Entity Framework Core in sintesi}{65}{section*.175}%
+\contentsline {subsection}{2.2.1 Cos'è un ORM}{66}{section*.176}%
+\contentsline {subsection}{2.2.2 Le entità}{66}{section*.177}%
+\contentsline {subsection}{2.2.3 Il DbContext}{66}{section*.178}%
+\contentsline {subsection}{2.2.4 Le query LINQ}{66}{section*.179}%
+\contentsline {subsection}{2.2.5 Le operazioni di scrittura}{67}{section*.180}%
+\contentsline {subsection}{2.2.6 I provider}{67}{section*.181}%
+\contentsline {subsection}{2.2.7 La configurazione tramite DI}{67}{section*.182}%
+\contentsline {section}{2.3 Il dominio di esempio: un catalogo prodotti}{68}{section*.183}%
+\contentsline {subsection}{2.3.1 Il modello concettuale}{68}{section*.184}%
+\contentsline {subsection}{2.3.2 Le entità C\#}{68}{section*.186}%
+\contentsline {subsection}{2.3.3 Cosa esporremo come tool}{69}{section*.187}%
+\contentsline {subsection}{2.3.4 Il tipo di ritorno: un DTO}{69}{section*.188}%
+\contentsline {subsection}{2.3.5 Il principio guida del capitolo}{70}{section*.189}%
+\contentsline {section}{2.4 Setup del progetto e pacchetti}{70}{section*.190}%
+\contentsline {subsection}{2.4.1 Creare il progetto}{70}{section*.191}%
+\contentsline {subsection}{2.4.2 Aggiungere i pacchetti}{70}{section*.192}%
+\contentsline {subsection}{2.4.3 Il file di progetto risultante}{71}{section*.193}%
+\contentsline {subsection}{2.4.4 Installare gli strumenti EF Core (una tantum)}{71}{section*.194}%
+\contentsline {subsection}{2.4.5 Verificare la compilazione}{71}{section*.195}%
+\contentsline {section}{2.5 Entità e DbContext}{72}{section*.196}%
+\contentsline {subsection}{2.5.1 Le entità}{72}{section*.197}%
+\contentsline {subsection}{2.5.2 Il DbContext}{72}{section*.198}%
+\contentsline {subsection}{2.5.3 La configurazione del modello}{73}{section*.199}%
+\contentsline {subsection}{2.5.4 Un vincolo utile: il nome categoria univoco}{73}{section*.200}%
+\contentsline {subsection}{2.5.5 Perché \texttt {required} e nullable}{73}{section*.201}%
+\contentsline {subsection}{2.5.6 Il prossimo passo}{74}{section*.202}%
+\contentsline {section}{2.6 Connessione e creazione del database}{74}{section*.203}%
+\contentsline {subsection}{2.6.1 La stringa di connessione}{74}{section*.204}%
+\contentsline {subsection}{2.6.2 AddDbContextFactory}{74}{section*.205}%
+\contentsline {subsection}{2.6.3 Creare lo schema con EnsureCreated}{74}{section*.206}%
+\contentsline {subsection}{2.6.4 Seed dei dati di esempio}{75}{section*.207}%
+\contentsline {subsection}{2.6.5 Dove mettere questa inizializzazione}{75}{section*.208}%
+\contentsline {section}{2.7 Le migrazioni}{76}{section*.209}%
+\contentsline {subsection}{2.7.1 Come funzionano}{76}{section*.210}%
+\contentsline {subsection}{2.7.2 Creare la prima migrazione}{76}{section*.211}%
+\contentsline {subsection}{2.7.3 Applicare la migrazione}{76}{section*.212}%
+\contentsline {subsection}{2.7.4 Il ciclo di lavoro quotidiano}{76}{section*.213}%
+\contentsline {subsection}{2.7.5 Migrazioni vs EnsureCreated}{77}{section*.214}%
+\contentsline {subsection}{2.7.6 Migrazioni e server MCP}{77}{section*.215}%
+\contentsline {section}{2.8 I tool di lettura}{77}{section*.216}%
+\contentsline {subsection}{2.8.1 La classe dei tool}{77}{section*.217}%
+\contentsline {subsection}{2.8.2 Elencare i prodotti}{78}{section*.218}%
+\contentsline {subsection}{2.8.3 Cercare per nome}{78}{section*.219}%
+\contentsline {subsection}{2.8.4 Ottenere un singolo prodotto}{79}{section*.220}%
+\contentsline {subsection}{2.8.5 Schema generato}{79}{section*.221}%
+\contentsline {subsection}{2.8.6 Un'osservazione sulle performance}{80}{section*.222}%
+\contentsline {section}{2.9 I tool di scrittura}{80}{section*.223}%
+\contentsline {subsection}{2.9.1 Creare un prodotto}{80}{section*.224}%
+\contentsline {subsection}{2.9.2 Cancellare un prodotto}{81}{section*.225}%
+\contentsline {subsection}{2.9.3 Gestire i vincoli del database}{82}{section*.226}%
+\contentsline {subsection}{2.9.4 Un tool di aggiornamento}{82}{section*.227}%
+\contentsline {subsection}{2.9.5 Validazione degli input}{83}{section*.228}%
+\contentsline {section}{2.10 Il pattern IDbContextFactory}{83}{section*.229}%
+\contentsline {subsection}{2.10.1 Il problema del DbContext condiviso}{83}{section*.230}%
+\contentsline {subsection}{2.10.2 La soluzione: una factory}{84}{section*.231}%
+\contentsline {subsection}{2.10.3 Perché funziona bene con MCP}{84}{section*.232}%
+\contentsline {subsection}{2.10.4 Factory vs contesto diretto}{84}{section*.233}%
+\contentsline {subsection}{2.10.5 Un'alternativa valida: il contesto ``short-lived'' per tool}{84}{section*.234}%
+\contentsline {subsection}{2.10.6 Cosa ricordare}{85}{section*.235}%
+\contentsline {section}{2.11 Il server stdio completo}{85}{section*.236}%
+\contentsline {subsection}{2.11.1 Il codice completo}{85}{section*.237}%
+\contentsline {subsection}{2.11.2 Eseguire e provare}{89}{section*.238}%
+\contentsline {subsection}{2.11.3 Osservazioni sul codice completo}{89}{section*.239}%
+\contentsline {subsection}{2.11.4 Separare i file}{90}{section*.240}%
+\contentsline {section}{2.12 Il server HTTP completo}{90}{section*.242}%
+\contentsline {subsection}{2.12.1 Il pacchetto aggiuntivo}{90}{section*.243}%
+\contentsline {subsection}{2.12.2 Le differenze rispetto a stdio}{91}{section*.244}%
+\contentsline {subsection}{2.12.3 Avviare e collegare}{92}{section*.245}%
+\contentsline {subsection}{2.12.4 Considerazioni per il database in HTTP}{92}{section*.246}%
+\contentsline {subsection}{2.12.5 Un consiglio di architettura}{93}{section*.247}%
+\contentsline {section}{2.13 Testare il server con l'MCP Inspector}{93}{section*.248}%
+\contentsline {subsection}{2.13.1 Avviare l'Inspector}{93}{section*.249}%
+\contentsline {subsection}{2.13.2 La sequenza di collaudo}{93}{section*.250}%
+\contentsline {subsection}{2.13.3 Cosa osservare negli errori}{94}{section*.251}%
+\contentsline {subsection}{2.13.4 Testare la persistenza attraverso il riavvio}{94}{section*.252}%
+\contentsline {subsection}{2.13.5 Test automatici con un client .NET}{94}{section*.253}%
+\contentsline {section}{2.14 Primitivi avanzati: il Progress}{94}{section*.254}%
+\contentsline {subsection}{2.14.1 Il meccanismo}{95}{section*.255}%
+\contentsline {subsection}{2.14.2 Un tool con progress}{95}{section*.256}%
+\contentsline {subsection}{2.14.3 Perché è utile}{96}{section*.257}%
+\contentsline {subsection}{2.14.4 Una nota sul token}{96}{section*.258}%
+\contentsline {section}{2.15 Riepilogo, glossario ed esercizi}{96}{section*.259}%
+\contentsline {subsection}{2.15.1 Riepilogo}{96}{section*.260}%
+\contentsline {subsection}{2.15.2 Glossario}{97}{section*.261}%
+\contentsline {subsection}{2.15.3 Esercizi proposti}{97}{section*.262}%
+\contentsline {chapter}{Capitolo 3}{99}{chapter*.263}%
+\contentsline {section}{GitHub Spec Kit: sviluppo guidato dalle specifiche con esempi in C\#}{99}{section*.264}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{99}{section*.265}%
+\contentsline {subsection}{Prerequisiti}{100}{section*.266}%
+\contentsline {subsection}{Una nota sulla versione}{100}{section*.267}%
+\contentsline {section}{3.1 Lo spec-driven development: invertire la piramide}{100}{section*.268}%
+\contentsline {subsection}{3.1.1 Il potere invertito}{100}{section*.269}%
+\contentsline {subsection}{3.1.2 Perché proprio adesso}{100}{section*.270}%
+\contentsline {subsection}{3.1.3 L'idea in una frase}{101}{section*.271}%
+\contentsline {subsection}{3.1.4 Il flusso SDD in pratica}{101}{section*.272}%
+\contentsline {subsection}{3.1.5 Il ruolo dei template}{101}{section*.273}%
+\contentsline {subsection}{3.1.6 Cosa NON è lo SDD}{102}{section*.274}%
+\contentsline {section}{3.2 Cos'è GitHub Spec Kit}{102}{section*.275}%
+\contentsline {subsection}{3.2.1 I tre processi pronti all'uso}{102}{section*.276}%
+\contentsline {subsection}{3.2.2 Le capabilities: un toolkit componibile}{103}{section*.277}%
+\contentsline {subsection}{3.2.3 Come si usa, in estrema sintesi}{103}{section*.278}%
+\contentsline {subsection}{3.2.4 Una breve storia}{104}{section*.279}%
+\contentsline {subsection}{3.2.5 Perché dovrebbe interessarti}{104}{section*.280}%
+\contentsline {section}{3.3 Installazione e inizializzazione}{104}{section*.281}%
+\contentsline {subsection}{3.3.1 I prerequisiti}{104}{section*.282}%
+\contentsline {subsection}{3.3.2 Installare il CLI}{104}{section*.283}%
+\contentsline {subsection}{3.3.3 Inizializzare un progetto}{105}{section*.284}%
+\contentsline {subsection}{3.3.4 Inizializzare in un progetto esistente}{105}{section*.285}%
+\contentsline {subsection}{3.3.5 Le opzioni di \texttt {init}}{105}{section*.286}%
+\contentsline {subsection}{3.3.6 Aggiornare}{106}{section*.287}%
+\contentsline {subsection}{3.3.7 Cosa succede alla prima esecuzione}{106}{section*.288}%
+\contentsline {section}{3.4 La struttura di un progetto Spec Kit}{106}{section*.289}%
+\contentsline {subsection}{3.4.1 La struttura d'insieme}{107}{section*.290}%
+\contentsline {subsection}{3.4.2 La cartella \texttt {.specify/}}{107}{section*.292}%
+\contentsline {subsection}{3.4.3 La cartella \texttt {specs/}}{108}{section*.293}%
+\contentsline {subsection}{3.4.4 Lo stato della feature attiva}{108}{section*.294}%
+\contentsline {subsection}{3.4.5 Il codice sorgente}{108}{section*.295}%
+\contentsline {subsection}{3.4.6 Dove vengono creati i file: un riepilogo}{108}{section*.296}%
+\contentsline {section}{3.5 Il workflow a colpo d'occhio}{109}{section*.297}%
+\contentsline {subsection}{3.5.1 Il percorso breve}{109}{section*.298}%
+\contentsline {subsection}{3.5.2 Il percorso completo}{109}{section*.299}%
+\contentsline {subsection}{3.5.3 Il diagramma del flusso}{110}{section*.300}%
+\contentsline {subsection}{3.5.4 Le regole d'uso}{110}{section*.302}%
+\contentsline {subsection}{3.5.5 Cosa produce la convergenza}{111}{section*.303}%
+\contentsline {section}{3.6 La Constitution: i principi del progetto}{111}{section*.304}%
+\contentsline {subsection}{3.6.1 Cosa contiene}{111}{section*.305}%
+\contentsline {subsection}{3.6.2 Un esempio per un progetto .NET}{112}{section*.306}%
+\contentsline {subsection}{3.6.3 Come viene usata}{113}{section*.307}%
+\contentsline {subsection}{3.6.4 La creazione con \texttt {/speckit-constitution}}{113}{section*.308}%
+\contentsline {subsection}{3.6.5 Perché è potente}{113}{section*.309}%
+\contentsline {section}{3.7 \texttt {/speckit-specify}: dalla richiesta alla specifica}{113}{section*.310}%
+\contentsline {subsection}{3.7.1 Come si invoca}{114}{section*.311}%
+\contentsline {subsection}{3.7.2 La struttura di \texttt {spec.md}}{114}{section*.312}%
+\contentsline {subsection}{3.7.3 Le user story prioritarie e indipendenti}{114}{section*.313}%
+\contentsline {subsection}{3.7.4 L'esempio C\#: la specifica}{115}{section*.314}%
+\contentsline {subsection}{3.7.5 I punti chiave del template}{117}{section*.315}%
+\contentsline {section}{3.8 \texttt {/speckit-clarify}: risolvere le ambiguità}{117}{section*.316}%
+\contentsline {subsection}{3.8.1 Cosa fa}{117}{section*.317}%
+\contentsline {subsection}{3.8.2 Il marcatore \texttt {{[}NEEDS\ CLARIFICATION{]}}}{118}{section*.318}%
+\contentsline {subsection}{3.8.3 Esempi di domande per la nostra feature}{118}{section*.319}%
+\contentsline {subsection}{3.8.4 Quando usarlo}{118}{section*.320}%
+\contentsline {subsection}{3.8.5 Il valore per il team}{118}{section*.321}%
+\contentsline {section}{3.9 \texttt {/speckit-plan}: il piano tecnico}{118}{section*.322}%
+\contentsline {subsection}{3.9.1 Come si invoca}{119}{section*.323}%
+\contentsline {subsection}{3.9.2 Le fasi del piano}{119}{section*.324}%
+\contentsline {subsection}{3.9.3 La struttura di \texttt {plan.md}}{119}{section*.325}%
+\contentsline {subsection}{3.9.4 L'esempio C\#: il piano}{119}{section*.326}%
+\contentsline {subsection}{3.9.5 Il modello dati e i contratti}{121}{section*.327}%
+\contentsline {subsection}{3.9.6 Perché il piano è verificato rispetto alla constitution}{121}{section*.328}%
+\contentsline {section}{3.10 \texttt {/speckit-checklist}: i gate di qualità della specifica}{122}{section*.329}%
+\contentsline {subsection}{3.10.1 Cosa fa}{122}{section*.330}%
+\contentsline {subsection}{3.10.2 Un esempio di checklist}{122}{section*.331}%
+\contentsline {subsection}{3.10.3 Chi mantiene cosa}{123}{section*.332}%
+\contentsline {subsection}{3.10.4 Il gate in \texttt {/speckit-implement}}{123}{section*.333}%
+\contentsline {subsection}{3.10.5 Il valore}{123}{section*.334}%
+\contentsline {section}{3.11 \texttt {/speckit-tasks}: la scomposizione in task}{123}{section*.335}%
+\contentsline {subsection}{3.11.1 Come si invoca}{123}{section*.336}%
+\contentsline {subsection}{3.11.2 Il formato dei task}{123}{section*.337}%
+\contentsline {subsection}{3.11.3 Le fasi}{124}{section*.338}%
+\contentsline {subsection}{3.11.4 L'esempio C\#: i task}{124}{section*.339}%
+\contentsline {subsection}{3.11.5 Il test-first nei task}{125}{section*.340}%
+\contentsline {subsection}{3.11.6 Perché i task funzionano}{125}{section*.341}%
+\contentsline {section}{3.12 \texttt {/speckit-analyze}: la verifica di coerenza}{125}{section*.342}%
+\contentsline {subsection}{3.12.1 Cosa fa}{126}{section*.343}%
+\contentsline {subsection}{3.12.2 Esempi di segnalazioni}{126}{section*.344}%
+\contentsline {subsection}{3.12.3 Cosa fare con le segnalazioni}{126}{section*.345}%
+\contentsline {subsection}{3.12.4 Il posto nel flusso}{126}{section*.346}%
+\contentsline {subsection}{3.12.5 La filosofia}{126}{section*.347}%
+\contentsline {section}{3.13 Implement e Converge}{127}{section*.348}%
+\contentsline {subsection}{3.13.1 \texttt {/speckit-implement}}{127}{section*.349}%
+\contentsline {subsection}{3.13.2 Cosa produce}{127}{section*.350}%
+\contentsline {subsection}{3.13.3 \texttt {/speckit-converge}}{127}{section*.351}%
+\contentsline {subsection}{3.13.4 Il ciclo implement--converge}{128}{section*.352}%
+\contentsline {subsection}{3.13.5 Cosa garantisce la convergenza}{128}{section*.354}%
+\contentsline {subsection}{3.13.6 Il risultato finale}{128}{section*.355}%
+\contentsline {section}{3.14 Il CLI \texttt {specify}}{128}{section*.356}%
+\contentsline {subsection}{3.14.1 I comandi principali}{128}{section*.357}%
+\contentsline {subsection}{3.14.2 \texttt {specify\ check}}{129}{section*.358}%
+\contentsline {subsection}{3.14.3 Le estensioni: bug fixing e assessment}{129}{section*.359}%
+\contentsline {subsection}{3.14.4 Preset e workflow}{130}{section*.360}%
+\contentsline {subsection}{3.14.5 Estensioni e hook}{130}{section*.361}%
+\contentsline {subsection}{3.14.6 Quando usare il CLI}{130}{section*.362}%
+\contentsline {section}{3.15 Esempio C\#: entità, DbContext e DTO}{130}{section*.363}%
+\contentsline {subsection}{3.15.1 L'entità \texttt {TaskItem}}{131}{section*.364}%
+\contentsline {subsection}{3.15.2 Il \texttt {DbContext}}{131}{section*.365}%
+\contentsline {subsection}{3.15.3 I DTO}{132}{section*.366}%
+\contentsline {subsection}{3.15.4 La tracciabilità spec → codice}{132}{section*.367}%
+\contentsline {subsection}{3.15.5 La registrazione dei servizi}{132}{section*.368}%
+\contentsline {section}{3.16 Esempio C\#: gli endpoint della Minimal API}{133}{section*.369}%
+\contentsline {subsection}{3.16.1 Il codice completo}{133}{section*.370}%
+\contentsline {subsection}{3.16.2 Lettura guidata}{135}{section*.371}%
+\contentsline {subsection}{3.16.3 Il progetto}{136}{section*.372}%
+\contentsline {section}{3.17 Esempio C\#: i test (test-first)}{136}{section*.373}%
+\contentsline {subsection}{3.17.1 Il progetto di test}{136}{section*.374}%
+\contentsline {subsection}{3.17.2 I test}{136}{section*.375}%
+\contentsline {subsection}{3.17.3 La corrispondenza con gli scenari di accettazione}{138}{section*.376}%
+\contentsline {subsection}{3.17.4 Il ciclo Red-Green-Refactor}{138}{section*.377}%
+\contentsline {subsection}{3.17.5 Eseguire i test}{139}{section*.378}%
+\contentsline {section}{3.18 Esempio C\#: eseguire, verificare e convergere}{139}{section*.379}%
+\contentsline {subsection}{3.18.1 Avviare l'applicazione}{139}{section*.380}%
+\contentsline {subsection}{3.18.2 Creare un task}{139}{section*.381}%
+\contentsline {subsection}{3.18.3 Elencare con filtro}{139}{section*.382}%
+\contentsline {subsection}{3.18.4 Completare ed eliminare}{140}{section*.383}%
+\contentsline {subsection}{3.18.5 La convergenza}{140}{section*.384}%
+\contentsline {subsection}{3.18.6 Il risultato completo}{140}{section*.385}%
+\contentsline {section}{3.19 Integrazione con Copilot e VS Code}{141}{section*.387}%
+\contentsline {subsection}{3.19.1 L'integrazione Copilot}{141}{section*.388}%
+\contentsline {subsection}{3.19.2 Dove vivono le skill}{142}{section*.389}%
+\contentsline {subsection}{3.19.3 Il flusso in VS Code}{142}{section*.390}%
+\contentsline {subsection}{3.19.4 Altri agenti}{142}{section*.391}%
+\contentsline {subsection}{3.19.5 Rivedere e modificare a mano}{142}{section*.392}%
+\contentsline {subsection}{3.19.6 VS Code e Git}{142}{section*.393}%
+\contentsline {section}{3.20 CI/CD e automazione}{143}{section*.394}%
+\contentsline {subsection}{3.20.1 \texttt {specify\ check} non è un gate degli artefatti}{143}{section*.395}%
+\contentsline {subsection}{3.20.2 Build e test del progetto .NET}{143}{section*.396}%
+\contentsline {subsection}{3.20.3 Workflow e hook}{143}{section*.397}%
+\contentsline {subsection}{3.20.4 L'automazione non sostituisce la revisione}{144}{section*.398}%
+\contentsline {subsection}{3.20.5 Un esempio di pipeline completa}{144}{section*.399}%
+\contentsline {section}{3.22 Il processo di bug fixing}{145}{section*.400}%
+\contentsline {subsection}{Come si installa}{145}{section*.401}%
+\contentsline {subsection}{Il flusso in tre passi}{145}{section*.402}%
+\contentsline {subsection}{Il verdetto}{145}{section*.403}%
+\contentsline {subsection}{Un esempio in C\#}{145}{section*.404}%
+\contentsline {subsection}{Bug fixing vs feature workflow}{146}{section*.405}%
+\contentsline {section}{3.21 Best practice e anti-pattern}{146}{section*.406}%
+\contentsline {subsection}{3.21.1 Le best practice}{146}{section*.407}%
+\contentsline {subsection}{3.21.2 Gli anti-pattern}{147}{section*.408}%
+\contentsline {subsection}{3.21.3 La regola d'oro}{147}{section*.409}%
+\contentsline {section}{3.23 Il processo di idea assessment}{148}{section*.410}%
+\contentsline {subsection}{Come si installa}{148}{section*.411}%
+\contentsline {subsection}{Le cinque fasi}{148}{section*.412}%
+\contentsline {subsection}{La decisione}{148}{section*.413}%
+\contentsline {subsection}{Un esempio (concettuale)}{149}{section*.414}%
+\contentsline {subsection}{Il valore dell'assessment}{149}{section*.415}%
+\contentsline {section}{3.24 Confronti, evoluzione e progetti esistenti}{149}{section*.416}%
+\contentsline {subsection}{Confronto con TDD e BDD}{149}{section*.417}%
+\contentsline {subsection}{Confronto con i design doc tradizionali}{150}{section*.418}%
+\contentsline {subsection}{Far evolvere una specifica esistente}{150}{section*.419}%
+\contentsline {subsection}{Adottare Spec Kit su un progetto esistente}{150}{section*.420}%
+\contentsline {subsection}{Quando (non) usare Spec Kit}{151}{section*.421}%
+\contentsline {section}{3.25 Risoluzione dei problemi comuni}{151}{section*.422}%
+\contentsline {subsection}{Il comando \texttt {/speckit-*} non viene trovato dall'agente}{151}{section*.423}%
+\contentsline {subsection}{\texttt {specify} non è riconosciuto come comando}{151}{section*.424}%
+\contentsline {subsection}{Il comando lavora sulla feature sbagliata}{151}{section*.425}%
+\contentsline {subsection}{\texttt {/speckit-implement} si rifiuta di partire}{151}{section*.426}%
+\contentsline {subsection}{\texttt {/speckit-analyze} segnala conflitti}{152}{section*.427}%
+\contentsline {subsection}{\texttt {/speckit-converge} aggiunge task all'infinito}{152}{section*.428}%
+\contentsline {subsection}{Il comando ha una sintassi diversa da quella dell'esempio}{152}{section*.429}%
+\contentsline {subsection}{\texttt {specify\ check} segnala prerequisiti mancanti}{152}{section*.430}%
+\contentsline {subsection}{Metodo di diagnosi universale}{152}{section*.431}%
+\contentsline {section}{3.26 Riepilogo, glossario ed esercizi}{153}{section*.432}%
+\contentsline {subsection}{3.26.1 Riepilogo}{153}{section*.433}%
+\contentsline {subsection}{3.26.2 Glossario}{153}{section*.434}%
+\contentsline {subsection}{3.26.3 Esercizi proposti}{154}{section*.435}%
+\contentsline {subsection}{3.26.4 Il filo conduttore}{154}{section*.436}%
+\contentsline {chapter}{Capitolo 4}{155}{chapter*.437}%
+\contentsline {section}{Istruzioni, skill, agenti e plugin: estendere un agente di codifica}{155}{section*.438}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{155}{section*.439}%
+\contentsline {subsection}{Prerequisiti}{156}{section*.440}%
+\contentsline {subsection}{Convenzioni}{156}{section*.441}%
+\contentsline {section}{4.1 Perché personalizzare un agente}{156}{section*.442}%
+\contentsline {subsection}{4.1.1 Il problema del contesto}{156}{section*.443}%
+\contentsline {subsection}{4.1.2 Quattro strumenti, quattro scopi}{157}{section*.444}%
+\contentsline {subsection}{4.1.3 Un esempio concreto}{157}{section*.445}%
+\contentsline {section}{4.2 Il modello mentale: quattro livelli}{158}{section*.446}%
+\contentsline {subsection}{4.2.1 Livello 1: il contesto persistente}{158}{section*.448}%
+\contentsline {subsection}{4.2.2 Livello 2: la conoscenza su richiesta}{158}{section*.449}%
+\contentsline {subsection}{4.2.3 Livello 3: il contesto isolato}{159}{section*.450}%
+\contentsline {subsection}{4.2.4 Livello 4: la distribuzione}{159}{section*.451}%
+\contentsline {subsection}{4.2.5 Come si compongono}{159}{section*.452}%
+\contentsline {section}{4.3 Le istruzioni}{159}{section*.453}%
+\contentsline {subsection}{4.3.1 Che cosa scrivere (e che cosa no)}{160}{section*.454}%
+\contentsline {subsection}{4.3.2 Un file di progetto}{160}{section*.455}%
+\contentsline {subsection}{4.3.3 Istruzioni mirate: \texttt {applyTo} e \texttt {globs}}{161}{section*.456}%
+\contentsline {subsection}{4.3.4 La trappola delle istruzioni duplicate}{162}{section*.457}%
+\contentsline {section}{4.4 Le skill}{162}{section*.458}%
+\contentsline {subsection}{4.4.1 Il formato minimo}{162}{section*.460}%
+\contentsline {subsection}{4.4.2 La struttura consigliata}{163}{section*.461}%
+\contentsline {subsection}{4.4.3 Perché gli script cambiano le regole del gioco}{164}{section*.462}%
+\contentsline {subsection}{4.4.4 Skill, comandi e prompt}{164}{section*.463}%
+\contentsline {section}{4.5 Gli agenti}{164}{section*.464}%
+\contentsline {subsection}{4.5.1 A cosa serve davvero}{165}{section*.465}%
+\contentsline {subsection}{4.5.2 Il formato del file}{165}{section*.466}%
+\contentsline {subsection}{4.5.3 Due proprietà che vale la pena conoscere}{165}{section*.467}%
+\contentsline {subsection}{4.5.4 Handoff: passare la palla}{166}{section*.468}%
+\contentsline {subsection}{4.5.5 Agente o skill?}{166}{section*.469}%
+\contentsline {section}{4.6 I plugin}{166}{section*.470}%
+\contentsline {subsection}{4.6.1 Perché servono}{167}{section*.472}%
+\contentsline {subsection}{4.6.2 Lo standard e le estensioni}{167}{section*.473}%
+\contentsline {subsection}{4.6.3 Il formato Claude}{168}{section*.474}%
+\contentsline {subsection}{4.6.4 Marketplace e fiducia}{168}{section*.475}%
+\contentsline {section}{4.7 Dove vivono i file: GitHub Copilot in VS Code}{170}{section*.476}%
+\contentsline {subsection}{4.7.1 I file di progetto}{170}{section*.477}%
+\contentsline {subsection}{4.7.2 I file utente}{171}{section*.478}%
+\contentsline {subsection}{4.7.3 Il formato Claude dentro VS Code}{171}{section*.479}%
+\contentsline {subsection}{4.7.4 Un esempio completo e verificabile}{171}{section*.480}%
+\contentsline {section}{4.8 Dove vivono i file: Claude Code}{172}{section*.481}%
+\contentsline {subsection}{4.8.1 La gerarchia di \texttt {CLAUDE.md}}{172}{section*.482}%
+\contentsline {subsection}{4.8.2 Le regole per percorso}{172}{section*.483}%
+\contentsline {subsection}{4.8.3 Skill, agenti, comandi}{173}{section*.484}%
+\contentsline {subsection}{4.8.4 L'albero completo}{173}{section*.485}%
+\contentsline {subsection}{4.8.5 Come verificare cosa è stato caricato}{174}{section*.486}%
+\contentsline {section}{4.9 Dove vivono i file: Cursor, Gemini CLI e Codex}{174}{section*.487}%
+\contentsline {subsection}{4.9.1 Cursor}{174}{section*.488}%
+\contentsline {subsection}{4.9.2 Gemini CLI}{175}{section*.489}%
+\contentsline {subsection}{4.9.3 Codex}{176}{section*.490}%
+\contentsline {subsection}{4.9.4 Gli altri}{176}{section*.491}%
+\contentsline {section}{4.10 Il caso DeepSeek: un motore senza formato}{176}{section*.492}%
+\contentsline {subsection}{4.10.1 Modello, host e formato}{177}{section*.493}%
+\contentsline {subsection}{4.10.2 L'eccezione: DeepSeek Harness}{177}{section*.494}%
+\contentsline {subsection}{4.10.3 Che cosa insegna questo caso}{178}{section*.495}%
+\contentsline {subsection}{4.10.4 In pratica}{178}{section*.496}%
+\contentsline {section}{4.11 La mappa comparata: sei ambienti}{178}{section*.497}%
+\contentsline {subsection}{4.11.1 Tabella di orientamento}{179}{section*.499}%
+\contentsline {subsection}{4.11.2 Tre letture utili}{180}{section*.500}%
+\contentsline {subsection}{4.11.3 Il rischio della mappa}{180}{section*.501}%
+\contentsline {section}{4.12 Precedenza, merge e conflitti}{181}{section*.502}%
+\contentsline {subsection}{4.12.1 Due modelli: somma e sostituzione}{181}{section*.504}%
+\contentsline {subsection}{4.12.2 Livelli tipici, non ordine universale}{182}{section*.505}%
+\contentsline {subsection}{4.12.3 Il caso più frequente: la regola duplicata}{182}{section*.506}%
+\contentsline {subsection}{4.12.4 Scrivere regole che non collidono}{183}{section*.507}%
+\contentsline {section}{4.13 Portabilità: cosa è standard e cosa no}{183}{section*.508}%
+\contentsline {subsection}{4.13.1 La scala della portabilità}{183}{section*.509}%
+\contentsline {subsection}{4.13.2 La strategia della fonte unica}{184}{section*.510}%
+\contentsline {subsection}{4.13.3 Il formato delle skill è portabile, la scoperta no}{185}{section*.511}%
+\contentsline {subsection}{4.13.4 Un criterio di decisione}{185}{section*.512}%
+\contentsline {section}{4.14 Scrivere una skill: esempio completo}{185}{section*.513}%
+\contentsline {subsection}{4.14.1 La cartella}{186}{section*.514}%
+\contentsline {subsection}{4.14.2 Il file \texttt {SKILL.md}}{186}{section*.515}%
+\contentsline {subsection}{4.14.3 Lo script}{187}{section*.516}%
+\contentsline {subsection}{4.14.4 Perché questa skill funziona}{188}{section*.517}%
+\contentsline {subsection}{4.14.5 Dove metterla}{188}{section*.518}%
+\contentsline {section}{4.15 Scrivere un agente: revisione in sola lettura}{188}{section*.519}%
+\contentsline {subsection}{4.15.1 Il file}{189}{section*.520}%
+\contentsline {subsection}{4.15.2 Le tre scelte che contano}{189}{section*.521}%
+\contentsline {subsection}{4.15.3 Usarlo come subagente}{190}{section*.522}%
+\contentsline {subsection}{4.15.4 Handoff: planner → implementer → revisore}{190}{section*.523}%
+\contentsline {subsection}{4.15.5 Un avvertimento}{191}{section*.524}%
+\contentsline {section}{4.16 Scrivere un plugin}{191}{section*.525}%
+\contentsline {subsection}{4.16.1 La struttura}{191}{section*.526}%
+\contentsline {subsection}{4.16.2 Il manifest}{191}{section*.527}%
+\contentsline {subsection}{4.16.3 I server MCP}{192}{section*.528}%
+\contentsline {subsection}{4.16.4 Gli hook}{192}{section*.529}%
+\contentsline {subsection}{4.16.5 La versione Claude}{193}{section*.530}%
+\contentsline {subsection}{4.16.6 Pubblicare}{193}{section*.531}%
+\contentsline {section}{4.17 Verificare che funzioni}{193}{section*.532}%
+\contentsline {subsection}{4.17.1 Le quattro verifiche, in ordine}{194}{section*.533}%
+\contentsline {subsection}{4.17.2 Un test automatico per il frontmatter}{194}{section*.534}%
+\contentsline {subsection}{4.17.3 Verificare il comportamento, non solo la sintassi}{195}{section*.535}%
+\contentsline {subsection}{4.17.4 Un consiglio di manutenzione}{196}{section*.536}%
+\contentsline {section}{4.18 Sicurezza}{196}{section*.537}%
+\contentsline {subsection}{4.18.1 Superficie di rischio}{196}{section*.538}%
+\contentsline {subsection}{4.18.2 La regola di fondo}{197}{section*.539}%
+\contentsline {subsection}{4.18.3 Cose da fare sempre}{197}{section*.540}%
+\contentsline {subsection}{4.18.4 Cose da evitare}{197}{section*.541}%
+\contentsline {subsection}{4.18.5 Un controllo di sicurezza in CI}{198}{section*.542}%
+\contentsline {subsection}{4.18.6 Il principio da portarsi a casa}{198}{section*.543}%
+\contentsline {section}{4.19 Governance del team e versionamento}{199}{section*.544}%
+\contentsline {subsection}{4.19.1 I tre ambiti e chi li possiede}{199}{section*.545}%
+\contentsline {subsection}{4.19.2 Le regole come artefatto di progetto}{199}{section*.546}%
+\contentsline {subsection}{4.19.3 Il monorepo}{200}{section*.547}%
+\contentsline {subsection}{4.19.4 Migrazioni e cambi di motore}{200}{section*.548}%
+\contentsline {subsection}{4.19.5 Un esempio di organizzazione realistica}{200}{section*.549}%
+\contentsline {section}{4.20 Best practice}{201}{section*.550}%
+\contentsline {subsection}{4.20.1 Sul contenuto}{201}{section*.551}%
+\contentsline {subsection}{4.20.2 Sulla struttura}{201}{section*.552}%
+\contentsline {subsection}{4.20.3 Sulla sicurezza}{201}{section*.553}%
+\contentsline {subsection}{4.20.4 Il criterio del ``dopo''}{201}{section*.554}%
+\contentsline {section}{4.21 Anti-pattern}{202}{section*.555}%
+\contentsline {subsection}{4.21.1 La «bibbia» di progetto}{202}{section*.556}%
+\contentsline {subsection}{4.21.2 La skill invisibile}{202}{section*.557}%
+\contentsline {subsection}{4.21.3 L'agente tuttofare}{202}{section*.558}%
+\contentsline {subsection}{4.21.4 Il duplicato silenzioso}{202}{section*.559}%
+\contentsline {subsection}{4.21.5 Il plugin «proviamolo»}{203}{section*.560}%
+\contentsline {subsection}{4.21.6 La configurazione non versionata}{203}{section*.561}%
+\contentsline {subsection}{4.21.7 Il riepilogo degli anti-pattern}{203}{section*.562}%
+\contentsline {section}{4.22 Risoluzione dei problemi}{203}{section*.563}%
+\contentsline {subsection}{4.22.1 «L'agente ignora il mio file di istruzioni»}{203}{section*.564}%
+\contentsline {subsection}{4.22.2 «La skill non viene mai attivata»}{204}{section*.565}%
+\contentsline {subsection}{4.22.3 «L'agente non modifica i file»}{204}{section*.566}%
+\contentsline {subsection}{4.22.4 «Il plugin non compare»}{204}{section*.567}%
+\contentsline {subsection}{4.22.5 «Dopo l'aggiornamento del motore non funziona più nulla»}{204}{section*.568}%
+\contentsline {subsection}{4.22.6 «Le risposte sono più lente e più care»}{205}{section*.569}%
+\contentsline {subsection}{4.22.7 «Su Windows i percorsi non funzionano»}{205}{section*.570}%
+\contentsline {subsection}{4.22.8 Tabella riassuntiva}{205}{section*.571}%
+\contentsline {section}{4.23 Riepilogo}{205}{section*.572}%
+\contentsline {subsection}{4.23.1 I quattro livelli}{205}{section*.573}%
+\contentsline {subsection}{4.23.2 Dove mettere i file}{206}{section*.574}%
+\contentsline {subsection}{4.23.3 Le tre idee da portarsi a casa}{206}{section*.575}%
+\contentsline {subsection}{4.23.4 Il filo con i capitoli precedenti}{207}{section*.576}%
+\contentsline {chapter}{Capitolo 5}{209}{chapter*.577}%
+\contentsline {section}{Migrare a .NET da altri linguaggi e piattaforme}{209}{section*.578}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{209}{section*.579}%
+\contentsline {subsection}{Prerequisiti}{210}{section*.580}%
+\contentsline {subsection}{Convenzioni}{210}{section*.581}%
+\contentsline {subsection}{Indice concettuale}{210}{section*.582}%
+\contentsline {section}{5.1 Perché migrare e come valutare il progetto}{211}{section*.583}%
+\contentsline {subsection}{5.1.1 Migrazione non è traduzione}{211}{section*.584}%
+\contentsline {subsection}{5.1.2 Motivazioni e controindicazioni}{211}{section*.585}%
+\contentsline {subsection}{5.1.3 Inventario tecnico e funzionale}{212}{section*.586}%
+\contentsline {subsection}{5.1.4 Requisiti non funzionali e baseline}{212}{section*.587}%
+\contentsline {subsection}{5.1.5 Registro delle decisioni e dei rischi}{213}{section*.588}%
+\contentsline {section}{5.2 Mappare linguaggi, runtime e strumenti}{213}{section*.589}%
+\contentsline {subsection}{5.2.1 Da .NET Core a .NET moderno}{214}{section*.590}%
+\contentsline {subsection}{5.2.2 Concetti e strumenti a confronto}{214}{section*.591}%
+\contentsline {subsection}{5.2.3 SDK, runtime e CLI}{214}{section*.592}%
+\contentsline {subsection}{5.2.4 Sintassi C\# per chi conosce già un linguaggio}{215}{section*.593}%
+\contentsline {subsection}{5.2.5 Lifecycle e hosting}{216}{section*.594}%
+\contentsline {subsection}{5.2.6 Pacchetti e dipendenze}{216}{section*.595}%
+\contentsline {subsection}{5.2.7 Un primo servizio e le verifiche di ambiente}{217}{section*.596}%
+\contentsline {subsection}{5.2.8 La mappa deve essere verificata sul caso reale}{217}{section*.597}%
+\contentsline {section}{5.3 Pianificare una migrazione controllata}{217}{section*.598}%
+\contentsline {subsection}{5.3.1 Tre strategie, non due}{217}{section*.599}%
+\contentsline {subsection}{5.3.2 Scegliere la prima capacità}{218}{section*.600}%
+\contentsline {subsection}{5.3.3 Compatibilità durante la coesistenza}{218}{section*.601}%
+\contentsline {subsection}{5.3.4 Fasi con condizioni di uscita}{219}{section*.602}%
+\contentsline {subsection}{5.3.5 Cutover e rollback}{220}{section*.603}%
+\contentsline {subsection}{5.3.6 Organizzazione e dipendenze}{220}{section*.604}%
+\contentsline {section}{5.4 Architettura e organizzazione del codice}{220}{section*.605}%
+\contentsline {subsection}{5.4.1 Dal framework sorgente alle responsabilità ASP.NET Core}{220}{section*.606}%
+\contentsline {subsection}{5.4.2 Minimal API o controller?}{221}{section*.607}%
+\contentsline {subsection}{5.4.3 Confini applicativi e dipendenze}{222}{section*.608}%
+\contentsline {subsection}{5.4.4 Dominio, DTO e mapping}{223}{section*.609}%
+\contentsline {subsection}{5.4.5 Hosting e Kestrel}{223}{section*.610}%
+\contentsline {subsection}{5.4.6 Processi web, worker e job}{223}{section*.611}%
+\contentsline {subsection}{5.4.7 Strutturare per comprendere, non per imitare}{223}{section*.612}%
+\contentsline {section}{5.5 Richieste HTTP e pipeline}{224}{section*.613}%
+\contentsline {subsection}{5.5.1 Ricostruire il contratto prima di spostare le route}{224}{section*.614}%
+\contentsline {subsection}{5.5.2 Middleware e ordine della pipeline}{224}{section*.615}%
+\contentsline {subsection}{5.5.3 Routing e binding}{225}{section*.616}%
+\contentsline {subsection}{5.5.4 Errori prevedibili}{226}{section*.617}%
+\contentsline {subsection}{5.5.5 Filtri, middleware ed endpoint filter}{226}{section*.618}%
+\contentsline {subsection}{5.5.6 Timeout, cancellazione e resilienza}{226}{section*.619}%
+\contentsline {subsection}{5.5.7 CORS, rate limiting e documentazione}{227}{section*.620}%
+\contentsline {subsection}{5.5.8 Checklist della parità HTTP}{227}{section*.621}%
+\contentsline {section}{5.6 Configurazione, stato e dipendenze}{227}{section*.622}%
+\contentsline {subsection}{5.6.1 Dependency Injection integrata}{227}{section*.623}%
+\contentsline {subsection}{5.6.2 Configuration providers e priorità}{228}{section*.624}%
+\contentsline {subsection}{5.6.3 Secrets e ambienti}{229}{section*.625}%
+\contentsline {subsection}{5.6.4 Stato: richiesta, sessione e cache}{229}{section*.626}%
+\contentsline {subsection}{5.6.5 Client HTTP e integrazione}{230}{section*.627}%
+\contentsline {subsection}{5.6.6 Background services e lavoro durevole}{230}{section*.628}%
+\contentsline {subsection}{5.6.7 Progettare le dipendenze come confini}{231}{section*.629}%
+\contentsline {section}{5.7 Dati e integrazione con i sistemi esistenti}{231}{section*.630}%
+\contentsline {subsection}{5.7.1 EF Core e scelta dell'accesso ai dati}{231}{section*.631}%
+\contentsline {subsection}{5.7.2 Modello, schema e confini}{232}{section*.632}%
+\contentsline {subsection}{5.7.3 Migrazioni dello schema}{233}{section*.633}%
+\contentsline {subsection}{5.7.4 Migrare i dati}{233}{section*.634}%
+\contentsline {subsection}{5.7.5 Qualità e semantica dei dati}{234}{section*.635}%
+\contentsline {subsection}{5.7.6 Riconciliazione verificabile}{234}{section*.636}%
+\contentsline {subsection}{5.7.7 Transazioni, concorrenza e query}{234}{section*.637}%
+\contentsline {subsection}{5.7.8 Connessioni e continuità}{235}{section*.638}%
+\contentsline {section}{5.8 Sicurezza e identità}{235}{section*.639}%
+\contentsline {subsection}{5.8.1 Iniziare da threat model e inventario}{235}{section*.640}%
+\contentsline {subsection}{5.8.2 Autenticazione e autorizzazione non sono la stessa cosa}{236}{section*.641}%
+\contentsline {subsection}{5.8.3 Migrare password e account}{236}{section*.642}%
+\contentsline {subsection}{5.8.4 Cookie, token e continuità di sessione}{237}{section*.643}%
+\contentsline {subsection}{5.8.5 Data Protection API e chiavi}{237}{section*.644}%
+\contentsline {subsection}{5.8.6 Segreti e configurazione sicura}{237}{section*.645}%
+\contentsline {subsection}{5.8.7 Difese per API web}{237}{section*.646}%
+\contentsline {subsection}{5.8.8 Test di sicurezza nella transizione}{238}{section*.647}%
+\contentsline {subsection}{5.8.9 Cutover dell'identità}{238}{section*.648}%
+\contentsline {section}{5.9 Testing e qualità}{238}{section*.649}%
+\contentsline {subsection}{5.9.1 Test di caratterizzazione}{239}{section*.650}%
+\contentsline {subsection}{5.9.2 Piramide e livelli di test}{239}{section*.651}%
+\contentsline {subsection}{5.9.3 Test HTTP con WebApplicationFactory}{239}{section*.652}%
+\contentsline {subsection}{5.9.4 Parità differenziale}{240}{section*.653}%
+\contentsline {subsection}{5.9.5 Dipendenze nei test}{240}{section*.654}%
+\contentsline {subsection}{5.9.6 Flakiness, dati e parallelismo}{241}{section*.655}%
+\contentsline {subsection}{5.9.7 Qualità e pipeline CI}{241}{section*.656}%
+\contentsline {subsection}{5.9.8 Copertura orientata al rischio}{241}{section*.657}%
+\contentsline {section}{5.10 Prestazioni e comportamento del runtime}{242}{section*.658}%
+\contentsline {subsection}{5.10.1 Baseline e carichi confrontabili}{242}{section*.659}%
+\contentsline {subsection}{5.10.2 Asincronia e concorrenza}{242}{section*.660}%
+\contentsline {subsection}{5.10.3 Memoria e garbage collection}{243}{section*.661}%
+\contentsline {subsection}{5.10.4 Query, serializzazione e caching}{243}{section*.662}%
+\contentsline {subsection}{5.10.5 Profiling e Native AOT}{243}{section*.663}%
+\contentsline {subsection}{5.10.6 Prestazioni come criterio di cutover}{244}{section*.664}%
+\contentsline {section}{5.11 Container, CI/CD e produzione}{244}{section*.665}%
+\contentsline {subsection}{5.11.1 Pubblicazione e artefatti}{244}{section*.666}%
+\contentsline {subsection}{5.11.2 Dockerfile multi-stage}{244}{section*.667}%
+\contentsline {subsection}{5.11.3 CI/CD}{245}{section*.668}%
+\contentsline {subsection}{5.11.4 Reverse proxy e hosting}{245}{section*.669}%
+\contentsline {subsection}{5.11.5 Health, osservabilità e shutdown}{246}{section*.670}%
+\contentsline {subsection}{5.11.6 Scalabilità, storage e resilienza}{246}{section*.671}%
+\contentsline {subsection}{5.11.7 Rollout progressivo e rollback operativo}{246}{section*.672}%
+\contentsline {subsection}{5.11.8 Costi, supporto e dismissione}{247}{section*.673}%
+\contentsline {section}{5.13 Approfondire la mappa dai principali ecosistemi}{247}{section*.674}%
+\contentsline {subsection}{5.13.1 Da PHP e framework PHP}{247}{section*.675}%
+\contentsline {subsection}{5.13.2 Da Python e framework ASGI/WSGI}{248}{section*.676}%
+\contentsline {subsection}{5.13.3 Da JavaScript/Node.js}{248}{section*.677}%
+\contentsline {subsection}{5.13.4 Da Java e Spring Boot}{249}{section*.678}%
+\contentsline {subsection}{5.13.5 Tabella di mapping delle responsabilità}{250}{section*.679}%
+\contentsline {subsection}{5.13.6 Scheda di decisione per un concetto}{250}{section*.680}%
+\contentsline {subsection}{5.13.7 Quando mantenere un componente nel sistema originario}{251}{section*.681}%
+\contentsline {section}{5.14 Prove di migrazione dei dati: runbook e controlli}{251}{section*.682}%
+\contentsline {subsection}{5.14.1 Preparare il runbook}{251}{section*.683}%
+\contentsline {subsection}{5.14.2 Snapshot, delta e freeze}{252}{section*.684}%
+\contentsline {subsection}{5.14.3 Trasformazioni versionate}{252}{section*.685}%
+\contentsline {subsection}{5.14.4 Importazione riprendibile}{253}{section*.686}%
+\contentsline {subsection}{5.14.5 Staging e cutover}{253}{section*.687}%
+\contentsline {subsection}{5.14.6 Report di riconciliazione}{253}{section*.688}%
+\contentsline {subsection}{5.14.7 Criteri di stop}{254}{section*.689}%
+\contentsline {section}{5.15 Diagnosi operativa durante la migrazione}{254}{section*.690}%
+\contentsline {subsection}{5.15.1 La readiness fallisce, ma il processo è attivo}{254}{section*.691}%
+\contentsline {subsection}{5.15.2 Errori 401 o 403 dopo il cutover}{255}{section*.692}%
+\contentsline {subsection}{5.15.3 502, 503 e timeout intermittenti}{255}{section*.693}%
+\contentsline {subsection}{5.15.4 Differenze di serializzazione}{255}{section*.694}%
+\contentsline {subsection}{5.15.5 Mismatch di database dopo la migrazione}{255}{section*.695}%
+\contentsline {subsection}{5.15.6 Runbook di incidente}{256}{section*.696}%
+\contentsline {section}{5.16 Verifica finale: criteri di successo}{256}{section*.697}%
+\contentsline {subsection}{5.16.1 Fonti ufficiali e aggiornamento}{256}{section*.698}%
+\contentsline {section}{5.12 Caso pratico: migrare un servizio catalogo}{257}{section*.699}%
+\contentsline {subsection}{5.12.1 Scenario e vincoli}{257}{section*.700}%
+\contentsline {subsection}{5.12.2 Baseline e test di caratterizzazione}{257}{section*.701}%
+\contentsline {subsection}{5.12.3 Creazione del progetto}{258}{section*.702}%
+\contentsline {subsection}{5.12.4 Contratto e query di lettura}{258}{section*.703}%
+\contentsline {subsection}{5.12.5 Mantenere il database condiviso in sicurezza}{259}{section*.704}%
+\contentsline {subsection}{5.12.6 Test differenziale e osservazione in shadow}{260}{section*.705}%
+\contentsline {subsection}{5.12.7 Canary e cutover}{260}{section*.706}%
+\contentsline {subsection}{5.12.8 Migrare la scrittura}{261}{section*.707}%
+\contentsline {subsection}{5.12.9 Migrare il job notturno}{261}{section*.708}%
+\contentsline {subsection}{5.12.10 Risultato e lezioni}{261}{section*.709}%
+\contentsline {subsection}{5.12.11 Adattare il caso ad altri ecosistemi}{262}{section*.710}%
+\contentsline {section}{5.17 Checklist, glossario e anti-pattern}{262}{section*.711}%
+\contentsline {subsection}{5.17.1 Checklist di assessment}{262}{section*.712}%
+\contentsline {subsection}{5.17.2 Checklist di progettazione}{263}{section*.713}%
+\contentsline {subsection}{5.17.3 Checklist prima del cutover}{263}{section*.714}%
+\contentsline {subsection}{5.17.4 Checklist per la dismissione}{263}{section*.715}%
+\contentsline {subsection}{5.17.5 Glossario essenziale}{263}{section*.716}%
+\contentsline {subsection}{5.17.6 Gli errori da evitare}{264}{section*.717}%
+\contentsline {section}{5.18 Appendice: piano di migrazione riutilizzabile}{265}{section*.718}%

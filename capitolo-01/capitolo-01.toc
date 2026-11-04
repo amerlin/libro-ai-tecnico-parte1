@@ -1,0 +1,162 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Capitolo 1}{1}{chapter*.2}%
+\contentsline {section}{Model Context Protocol: fondamenti e implementazione di un MCP Server in .NET 10}{1}{section*.3}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}%
+\contentsline {subsection}{Prerequisiti}{2}{section*.5}%
+\contentsline {subsection}{Convenzioni tipografiche}{2}{section*.6}%
+\contentsline {section}{1.1 Il problema: modelli intelligenti ma isolati}{2}{section*.7}%
+\contentsline {subsection}{1.1.1 L'analogia con le prese di corrente}{3}{section*.8}%
+\contentsline {subsection}{1.1.2 Cosa serve davvero a un LLM per essere utile}{3}{section*.9}%
+\contentsline {subsection}{1.1.3 Perché serve un \emph {protocollo} e non una libreria}{4}{section*.10}%
+\contentsline {section}{1.2 Che cos'è il Model Context Protocol}{4}{section*.11}%
+\contentsline {subsection}{1.2.1 Chi c'è dietro MCP}{5}{section*.12}%
+\contentsline {subsection}{1.2.2 Gli obiettivi di progetto}{5}{section*.13}%
+\contentsline {subsection}{1.2.3 Un server, molti client}{5}{section*.14}%
+\contentsline {subsection}{1.2.4 MCP e LSP: una parentela naturale}{6}{section*.15}%
+\contentsline {section}{1.3 Architettura: Host, Client e Server}{6}{section*.16}%
+\contentsline {subsection}{1.3.1 Cosa fa l'host}{7}{section*.18}%
+\contentsline {subsection}{1.3.2 Cosa fa il client}{7}{section*.19}%
+\contentsline {subsection}{1.3.3 Cosa fa il server}{8}{section*.20}%
+\contentsline {subsection}{1.3.4 La negoziazione delle capabilities}{8}{section*.21}%
+\contentsline {section}{1.4 I primitivi del protocollo: Tools, Resources e Prompts}{9}{section*.22}%
+\contentsline {subsection}{1.4.1 Tools: le azioni}{9}{section*.23}%
+\contentsline {subsection}{1.4.2 Resources: i dati}{9}{section*.24}%
+\contentsline {subsection}{1.4.3 Prompts: i modelli di istruzione}{10}{section*.25}%
+\contentsline {subsection}{1.4.4 Gli altri primitivi}{10}{section*.26}%
+\contentsline {subsection}{1.4.5 La tabella riassuntiva}{10}{section*.27}%
+\contentsline {section}{1.5 JSON-RPC 2.0: il linguaggio del protocollo}{11}{section*.28}%
+\contentsline {subsection}{1.5.1 La richiesta (request)}{11}{section*.29}%
+\contentsline {subsection}{1.5.2 La risposta (response)}{12}{section*.30}%
+\contentsline {subsection}{1.5.3 La variante di errore della risposta}{12}{section*.31}%
+\contentsline {subsection}{1.5.4 La notifica (notification)}{13}{section*.32}%
+\contentsline {subsection}{1.5.5 I metodi standard di MCP}{13}{section*.33}%
+\contentsline {subsection}{1.5.6 Un esempio completo di scambio}{13}{section*.34}%
+\contentsline {section}{1.6 I trasporti: stdio, Streamable HTTP e SSE}{14}{section*.35}%
+\contentsline {subsection}{1.6.1 stdio: il trasporto dei processi locali}{15}{section*.36}%
+\contentsline {subsection}{1.6.2 Streamable HTTP: il trasporto di rete}{15}{section*.37}%
+\contentsline {subsection}{1.6.3 Il vecchio trasporto HTTP+SSE}{15}{section*.38}%
+\contentsline {subsection}{1.6.4 Come scegliere il trasporto}{16}{section*.39}%
+\contentsline {subsection}{1.6.5 Il ruolo dell'SDK}{16}{section*.40}%
+\contentsline {section}{1.7 Il ciclo di vita di una sessione MCP}{16}{section*.41}%
+\contentsline {subsection}{1.7.1 Fase 1: l'inizializzazione}{16}{section*.42}%
+\contentsline {subsection}{1.7.2 Fase 2: la notifica di ``initialized''}{17}{section*.43}%
+\contentsline {subsection}{1.7.3 Fase 3: l'operatività}{17}{section*.44}%
+\contentsline {subsection}{1.7.4 Fase 4: la chiusura}{17}{section*.45}%
+\contentsline {subsection}{1.7.5 La sequenza riassunta}{18}{section*.46}%
+\contentsline {subsection}{1.7.6 Cosa significa per il nostro codice}{18}{section*.48}%
+\contentsline {section}{1.8 MCP vs REST API: un confronto approfondito}{18}{section*.49}%
+\contentsline {subsection}{1.8.1 Cos'è una REST API}{18}{section*.50}%
+\contentsline {subsection}{1.8.2 Cos'è un MCP server}{19}{section*.51}%
+\contentsline {subsection}{1.8.3 La differenza fondamentale: chi decide cosa chiamare}{19}{section*.52}%
+\contentsline {subsection}{1.8.4 L'autodescrizione è il vero valore}{20}{section*.53}%
+\contentsline {subsection}{1.8.5 Il problema M×N, di nuovo}{20}{section*.54}%
+\contentsline {subsection}{1.8.6 Quando usare cosa}{20}{section*.55}%
+\contentsline {subsection}{1.8.7 Un esempio concreto di differenza}{21}{section*.56}%
+\contentsline {subsection}{1.8.8 Tabella di sintesi operativa}{21}{section*.57}%
+\contentsline {section}{1.9 L'ecosistema .NET: pacchetti e namespaces}{22}{section*.58}%
+\contentsline {subsection}{1.9.1 I pacchetti}{22}{section*.59}%
+\contentsline {subsection}{1.9.2 I namespaces principali}{23}{section*.60}%
+\contentsline {subsection}{1.9.3 Gli attributi di registrazione}{23}{section*.61}%
+\contentsline {subsection}{1.9.4 Il modello di hosting}{24}{section*.62}%
+\contentsline {subsection}{1.9.5 Versioni e compatibilità con .NET 10}{24}{section*.63}%
+\contentsline {section}{1.10 Preparare l'ambiente di sviluppo}{24}{section*.64}%
+\contentsline {subsection}{1.10.1 Verificare l'installazione di .NET}{24}{section*.65}%
+\contentsline {subsection}{1.10.2 Creare la cartella del progetto}{25}{section*.66}%
+\contentsline {subsection}{1.10.3 Creare il progetto .NET}{25}{section*.67}%
+\contentsline {subsection}{1.10.4 Aggiungere i pacchetti NuGet}{25}{section*.68}%
+\contentsline {subsection}{1.10.5 Verificare il ripristino}{26}{section*.69}%
+\contentsline {subsection}{1.10.6 Uno sguardo a ciò che abbiamo installato}{26}{section*.70}%
+\contentsline {section}{1.11 Il tuo primo MCP server (stdio)}{26}{section*.71}%
+\contentsline {subsection}{1.11.1 Il codice completo}{27}{section*.72}%
+\contentsline {subsection}{1.11.2 Lettura riga per riga}{27}{section*.73}%
+\contentsline {subsection}{1.11.3 Eseguire e provare il server}{28}{section*.74}%
+\contentsline {subsection}{1.11.4 Un dettaglio importante: il nome in minuscolo}{29}{section*.75}%
+\contentsline {subsection}{1.11.5 Cosa abbiamo ottenuto}{29}{section*.76}%
+\contentsline {section}{1.12 I Tools in dettaglio}{30}{section*.77}%
+\contentsline {subsection}{1.12.1 L'anatomia di un metodo-tool}{30}{section*.78}%
+\contentsline {subsection}{1.12.2 I tipi di parametro supportati}{30}{section*.79}%
+\contentsline {subsection}{1.12.3 I tipi di ritorno supportati}{30}{section*.80}%
+\contentsline {subsection}{1.12.4 Tool asincroni e annullamento}{31}{section*.81}%
+\contentsline {subsection}{1.12.5 Iniezione delle dipendenze nei tool}{32}{section*.82}%
+\contentsline {subsection}{1.12.6 Le annotazioni dei tool}{32}{section*.83}%
+\contentsline {subsection}{1.12.7 Best practices}{33}{section*.84}%
+\contentsline {section}{1.13 Esempio pratico: un server per il file system}{33}{section*.85}%
+\contentsline {subsection}{1.13.1 Progettazione}{34}{section*.86}%
+\contentsline {subsection}{1.13.2 Il codice completo}{34}{section*.87}%
+\contentsline {subsection}{1.13.3 Lettura guidata}{36}{section*.88}%
+\contentsline {subsection}{1.13.4 Provare il server}{36}{section*.89}%
+\contentsline {subsection}{1.13.5 Limitazioni e possibili evoluzioni}{37}{section*.90}%
+\contentsline {section}{1.14 Esempio pratico: un server meteo con HTTP}{37}{section*.91}%
+\contentsline {subsection}{1.14.1 La scelta dell'API}{37}{section*.92}%
+\contentsline {subsection}{1.14.2 Il codice completo}{37}{section*.93}%
+\contentsline {subsection}{1.14.3 Lettura guidata}{39}{section*.94}%
+\contentsline {subsection}{1.14.4 Gestire gli errori dell'API esterna}{39}{section*.95}%
+\contentsline {subsection}{1.14.5 Provare il server}{40}{section*.96}%
+\contentsline {section}{1.15 Le Risorse}{40}{section*.97}%
+\contentsline {subsection}{1.15.1 Una risorsa semplice}{40}{section*.98}%
+\contentsline {subsection}{1.15.2 I template di risorsa parametrizzati}{41}{section*.99}%
+\contentsline {subsection}{1.15.3 Risorse e sottoscrizioni}{41}{section*.100}%
+\contentsline {subsection}{1.15.4 Tool o risorsa?}{41}{section*.101}%
+\contentsline {subsection}{1.15.5 Il tipo MIME giusto}{42}{section*.102}%
+\contentsline {section}{1.16 I Prompt}{42}{section*.103}%
+\contentsline {subsection}{1.16.1 Un prompt semplice}{42}{section*.104}%
+\contentsline {subsection}{1.16.2 I prompt con argomenti}{43}{section*.105}%
+\contentsline {subsection}{1.16.3 Prompt o tool?}{43}{section*.106}%
+\contentsline {subsection}{1.16.4 Un caso d'uso reale}{43}{section*.107}%
+\contentsline {section}{1.17 Server HTTP con ASP.NET Core}{44}{section*.108}%
+\contentsline {subsection}{1.17.1 Il pacchetto aggiuntivo}{44}{section*.109}%
+\contentsline {subsection}{1.17.2 Il codice completo}{44}{section*.110}%
+\contentsline {subsection}{1.17.3 Le differenze rispetto a stdio}{45}{section*.111}%
+\contentsline {subsection}{1.17.4 Il percorso dell'endpoint}{45}{section*.112}%
+\contentsline {subsection}{1.17.5 Eseguire e provare}{46}{section*.113}%
+\contentsline {subsection}{1.17.6 Streamable HTTP e modalità stateless}{46}{section*.114}%
+\contentsline {subsection}{1.17.7 Coesistere con altre API}{46}{section*.115}%
+\contentsline {section}{1.18 Configurare i client: Claude Desktop e VS Code}{47}{section*.116}%
+\contentsline {subsection}{1.18.1 Claude Desktop con un server stdio}{47}{section*.117}%
+\contentsline {subsection}{1.18.2 Claude Desktop con un server HTTP}{48}{section*.118}%
+\contentsline {subsection}{1.18.3 Visual Studio Code (GitHub Copilot)}{48}{section*.119}%
+\contentsline {subsection}{1.18.4 Il formato comune}{48}{section*.120}%
+\contentsline {subsection}{1.18.5 Variabili d'ambiente e segreti}{49}{section*.121}%
+\contentsline {section}{1.19 Testare con MCP Inspector}{49}{section*.122}%
+\contentsline {subsection}{1.19.1 Avviare l'Inspector con un server stdio}{49}{section*.123}%
+\contentsline {subsection}{1.19.2 Avviare l'Inspector con un server HTTP}{50}{section*.124}%
+\contentsline {subsection}{1.19.3 Cosa verificare}{50}{section*.125}%
+\contentsline {subsection}{1.19.4 Leggere i messaggi grezzi}{50}{section*.126}%
+\contentsline {subsection}{1.19.5 L'Inspector come strumento di sviluppo quotidiano}{50}{section*.127}%
+\contentsline {section}{1.20 Errori, logging e best practice}{51}{section*.128}%
+\contentsline {subsection}{1.20.1 Gestire gli errori nei tool}{51}{section*.129}%
+\contentsline {subsection}{1.20.2 Gli errori JSON-RPC di protocollo}{51}{section*.130}%
+\contentsline {subsection}{1.20.3 Validare gli argomenti in ingresso}{52}{section*.131}%
+\contentsline {subsection}{1.20.4 Il logging: dove e come}{52}{section*.132}%
+\contentsline {subsection}{1.20.5 Dipendenze e testabilità}{53}{section*.133}%
+\contentsline {subsection}{1.20.6 Naming e coerenza}{53}{section*.134}%
+\contentsline {subsection}{1.20.7 Piccole cose che fanno la differenza}{53}{section*.135}%
+\contentsline {subsection}{1.21.1 Risoluzione dei problemi comuni}{53}{section*.136}%
+\contentsline {subsubsection}{Il server ``non risponde'' (stdio)}{53}{section*.137}%
+\contentsline {subsubsection}{``Unknown tool: `X'\,''}{54}{section*.138}%
+\contentsline {subsubsection}{``MCP server process exited unexpectedly''}{54}{section*.139}%
+\contentsline {subsubsection}{Errore di versione del protocollo (-32022)}{55}{section*.140}%
+\contentsline {subsubsection}{``Porta già in uso'' (server HTTP)}{55}{section*.141}%
+\contentsline {subsubsection}{L'Inspector non si connette}{55}{section*.142}%
+\contentsline {subsubsection}{``API non trovata'' dopo un aggiornamento}{55}{section*.143}%
+\contentsline {subsubsection}{Metodo di diagnosi universale}{55}{section*.144}%
+\contentsline {subsection}{1.21.2 Scrivere un client .NET}{56}{section*.145}%
+\contentsline {subsubsection}{1.21.2.1 I pacchetti lato client}{56}{section*.146}%
+\contentsline {subsubsection}{1.21.2.2 Connettere un client a un server stdio}{56}{section*.147}%
+\contentsline {subsubsection}{1.21.2.3 Invocare un tool}{57}{section*.148}%
+\contentsline {subsubsection}{1.21.2.4 Connettere un client a un server HTTP}{57}{section*.149}%
+\contentsline {subsubsection}{1.21.2.5 Un client per i test}{58}{section*.150}%
+\contentsline {subsubsection}{1.21.2.6 Client e server nello stesso ecosistema}{58}{section*.151}%
+\contentsline {section}{1.21 Sicurezza e operatività}{58}{section*.152}%
+\contentsline {subsection}{Il principio del minimo privilegio}{58}{section*.153}%
+\contentsline {subsection}{La minaccia della prompt injection}{59}{section*.154}%
+\contentsline {subsection}{Autenticazione e autorizzazione}{59}{section*.155}%
+\contentsline {subsection}{Segreti e configurazione}{59}{section*.156}%
+\contentsline {subsection}{Controllare l'esposizione di rete}{60}{section*.157}%
+\contentsline {subsection}{Checklist di sicurezza}{60}{section*.158}%
+\contentsline {section}{1.22 Riepilogo, glossario ed esercizi}{60}{section*.159}%
+\contentsline {subsection}{1.22.1 Riepilogo}{60}{section*.160}%
+\contentsline {subsection}{1.22.2 Glossario}{61}{section*.161}%
+\contentsline {subsection}{1.22.3 Esercizi proposti}{62}{section*.162}%
+\contentsline {subsection}{1.22.4 Nel prossimo capitolo}{62}{section*.163}%

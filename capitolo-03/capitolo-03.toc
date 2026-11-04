@@ -1,0 +1,172 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Capitolo 3}{1}{chapter*.2}%
+\contentsline {section}{GitHub Spec Kit: sviluppo guidato dalle specifiche con esempi in C\#}{1}{section*.3}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}%
+\contentsline {subsection}{Prerequisiti}{2}{section*.5}%
+\contentsline {subsection}{Una nota sulla versione}{2}{section*.6}%
+\contentsline {section}{3.1 Lo spec-driven development: invertire la piramide}{2}{section*.7}%
+\contentsline {subsection}{3.1.1 Il potere invertito}{2}{section*.8}%
+\contentsline {subsection}{3.1.2 Perché proprio adesso}{2}{section*.9}%
+\contentsline {subsection}{3.1.3 L'idea in una frase}{3}{section*.10}%
+\contentsline {subsection}{3.1.4 Il flusso SDD in pratica}{3}{section*.11}%
+\contentsline {subsection}{3.1.5 Il ruolo dei template}{3}{section*.12}%
+\contentsline {subsection}{3.1.6 Cosa NON è lo SDD}{4}{section*.13}%
+\contentsline {section}{3.2 Cos'è GitHub Spec Kit}{4}{section*.14}%
+\contentsline {subsection}{3.2.1 I tre processi pronti all'uso}{4}{section*.15}%
+\contentsline {subsection}{3.2.2 Le capabilities: un toolkit componibile}{5}{section*.16}%
+\contentsline {subsection}{3.2.3 Come si usa, in estrema sintesi}{5}{section*.17}%
+\contentsline {subsection}{3.2.4 Una breve storia}{6}{section*.18}%
+\contentsline {subsection}{3.2.5 Perché dovrebbe interessarti}{6}{section*.19}%
+\contentsline {section}{3.3 Installazione e inizializzazione}{6}{section*.20}%
+\contentsline {subsection}{3.3.1 I prerequisiti}{6}{section*.21}%
+\contentsline {subsection}{3.3.2 Installare il CLI}{6}{section*.22}%
+\contentsline {subsection}{3.3.3 Inizializzare un progetto}{7}{section*.23}%
+\contentsline {subsection}{3.3.4 Inizializzare in un progetto esistente}{7}{section*.24}%
+\contentsline {subsection}{3.3.5 Le opzioni di \texttt {init}}{7}{section*.25}%
+\contentsline {subsection}{3.3.6 Aggiornare}{8}{section*.26}%
+\contentsline {subsection}{3.3.7 Cosa succede alla prima esecuzione}{8}{section*.27}%
+\contentsline {section}{3.4 La struttura di un progetto Spec Kit}{8}{section*.28}%
+\contentsline {subsection}{3.4.1 La struttura d'insieme}{9}{section*.29}%
+\contentsline {subsection}{3.4.2 La cartella \texttt {.specify/}}{9}{section*.31}%
+\contentsline {subsection}{3.4.3 La cartella \texttt {specs/}}{10}{section*.32}%
+\contentsline {subsection}{3.4.4 Lo stato della feature attiva}{10}{section*.33}%
+\contentsline {subsection}{3.4.5 Il codice sorgente}{10}{section*.34}%
+\contentsline {subsection}{3.4.6 Dove vengono creati i file: un riepilogo}{10}{section*.35}%
+\contentsline {section}{3.5 Il workflow a colpo d'occhio}{11}{section*.36}%
+\contentsline {subsection}{3.5.1 Il percorso breve}{11}{section*.37}%
+\contentsline {subsection}{3.5.2 Il percorso completo}{11}{section*.38}%
+\contentsline {subsection}{3.5.3 Il diagramma del flusso}{12}{section*.39}%
+\contentsline {subsection}{3.5.4 Le regole d'uso}{12}{section*.41}%
+\contentsline {subsection}{3.5.5 Cosa produce la convergenza}{13}{section*.42}%
+\contentsline {section}{3.6 La Constitution: i principi del progetto}{13}{section*.43}%
+\contentsline {subsection}{3.6.1 Cosa contiene}{13}{section*.44}%
+\contentsline {subsection}{3.6.2 Un esempio per un progetto .NET}{14}{section*.45}%
+\contentsline {subsection}{3.6.3 Come viene usata}{15}{section*.46}%
+\contentsline {subsection}{3.6.4 La creazione con \texttt {/speckit-constitution}}{15}{section*.47}%
+\contentsline {subsection}{3.6.5 Perché è potente}{15}{section*.48}%
+\contentsline {section}{3.7 \texttt {/speckit-specify}: dalla richiesta alla specifica}{15}{section*.49}%
+\contentsline {subsection}{3.7.1 Come si invoca}{16}{section*.50}%
+\contentsline {subsection}{3.7.2 La struttura di \texttt {spec.md}}{16}{section*.51}%
+\contentsline {subsection}{3.7.3 Le user story prioritarie e indipendenti}{16}{section*.52}%
+\contentsline {subsection}{3.7.4 L'esempio C\#: la specifica}{17}{section*.53}%
+\contentsline {subsection}{3.7.5 I punti chiave del template}{19}{section*.54}%
+\contentsline {section}{3.8 \texttt {/speckit-clarify}: risolvere le ambiguità}{19}{section*.55}%
+\contentsline {subsection}{3.8.1 Cosa fa}{19}{section*.56}%
+\contentsline {subsection}{3.8.2 Il marcatore \texttt {{[}NEEDS\ CLARIFICATION{]}}}{20}{section*.57}%
+\contentsline {subsection}{3.8.3 Esempi di domande per la nostra feature}{20}{section*.58}%
+\contentsline {subsection}{3.8.4 Quando usarlo}{20}{section*.59}%
+\contentsline {subsection}{3.8.5 Il valore per il team}{20}{section*.60}%
+\contentsline {section}{3.9 \texttt {/speckit-plan}: il piano tecnico}{20}{section*.61}%
+\contentsline {subsection}{3.9.1 Come si invoca}{21}{section*.62}%
+\contentsline {subsection}{3.9.2 Le fasi del piano}{21}{section*.63}%
+\contentsline {subsection}{3.9.3 La struttura di \texttt {plan.md}}{21}{section*.64}%
+\contentsline {subsection}{3.9.4 L'esempio C\#: il piano}{21}{section*.65}%
+\contentsline {subsection}{3.9.5 Il modello dati e i contratti}{23}{section*.66}%
+\contentsline {subsection}{3.9.6 Perché il piano è verificato rispetto alla constitution}{23}{section*.67}%
+\contentsline {section}{3.10 \texttt {/speckit-checklist}: i gate di qualità della specifica}{24}{section*.68}%
+\contentsline {subsection}{3.10.1 Cosa fa}{24}{section*.69}%
+\contentsline {subsection}{3.10.2 Un esempio di checklist}{24}{section*.70}%
+\contentsline {subsection}{3.10.3 Chi mantiene cosa}{25}{section*.71}%
+\contentsline {subsection}{3.10.4 Il gate in \texttt {/speckit-implement}}{25}{section*.72}%
+\contentsline {subsection}{3.10.5 Il valore}{25}{section*.73}%
+\contentsline {section}{3.11 \texttt {/speckit-tasks}: la scomposizione in task}{25}{section*.74}%
+\contentsline {subsection}{3.11.1 Come si invoca}{25}{section*.75}%
+\contentsline {subsection}{3.11.2 Il formato dei task}{25}{section*.76}%
+\contentsline {subsection}{3.11.3 Le fasi}{26}{section*.77}%
+\contentsline {subsection}{3.11.4 L'esempio C\#: i task}{26}{section*.78}%
+\contentsline {subsection}{3.11.5 Il test-first nei task}{27}{section*.79}%
+\contentsline {subsection}{3.11.6 Perché i task funzionano}{27}{section*.80}%
+\contentsline {section}{3.12 \texttt {/speckit-analyze}: la verifica di coerenza}{27}{section*.81}%
+\contentsline {subsection}{3.12.1 Cosa fa}{28}{section*.82}%
+\contentsline {subsection}{3.12.2 Esempi di segnalazioni}{28}{section*.83}%
+\contentsline {subsection}{3.12.3 Cosa fare con le segnalazioni}{28}{section*.84}%
+\contentsline {subsection}{3.12.4 Il posto nel flusso}{28}{section*.85}%
+\contentsline {subsection}{3.12.5 La filosofia}{28}{section*.86}%
+\contentsline {section}{3.13 Implement e Converge}{29}{section*.87}%
+\contentsline {subsection}{3.13.1 \texttt {/speckit-implement}}{29}{section*.88}%
+\contentsline {subsection}{3.13.2 Cosa produce}{29}{section*.89}%
+\contentsline {subsection}{3.13.3 \texttt {/speckit-converge}}{29}{section*.90}%
+\contentsline {subsection}{3.13.4 Il ciclo implement--converge}{30}{section*.91}%
+\contentsline {subsection}{3.13.5 Cosa garantisce la convergenza}{30}{section*.93}%
+\contentsline {subsection}{3.13.6 Il risultato finale}{30}{section*.94}%
+\contentsline {section}{3.14 Il CLI \texttt {specify}}{30}{section*.95}%
+\contentsline {subsection}{3.14.1 I comandi principali}{30}{section*.96}%
+\contentsline {subsection}{3.14.2 \texttt {specify\ check}}{31}{section*.97}%
+\contentsline {subsection}{3.14.3 Le estensioni: bug fixing e assessment}{31}{section*.98}%
+\contentsline {subsection}{3.14.4 Preset e workflow}{32}{section*.99}%
+\contentsline {subsection}{3.14.5 Estensioni e hook}{32}{section*.100}%
+\contentsline {subsection}{3.14.6 Quando usare il CLI}{32}{section*.101}%
+\contentsline {section}{3.15 Esempio C\#: entità, DbContext e DTO}{32}{section*.102}%
+\contentsline {subsection}{3.15.1 L'entità \texttt {TaskItem}}{33}{section*.103}%
+\contentsline {subsection}{3.15.2 Il \texttt {DbContext}}{33}{section*.104}%
+\contentsline {subsection}{3.15.3 I DTO}{34}{section*.105}%
+\contentsline {subsection}{3.15.4 La tracciabilità spec → codice}{34}{section*.106}%
+\contentsline {subsection}{3.15.5 La registrazione dei servizi}{34}{section*.107}%
+\contentsline {section}{3.16 Esempio C\#: gli endpoint della Minimal API}{35}{section*.108}%
+\contentsline {subsection}{3.16.1 Il codice completo}{35}{section*.109}%
+\contentsline {subsection}{3.16.2 Lettura guidata}{37}{section*.110}%
+\contentsline {subsection}{3.16.3 Il progetto}{38}{section*.111}%
+\contentsline {section}{3.17 Esempio C\#: i test (test-first)}{38}{section*.112}%
+\contentsline {subsection}{3.17.1 Il progetto di test}{38}{section*.113}%
+\contentsline {subsection}{3.17.2 I test}{38}{section*.114}%
+\contentsline {subsection}{3.17.3 La corrispondenza con gli scenari di accettazione}{40}{section*.115}%
+\contentsline {subsection}{3.17.4 Il ciclo Red-Green-Refactor}{40}{section*.116}%
+\contentsline {subsection}{3.17.5 Eseguire i test}{41}{section*.117}%
+\contentsline {section}{3.18 Esempio C\#: eseguire, verificare e convergere}{41}{section*.118}%
+\contentsline {subsection}{3.18.1 Avviare l'applicazione}{41}{section*.119}%
+\contentsline {subsection}{3.18.2 Creare un task}{41}{section*.120}%
+\contentsline {subsection}{3.18.3 Elencare con filtro}{41}{section*.121}%
+\contentsline {subsection}{3.18.4 Completare ed eliminare}{42}{section*.122}%
+\contentsline {subsection}{3.18.5 La convergenza}{42}{section*.123}%
+\contentsline {subsection}{3.18.6 Il risultato completo}{42}{section*.124}%
+\contentsline {section}{3.19 Integrazione con Copilot e VS Code}{43}{section*.126}%
+\contentsline {subsection}{3.19.1 L'integrazione Copilot}{43}{section*.127}%
+\contentsline {subsection}{3.19.2 Dove vivono le skill}{44}{section*.128}%
+\contentsline {subsection}{3.19.3 Il flusso in VS Code}{44}{section*.129}%
+\contentsline {subsection}{3.19.4 Altri agenti}{44}{section*.130}%
+\contentsline {subsection}{3.19.5 Rivedere e modificare a mano}{44}{section*.131}%
+\contentsline {subsection}{3.19.6 VS Code e Git}{44}{section*.132}%
+\contentsline {section}{3.20 CI/CD e automazione}{45}{section*.133}%
+\contentsline {subsection}{3.20.1 \texttt {specify\ check} non è un gate degli artefatti}{45}{section*.134}%
+\contentsline {subsection}{3.20.2 Build e test del progetto .NET}{45}{section*.135}%
+\contentsline {subsection}{3.20.3 Workflow e hook}{45}{section*.136}%
+\contentsline {subsection}{3.20.4 L'automazione non sostituisce la revisione}{46}{section*.137}%
+\contentsline {subsection}{3.20.5 Un esempio di pipeline completa}{46}{section*.138}%
+\contentsline {section}{3.22 Il processo di bug fixing}{47}{section*.139}%
+\contentsline {subsection}{Come si installa}{47}{section*.140}%
+\contentsline {subsection}{Il flusso in tre passi}{47}{section*.141}%
+\contentsline {subsection}{Il verdetto}{47}{section*.142}%
+\contentsline {subsection}{Un esempio in C\#}{47}{section*.143}%
+\contentsline {subsection}{Bug fixing vs feature workflow}{48}{section*.144}%
+\contentsline {section}{3.21 Best practice e anti-pattern}{48}{section*.145}%
+\contentsline {subsection}{3.21.1 Le best practice}{48}{section*.146}%
+\contentsline {subsection}{3.21.2 Gli anti-pattern}{49}{section*.147}%
+\contentsline {subsection}{3.21.3 La regola d'oro}{49}{section*.148}%
+\contentsline {section}{3.23 Il processo di idea assessment}{50}{section*.149}%
+\contentsline {subsection}{Come si installa}{50}{section*.150}%
+\contentsline {subsection}{Le cinque fasi}{50}{section*.151}%
+\contentsline {subsection}{La decisione}{50}{section*.152}%
+\contentsline {subsection}{Un esempio (concettuale)}{51}{section*.153}%
+\contentsline {subsection}{Il valore dell'assessment}{51}{section*.154}%
+\contentsline {section}{3.24 Confronti, evoluzione e progetti esistenti}{51}{section*.155}%
+\contentsline {subsection}{Confronto con TDD e BDD}{51}{section*.156}%
+\contentsline {subsection}{Confronto con i design doc tradizionali}{52}{section*.157}%
+\contentsline {subsection}{Far evolvere una specifica esistente}{52}{section*.158}%
+\contentsline {subsection}{Adottare Spec Kit su un progetto esistente}{52}{section*.159}%
+\contentsline {subsection}{Quando (non) usare Spec Kit}{53}{section*.160}%
+\contentsline {section}{3.25 Risoluzione dei problemi comuni}{53}{section*.161}%
+\contentsline {subsection}{Il comando \texttt {/speckit-*} non viene trovato dall'agente}{53}{section*.162}%
+\contentsline {subsection}{\texttt {specify} non è riconosciuto come comando}{53}{section*.163}%
+\contentsline {subsection}{Il comando lavora sulla feature sbagliata}{53}{section*.164}%
+\contentsline {subsection}{\texttt {/speckit-implement} si rifiuta di partire}{53}{section*.165}%
+\contentsline {subsection}{\texttt {/speckit-analyze} segnala conflitti}{54}{section*.166}%
+\contentsline {subsection}{\texttt {/speckit-converge} aggiunge task all'infinito}{54}{section*.167}%
+\contentsline {subsection}{Il comando ha una sintassi diversa da quella dell'esempio}{54}{section*.168}%
+\contentsline {subsection}{\texttt {specify\ check} segnala prerequisiti mancanti}{54}{section*.169}%
+\contentsline {subsection}{Metodo di diagnosi universale}{54}{section*.170}%
+\contentsline {section}{3.26 Riepilogo, glossario ed esercizi}{55}{section*.171}%
+\contentsline {subsection}{3.26.1 Riepilogo}{55}{section*.172}%
+\contentsline {subsection}{3.26.2 Glossario}{55}{section*.173}%
+\contentsline {subsection}{3.26.3 Esercizi proposti}{56}{section*.174}%
+\contentsline {subsection}{3.26.4 Il filo conduttore}{56}{section*.175}%

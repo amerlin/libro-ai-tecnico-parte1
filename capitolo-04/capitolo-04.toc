@@ -1,0 +1,137 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Capitolo 4}{1}{chapter*.2}%
+\contentsline {section}{Istruzioni, skill, agenti e plugin: estendere un agente di codifica}{1}{section*.3}%
+\contentsline {subsection}{Cosa imparerai in questo capitolo}{1}{section*.4}%
+\contentsline {subsection}{Prerequisiti}{2}{section*.5}%
+\contentsline {subsection}{Convenzioni}{2}{section*.6}%
+\contentsline {section}{4.1 Perché personalizzare un agente}{2}{section*.7}%
+\contentsline {subsection}{4.1.1 Il problema del contesto}{2}{section*.8}%
+\contentsline {subsection}{4.1.2 Quattro strumenti, quattro scopi}{3}{section*.9}%
+\contentsline {subsection}{4.1.3 Un esempio concreto}{3}{section*.10}%
+\contentsline {section}{4.2 Il modello mentale: quattro livelli}{4}{section*.11}%
+\contentsline {subsection}{4.2.1 Livello 1: il contesto persistente}{4}{section*.13}%
+\contentsline {subsection}{4.2.2 Livello 2: la conoscenza su richiesta}{4}{section*.14}%
+\contentsline {subsection}{4.2.3 Livello 3: il contesto isolato}{5}{section*.15}%
+\contentsline {subsection}{4.2.4 Livello 4: la distribuzione}{5}{section*.16}%
+\contentsline {subsection}{4.2.5 Come si compongono}{5}{section*.17}%
+\contentsline {section}{4.3 Le istruzioni}{5}{section*.18}%
+\contentsline {subsection}{4.3.1 Che cosa scrivere (e che cosa no)}{6}{section*.19}%
+\contentsline {subsection}{4.3.2 Un file di progetto}{6}{section*.20}%
+\contentsline {subsection}{4.3.3 Istruzioni mirate: \texttt {applyTo} e \texttt {globs}}{7}{section*.21}%
+\contentsline {subsection}{4.3.4 La trappola delle istruzioni duplicate}{8}{section*.22}%
+\contentsline {section}{4.4 Le skill}{8}{section*.23}%
+\contentsline {subsection}{4.4.1 Il formato minimo}{8}{section*.25}%
+\contentsline {subsection}{4.4.2 La struttura consigliata}{9}{section*.26}%
+\contentsline {subsection}{4.4.3 Perché gli script cambiano le regole del gioco}{10}{section*.27}%
+\contentsline {subsection}{4.4.4 Skill, comandi e prompt}{10}{section*.28}%
+\contentsline {section}{4.5 Gli agenti}{10}{section*.29}%
+\contentsline {subsection}{4.5.1 A cosa serve davvero}{11}{section*.30}%
+\contentsline {subsection}{4.5.2 Il formato del file}{11}{section*.31}%
+\contentsline {subsection}{4.5.3 Due proprietà che vale la pena conoscere}{11}{section*.32}%
+\contentsline {subsection}{4.5.4 Handoff: passare la palla}{12}{section*.33}%
+\contentsline {subsection}{4.5.5 Agente o skill?}{12}{section*.34}%
+\contentsline {section}{4.6 I plugin}{12}{section*.35}%
+\contentsline {subsection}{4.6.1 Perché servono}{13}{section*.37}%
+\contentsline {subsection}{4.6.2 Lo standard e le estensioni}{13}{section*.38}%
+\contentsline {subsection}{4.6.3 Il formato Claude}{14}{section*.39}%
+\contentsline {subsection}{4.6.4 Marketplace e fiducia}{14}{section*.40}%
+\contentsline {section}{4.7 Dove vivono i file: GitHub Copilot in VS Code}{16}{section*.41}%
+\contentsline {subsection}{4.7.1 I file di progetto}{16}{section*.42}%
+\contentsline {subsection}{4.7.2 I file utente}{17}{section*.43}%
+\contentsline {subsection}{4.7.3 Il formato Claude dentro VS Code}{17}{section*.44}%
+\contentsline {subsection}{4.7.4 Un esempio completo e verificabile}{17}{section*.45}%
+\contentsline {section}{4.8 Dove vivono i file: Claude Code}{18}{section*.46}%
+\contentsline {subsection}{4.8.1 La gerarchia di \texttt {CLAUDE.md}}{18}{section*.47}%
+\contentsline {subsection}{4.8.2 Le regole per percorso}{18}{section*.48}%
+\contentsline {subsection}{4.8.3 Skill, agenti, comandi}{19}{section*.49}%
+\contentsline {subsection}{4.8.4 L'albero completo}{19}{section*.50}%
+\contentsline {subsection}{4.8.5 Come verificare cosa è stato caricato}{20}{section*.51}%
+\contentsline {section}{4.9 Dove vivono i file: Cursor, Gemini CLI e Codex}{20}{section*.52}%
+\contentsline {subsection}{4.9.1 Cursor}{20}{section*.53}%
+\contentsline {subsection}{4.9.2 Gemini CLI}{21}{section*.54}%
+\contentsline {subsection}{4.9.3 Codex}{22}{section*.55}%
+\contentsline {subsection}{4.9.4 Gli altri}{22}{section*.56}%
+\contentsline {section}{4.10 Il caso DeepSeek: un motore senza formato}{22}{section*.57}%
+\contentsline {subsection}{4.10.1 Modello, host e formato}{23}{section*.58}%
+\contentsline {subsection}{4.10.2 L'eccezione: DeepSeek Harness}{23}{section*.59}%
+\contentsline {subsection}{4.10.3 Che cosa insegna questo caso}{24}{section*.60}%
+\contentsline {subsection}{4.10.4 In pratica}{24}{section*.61}%
+\contentsline {section}{4.11 La mappa comparata: sei ambienti}{24}{section*.62}%
+\contentsline {subsection}{4.11.1 Tabella di orientamento}{25}{section*.64}%
+\contentsline {subsection}{4.11.2 Tre letture utili}{26}{section*.65}%
+\contentsline {subsection}{4.11.3 Il rischio della mappa}{26}{section*.66}%
+\contentsline {section}{4.12 Precedenza, merge e conflitti}{27}{section*.67}%
+\contentsline {subsection}{4.12.1 Due modelli: somma e sostituzione}{27}{section*.69}%
+\contentsline {subsection}{4.12.2 Livelli tipici, non ordine universale}{28}{section*.70}%
+\contentsline {subsection}{4.12.3 Il caso più frequente: la regola duplicata}{28}{section*.71}%
+\contentsline {subsection}{4.12.4 Scrivere regole che non collidono}{29}{section*.72}%
+\contentsline {section}{4.13 Portabilità: cosa è standard e cosa no}{29}{section*.73}%
+\contentsline {subsection}{4.13.1 La scala della portabilità}{29}{section*.74}%
+\contentsline {subsection}{4.13.2 La strategia della fonte unica}{30}{section*.75}%
+\contentsline {subsection}{4.13.3 Il formato delle skill è portabile, la scoperta no}{31}{section*.76}%
+\contentsline {subsection}{4.13.4 Un criterio di decisione}{31}{section*.77}%
+\contentsline {section}{4.14 Scrivere una skill: esempio completo}{31}{section*.78}%
+\contentsline {subsection}{4.14.1 La cartella}{32}{section*.79}%
+\contentsline {subsection}{4.14.2 Il file \texttt {SKILL.md}}{32}{section*.80}%
+\contentsline {subsection}{4.14.3 Lo script}{33}{section*.81}%
+\contentsline {subsection}{4.14.4 Perché questa skill funziona}{34}{section*.82}%
+\contentsline {subsection}{4.14.5 Dove metterla}{34}{section*.83}%
+\contentsline {section}{4.15 Scrivere un agente: revisione in sola lettura}{34}{section*.84}%
+\contentsline {subsection}{4.15.1 Il file}{35}{section*.85}%
+\contentsline {subsection}{4.15.2 Le tre scelte che contano}{35}{section*.86}%
+\contentsline {subsection}{4.15.3 Usarlo come subagente}{36}{section*.87}%
+\contentsline {subsection}{4.15.4 Handoff: planner → implementer → revisore}{36}{section*.88}%
+\contentsline {subsection}{4.15.5 Un avvertimento}{37}{section*.89}%
+\contentsline {section}{4.16 Scrivere un plugin}{37}{section*.90}%
+\contentsline {subsection}{4.16.1 La struttura}{37}{section*.91}%
+\contentsline {subsection}{4.16.2 Il manifest}{37}{section*.92}%
+\contentsline {subsection}{4.16.3 I server MCP}{38}{section*.93}%
+\contentsline {subsection}{4.16.4 Gli hook}{38}{section*.94}%
+\contentsline {subsection}{4.16.5 La versione Claude}{39}{section*.95}%
+\contentsline {subsection}{4.16.6 Pubblicare}{39}{section*.96}%
+\contentsline {section}{4.17 Verificare che funzioni}{39}{section*.97}%
+\contentsline {subsection}{4.17.1 Le quattro verifiche, in ordine}{40}{section*.98}%
+\contentsline {subsection}{4.17.2 Un test automatico per il frontmatter}{40}{section*.99}%
+\contentsline {subsection}{4.17.3 Verificare il comportamento, non solo la sintassi}{41}{section*.100}%
+\contentsline {subsection}{4.17.4 Un consiglio di manutenzione}{42}{section*.101}%
+\contentsline {section}{4.18 Sicurezza}{42}{section*.102}%
+\contentsline {subsection}{4.18.1 Superficie di rischio}{42}{section*.103}%
+\contentsline {subsection}{4.18.2 La regola di fondo}{43}{section*.104}%
+\contentsline {subsection}{4.18.3 Cose da fare sempre}{43}{section*.105}%
+\contentsline {subsection}{4.18.4 Cose da evitare}{43}{section*.106}%
+\contentsline {subsection}{4.18.5 Un controllo di sicurezza in CI}{44}{section*.107}%
+\contentsline {subsection}{4.18.6 Il principio da portarsi a casa}{44}{section*.108}%
+\contentsline {section}{4.19 Governance del team e versionamento}{45}{section*.109}%
+\contentsline {subsection}{4.19.1 I tre ambiti e chi li possiede}{45}{section*.110}%
+\contentsline {subsection}{4.19.2 Le regole come artefatto di progetto}{45}{section*.111}%
+\contentsline {subsection}{4.19.3 Il monorepo}{46}{section*.112}%
+\contentsline {subsection}{4.19.4 Migrazioni e cambi di motore}{46}{section*.113}%
+\contentsline {subsection}{4.19.5 Un esempio di organizzazione realistica}{46}{section*.114}%
+\contentsline {section}{4.20 Best practice}{47}{section*.115}%
+\contentsline {subsection}{4.20.1 Sul contenuto}{47}{section*.116}%
+\contentsline {subsection}{4.20.2 Sulla struttura}{47}{section*.117}%
+\contentsline {subsection}{4.20.3 Sulla sicurezza}{47}{section*.118}%
+\contentsline {subsection}{4.20.4 Il criterio del ``dopo''}{47}{section*.119}%
+\contentsline {section}{4.21 Anti-pattern}{48}{section*.120}%
+\contentsline {subsection}{4.21.1 La «bibbia» di progetto}{48}{section*.121}%
+\contentsline {subsection}{4.21.2 La skill invisibile}{48}{section*.122}%
+\contentsline {subsection}{4.21.3 L'agente tuttofare}{48}{section*.123}%
+\contentsline {subsection}{4.21.4 Il duplicato silenzioso}{48}{section*.124}%
+\contentsline {subsection}{4.21.5 Il plugin «proviamolo»}{49}{section*.125}%
+\contentsline {subsection}{4.21.6 La configurazione non versionata}{49}{section*.126}%
+\contentsline {subsection}{4.21.7 Il riepilogo degli anti-pattern}{49}{section*.127}%
+\contentsline {section}{4.22 Risoluzione dei problemi}{49}{section*.128}%
+\contentsline {subsection}{4.22.1 «L'agente ignora il mio file di istruzioni»}{49}{section*.129}%
+\contentsline {subsection}{4.22.2 «La skill non viene mai attivata»}{50}{section*.130}%
+\contentsline {subsection}{4.22.3 «L'agente non modifica i file»}{50}{section*.131}%
+\contentsline {subsection}{4.22.4 «Il plugin non compare»}{50}{section*.132}%
+\contentsline {subsection}{4.22.5 «Dopo l'aggiornamento del motore non funziona più nulla»}{50}{section*.133}%
+\contentsline {subsection}{4.22.6 «Le risposte sono più lente e più care»}{51}{section*.134}%
+\contentsline {subsection}{4.22.7 «Su Windows i percorsi non funzionano»}{51}{section*.135}%
+\contentsline {subsection}{4.22.8 Tabella riassuntiva}{51}{section*.136}%
+\contentsline {section}{4.23 Riepilogo}{51}{section*.137}%
+\contentsline {subsection}{4.23.1 I quattro livelli}{51}{section*.138}%
+\contentsline {subsection}{4.23.2 Dove mettere i file}{52}{section*.139}%
+\contentsline {subsection}{4.23.3 Le tre idee da portarsi a casa}{52}{section*.140}%
+\contentsline {subsection}{4.23.4 Il filo con i capitoli precedenti}{53}{section*.141}%

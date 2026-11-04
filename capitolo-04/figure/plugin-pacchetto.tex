@@ -1,0 +1,40 @@
+\documentclass[11pt,border=6pt]{standalone}
+\usepackage{fontspec}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+% struttura di un plugin: componenti portabili e specifici del client
+
+% righe: nome in monospazio, annotazione a destra
+\node[anchor=west, font=\ttfamily\footnotesize] (n0) at (0.00,0.00) {dotnet-delivery-plugin/};
+\node[anchor=west, font=\ttfamily\footnotesize] (n1) at (4.05,-0.50) {plugin.json};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-0.50) {manifest: \$schema, name, version, license};
+\node[anchor=west, font=\ttfamily\footnotesize] (n2) at (4.05,-1.00) {skills/release-notes/};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-1.00) {PORTABILE};
+\node[anchor=west, font=\ttfamily\footnotesize] (n3) at (7.79,-1.50) {SKILL.md};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-1.50) {PORTABILE};
+\node[anchor=west, font=\ttfamily\footnotesize] (n4) at (4.05,-2.00) {mcp.json};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-2.00) {PORTABILE: server MCP};
+\node[anchor=west, font=\ttfamily\footnotesize] (n5) at (4.05,-2.50) {com.github.copilot/};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-2.50) {non portabile};
+\node[anchor=west, font=\ttfamily\footnotesize] (n6) at (7.79,-3.00) {agents/revisore.agent.md};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-3.00) {solo Copilot};
+\node[anchor=west, font=\ttfamily\footnotesize] (n7) at (7.79,-3.50) {hooks/hooks.json};
+\node[anchor=west, font=\scriptsize, text=black!60, text width=3.9cm, align=left] at (12.25,-3.50) {solo Copilot};
+
+% connettori ad albero
+\draw[black!45] (3.69,0.00) -- (3.81,0.00);
+\draw[black!45] (3.81,0.00) -- (3.81,-2.50);
+\draw[black!45] (3.81,-0.50) -- (4.00,-0.50);
+\draw[black!45] (3.81,-1.00) -- (4.00,-1.00);
+\draw[black!45] (3.81,-2.00) -- (4.00,-2.00);
+\draw[black!45] (3.81,-2.50) -- (4.00,-2.50);
+\draw[black!45] (7.43,-1.00) -- (7.55,-1.00);
+\draw[black!45] (7.55,-1.00) -- (7.55,-1.50);
+\draw[black!45] (7.55,-1.50) -- (7.74,-1.50);
+\draw[black!45] (7.11,-2.50) -- (7.55,-2.50);
+\draw[black!45] (7.55,-2.50) -- (7.55,-3.50);
+\draw[black!45] (7.55,-3.00) -- (7.74,-3.00);
+\draw[black!45] (7.55,-3.50) -- (7.74,-3.50);
+\end{tikzpicture}
+\end{document}

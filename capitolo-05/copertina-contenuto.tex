@@ -1,0 +1,90 @@
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[coverNavy] (current page.south west) rectangle (current page.north east);
+
+  \fill[coverBlue]
+    ([xshift=9.00cm]current page.south west) --
+    (current page.north east) --
+    ([yshift=-13.85cm]current page.north east) --
+    cycle;
+  \fill[coverNavy]
+    (current page.north west) --
+    ([xshift=15.24cm]current page.north west) --
+    ([xshift=15.24cm,yshift=-11.78cm]current page.north west) --
+    ([yshift=-14.78cm]current page.north west) --
+    cycle;
+
+  \foreach \x/\y/\r in {0.80/1.69/0.58, 2.32/3.62/0.40, 13.35/4.31/0.51,
+                        13.93/13.70/0.33, 1.52/18.09/0.44, 12.92/19.55/0.36} {
+    \draw[coverLine,opacity=0.28,line width=0.4pt]
+      ([xshift=\x cm,yshift=\y cm]current page.south west) circle (\r cm);
+  }
+
+  \node[anchor=north west,align=left,text=white]
+    at ([xshift=1.30cm,yshift=-1.46cm]current page.north west) {%
+      {\footnotesize\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
+
+  \draw[coverCyan,opacity=0.65,line width=0.7pt]
+    ([xshift=1.30cm,yshift=-2.54cm]current page.north west) --
+    ([xshift=4.20cm,yshift=-2.54cm]current page.north west);
+
+  \coordinate (srcA) at ([xshift=3.05cm,yshift=-5.39cm]current page.north west);
+  \coordinate (srcB) at ([xshift=4.43cm,yshift=-6.77cm]current page.north west);
+  \coordinate (srcC) at ([xshift=3.41cm,yshift=-8.47cm]current page.north west);
+  \coordinate (srcD) at ([xshift=5.15cm,yshift=-9.62cm]current page.north west);
+  \coordinate (core) at ([xshift=9.43cm,yshift=-7.54cm]current page.north west);
+  \coordinate (dotnet) at ([xshift=12.41cm,yshift=-7.54cm]current page.north west);
+
+  \draw[coverCyan,opacity=0.72,line width=1.1pt]
+    (srcA) .. controls +(1.74cm,0.15cm) and +(-1.60cm,1.39cm) .. (core);
+  \draw[coverCyan,opacity=0.55,line width=1.1pt]
+    (srcB) .. controls +(1.60cm,0cm) and +(-1.45cm,0.46cm) .. (core);
+  \draw[coverCyan,opacity=0.65,line width=1.1pt]
+    (srcC) .. controls +(1.81cm,0cm) and +(-1.45cm,-0.38cm) .. (core);
+  \draw[coverCyan,opacity=0.5,line width=1.1pt]
+    (srcD) .. controls +(1.52cm,-0.15cm) and +(-1.60cm,-1.31cm) .. (core);
+  \draw[coverOrange,line width=1.4pt,-{Stealth[length=3mm]}]
+    (core) -- (dotnet);
+
+  \foreach \p/\label in {srcA/MCP,srcB/SPEC,srcC/AGENTI,srcD/.NET} {
+    \fill[coverNavy] (\p) circle (0.40cm);
+    \draw[coverCyan,line width=1.0pt] (\p) circle (0.40cm);
+    \node[text=white,font=\scriptsize\bfseries] at (\p) {\label};
+  }
+
+  \fill[coverBlue] (core) circle (0.70cm);
+  \draw[coverCyan,line width=1.3pt] (core) circle (0.70cm);
+  \draw[coverCyan,opacity=0.32,line width=0.7pt] (core) circle (0.93cm);
+  \node[text=white,font=\large\bfseries] at (core) {AI};
+
+  \fill[coverOrange] (dotnet) circle (0.60cm);
+  \draw[white,line width=0.6pt,opacity=0.85] (dotnet) circle (0.60cm);
+  \node[text=white,font=\footnotesize\bfseries] at (dotnet) {.NET};
+
+  \node[anchor=west,text=coverPale,font=\footnotesize]
+    at ([xshift=1.30cm,yshift=-10.47cm]current page.north west)
+    {CONCETTI, STRUMENTI E PERCORSI PRATICI};
+
+  \node[anchor=west,align=left,text=white,font=\fontsize{26}{30}\selectfont\bfseries]
+    at ([xshift=1.27cm,yshift=-12.93cm]current page.north west)
+    {Quaderno AI};
+
+  \node[anchor=west,align=left,text=coverPale,font=\fontsize{11}{14}\selectfont]
+    at ([xshift=1.34cm,yshift=-16.01cm]current page.north west)
+    {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
+
+  \draw[coverOrange,line width=1.4pt]
+    ([xshift=1.34cm,yshift=-18.55cm]current page.north west) --
+    ([xshift=3.48cm,yshift=-18.55cm]current page.north west);
+
+  \node[anchor=west,text=white,font=\footnotesize]
+    at ([xshift=1.34cm,yshift=-19.32cm]current page.north west)
+    {MCP \quad SPEC-DRIVEN DEVELOPMENT \quad AGENTI \quad MIGRAZIONE A .NET};
+
+  \node[anchor=south east,text=coverPale,font=\footnotesize]
+    at ([xshift=-1.30cm,yshift=1.20cm]current page.south east)
+    {Andrea Merlin \quad | \quad Numero 1 - Novembre 2026};
+\end{tikzpicture}
+\null
+\newpage
+\thispagestyle{empty}
