@@ -12,7 +12,7 @@ Entity Framework Core è un ORM che traduce query LINQ in operazioni sul databas
 | Entity/model | Entità CLR | Identità, navigazioni e mapping |
 | Schema migration | EF migrations | SQL generato e deploy sicuro |
 | Lazy loading | Opzionale, non predefinito in ogni scenario | Query implicite e N+1 |
-| Unit of work | `SaveChanges`/transazione | Confini e atomicità |
+| Unit of work | `SaveChanges` / transazione | Confini e atomicità |
 
 `DbContext` è un'unità di lavoro breve, normalmente scoped per richiesta. Non è thread-safe: non lanciare query concorrenti sullo stesso contesto con `Task.WhenAll`. Usare query proiettate per leggere solo i campi necessari e `AsNoTracking` quando il risultato non verrà aggiornato tramite il context.
 

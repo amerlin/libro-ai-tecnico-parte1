@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  4 NOV 2026 11:28
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  10 NOV 2026 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1457,13 +1457,8 @@ Underfull \vbox (badness 1478) has occurred while \output is active []
 Underfull \vbox (badness 1478) has occurred while \output is active []
 
  [14]
-[15] [16] [17] [18] [19] [20] [21] [22]
-Overfull \hbox (5.86388pt too wide) in paragraph at lines 1609--1609
-[]|\TU/lmtt/c/it/10 SaveChanges\TU/lmr/m/n/10 /transazione|  
- []
-
-[23] [24] [25] [26] [27]
-Underfull \hbox (badness 1571) in paragraph at lines 1900--1903
+[15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
+Underfull \hbox (badness 1571) in paragraph at lines 1901--1904
 []\TU/lmr/m/n/10 mantenere temporaneamente la verifica tramite il sistema ident
 ità
  []
@@ -1476,49 +1471,53 @@ Underfull \vbox (badness 1184) has occurred while \output is active []
 
  [35]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 2372.
+(Font)              scaled to size 8.0pt on input line 2373.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 2372.
+(Font)              scaled to size 6.0pt on input line 2373.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 2372.
+(Font)              scaled to size 8.00073pt on input line 2373.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 2372.
+(Font)              scaled to size 6.00055pt on input line 2373.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 2372.
+(Font)              scaled to size 7.99915pt on input line 2373.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 2372.
+(Font)              scaled to size 5.99936pt on input line 2373.
 
-[36] [37] [38]
-Underfull \hbox (badness 3735) in paragraph at lines 2522--2522
-[][]\TU/lmr/bx/n/14.4 5.13 Approfondire la mappa dai principali
- []
-
-
-Underfull \hbox (badness 2213) in paragraph at lines 2550--2553
-[]\TU/lmr/m/n/10 route e controller PHP verso endpoint/controller ASP.NET Core,
-
- []
-
-[39] [40] [41] [42]
-Underfull \hbox (badness 1377) in paragraph at lines 2792--2795
-[]\TU/lmr/m/n/10 punto di consistenza, strategia delta e trattamento delle scri
-tture
- []
-
-[43] [44] [45] [46] [47] [48] [49]
-Underfull \hbox (badness 1194) in paragraph at lines 3242--3244
+[36] [37] [38] [39]
+Underfull \hbox (badness 1194) in paragraph at lines 2598--2600
 \TU/lmr/m/n/10 La solution può iniziare con API e test, senza creare tutti i pr
 ogetti
  []
 
-[50] [51] [52] [53] [54] [55]
-Underfull \hbox (badness 1735) in paragraph at lines 3695--3698
+[40]
+Overfull \vbox (1.78047pt too high) detected at line 2686
+ []
+
+[41] [42] [43]
+Underfull \hbox (badness 3735) in paragraph at lines 2872--2872
+[][]\TU/lmr/bx/n/14.4 5.13 Approfondire la mappa dai principali
+ []
+
+[44]
+Underfull \hbox (badness 2213) in paragraph at lines 2900--2903
+[]\TU/lmr/m/n/10 route e controller PHP verso endpoint/controller ASP.NET Core,
+
+ []
+
+[45] [46] [47] [48]
+Underfull \hbox (badness 1377) in paragraph at lines 3142--3145
+[]\TU/lmr/m/n/10 punto di consistenza, strategia delta e trattamento delle scri
+tture
+ []
+
+[49] [50] [51] [52] [53] [54] [55]
+Underfull \hbox (badness 1735) in paragraph at lines 3696--3699
 []\TU/lmr/bx/n/10 Ottimizzare prima di misurare. \TU/lmr/m/n/10 AOT, cache o pa
 rallelismo
  []
 
 [56]
-Underfull \hbox (badness 2608) in paragraph at lines 3755--3759
+Underfull \hbox (badness 2608) in paragraph at lines 3756--3760
 []\TU/lmr/m/n/10 Per ogni capacità, annotare un punteggio qualitativo di rischi
 o (bas-
  []
@@ -1543,7 +1542,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  23818 strings out of 402511
  440062 string characters out of 5435770
- 1082008 words of memory out of 5000000
+ 1083009 words of memory out of 5000000
  52715 multiletter control sequences out of 15000+600000
  634091 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

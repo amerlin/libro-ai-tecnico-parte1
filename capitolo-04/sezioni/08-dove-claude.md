@@ -12,7 +12,7 @@ I file sono elencati nell'ordine di caricamento, dal più ampio al più specific
 
 | Ambito | Posizione | Condiviso con |
 | --- | --- | --- |
-| Policy gestita | Windows: `C:\Program Files\ClaudeCode\CLAUDE.md`; Linux/WSL: `/etc/claude-code/CLAUDE.md`; macOS: `/Library/Application Support/ClaudeCode/CLAUDE.md` | Tutta l'organizzazione |
+| Policy gestita | Windows: \texttt{C:\textbackslash{}Program\ Files\allowbreak\textbackslash{}ClaudeCode\allowbreak\textbackslash{}CLAUDE.md}; Linux/WSL: \texttt{/etc/claude-code\allowbreak/CLAUDE.md}; macOS: \texttt{/Library\allowbreak/Application\ Support\allowbreak/ClaudeCode\allowbreak/CLAUDE.md} | Tutta l'organizzazione |
 | Utente | `~/.claude/CLAUDE.md` | Solo te, tutti i progetti |
 | Progetto | `./CLAUDE.md` oppure `./.claude/CLAUDE.md` | Il team, via source control |
 | Locale | `./CLAUDE.local.md` | Solo te, questo progetto (da mettere in `.gitignore`) |

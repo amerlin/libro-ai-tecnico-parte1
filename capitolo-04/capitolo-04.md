@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Quaderno AI"
 subtitle: "Concetti, strumenti e percorsi pratici per lo sviluppo software con AI"
 author: "Andrea Merlin"
@@ -540,7 +540,7 @@ I file sono elencati nell'ordine di caricamento, dal più ampio al più specific
 
 | Ambito | Posizione | Condiviso con |
 | --- | --- | --- |
-| Policy gestita | Windows: `C:\Program Files\ClaudeCode\CLAUDE.md`; Linux/WSL: `/etc/claude-code/CLAUDE.md`; macOS: `/Library/Application Support/ClaudeCode/CLAUDE.md` | Tutta l'organizzazione |
+| Policy gestita | Windows: \texttt{C:\textbackslash{}Program\ Files\allowbreak\textbackslash{}ClaudeCode\allowbreak\textbackslash{}CLAUDE.md}; Linux/WSL: \texttt{/etc/claude-code\allowbreak/CLAUDE.md}; macOS: \texttt{/Library\allowbreak/Application\ Support\allowbreak/ClaudeCode\allowbreak/CLAUDE.md} | Tutta l'organizzazione |
 | Utente | `~/.claude/CLAUDE.md` | Solo te, tutti i progetti |
 | Progetto | `./CLAUDE.md` oppure `./.claude/CLAUDE.md` | Il team, via source control |
 | Locale | `./CLAUDE.local.md` | Solo te, questo progetto (da mettere in `.gitignore`) |
@@ -729,7 +729,7 @@ Una piattaforma come DeepSeek espone un'**API** (chat completions), non un'esper
 | Campo | Valore |
 | --- | --- |
 | `base_url` (OpenAI-compatible) | `https://api.deepseek.com` |
-| `base_url` (Anthropic-compatible) | `https://api.deepseek.com/anthropic` |
+| `base_url` (Anthropic-compatible) | \url{https://api.deepseek.com/anthropic} |
 | `model` | `deepseek-flash`, `deepseek-v4-pro` |
 
 Questo significa che DeepSeek si usa quasi sempre **come backend di un altro host**: Claude Code, GitHub Copilot, OpenCode e altri strumenti compatibili permettono di puntare il modello a DeepSeek cambiando la configurazione del provider. In quel caso **i file di istruzioni, skill e agenti sono quelli dell'host**, non di DeepSeek: se usi DeepSeek dentro Claude Code, il tuo `CLAUDE.md` funziona esattamente come con un modello Anthropic.

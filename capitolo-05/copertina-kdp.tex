@@ -84,37 +84,37 @@
        \textbullet\ Istruzioni, skill, agenti e plugin per gli agenti di codifica\\
        \textbullet\ Migrare a .NET da PHP, Python, Node.js e Java};
 
-    \draw[coverCyan,opacity=0.55,line width=0.7pt] (1.5, 6.2) -- (7.2, 6.2);
+    \draw[coverCyan,opacity=0.55,line width=0.7pt] (1.5, 7.0) -- (7.2, 7.0);
 
     \node[anchor=north west,text=coverPale,font=\footnotesize,text width=10.4cm,align=left]
-      at (1.5, 5.5)
+      at (1.5, 6.3)
       {Andrea Merlin. Laureato in informatica, appassionato di tecnologie\\
        Microsoft, DevOps e data-privacy; dal 2013 scrive sul suo blog\\
        indipendente di programmazione https://amerlin.keantex.com .\\
        E' speaker e formatore.};
 
-    % Area riservata al codice a barre ISBN (aggiunto da Amazon).
-    \fill[white] (9.5, 0.5) rectangle (14.6, 3.55);
+    % Area riservata al codice a barre ISBN (aggiunto da Amazon), entro il margine di sicurezza.
+    % Nessun riquadro disegnato: il barcode verrà posizionato qui in seguito.
 
   \end{scope}
 
   % ---- Fronte ----
   \begin{scope}[shift={([xshift={\bleed+\backw+\spinewidthcm},yshift=\bleed]current page.south west)}]
 
-    \fill[coverBlue] (9.00, 0) -- (\frontw, \frontH) -- (\frontw, 9.01) -- cycle;
+    \fill[coverBlue] (9.00, 0.95) -- (14.29, 21.91) -- (14.29, 9.01) -- cycle;
 
     \fill[coverNavy] (0, \frontH) -- (15.24, \frontH) -- (15.24, 11.08) -- (0, 8.08) -- cycle;
 
-    \foreach \x/\y/\r in {0.80/1.69/0.58, 2.32/3.62/0.40, 13.35/4.31/0.51,
-                          13.93/13.70/0.33, 1.52/18.09/0.44, 12.92/19.55/0.36} {
+    \foreach \x/\y/\r in {1.15/1.75/0.58, 2.32/3.62/0.40, 13.35/4.31/0.51,
+                          13.70/13.70/0.33, 1.52/18.09/0.44, 12.92/19.55/0.36} {
       \draw[coverLine,opacity=0.28,line width=0.4pt] (\x,\y) circle (\r cm);
     }
 
     \node[anchor=north west,align=left,text=white]
-      at (1.30, 21.40) {%
+      at (1.50, 21.00) {%
         {\footnotesize\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
 
-    \draw[coverCyan,opacity=0.65,line width=0.7pt] (1.30, 20.32) -- (4.20, 20.32);
+    \draw[coverCyan,opacity=0.65,line width=0.7pt] (1.50, 19.92) -- (4.40, 19.92);
 
     \coordinate (srcA) at (3.05, 17.47);
     \coordinate (srcB) at (4.43, 16.09);
@@ -149,21 +149,21 @@
     \node[text=white,font=\footnotesize\bfseries] at (dotnet) {.NET};
 
     \node[anchor=west,text=coverPale,font=\footnotesize]
-      at (1.30, 12.39) {CONCETTI, STRUMENTI E PERCORSI PRATICI};
+      at (1.50, 12.39) {CONCETTI, STRUMENTI E PERCORSI PRATICI};
 
     \node[anchor=west,align=left,text=white,font=\fontsize{26}{30}\selectfont\bfseries]
-      at (1.27, 9.93) {Quaderno AI};
+      at (1.50, 9.93) {Quaderno AI};
 
     \node[anchor=west,align=left,text=coverPale,font=\fontsize{11}{14}\selectfont]
-      at (1.34, 6.85) {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
+      at (1.50, 6.85) {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
 
-    \draw[coverOrange,line width=1.4pt] (1.34, 4.31) -- (3.48, 4.31);
+    \draw[coverOrange,line width=1.4pt] (1.50, 4.31) -- (3.64, 4.31);
 
     \node[anchor=west,text=white,font=\footnotesize]
-      at (1.34, 3.54) {MCP \quad SPEC-DRIVEN DEVELOPMENT \quad AGENTI \quad MIGRAZIONE A .NET};
+      at (1.50, 3.54) {MCP \quad SPEC-DRIVEN DEVELOPMENT \quad AGENTI \quad MIGRAZIONE A .NET};
 
     \node[anchor=south east,text=coverPale,font=\footnotesize]
-      at ({\frontw-1.30}, 1.35) {Andrea Merlin \quad | \quad Numero 1 - Novembre 2026};
+      at ({\frontw-1.50cm}, 1.60) {Andrea Merlin \quad | \quad Numero 1 - Novembre 2026};
 
   \end{scope}
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Quaderno AI"
 subtitle: "Concetti, strumenti e percorsi pratici per lo sviluppo software con AI"
 author: "Andrea Merlin"
@@ -251,11 +251,11 @@ Oltre ai tre principali, la specifica prevede primitivi più avanzati, che non i
 
 ### 1.4.5 La tabella riassuntiva
 
-| Primitivo | Direzione del controllo | Scopo | Esempio |
-|-----------|--------------------------|-------|---------|
-| Tool      | Modello                  | Eseguire azioni | `create_ticket`, `get_weather` |
-| Resource  | Client / applicazione    | Fornire dati di contesto | `config://app`, `docs://123` |
-| Prompt    | Utente / client          | Riutilizzare istruzioni | `review_code`, `summarize_meeting` |
+| Primitivo | Chi lo attiva | A cosa serve |
+|-----------|---------------|--------------|
+| Tool      | Modello       | Eseguire azioni |
+| Resource  | Client / app  | Fornire contesto |
+| Prompt    | Utente / client | Preparare istruzioni |
 
 Tenere a mente questa tabella aiuta a scegliere il primitivo giusto quando si progetta un server: se il modello deve *fare* qualcosa, serve un tool; se deve *leggere* qualcosa, una resource; se l'utente deve *invocare un'istruzione pronta*, un prompt.
 
@@ -664,14 +664,12 @@ L'SDK organizza i tipi in namespaces chiari:
 
 L'SDK adotta un approccio dichiarativo: si espongono le funzionalità marcando metodi e classi con attributi. La mappatura è:
 
-| Attributo | Applicato a | Effetto |
-|-----------|-------------|---------|
-| `[McpServerToolType]` | Classe | Segnala che la classe contiene dei tool |
-| `[McpServerTool]` | Metodo | Espone il metodo come tool |
-| `[McpServerPromptType]` | Classe | Segnala che la classe contiene dei prompt |
-| `[McpServerPrompt]` | Metodo | Espone il metodo come prompt |
-| `[McpServerResourceType]` | Classe | Segnala che la classe contiene delle risorse |
-| `[McpServerResource]` | Metodo | Espone il metodo come risorsa |
+- **`[McpServerToolType]`**, sulla classe: segnala che contiene dei tool.
+- **`[McpServerTool]`**, sul metodo: lo espone come tool.
+- **`[McpServerPromptType]`**, sulla classe: segnala che contiene dei prompt.
+- **`[McpServerPrompt]`**, sul metodo: lo espone come prompt.
+- **`[McpServerResourceType]`**, sulla classe: segnala che contiene delle risorse.
+- **`[McpServerResource]`**, sul metodo: lo espone come risorsa.
 
 Le descrizioni (fondamentali, come abbiamo detto) si esprimono con l'attributo standard di .NET `[Description]`, sia sul metodo sia sui parametri. Vedremo subito esempi concreti.
 
@@ -1840,6 +1838,81 @@ Progettare i tool come classi con dipendenze iniettate (come `WeatherTool` con i
 
 Queste pratiche, sommate, trasformano un server "che funziona" in un server **affidabile**, che un modello può usare con fiducia e che un team può mantenere nel tempo.
 
+## 1.21 Sicurezza e operatività
+
+Un MCP server è un **ponte tra un modello e i tuoi sistemi**: se non è protetto, diventa un ponte per chiunque riesca a raggiungerlo. La sicurezza va considerata fin dall'inizio, non aggiunta alla fine.
+
+### Il principio del minimo privilegio
+
+Il principio guida è semplice: **esponi solo ciò che serve, con i permessi minimi necessari**. Se il server deve leggere file, non deve poter scrivere ovunque; se deve interrogare un database, usi un utente con soli diritti di lettura. Ogni tool in più, ogni permesso in più, è una superficie d'attacco in più.
+
+Nel nostro esempio file system abbiamo applicato questo principio confinando tutte le operazioni in una directory radice. Il costruttore normalizza `_root` con `Path.GetFullPath` e rimuove gli eventuali separatori finali con `Path.TrimEndingDirectorySeparator`. In `Resolve`, il percorso normalizzato è ammesso solo se coincide con la radice o inizia con la radice seguita da un separatore: così un percorso come `C:\dati2` non supera il controllo per una root `C:\dati`. Il confronto ignora maiuscole e minuscole su Windows ed è sensibile al caso sugli altri sistemi.
+
+```csharp
+var full = Path.GetFullPath(Path.Combine(_root, relativePath));
+var comparison = OperatingSystem.IsWindows()
+    ? StringComparison.OrdinalIgnoreCase
+    : StringComparison.Ordinal;
+var rootPrefix = Path.EndsInDirectorySeparator(_root)
+    ? _root
+    : _root + Path.DirectorySeparatorChar;
+
+if (!string.Equals(full, _root, comparison) &&
+    !full.StartsWith(rootPrefix, comparison))
+    throw new McpException("Access denied: path escapes the root directory.");
+```
+
+La radice stessa è ammessa, così un percorso relativo vuoto può indicare la directory radice. Questa difesa contro il **path traversal** (un argomento come `..\..\Windows`) è essenziale in qualunque tool che tocchi il file system. `GetFullPath` normalizza i percorsi ma non risolve i collegamenti simbolici: se la directory radice ne contiene, occorre verificare separatamente anche i relativi target.
+
+### La minaccia della prompt injection
+
+Il modello è, per sua natura, influenzabile dal testo che riceve. Un documento malevolo letto dal server, o un argomento fornito da un utente, potrebbe contenere istruzioni nascoste che spingono il modello a compiere azioni indesiderate (esfiltrare dati, eseguire tool pericolosi). È la cosiddetta **prompt injection**.
+
+Le contromisure principali:
+
+- **separa i dati dalle istruzioni**: quando inietti nel contesto il contenuto di una risorsa o il risultato di un tool, delimitalo chiaramente e istruisci il modello a trattarlo come dato, non come comando;
+- **convalida e igienizza** gli input prima di usarli;
+- **limita i tool pericolosi**: le operazioni distruttive richiedono conferma esplicita dell'utente (molti host lo fanno automaticamente se il tool è annotato `Destructive = true`);
+- **non esporre segreti** nei dati che il server restituisce.
+
+### Autenticazione e autorizzazione
+
+- Per i server **`stdio`**, il trust è locale: il server gira come processo del client e, di norma, eredita i permessi dell'utente. La protezione è data dall'ambiente, non dal protocollo.
+- Per i server **HTTP**, la specifica prevede **OAuth 2.1** per autenticare i client. Esporre un server MCP HTTP su Internet senza autenticazione è quasi sempre un errore: chiunque potrebbe usarne i tool.
+- L'SDK ASP.NET Core offre primitive per l'autenticazione (`AddAuthorizationFilters`) e si integra con i meccanismi standard di ASP.NET Core (policy, middleware).
+
+### Segreti e configurazione
+
+Non scrivere mai chiavi API, password o token nel codice sorgente o nei file di configurazione condivisi. Usa:
+
+- **variabili d'ambiente** (per gli host che le supportano);
+- **user secrets** in sviluppo (`dotnet user-secrets`);
+- un **gestore di segreti** (Azure Key Vault, AWS Secrets Manager, ecc.) in produzione;
+- per i server HTTP, i meccanismi di autenticazione del protocollo.
+
+### Controllare l'esposizione di rete
+
+Un server HTTP MCP espone un endpoint: applicalo le stesse regole di qualunque servizio web. In particolare:
+
+- usa **TLS** (HTTPS) in produzione;
+- **limita l'accesso** con firewall, reti private o VPN;
+- **registra** le richieste (senza dati sensibili) per poter indagare eventuali abusi;
+- tieni **aggiornati** i pacchetti: l'SDK MCP evolve e corregge vulnerabilità.
+
+### Checklist di sicurezza
+
+Prima di mettere in produzione un server MCP, verifica:
+
+- [ ] ogni tool applica il minimo privilegio;
+- [ ] gli input sono validati e i percorsi sono confinati;
+- [ ] i segreti non sono nel codice né nella configurazione condivisa;
+- [ ] i tool distruttivi sono annotati e richiedono conferma;
+- [ ] i server HTTP usano TLS e autenticazione;
+- [ ] i log non contengono dati sensibili;
+- [ ] le dipendenze sono aggiornate.
+
+La sicurezza non è un punto di arrivo, ma un processo: rivedi questa checklist a ogni modifica rilevante del server.
+
 ### 1.21.1 Risoluzione dei problemi comuni
 
 Durante lo sviluppo di un server MCP si incontrano, quasi immancabilmente, alcuni problemi ricorrenti. Raccogliamo qui i più comuni, con la causa e la soluzione.
@@ -2022,81 +2095,6 @@ Il client è lo strumento ideale per i **test di integrazione** di un server MCP
 #### 1.21.2.6 Client e server nello stesso ecosistema
 
 Con questa sezione il cerchio si chiude: con gli stessi pacchetti abbiamo costruito **server** (stdio e HTTP), **risorse**, **prompt** e ora un **client**. L'SDK .NET copre l'intero spettro del protocollo, e averlo esplorato per intero è la base migliore per i capitoli successivi.
-
-## 1.21 Sicurezza e operatività
-
-Un MCP server è un **ponte tra un modello e i tuoi sistemi**: se non è protetto, diventa un ponte per chiunque riesca a raggiungerlo. La sicurezza va considerata fin dall'inizio, non aggiunta alla fine.
-
-### Il principio del minimo privilegio
-
-Il principio guida è semplice: **esponi solo ciò che serve, con i permessi minimi necessari**. Se il server deve leggere file, non deve poter scrivere ovunque; se deve interrogare un database, usi un utente con soli diritti di lettura. Ogni tool in più, ogni permesso in più, è una superficie d'attacco in più.
-
-Nel nostro esempio file system abbiamo applicato questo principio confinando tutte le operazioni in una directory radice. Il costruttore normalizza `_root` con `Path.GetFullPath` e rimuove gli eventuali separatori finali con `Path.TrimEndingDirectorySeparator`. In `Resolve`, il percorso normalizzato è ammesso solo se coincide con la radice o inizia con la radice seguita da un separatore: così un percorso come `C:\dati2` non supera il controllo per una root `C:\dati`. Il confronto ignora maiuscole e minuscole su Windows ed è sensibile al caso sugli altri sistemi.
-
-```csharp
-var full = Path.GetFullPath(Path.Combine(_root, relativePath));
-var comparison = OperatingSystem.IsWindows()
-    ? StringComparison.OrdinalIgnoreCase
-    : StringComparison.Ordinal;
-var rootPrefix = Path.EndsInDirectorySeparator(_root)
-    ? _root
-    : _root + Path.DirectorySeparatorChar;
-
-if (!string.Equals(full, _root, comparison) &&
-    !full.StartsWith(rootPrefix, comparison))
-    throw new McpException("Access denied: path escapes the root directory.");
-```
-
-La radice stessa è ammessa, così un percorso relativo vuoto può indicare la directory radice. Questa difesa contro il **path traversal** (un argomento come `..\..\Windows`) è essenziale in qualunque tool che tocchi il file system. `GetFullPath` normalizza i percorsi ma non risolve i collegamenti simbolici: se la directory radice ne contiene, occorre verificare separatamente anche i relativi target.
-
-### La minaccia della prompt injection
-
-Il modello è, per sua natura, influenzabile dal testo che riceve. Un documento malevolo letto dal server, o un argomento fornito da un utente, potrebbe contenere istruzioni nascoste che spingono il modello a compiere azioni indesiderate (esfiltrare dati, eseguire tool pericolosi). È la cosiddetta **prompt injection**.
-
-Le contromisure principali:
-
-- **separa i dati dalle istruzioni**: quando inietti nel contesto il contenuto di una risorsa o il risultato di un tool, delimitalo chiaramente e istruisci il modello a trattarlo come dato, non come comando;
-- **convalida e igienizza** gli input prima di usarli;
-- **limita i tool pericolosi**: le operazioni distruttive richiedono conferma esplicita dell'utente (molti host lo fanno automaticamente se il tool è annotato `Destructive = true`);
-- **non esporre segreti** nei dati che il server restituisce.
-
-### Autenticazione e autorizzazione
-
-- Per i server **`stdio`**, il trust è locale: il server gira come processo del client e, di norma, eredita i permessi dell'utente. La protezione è data dall'ambiente, non dal protocollo.
-- Per i server **HTTP**, la specifica prevede **OAuth 2.1** per autenticare i client. Esporre un server MCP HTTP su Internet senza autenticazione è quasi sempre un errore: chiunque potrebbe usarne i tool.
-- L'SDK ASP.NET Core offre primitive per l'autenticazione (`AddAuthorizationFilters`) e si integra con i meccanismi standard di ASP.NET Core (policy, middleware).
-
-### Segreti e configurazione
-
-Non scrivere mai chiavi API, password o token nel codice sorgente o nei file di configurazione condivisi. Usa:
-
-- **variabili d'ambiente** (per gli host che le supportano);
-- **user secrets** in sviluppo (`dotnet user-secrets`);
-- un **gestore di segreti** (Azure Key Vault, AWS Secrets Manager, ecc.) in produzione;
-- per i server HTTP, i meccanismi di autenticazione del protocollo.
-
-### Controllare l'esposizione di rete
-
-Un server HTTP MCP espone un endpoint: applicalo le stesse regole di qualunque servizio web. In particolare:
-
-- usa **TLS** (HTTPS) in produzione;
-- **limita l'accesso** con firewall, reti private o VPN;
-- **registra** le richieste (senza dati sensibili) per poter indagare eventuali abusi;
-- tieni **aggiornati** i pacchetti: l'SDK MCP evolve e corregge vulnerabilità.
-
-### Checklist di sicurezza
-
-Prima di mettere in produzione un server MCP, verifica:
-
-- [ ] ogni tool applica il minimo privilegio;
-- [ ] gli input sono validati e i percorsi sono confinati;
-- [ ] i segreti non sono nel codice né nella configurazione condivisa;
-- [ ] i tool distruttivi sono annotati e richiedono conferma;
-- [ ] i server HTTP usano TLS e autenticazione;
-- [ ] i log non contengono dati sensibili;
-- [ ] le dipendenze sono aggiornate.
-
-La sicurezza non è un punto di arrivo, ma un processo: rivedi questa checklist a ogni modifica rilevante del server.
 
 ## 1.22 Riepilogo, glossario ed esercizi
 
@@ -5077,6 +5075,46 @@ jobs:
 
 Questa pipeline verifica il prodotto .NET senza attribuire a `specify check` o a un controllo CLI una validazione che non svolgono. La qualità del metodo e degli artefatti si rivede nel workflow Spec Kit.
 
+## 3.21 Best practice e anti-pattern
+
+Come ogni metodo, Spec Kit funziona se usato bene. Raccogliamo le pratiche che fanno la differenza e gli errori in cui è facile cadere.
+
+### 3.21.1 Le best practice
+
+**Una feature, una specifica, un flusso.** Non accumulare più funzionalità in una sola specifica. Una specifica focalizzata è più facile da rivisitare, pianificare e implementare.
+
+**Constitution prima di tutto.** Definisci la constitution **una volta**, con cura, e falla rispettare dai gate. Una constitution vaga è inutile; una constitution chiara è il tuo "standard di qualità" codificato.
+
+**Un comando alla volta, con revisione.** Non incatenare i comandi. Rivedi `spec.md` prima di pianificare, `plan.md` prima di scomporre, `tasks.md` prima di implementare. Il costo della revisione cresce con l'avanzamento.
+
+**Risolvi i `[NEEDS CLARIFICATION]`.** Non lasciarli nella specifica sperando che l'agente "ci arrivi": usa `/speckit-clarify` o correggi a mano. Un requisito ambiguo è un bug in attesa.
+
+**Mantieni la specifica libera dalla tecnologia.** Lo stack appartiene al piano, non alla specifica. Se nella specifica leggi "usa .NET", stai mescolando i livelli: la specifica deve dire *cosa*, il piano *come*.
+
+**Versiona tutto.** Spec, piano, task e constitution sono parte del repository. La tracciabilità è il valore principale del metodo: non buttarla via con i `.gitignore`.
+
+**Itera sulla convergenza.** Non accontentarti del primo `/speckit-converge` se non riporta `Converged`. Il ciclo implement→converge è ciò che garantisce la completezza.
+
+### 3.21.2 Gli anti-pattern
+
+**La specifica "romanzo".** Una specifica di 50 pagine di prosa è tanto inutile quanto l'assenza di specifica. Le sezioni strutturate (user story, FR, SC) esistono per questo: restare concisi e verificabili.
+
+**Saltare i gate.** Ignorare `/speckit-clarify`, `/speckit-checklist` o `/speckit-analyze` "per fare prima" sposta i problemi più avanti, dove costano di più.
+
+**La constitution ipertrofica.** Dieci principi generici ("il codice deve essere di qualità") non aiutano. Pochi principi **verificabili** valgono più di molti principi generici.
+
+**Fidarsi ciecamente dell'agente.** L'agente produce bozze di qualità, ma le decisioni di prodotto sono tue. Rivedi, correggi, approva.
+
+**Ignorare la checklist come gate.** Spuntare le caselle "tanto per" svuota il meccanismo di qualità. La checklist è di proprietà del revisore: usala con onestà.
+
+**Mescolare le feature.** Modificare a mano i task di una feature per includerne un'altra rompe la tracciabilità. Se serve una nuova funzionalità, apri una nuova specifica.
+
+### 3.21.3 La regola d'oro
+
+> La specifica è tua. Spec Kit la struttura, la rende coerente e la porta fino al codice, ma **il contenuto — il cosa e il perché — è responsabilità tua**.
+
+Se tieni fermo questo principio, Spec Kit amplificherà il tuo lavoro; se lo dimentichi, amplificherà i tuoi errori.
+
 ## 3.22 Il processo di bug fixing
 
 Spec Kit non serve solo a costruire feature: include un processo dedicato alla **diagnosi e riparazione dei bug**. È un'estensione opzionale, che si installa quando serve.
@@ -5146,46 +5184,6 @@ Il test verifica che un titolo di 201 caratteri produca ora `400 Bad Request` e 
 ### Bug fixing vs feature workflow
 
 Il processo di bug fixing **non richiede** il workflow SDD completo: puoi diagnosticare e riparare un bug senza una specifica di feature. I due processi convivono: lo SDD per il nuovo, il bug fixing per il rotto.
-
-## 3.21 Best practice e anti-pattern
-
-Come ogni metodo, Spec Kit funziona se usato bene. Raccogliamo le pratiche che fanno la differenza e gli errori in cui è facile cadere.
-
-### 3.21.1 Le best practice
-
-**Una feature, una specifica, un flusso.** Non accumulare più funzionalità in una sola specifica. Una specifica focalizzata è più facile da rivisitare, pianificare e implementare.
-
-**Constitution prima di tutto.** Definisci la constitution **una volta**, con cura, e falla rispettare dai gate. Una constitution vaga è inutile; una constitution chiara è il tuo "standard di qualità" codificato.
-
-**Un comando alla volta, con revisione.** Non incatenare i comandi. Rivedi `spec.md` prima di pianificare, `plan.md` prima di scomporre, `tasks.md` prima di implementare. Il costo della revisione cresce con l'avanzamento.
-
-**Risolvi i `[NEEDS CLARIFICATION]`.** Non lasciarli nella specifica sperando che l'agente "ci arrivi": usa `/speckit-clarify` o correggi a mano. Un requisito ambiguo è un bug in attesa.
-
-**Mantieni la specifica libera dalla tecnologia.** Lo stack appartiene al piano, non alla specifica. Se nella specifica leggi "usa .NET", stai mescolando i livelli: la specifica deve dire *cosa*, il piano *come*.
-
-**Versiona tutto.** Spec, piano, task e constitution sono parte del repository. La tracciabilità è il valore principale del metodo: non buttarla via con i `.gitignore`.
-
-**Itera sulla convergenza.** Non accontentarti del primo `/speckit-converge` se non riporta `Converged`. Il ciclo implement→converge è ciò che garantisce la completezza.
-
-### 3.21.2 Gli anti-pattern
-
-**La specifica "romanzo".** Una specifica di 50 pagine di prosa è tanto inutile quanto l'assenza di specifica. Le sezioni strutturate (user story, FR, SC) esistono per questo: restare concisi e verificabili.
-
-**Saltare i gate.** Ignorare `/speckit-clarify`, `/speckit-checklist` o `/speckit-analyze` "per fare prima" sposta i problemi più avanti, dove costano di più.
-
-**La constitution ipertrofica.** Dieci principi generici ("il codice deve essere di qualità") non aiutano. Pochi principi **verificabili** valgono più di molti principi generici.
-
-**Fidarsi ciecamente dell'agente.** L'agente produce bozze di qualità, ma le decisioni di prodotto sono tue. Rivedi, correggi, approva.
-
-**Ignorare la checklist come gate.** Spuntare le caselle "tanto per" svuota il meccanismo di qualità. La checklist è di proprietà del revisore: usala con onestà.
-
-**Mescolare le feature.** Modificare a mano i task di una feature per includerne un'altra rompe la tracciabilità. Se serve una nuova funzionalità, apri una nuova specifica.
-
-### 3.21.3 La regola d'oro
-
-> La specifica è tua. Spec Kit la struttura, la rende coerente e la porta fino al codice, ma **il contenuto — il cosa e il perché — è responsabilità tua**.
-
-Se tieni fermo questo principio, Spec Kit amplificherà il tuo lavoro; se lo dimentichi, amplificherà i tuoi errori.
 
 ## 3.23 Il processo di idea assessment
 
@@ -5928,7 +5926,7 @@ I file sono elencati nell'ordine di caricamento, dal più ampio al più specific
 
 | Ambito | Posizione | Condiviso con |
 | --- | --- | --- |
-| Policy gestita | Windows: `C:\Program Files\ClaudeCode\CLAUDE.md`; Linux/WSL: `/etc/claude-code/CLAUDE.md`; macOS: `/Library/Application Support/ClaudeCode/CLAUDE.md` | Tutta l'organizzazione |
+| Policy gestita | Windows: \texttt{C:\textbackslash{}Program\ Files\allowbreak\textbackslash{}ClaudeCode\allowbreak\textbackslash{}CLAUDE.md}; Linux/WSL: \texttt{/etc/claude-code\allowbreak/CLAUDE.md}; macOS: \texttt{/Library\allowbreak/Application\ Support\allowbreak/ClaudeCode\allowbreak/CLAUDE.md} | Tutta l'organizzazione |
 | Utente | `~/.claude/CLAUDE.md` | Solo te, tutti i progetti |
 | Progetto | `./CLAUDE.md` oppure `./.claude/CLAUDE.md` | Il team, via source control |
 | Locale | `./CLAUDE.local.md` | Solo te, questo progetto (da mettere in `.gitignore`) |
@@ -6115,7 +6113,7 @@ Una piattaforma come DeepSeek espone un'**API** (chat completions), non un'esper
 | Campo | Valore |
 | --- | --- |
 | `base_url` (OpenAI-compatible) | `https://api.deepseek.com` |
-| `base_url` (Anthropic-compatible) | `https://api.deepseek.com/anthropic` |
+| `base_url` (Anthropic-compatible) | \url{https://api.deepseek.com/anthropic} |
 | `model` | `deepseek-flash`, `deepseek-v4-pro` |
 
 Questo significa che DeepSeek si usa quasi sempre **come backend di un altro host**: Claude Code, GitHub Copilot, OpenCode e altri strumenti compatibili permettono di puntare il modello a DeepSeek cambiando la configurazione del provider. In quel caso **i file di istruzioni, skill e agenti sono quelli dell'host**, non di DeepSeek: se usi DeepSeek dentro Claude Code, il tuo `CLAUDE.md` funziona esattamente come con un modello Anthropic.
@@ -7806,7 +7804,7 @@ Entity Framework Core è un ORM che traduce query LINQ in operazioni sul databas
 | Entity/model | Entità CLR | Identità, navigazioni e mapping |
 | Schema migration | EF migrations | SQL generato e deploy sicuro |
 | Lazy loading | Opzionale, non predefinito in ogni scenario | Query implicite e N+1 |
-| Unit of work | `SaveChanges`/transazione | Confini e atomicità |
+| Unit of work | `SaveChanges` / transazione | Confini e atomicità |
 
 `DbContext` è un'unità di lavoro breve, normalmente scoped per richiesta. Non è thread-safe: non lanciare query concorrenti sullo stesso contesto con `Task.WhenAll`. Usare query proiettate per leggere solo i campi necessari e `AsNoTracking` quando il risultato non verrà aggiornato tramite il context.
 
@@ -8219,6 +8217,175 @@ Calcolare costo complessivo includendo doppio runtime durante la transizione, da
 
 Prima di spegnere l'origine, verificare traffico residuo, job schedulati, webhook, client sconosciuti, backup, requisiti di audit e retention. Conservare solo ciò che è richiesto e con accessi limitati; spegnere credenziali e endpoint non più necessari. La riduzione della superficie d'attacco e del costo è parte del risultato della migrazione.
 
+## 5.12 Caso pratico: migrare un servizio catalogo
+
+Per collegare le decisioni, immaginiamo di migrare un servizio catalogo esistente, scritto in Python con FastAPI, verso ASP.NET Core. Il servizio pubblica prodotti, legge un database PostgreSQL condiviso con un back office e viene consumato da un sito e da un'app mobile. L'esempio non è un tutorial per ricostruire un catalogo completo: mostra come delimitare il lavoro, mantenere il contratto e produrre evidenze prima di spostare il traffico.
+
+### 5.12.1 Scenario e vincoli
+
+Il sistema attuale espone:
+
+- `GET /api/products?category=...&page=...` per elencare prodotti attivi;
+- `GET /api/products/{id}` per leggere un prodotto;
+- `POST /api/products` per creare un prodotto, riservato agli editor;
+- un job notturno che importa disponibilità da un partner.
+
+Il database contiene milioni di righe storiche, mentre l'endpoint pubblico restituisce solo prodotti attivi. Il back office continua a scrivere nello schema durante la migrazione. L'app mobile non può essere aggiornata rapidamente. La disponibilità richiesta non consente un fermo lungo e l'autenticazione usa un identity provider aziendale.
+
+L'assessment mostra che le letture pubbliche sono il primo candidato: sono frequenti, hanno contratto documentabile e possono rimanere read-only sul database esistente. La scrittura di prodotti resta sul servizio sorgente nella prima fase; non si duplicano gli effetti di `POST`. Il job notturno viene migrato separatamente perché ha un lifecycle e un profilo di retry diversi.
+
+### 5.12.2 Baseline e test di caratterizzazione
+
+Prima di scrivere il target si raccolgono:
+
+- esempi di response per prodotto attivo, assente e non visibile;
+- comportamento dei filtri e paginazione;
+- status e schema per query non valide;
+- requisiti di autorizzazione del `POST`;
+- p95/p99, richieste al secondo, error rate e carico sul database;
+- piano query corrente e indici usati.
+
+Le fixture contengono dati sintetici con casi di null, descrizione lunga, prezzo al limite e categoria inesistente. Per i casi di produzione si usano payload anonimizzati, senza identificativi o informazioni personali. I test memorizzano anche ordinamento e proprietà JSON richieste dai client.
+
+Si concorda che l'implementazione nuova deve restituire la stessa semantica dei filtri e i medesimi codici, salvo variazioni approvate. Il nuovo sistema deve mantenere il budget di latenza del servizio e non superare il limite di connessioni assegnato al database.
+
+### 5.12.3 Creazione del progetto
+
+La solution può iniziare con API e test, senza creare tutti i progetti architetturali possibili:
+
+```text
+Catalogo.sln
+src/
+  Catalogo.Api/
+  Catalogo.Infrastructure/
+tests/
+  Catalogo.Api.Tests/
+```
+
+Il progetto API configura hosting, autenticazione, logging, endpoint e composizione dei servizi. Infrastructure contiene `DbContext`, mapping e query SQL/EF Core. Se le regole del dominio diventano complesse, si può introdurre un progetto Domain con una decisione esplicita, non come prerequisito per un endpoint di lettura.
+
+La foundation si considera pronta quando un commit pulito passa `dotnet restore`, `dotnet build`, `dotnet test`, produce l'immagine, gira nel namespace di test e legge configurazione esterna. Un health check minimale può essere registrato e mappato così:
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHealthChecks();
+
+var app = builder.Build();
+app.MapHealthChecks("/health");
+app.Run();
+```
+
+Questo endpoint verifica che l'applicazione risponda; controlli di readiness sulle dipendenze vanno aggiunti solo se richiesti. La pipeline non usa una connection string reale nei log.
+
+### 5.12.4 Contratto e query di lettura
+
+Il DTO è separato dal modello persistito:
+
+```csharp
+public sealed record ProductListItem(
+    int Id,
+    string Name,
+    decimal Price,
+    string Currency);
+
+public sealed record ProductPage(
+    IReadOnlyList<ProductListItem> Items,
+    int Page,
+    int PageSize,
+    int TotalCount);
+```
+
+La paginazione deve essere limitata lato server; non accettare page size illimitata. Per dataset in crescita, una paginazione a cursore può essere più stabile ed efficiente di un offset elevato, ma cambiare il contratto va coordinato con i client. Nella prima fase si mantiene l'interfaccia esistente e si usa il piano database per verificare il costo.
+
+Un service applicativo riceve filtri già validati e restituisce un risultato; l'endpoint mappa il risultato a HTTP:
+
+```csharp
+app.MapGet("/api/products", async (
+    string? category,
+    int page,
+    int pageSize,
+    IProductQueries queries,
+    CancellationToken ct) =>
+{
+    if (page < 1 || pageSize is < 1 or > 100)
+        return Results.BadRequest();
+
+    var result = await queries.ListAsync(
+        category, page, pageSize, ct);
+    return Results.Ok(result);
+});
+```
+
+Il frammento illustra il flusso e non definisce da solo tutte le regole: i default per i parametri, il formato errore, i limiti e l'ordinamento vanno allineati al contratto sorgente. In codice di produzione la validazione restituisce una risposta coerente e documentata; l'endpoint non deve trasformare un errore database in lista vuota.
+
+### 5.12.5 Mantenere il database condiviso in sicurezza
+
+Il nuovo servizio apre un accesso read-only se il provider e i permessi lo consentono. Questo riduce il rischio di alterare dati durante la prima fase. Le query sono proiettate sui campi necessari, limitano risultati e usano parametri. Si controllano indici e piani; l'utente DB non ha permessi DDL o scrittura non necessari.
+
+Prima del deploy si verificano schema e tipi con i proprietari del back office. Se il vecchio sistema cambia una colonna, il target deve fallire con log diagnostico e alert, non continuare con un risultato parziale apparentemente valido. Un contratto dati o una vista stabile può isolare il nuovo servizio dalle tabelle interne, se il team database può mantenerli.
+
+Il modello EF Core mappa solo la parte necessaria dello schema, senza avviare migrazioni automatiche. Il target non è proprietario del database in questa fase; non può quindi presumere di aggiornare tabelle condivise. Le migrazioni future richiedono un piano separato con tutti i writer coinvolti.
+
+### 5.12.6 Test differenziale e osservazione in shadow
+
+La suite d'integrazione invia richieste al sistema sorgente e al target usando un database di test fissato. Le risposte sono confrontate su status, schema e valori. Timestamp e campi variabili sono normalizzati solo dove il contratto li dichiara non deterministici.
+
+In ambiente di preproduzione il traffico sintetico esercita route e limiti. In produzione, se privacy, policy e architettura lo permettono, il gateway può duplicare **solo richieste di lettura** verso il target in modalità shadow. Il target esegue il calcolo ma la sua risposta non viene restituita all'utente. Si confrontano risultati in forma redatta e si misurano query e latenza.
+
+Non duplicare il `POST` o il job di importazione: un secondo invio potrebbe creare un prodotto, inviare notifiche o alterare stock. Shadow traffic non è una licenza a replicare dati personali; minimizzare payload, applicare retention breve e ottenere le approvazioni necessarie.
+
+Un report giornaliero classifica differenze per categoria: status, proprietà mancanti, ordinamento, valori numerici, null e timeout. Ogni differenza ha owner e decisione: bug nel nuovo codice, bug sorgente da correggere, differenza intenzionale o dato invalido. Il traffico non viene spostato finché le differenze critiche non sono comprese.
+
+### 5.12.7 Canary e cutover
+
+Con test differenziali soddisfacenti, il gateway indirizza al target una piccola percentuale di richieste di lettura, mantenendo identificabile la coorte. Si controllano:
+
+- error rate e status per route e versione;
+- p95/p99 e timeout;
+- pool connessioni, CPU, memoria e query lente;
+- differenze di contenuto e errori di deserializzazione client;
+- log di autenticazione e richieste senza tenant.
+
+Si amplia gradualmente la percentuale solo se le metriche restano entro budget per una finestra definita. Il criterio non è “nessuna segnalazione”: un client mobile può essere usato poco e segnalare tardi. Gli alert e i log devono offrire copertura tecnica indipendente dal feedback degli utenti.
+
+Per rollback, il gateway riporta la route al servizio Python. Poiché il target è read-only e usa lo schema invariato, il rollback non richiede sincronizzare nuove scritture. Si prova prima in preproduzione, verificando cache, DNS, warm-up e propagazione della configurazione. Il piano include un referente che può arrestare il rollout.
+
+### 5.12.8 Migrare la scrittura
+
+Una volta stabile la lettura, la creazione prodotto diventa una capacità separata. Il team decide se il nuovo servizio assume la scrittura oppure se il vecchio sistema resta owner temporaneamente. Non basta duplicare le scritture: si deve evitare che back office e API sovrascrivano modifiche in modo inconsistente.
+
+Se il target assume ownership, il rollout della scrittura avviene solo dopo aver verificato:
+
+1. policy di autorizzazione e mapping claims;
+2. validazione e invarianti condivise con il back office;
+3. unicità e concorrenza nel database;
+4. audit e notifiche prodotte una sola volta;
+5. idempotenza delle richieste ritentate;
+6. schema compatibile con la versione precedente durante il rollback.
+
+Una chiave di idempotenza può aiutare per richieste ripetibili, ma deve avere storage e scadenza definiti. L'outbox può garantire che un evento venga registrato nella stessa transazione della creazione, con consegna asincrona e consumer deduplicante. Non rende transazionale il sistema esterno.
+
+### 5.12.9 Migrare il job notturno
+
+Il job è una capacità distinta dall'API. Si verificano frequenza, finestra, volume, checkpoint, dati parziali e comportamento al retry. Un `BackgroundService` può ospitare un ciclo semplice, ma se il job deve sopravvivere a riavvii, essere schedulato da più istanze o riprendere da un checkpoint, si usa un orchestratore o una coda durevole.
+
+Durante la prova, il target importa in un ambiente isolato e confronta conteggi e aggregati con il job esistente. Non si eseguono entrambi in scrittura sullo stesso dataset senza una strategia d'idempotenza. Il cutover del job ha un lock o un singolo scheduler owner, un run id, report e procedura di replay.
+
+### 5.12.10 Risultato e lezioni
+
+Il servizio di lettura può essere considerato migrato quando il target ha sostenuto il traffico previsto, rispetta contratto e budget, è osservabile, ha un rollback provato e il sistema sorgente non riceve più quelle route. Il capitolo di progetto non si chiude però finché scrittura, job, integrazioni residue e dismissione non hanno owner e date.
+
+Le decisioni hanno mantenuto il perimetro piccolo, ma non hanno ignorato il sistema completo. Si è iniziato con letture reversibili; dati condivisi e scritture sono rimasti sotto un owner; test e telemetria hanno preceduto il cutover; infine ogni capability ha avuto il suo piano. In un caso PHP o Java cambierebbero framework, tool e dettagli di persistenza, non il metodo di mappatura, caratterizzazione e rollout.
+
+### 5.12.11 Adattare il caso ad altri ecosistemi
+
+- **PHP/Laravel o Symfony:** inventariare middleware, service container, queue worker, session driver e convenzioni Eloquent/Doctrine. Verificare differenze di null, timezone e gestione dei job.
+- **Python/Django o FastAPI:** distinguere ASGI/WSGI, dependency overrides, task asincroni, ORM e migration framework. Non assumere che codice `async` sia non bloccante se una libreria sottostante è sincrona.
+- **Node.js/Express o NestJS:** mappare middleware e pipe/interceptor, controllare event loop, stream e dipendenze native dei pacchetti.
+- **Java/Spring Boot:** confrontare lifecycle bean, scope request, filtri, transazioni e thread pool. Verificare semantica di ORM, lazy loading e gestione delle eccezioni.
+
+Per ciascuno, costruire una scheda per concetto: comportamento sorgente, candidato ASP.NET Core, differenza osservabile, test di prova, impatto e decisione. Un mapping documentato riduce il rischio che una differenza venga scoperta solo da un utente in produzione.
+
 ## 5.13 Approfondire la mappa dai principali ecosistemi
 
 I confronti tra ecosistemi diventano utili quando partono da un'applicazione concreta. Questa sezione raccoglie differenze ricorrenti che una migrazione dovrebbe provare esplicitamente. Non sono regole assolute: framework e versioni cambiano, e un progetto può adottare convenzioni diverse da quelle più comuni.
@@ -8491,175 +8658,6 @@ Consultare documentazione ufficiale e controllare la versione target prima di ap
 - [Entity Framework Core — Performance](https://learn.microsoft.com/ef/core/performance/)
 - [.NET — Docker](https://learn.microsoft.com/dotnet/core/docker/)
 - [.NET — Architettura delle applicazioni](https://learn.microsoft.com/dotnet/architecture/)
-
-## 5.12 Caso pratico: migrare un servizio catalogo
-
-Per collegare le decisioni, immaginiamo di migrare un servizio catalogo esistente, scritto in Python con FastAPI, verso ASP.NET Core. Il servizio pubblica prodotti, legge un database PostgreSQL condiviso con un back office e viene consumato da un sito e da un'app mobile. L'esempio non è un tutorial per ricostruire un catalogo completo: mostra come delimitare il lavoro, mantenere il contratto e produrre evidenze prima di spostare il traffico.
-
-### 5.12.1 Scenario e vincoli
-
-Il sistema attuale espone:
-
-- `GET /api/products?category=...&page=...` per elencare prodotti attivi;
-- `GET /api/products/{id}` per leggere un prodotto;
-- `POST /api/products` per creare un prodotto, riservato agli editor;
-- un job notturno che importa disponibilità da un partner.
-
-Il database contiene milioni di righe storiche, mentre l'endpoint pubblico restituisce solo prodotti attivi. Il back office continua a scrivere nello schema durante la migrazione. L'app mobile non può essere aggiornata rapidamente. La disponibilità richiesta non consente un fermo lungo e l'autenticazione usa un identity provider aziendale.
-
-L'assessment mostra che le letture pubbliche sono il primo candidato: sono frequenti, hanno contratto documentabile e possono rimanere read-only sul database esistente. La scrittura di prodotti resta sul servizio sorgente nella prima fase; non si duplicano gli effetti di `POST`. Il job notturno viene migrato separatamente perché ha un lifecycle e un profilo di retry diversi.
-
-### 5.12.2 Baseline e test di caratterizzazione
-
-Prima di scrivere il target si raccolgono:
-
-- esempi di response per prodotto attivo, assente e non visibile;
-- comportamento dei filtri e paginazione;
-- status e schema per query non valide;
-- requisiti di autorizzazione del `POST`;
-- p95/p99, richieste al secondo, error rate e carico sul database;
-- piano query corrente e indici usati.
-
-Le fixture contengono dati sintetici con casi di null, descrizione lunga, prezzo al limite e categoria inesistente. Per i casi di produzione si usano payload anonimizzati, senza identificativi o informazioni personali. I test memorizzano anche ordinamento e proprietà JSON richieste dai client.
-
-Si concorda che l'implementazione nuova deve restituire la stessa semantica dei filtri e i medesimi codici, salvo variazioni approvate. Il nuovo sistema deve mantenere il budget di latenza del servizio e non superare il limite di connessioni assegnato al database.
-
-### 5.12.3 Creazione del progetto
-
-La solution può iniziare con API e test, senza creare tutti i progetti architetturali possibili:
-
-```text
-Catalogo.sln
-src/
-  Catalogo.Api/
-  Catalogo.Infrastructure/
-tests/
-  Catalogo.Api.Tests/
-```
-
-Il progetto API configura hosting, autenticazione, logging, endpoint e composizione dei servizi. Infrastructure contiene `DbContext`, mapping e query SQL/EF Core. Se le regole del dominio diventano complesse, si può introdurre un progetto Domain con una decisione esplicita, non come prerequisito per un endpoint di lettura.
-
-La foundation si considera pronta quando un commit pulito passa `dotnet restore`, `dotnet build`, `dotnet test`, produce l'immagine, gira nel namespace di test e legge configurazione esterna. Un health check minimale può essere registrato e mappato così:
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddHealthChecks();
-
-var app = builder.Build();
-app.MapHealthChecks("/health");
-app.Run();
-```
-
-Questo endpoint verifica che l'applicazione risponda; controlli di readiness sulle dipendenze vanno aggiunti solo se richiesti. La pipeline non usa una connection string reale nei log.
-
-### 5.12.4 Contratto e query di lettura
-
-Il DTO è separato dal modello persistito:
-
-```csharp
-public sealed record ProductListItem(
-    int Id,
-    string Name,
-    decimal Price,
-    string Currency);
-
-public sealed record ProductPage(
-    IReadOnlyList<ProductListItem> Items,
-    int Page,
-    int PageSize,
-    int TotalCount);
-```
-
-La paginazione deve essere limitata lato server; non accettare page size illimitata. Per dataset in crescita, una paginazione a cursore può essere più stabile ed efficiente di un offset elevato, ma cambiare il contratto va coordinato con i client. Nella prima fase si mantiene l'interfaccia esistente e si usa il piano database per verificare il costo.
-
-Un service applicativo riceve filtri già validati e restituisce un risultato; l'endpoint mappa il risultato a HTTP:
-
-```csharp
-app.MapGet("/api/products", async (
-    string? category,
-    int page,
-    int pageSize,
-    IProductQueries queries,
-    CancellationToken ct) =>
-{
-    if (page < 1 || pageSize is < 1 or > 100)
-        return Results.BadRequest();
-
-    var result = await queries.ListAsync(
-        category, page, pageSize, ct);
-    return Results.Ok(result);
-});
-```
-
-Il frammento illustra il flusso e non definisce da solo tutte le regole: i default per i parametri, il formato errore, i limiti e l'ordinamento vanno allineati al contratto sorgente. In codice di produzione la validazione restituisce una risposta coerente e documentata; l'endpoint non deve trasformare un errore database in lista vuota.
-
-### 5.12.5 Mantenere il database condiviso in sicurezza
-
-Il nuovo servizio apre un accesso read-only se il provider e i permessi lo consentono. Questo riduce il rischio di alterare dati durante la prima fase. Le query sono proiettate sui campi necessari, limitano risultati e usano parametri. Si controllano indici e piani; l'utente DB non ha permessi DDL o scrittura non necessari.
-
-Prima del deploy si verificano schema e tipi con i proprietari del back office. Se il vecchio sistema cambia una colonna, il target deve fallire con log diagnostico e alert, non continuare con un risultato parziale apparentemente valido. Un contratto dati o una vista stabile può isolare il nuovo servizio dalle tabelle interne, se il team database può mantenerli.
-
-Il modello EF Core mappa solo la parte necessaria dello schema, senza avviare migrazioni automatiche. Il target non è proprietario del database in questa fase; non può quindi presumere di aggiornare tabelle condivise. Le migrazioni future richiedono un piano separato con tutti i writer coinvolti.
-
-### 5.12.6 Test differenziale e osservazione in shadow
-
-La suite d'integrazione invia richieste al sistema sorgente e al target usando un database di test fissato. Le risposte sono confrontate su status, schema e valori. Timestamp e campi variabili sono normalizzati solo dove il contratto li dichiara non deterministici.
-
-In ambiente di preproduzione il traffico sintetico esercita route e limiti. In produzione, se privacy, policy e architettura lo permettono, il gateway può duplicare **solo richieste di lettura** verso il target in modalità shadow. Il target esegue il calcolo ma la sua risposta non viene restituita all'utente. Si confrontano risultati in forma redatta e si misurano query e latenza.
-
-Non duplicare il `POST` o il job di importazione: un secondo invio potrebbe creare un prodotto, inviare notifiche o alterare stock. Shadow traffic non è una licenza a replicare dati personali; minimizzare payload, applicare retention breve e ottenere le approvazioni necessarie.
-
-Un report giornaliero classifica differenze per categoria: status, proprietà mancanti, ordinamento, valori numerici, null e timeout. Ogni differenza ha owner e decisione: bug nel nuovo codice, bug sorgente da correggere, differenza intenzionale o dato invalido. Il traffico non viene spostato finché le differenze critiche non sono comprese.
-
-### 5.12.7 Canary e cutover
-
-Con test differenziali soddisfacenti, il gateway indirizza al target una piccola percentuale di richieste di lettura, mantenendo identificabile la coorte. Si controllano:
-
-- error rate e status per route e versione;
-- p95/p99 e timeout;
-- pool connessioni, CPU, memoria e query lente;
-- differenze di contenuto e errori di deserializzazione client;
-- log di autenticazione e richieste senza tenant.
-
-Si amplia gradualmente la percentuale solo se le metriche restano entro budget per una finestra definita. Il criterio non è “nessuna segnalazione”: un client mobile può essere usato poco e segnalare tardi. Gli alert e i log devono offrire copertura tecnica indipendente dal feedback degli utenti.
-
-Per rollback, il gateway riporta la route al servizio Python. Poiché il target è read-only e usa lo schema invariato, il rollback non richiede sincronizzare nuove scritture. Si prova prima in preproduzione, verificando cache, DNS, warm-up e propagazione della configurazione. Il piano include un referente che può arrestare il rollout.
-
-### 5.12.8 Migrare la scrittura
-
-Una volta stabile la lettura, la creazione prodotto diventa una capacità separata. Il team decide se il nuovo servizio assume la scrittura oppure se il vecchio sistema resta owner temporaneamente. Non basta duplicare le scritture: si deve evitare che back office e API sovrascrivano modifiche in modo inconsistente.
-
-Se il target assume ownership, il rollout della scrittura avviene solo dopo aver verificato:
-
-1. policy di autorizzazione e mapping claims;
-2. validazione e invarianti condivise con il back office;
-3. unicità e concorrenza nel database;
-4. audit e notifiche prodotte una sola volta;
-5. idempotenza delle richieste ritentate;
-6. schema compatibile con la versione precedente durante il rollback.
-
-Una chiave di idempotenza può aiutare per richieste ripetibili, ma deve avere storage e scadenza definiti. L'outbox può garantire che un evento venga registrato nella stessa transazione della creazione, con consegna asincrona e consumer deduplicante. Non rende transazionale il sistema esterno.
-
-### 5.12.9 Migrare il job notturno
-
-Il job è una capacità distinta dall'API. Si verificano frequenza, finestra, volume, checkpoint, dati parziali e comportamento al retry. Un `BackgroundService` può ospitare un ciclo semplice, ma se il job deve sopravvivere a riavvii, essere schedulato da più istanze o riprendere da un checkpoint, si usa un orchestratore o una coda durevole.
-
-Durante la prova, il target importa in un ambiente isolato e confronta conteggi e aggregati con il job esistente. Non si eseguono entrambi in scrittura sullo stesso dataset senza una strategia d'idempotenza. Il cutover del job ha un lock o un singolo scheduler owner, un run id, report e procedura di replay.
-
-### 5.12.10 Risultato e lezioni
-
-Il servizio di lettura può essere considerato migrato quando il target ha sostenuto il traffico previsto, rispetta contratto e budget, è osservabile, ha un rollback provato e il sistema sorgente non riceve più quelle route. Il capitolo di progetto non si chiude però finché scrittura, job, integrazioni residue e dismissione non hanno owner e date.
-
-Le decisioni hanno mantenuto il perimetro piccolo, ma non hanno ignorato il sistema completo. Si è iniziato con letture reversibili; dati condivisi e scritture sono rimasti sotto un owner; test e telemetria hanno preceduto il cutover; infine ogni capability ha avuto il suo piano. In un caso PHP o Java cambierebbero framework, tool e dettagli di persistenza, non il metodo di mappatura, caratterizzazione e rollout.
-
-### 5.12.11 Adattare il caso ad altri ecosistemi
-
-- **PHP/Laravel o Symfony:** inventariare middleware, service container, queue worker, session driver e convenzioni Eloquent/Doctrine. Verificare differenze di null, timezone e gestione dei job.
-- **Python/Django o FastAPI:** distinguere ASGI/WSGI, dependency overrides, task asincroni, ORM e migration framework. Non assumere che codice `async` sia non bloccante se una libreria sottostante è sincrona.
-- **Node.js/Express o NestJS:** mappare middleware e pipe/interceptor, controllare event loop, stream e dipendenze native dei pacchetti.
-- **Java/Spring Boot:** confrontare lifecycle bean, scope request, filtri, transazioni e thread pool. Verificare semantica di ORM, lazy loading e gestione delle eccezioni.
-
-Per ciascuno, costruire una scheda per concetto: comportamento sorgente, candidato ASP.NET Core, differenza osservabile, test di prova, impatto e decisione. Un mapping documentato riduce il rischio che una differenza venga scoperta solo da un utente in produzione.
 
 ## 5.17 Checklist, glossario e anti-pattern
 

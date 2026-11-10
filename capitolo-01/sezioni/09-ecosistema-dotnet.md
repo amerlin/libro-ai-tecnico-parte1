@@ -30,14 +30,12 @@ L'SDK organizza i tipi in namespaces chiari:
 
 L'SDK adotta un approccio dichiarativo: si espongono le funzionalità marcando metodi e classi con attributi. La mappatura è:
 
-| Attributo | Applicato a | Effetto |
-|-----------|-------------|---------|
-| `[McpServerToolType]` | Classe | Segnala che la classe contiene dei tool |
-| `[McpServerTool]` | Metodo | Espone il metodo come tool |
-| `[McpServerPromptType]` | Classe | Segnala che la classe contiene dei prompt |
-| `[McpServerPrompt]` | Metodo | Espone il metodo come prompt |
-| `[McpServerResourceType]` | Classe | Segnala che la classe contiene delle risorse |
-| `[McpServerResource]` | Metodo | Espone il metodo come risorsa |
+- **`[McpServerToolType]`**, sulla classe: segnala che contiene dei tool.
+- **`[McpServerTool]`**, sul metodo: lo espone come tool.
+- **`[McpServerPromptType]`**, sulla classe: segnala che contiene dei prompt.
+- **`[McpServerPrompt]`**, sul metodo: lo espone come prompt.
+- **`[McpServerResourceType]`**, sulla classe: segnala che contiene delle risorse.
+- **`[McpServerResource]`**, sul metodo: lo espone come risorsa.
 
 Le descrizioni (fondamentali, come abbiamo detto) si esprimono con l'attributo standard di .NET `[Description]`, sia sul metodo sia sui parametri. Vedremo subito esempi concreti.
 

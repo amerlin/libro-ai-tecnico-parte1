@@ -51,10 +51,10 @@ Oltre ai tre principali, la specifica prevede primitivi più avanzati, che non i
 
 ### 1.4.5 La tabella riassuntiva
 
-| Primitivo | Direzione del controllo | Scopo | Esempio |
-|-----------|--------------------------|-------|---------|
-| Tool      | Modello                  | Eseguire azioni | `create_ticket`, `get_weather` |
-| Resource  | Client / applicazione    | Fornire dati di contesto | `config://app`, `docs://123` |
-| Prompt    | Utente / client          | Riutilizzare istruzioni | `review_code`, `summarize_meeting` |
+| Primitivo | Chi lo attiva | A cosa serve |
+|-----------|---------------|--------------|
+| Tool      | Modello       | Eseguire azioni |
+| Resource  | Client / app  | Fornire contesto |
+| Prompt    | Utente / client | Preparare istruzioni |
 
 Tenere a mente questa tabella aiuta a scegliere il primitivo giusto quando si progetta un server: se il modello deve *fare* qualcosa, serve un tool; se deve *leggere* qualcosa, una resource; se l'utente deve *invocare un'istruzione pronta*, un prompt.

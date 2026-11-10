@@ -9,7 +9,7 @@ Una piattaforma come DeepSeek espone un'**API** (chat completions), non un'esper
 | Campo | Valore |
 | --- | --- |
 | `base_url` (OpenAI-compatible) | `https://api.deepseek.com` |
-| `base_url` (Anthropic-compatible) | `https://api.deepseek.com/anthropic` |
+| `base_url` (Anthropic-compatible) | \url{https://api.deepseek.com/anthropic} |
 | `model` | `deepseek-flash`, `deepseek-v4-pro` |
 
 Questo significa che DeepSeek si usa quasi sempre **come backend di un altro host**: Claude Code, GitHub Copilot, OpenCode e altri strumenti compatibili permettono di puntare il modello a DeepSeek cambiando la configurazione del provider. In quel caso **i file di istruzioni, skill e agenti sono quelli dell'host**, non di DeepSeek: se usi DeepSeek dentro Claude Code, il tuo `CLAUDE.md` funziona esattamente come con un modello Anthropic.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  4 NOV 2026 12:40
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  10 NOV 2026 13:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1808,21 +1808,11 @@ Underfull \hbox (badness 5388) in paragraph at lines 711--714
  in ingresso (nome, tipo,
  []
 
-[9]
-Overfull \hbox (12.2135pt too wide) in paragraph at lines 831--832
-[]|\TU/lmtt/c/it/10 config://app\TU/lmr/m/n/10 , 
- []
-
-
-Overfull \hbox (9.57942pt too wide) in paragraph at lines 832--832
-[]|\TU/lmr/m/n/10 Riutilizzare 
- []
-
-[10]
+[9] [10]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 864.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 849.
  [11] [12] [13] [14] [15]
-Underfull \hbox (badness 1502) in paragraph at lines 1209--1212
+Underfull \hbox (badness 1502) in paragraph at lines 1194--1197
 \TU/lmr/m/n/10 noscerle aiuta a capire gli errori di connessione e a progettare
  server
  []
@@ -1830,189 +1820,182 @@ Underfull \hbox (badness 1502) in paragraph at lines 1209--1212
 [16]
 File: capitolo-01/figure/lifecycle.pdf Graphic file (type pdf)
 <use capitolo-01/figure/lifecycle.pdf>
- [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1401--1408
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1393
 []\TU/lmr/m/n/10 In una REST API il \TU/lmr/bx/n/10 programmatore \TU/lmr/m/n/1
 0 decide: scrive \TU/lmtt/c/it/10 GET
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 1401--1408
+Underfull \hbox (badness 1028) in paragraph at lines 1386--1393
 \TU/lmtt/c/it/10 /api/weather?city=Roma \TU/lmr/m/n/10 e conosce la risposta. I
 n un MCP server il
  []
 
 [19] [20]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1499.
+(Font)              scaled to size 8.0pt on input line 1484.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1499.
+(Font)              scaled to size 6.0pt on input line 1484.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 1499.
+(Font)              scaled to size 8.00073pt on input line 1484.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 1499.
+(Font)              scaled to size 6.00055pt on input line 1484.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 1499.
+(Font)              scaled to size 7.99915pt on input line 1484.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 1499.
+(Font)              scaled to size 5.99936pt on input line 1484.
  [21] [22]
-Underfull \hbox (badness 2698) in paragraph at lines 1602--1607
+Underfull \hbox (badness 2698) in paragraph at lines 1587--1592
 []\TU/lmr/bx/n/10 Versione. \TU/lmr/m/n/10 Al momento in cui scriviamo, l’ultim
 a versio-
  []
 
 
-Underfull \hbox (badness 4193) in paragraph at lines 1602--1607
+Underfull \hbox (badness 4193) in paragraph at lines 1587--1592
 \TU/lmr/m/n/10 ne stabile è la \TU/lmr/bx/n/10 2.3.0\TU/lmr/m/n/10 , e targetiz
 za .NET 8, .NET 9 e
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 1602--1607
+Underfull \hbox (badness 1460) in paragraph at lines 1587--1592
 \TU/lmr/m/n/10 .NET 10. Le API sono in evoluzione: se usi una versio-
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 1602--1607
+Underfull \hbox (badness 1661) in paragraph at lines 1587--1592
 \TU/lmr/m/n/10 ne diversa, verifica sempre la documentazione di riferimento
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 1623--1631
+Underfull \hbox (badness 1661) in paragraph at lines 1608--1616
 \TU/lmtt/c/it/10 thResources<T>()\TU/lmr/m/n/10 , \TU/lmtt/c/it/10 WithStdioSer
 verTransport() \TU/lmr/m/n/10 e (dal pacchetto
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 1634--1638
+Underfull \hbox (badness 1308) in paragraph at lines 1619--1623
 []\TU/lmtt/c/it/10 ModelContextProtocol.Client \TU/lmr/m/n/10 — i tipi lato cli
 ent (\TU/lmtt/c/it/10 McpClient\TU/lmr/m/n/10 , i
  []
 
-
-Overfull \hbox (3.83388pt too wide) in paragraph at lines 1668--1668
-[]|\TU/lmtt/c/it/10 [McpServerPromptType]|  
- []
-
-
-Overfull \hbox (14.33388pt too wide) in paragraph at lines 1672--1672
-[]|\TU/lmtt/c/it/10 [McpServerResourceType]|  
- []
-
-[23] [24] [25] [26] [27]
-Underfull \hbox (badness 6141) in paragraph at lines 1940--1943
+[23] [24] [25] [26]
+Underfull \hbox (badness 6141) in paragraph at lines 1916--1919
 []\TU/lmtt/c/it/10 WithStdioServerTransport() \TU/lmr/m/n/10 seleziona il trasp
 orto su standard
  []
 
-[28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[27] [28]
+Underfull \vbox (badness 2970) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2970) has occurred while \output is active []
 
  [29]
-[30] [31] [32] [33] [34]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[30] [31] [32] [33]
+Underfull \vbox (badness 10000) detected at line 2402
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36] [37]
-Underfull \hbox (badness 1024) in paragraph at lines 2609--2618
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+[35] [36] [37]
+Underfull \hbox (badness 1024) in paragraph at lines 2585--2594
 \TU/lmr/bx/n/10 L’\TU/lmtt/b/n/10 HttpClient \TU/lmr/bx/n/10 tipizzato. \TU/lmt
 t/c/it/10 AddHttpClient<WeatherTool>(...) \TU/lmr/m/n/10 registra
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38]
-Underfull \vbox (badness 6284) has occurred while \output is active []
-
-
-Underfull \vbox (badness 6284) has occurred while \output is active []
-
- [39]
-[40]
-Underfull \hbox (badness 7981) in paragraph at lines 2726--2731
+[38] [39]
+Underfull \hbox (badness 7981) in paragraph at lines 2702--2707
 []\TU/lmr/m/n/10 Il client può ora elencare le risorse (\TU/lmtt/c/it/10 resour
 ces/list\TU/lmr/m/n/10 ) e leggerle
  []
 
-[41] [42]
-Underfull \hbox (badness 2818) in paragraph at lines 2863--2867
+[40] [41]
+Underfull \hbox (badness 2818) in paragraph at lines 2839--2843
 []\TU/lmr/m/n/10 Il client può elencare i prompt (\TU/lmtt/c/it/10 prompts/list
 \TU/lmr/m/n/10 ) e ottenerne il testo
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 2863--2867
+Underfull \hbox (badness 1694) in paragraph at lines 2839--2843
 \TU/lmr/m/n/10 (\TU/lmtt/c/it/10 prompts/get\TU/lmr/m/n/10 ). L’utente, dall’in
 terfaccia dell’host, seleziona il prompt
  []
 
-[43]
-Underfull \hbox (badness 2005) in paragraph at lines 2943--2945
+[42] [43]
+Underfull \hbox (badness 2005) in paragraph at lines 2919--2921
 \TU/lmr/m/n/10 Partiamo da un progetto ASP.NET Core \TU/lmr/m/it/10 empty \TU/l
 mr/m/n/10 (o \TU/lmr/m/it/10 minimal API\TU/lmr/m/n/10 ), e
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 3004--3007
+Underfull \hbox (badness 10000) in paragraph at lines 2980--2983
 []\TU/lmr/m/n/10 usiamo \TU/lmtt/c/it/10 WebApplication.CreateBuilder \TU/lmr/m
 /n/10 invece di \TU/lmtt/c/it/10 Ho-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3004--3007
+Underfull \hbox (badness 10000) in paragraph at lines 2980--2983
 \TU/lmtt/c/it/10 st.CreateApplicationBuilder\TU/lmr/m/n/10 , perché vogliamo un
  web
  []
 
-[45]
-Underfull \hbox (badness 4366) in paragraph at lines 3030--3033
+
+Underfull \hbox (badness 4366) in paragraph at lines 3006--3009
 []\TU/lmr/m/n/10 Se vuoi mappare l’endpoint alla radice dell’applicazione, puoi
  usare
  []
 
 
-Underfull \hbox (badness 2318) in paragraph at lines 3030--3033
+Underfull \hbox (badness 2318) in paragraph at lines 3006--3009
 \TU/lmtt/c/it/10 app.MapMcp() \TU/lmr/m/n/10 come variante; in quel caso il cli
 ent dovrà puntare a
  []
 
-[46] [47] [48] [49] [50]
-Underfull \hbox (badness 1515) in paragraph at lines 3418--3420
+[45] [46] [47] [48] [49] [50]
+Underfull \hbox (badness 1515) in paragraph at lines 3394--3396
 \TU/lmr/m/n/10 Gli errori JSON-RPC di protocollo hanno codici come questi, racc
 olti
  []
 
 [51] [52]
-Underfull \hbox (badness 4072) in paragraph at lines 3555--3558
+Underfull \hbox (badness 4072) in paragraph at lines 3531--3534
 []\TU/lmr/m/n/10 Usa le \TU/lmr/bx/n/10 annotazioni \TU/lmr/m/n/10 (\TU/lmtt/c/
 it/10 ReadOnly\TU/lmr/m/n/10 , \TU/lmtt/c/it/10 Destructive\TU/lmr/m/n/10 , \TU
 /lmtt/c/it/10 Idempotent\TU/lmr/m/n/10 ) per
  []
 
-[53] [54] [55]
-Underfull \hbox (badness 6893) in paragraph at lines 3759--3761
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 3638--3641
+[]\TU/lmr/m/n/10 L’SDK ASP.NET Core offre primitive per l’autenticazione
+ []
+
+[54] [55] [56] [57]
+Underfull \hbox (badness 6893) in paragraph at lines 3896--3898
 \TU/lmr/m/n/10 Il client avvia il server come processo figlio e comunica tramit
 e
  []
 
 
-Underfull \hbox (badness 5288) in paragraph at lines 3793--3798
+Underfull \hbox (badness 5288) in paragraph at lines 3930--3935
 []\TU/lmtt/c/it/10 StdioClientTransportOptions.Command \TU/lmr/m/n/10 è l’esegu
 ibile da lanciare
  []
 
-[56]
-Underfull \hbox (badness 1783) in paragraph at lines 3798--3801
+[58]
+Underfull \hbox (badness 1783) in paragraph at lines 3935--3938
 []\TU/lmtt/c/it/10 McpClient.CreateAsync \TU/lmr/m/n/10 esegue l’handshake e re
 stituisce un client
  []
@@ -2023,49 +2006,33 @@ Underfull \vbox (badness 2426) has occurred while \output is active []
 
 Underfull \vbox (badness 2426) has occurred while \output is active []
 
- [57]
-Overfull \vbox (10.33676pt too high) detected at line 3915
- []
-
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 3968--3971
-[]\TU/lmr/m/n/10 L’SDK ASP.NET Core offre primitive per l’autenticazione
- []
-
-[59] [60]
-Underfull \hbox (badness 1314) in paragraph at lines 4084--4087
+ [59]
+Underfull \hbox (badness 1314) in paragraph at lines 4060--4063
 []\TU/lmr/m/n/10 configurato i \TU/lmr/bx/n/10 client \TU/lmr/m/n/10 (Claude De
 sktop, VS Code) e usato l’\TU/lmr/bx/n/10 MCP
  []
 
-
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
- [61]
-[62] [63
+[60] [61] [62] [63
 
 ]
-Underfull \hbox (badness 2809) in paragraph at lines 4273--4276
+Underfull \hbox (badness 2809) in paragraph at lines 4249--4252
 []\TU/lmr/m/n/10 “Quanti ordini sono stati evasi la settimana scorsa?” — una
  []
 
 [64] [65] [66]
-Underfull \hbox (badness 1596) in paragraph at lines 4472--4475
+Underfull \hbox (badness 1596) in paragraph at lines 4448--4451
 []\TU/lmr/bx/n/10 SQL Server: \TU/lmtt/c/it/10 Microsoft.EntityFrameworkCore.Sq
 lServer\TU/lmr/m/n/10 , usato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4475--4478
+Underfull \hbox (badness 10000) in paragraph at lines 4451--4454
 []\TU/lmr/bx/n/10 PostgreSQL: \TU/lmtt/c/it/10 Npgsql.EntityFrameworkCore.Postg
 reSQL\TU/lmr/m/n/10 , provider
  []
 
 [67]
-Underfull \hbox (badness 4084) in paragraph at lines 4521--4524
+Underfull \hbox (badness 4084) in paragraph at lines 4497--4500
 []\TU/lmr/bx/n/10 Category \TU/lmr/m/n/10 — una categoria di prodotti (per esem
 pio “Books”,
  []
@@ -2073,20 +2040,20 @@ pio “Books”,
 File: capitolo-02/figure/modello-dati.pdf Graphic file (type pdf)
 <use capitolo-02/figure/modello-dati.pdf>
 [68]
-Underfull \hbox (badness 2293) in paragraph at lines 4577--4580
+Underfull \hbox (badness 2293) in paragraph at lines 4553--4556
 []\TU/lmtt/c/it/10 Product.Category \TU/lmr/m/n/10 è la navigation verso il “la
 to uno”; \TU/lmtt/c/it/10 Catego-
  []
 
 [69]
-Underfull \hbox (badness 10000) in paragraph at lines 4691--4694
+Underfull \hbox (badness 10000) in paragraph at lines 4667--4670
 []\TU/lmtt/c/it/10 Microsoft.Extensions.Hosting \TU/lmr/m/n/10 — l’host generic
 o
  []
 
 [70] [71] [72]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4883.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4859.
 
 Underfull \vbox (badness 1062) has occurred while \output is active []
 
@@ -2102,77 +2069,77 @@ Underfull \vbox (badness 6792) has occurred while \output is active []
 
  [75]
 [76] [77]
-Underfull \hbox (badness 2680) in paragraph at lines 5181--5185
+Underfull \hbox (badness 2680) in paragraph at lines 5157--5161
 []\TU/lmtt/b/n/10 CreateDbContextAsync \TU/lmr/m/n/10 crea un contesto nuovo; \
 TU/lmtt/c/it/10 await using \TU/lmr/m/n/10 ne
  []
 
 [78] [79] [80] [81] [82] [83] [84] [85]
-Underfull \vbox (badness 10000) detected at line 5786
+Underfull \vbox (badness 10000) detected at line 5762
  []
 
 
-Overfull \vbox (10.74756pt too high) detected at line 5786
+Overfull \vbox (10.74756pt too high) detected at line 5762
  []
 
 [86]
-Underfull \vbox (badness 10000) detected at line 5786
+Underfull \vbox (badness 10000) detected at line 5762
  []
 
 
-Overfull \vbox (0.99756pt too high) detected at line 5786
+Overfull \vbox (0.99756pt too high) detected at line 5762
  []
 
 [87]
-Underfull \vbox (badness 10000) detected at line 5786
+Underfull \vbox (badness 10000) detected at line 5762
  []
 
 
-Overfull \vbox (0.99756pt too high) detected at line 5786
+Overfull \vbox (0.99756pt too high) detected at line 5762
  []
 
 [88] [89]
 File: capitolo-02/figure/struttura-progetto.pdf Graphic file (type pdf)
 <use capitolo-02/figure/struttura-progetto.pdf>
  [90]
-Underfull \hbox (badness 10000) in paragraph at lines 5878--5881
+Underfull \hbox (badness 10000) in paragraph at lines 5854--5857
 []\TU/lmtt/c/it/10 WebApplication.CreateBuilder \TU/lmr/m/n/10 al posto di
  []
 
 [91]
-Underfull \hbox (badness 10000) in paragraph at lines 5954--5957
+Underfull \hbox (badness 10000) in paragraph at lines 5930--5933
 []\TU/lmr/m/n/10 Il client (Claude Desktop, VS Code o l’Inspector) userà l’URL
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 5954--5957
+Underfull \hbox (badness 2961) in paragraph at lines 5930--5933
 \TU/lmtt/c/it/10 http://localhost:5080/mcp\TU/lmr/m/n/10 . La configurazione pe
 r Claude Desktop,
  []
 
 [92]
-Underfull \hbox (badness 10000) in paragraph at lines 6050--6054
+Underfull \hbox (badness 10000) in paragraph at lines 6026--6030
 []\TU/lmtt/b/n/10 create_-product \TU/lmr/m/n/10 con \TU/lmtt/c/it/10 {"name": 
 "Headphones", "price": 199.99,
  []
 
 
-Underfull \hbox (badness 5119) in paragraph at lines 6050--6054
+Underfull \hbox (badness 5119) in paragraph at lines 6026--6030
 \TU/lmtt/c/it/10 "categoryName": "Electronics"} \TU/lmr/m/n/10 — deve creare il
  prodotto e
  []
 
 [93] [94]
-Overfull \vbox (2.56337pt too high) detected at line 6177
+Overfull \vbox (2.56337pt too high) detected at line 6153
  []
 
 [95]
-Underfull \hbox (badness 10000) in paragraph at lines 6191--6194
+Underfull \hbox (badness 10000) in paragraph at lines 6167--6170
 []\TU/lmr/m/n/10 Lo schema di input del tool resta \TU/lmr/bx/n/10 vuoto
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6191--6194
+Underfull \hbox (badness 10000) in paragraph at lines 6167--6170
 \TU/lmr/m/n/10 (\TU/lmtt/c/it/10 {"type":"object","properties":{}}\TU/lmr/m/n/1
 0 ): \TU/lmtt/c/it/10 IProgress \TU/lmr/m/n/10 non è un
  []
@@ -2180,7 +2147,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6191--6194
 [96] [97] [98
 
 ]
-Underfull \hbox (badness 3601) in paragraph at lines 6303--6303
+Underfull \hbox (badness 3601) in paragraph at lines 6279--6279
 [][]\TU/lmr/bx/n/14.4 GitHub Spec Kit: sviluppo guidato dalle
  []
 
@@ -2198,7 +2165,7 @@ Underfull \vbox (badness 1062) has occurred while \output is active []
 Underfull \vbox (badness 1062) has occurred while \output is active []
 
  [103]
-Underfull \hbox (badness 3078) in paragraph at lines 6690--6692
+Underfull \hbox (badness 3078) in paragraph at lines 6666--6668
 []\TU/lmr/m/n/10 Il comando installa l’eseguibile \TU/lmtt/c/it/10 specify \TU/
 lmr/m/n/10 nel tuo ambiente. Verifica
  []
@@ -2220,7 +2187,7 @@ Underfull \vbox (badness 7740) has occurred while \output is active []
 
  [107]
 [108]
-Underfull \hbox (badness 10000) in paragraph at lines 6942--6946
+Underfull \hbox (badness 10000) in paragraph at lines 6918--6922
 []\TU/lmtt/b/n/10 /speckit-specify \TU/lmr/m/n/10 crea \TU/lmtt/c/it/10 specs/<
 slug>/spec.md \TU/lmr/m/n/10 e
  []
@@ -2229,13 +2196,13 @@ slug>/spec.md \TU/lmr/m/n/10 e
 File: capitolo-03/figure/workflow-flusso.pdf Graphic file (type pdf)
 <use capitolo-03/figure/workflow-flusso.pdf>
  [110]
-Underfull \hbox (badness 1675) in paragraph at lines 7075--7079
+Underfull \hbox (badness 1675) in paragraph at lines 7051--7055
 \TU/lmr/m/n/10 La \TU/lmr/bx/n/10 constitution \TU/lmr/m/n/10 è la base di tutt
 o: un insieme di principi che go-
  []
 
 
-Underfull \hbox (badness 2970) in paragraph at lines 7075--7079
+Underfull \hbox (badness 2970) in paragraph at lines 7051--7055
 \TU/lmtt/c/it/10 cify/memory/constitution.md \TU/lmr/m/n/10 e viene letta dai c
 omandi di piano e
  []
@@ -2243,7 +2210,7 @@ omandi di piano e
 [111]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 7142.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 7118.
 
 
 
@@ -2254,19 +2221,19 @@ Underfull \vbox (badness 1990) has occurred while \output is active []
 
  [112]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7217.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7193.
 
-Underfull \hbox (badness 7047) in paragraph at lines 7217--7217
+Underfull \hbox (badness 7047) in paragraph at lines 7193--7193
 [][]\TU/lmr/bx/n/14.4 3.7 \TU/lmtt/b/n/14.4 /speckit-specify\TU/lmr/bx/n/14.4 :
  dalla richiesta alla
  []
 
 [113] [114] [115]
-Underfull \vbox (badness 10000) detected at line 7416
+Underfull \vbox (badness 10000) detected at line 7392
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7416
+Underfull \vbox (badness 10000) detected at line 7392
  []
 
 [116] [117] [118] [119]
@@ -2288,13 +2255,13 @@ Underfull \vbox (badness 1490) has occurred while \output is active []
 Underfull \vbox (badness 1490) has occurred while \output is active []
 
  [122]
-Underfull \hbox (badness 1014) in paragraph at lines 7799--7803
+Underfull \hbox (badness 1014) in paragraph at lines 7775--7779
 []\TU/lmtt/b/n/10 checklists/requirements.md \TU/lmr/m/n/10 — prodotta da \TU/l
 mtt/c/it/10 /speckit-specify \TU/lmr/m/n/10 e
  []
 
 [123]
-Overfull \vbox (4.81337pt too high) detected at line 7942
+Overfull \vbox (4.81337pt too high) detected at line 7918
  []
 
 [124] [125] [126]
@@ -2308,29 +2275,29 @@ Underfull \vbox (badness 5431) has occurred while \output is active []
 
  [127]
 [128] [129] [130] [131]
-Underfull \hbox (badness 1527) in paragraph at lines 8441--8444
+Underfull \hbox (badness 1527) in paragraph at lines 8417--8420
 []\TU/lmr/m/n/10 Questa tracciabilità non è un vezzo: è ciò che permette, duran
 te la
  []
 
 [132] [133]
-Underfull \vbox (badness 10000) detected at line 8574
+Underfull \vbox (badness 10000) detected at line 8550
  []
 
 
-Underfull \vbox (badness 10000) detected at line 8574
+Underfull \vbox (badness 10000) detected at line 8550
  []
 
 [134] [135] [136]
-Underfull \vbox (badness 10000) detected at line 8731
+Underfull \vbox (badness 10000) detected at line 8707
  []
 
 
-Overfull \vbox (0.9237pt too high) detected at line 8731
+Overfull \vbox (0.9237pt too high) detected at line 8707
  []
 
 [137] [138]
-Underfull \hbox (badness 5189) in paragraph at lines 8780--8780
+Underfull \hbox (badness 5189) in paragraph at lines 8756--8756
 [][]\TU/lmr/bx/n/14.4 3.18 Esempio C#: eseguire, verificare e
  []
 
@@ -2358,22 +2325,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [144]
-[145] [146]
-Underfull \hbox (badness 1584) in paragraph at lines 9246--9249
+Underfull \hbox (badness 1584) in paragraph at lines 9103--9106
 []\TU/lmr/bx/n/10 Saltare i gate. \TU/lmr/m/n/10 Ignorare \TU/lmtt/c/it/10 /spe
 ckit-clarify\TU/lmr/m/n/10 , \TU/lmtt/c/it/10 /speckit-checklist \TU/lmr/m/n/10
  o
  []
 
+[145] [146]
+Underfull \vbox (badness 1062) has occurred while \output is active []
 
-Underfull \vbox (badness 1320) has occurred while \output is active []
 
-
-Underfull \vbox (badness 1320) has occurred while \output is active []
+Underfull \vbox (badness 1062) has occurred while \output is active []
 
  [147]
 [148] [149]
-Underfull \hbox (badness 1348) in paragraph at lines 9490--9494
+Underfull \hbox (badness 1348) in paragraph at lines 9466--9470
 []\TU/lmr/m/n/10 esegui \TU/lmtt/c/it/10 specify init . --integration <agente> 
 \TU/lmr/m/n/10 per aggiungere la
  []
@@ -2384,7 +2350,7 @@ Underfull \hbox (badness 1348) in paragraph at lines 9490--9494
 File: capitolo-04/figure/livelli.pdf Graphic file (type pdf)
 <use capitolo-04/figure/livelli.pdf>
  [158]
-Underfull \hbox (badness 2486) in paragraph at lines 10074--10076
+Underfull \hbox (badness 2486) in paragraph at lines 10050--10052
 \TU/lmr/m/n/10 Un buon file di istruzioni contiene \TU/lmr/bx/n/10 fatti \TU/lm
 r/m/n/10 e \TU/lmr/bx/n/10 regole verificabili\TU/lmr/m/n/10 , non
  []
@@ -2393,13 +2359,13 @@ r/m/n/10 e \TU/lmr/bx/n/10 regole verificabili\TU/lmr/m/n/10 , non
 File: capitolo-04/figure/anatomia-skill.pdf Graphic file (type pdf)
 <use capitolo-04/figure/anatomia-skill.pdf>
  [162] [163]
-Underfull \hbox (badness 5260) in paragraph at lines 10360--10363
+Underfull \hbox (badness 5260) in paragraph at lines 10336--10339
 []\TU/lmr/m/n/10 in \TU/lmr/bx/n/10 Gemini CLI \TU/lmr/m/n/10 i comandi persona
 lizzati sono file \TU/lmtt/c/it/10 .toml \TU/lmr/m/n/10 in
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 10363--10366
+Underfull \hbox (badness 1478) in paragraph at lines 10339--10342
 []\TU/lmr/m/n/10 in \TU/lmr/bx/n/10 VS Code \TU/lmr/m/n/10 i \TU/lmr/m/it/10 pr
 ompt file \TU/lmr/m/n/10 (\TU/lmtt/c/it/10 .github/prompts/*.prompt.md\TU/lmr/m
 /n/10 ) sono
@@ -2416,62 +2382,42 @@ File: capitolo-04/figure/plugin-pacchetto.pdf Graphic file (type pdf)
 <use capitolo-04/figure/plugin-pacchetto.pdf>
 
 [166] [167] [168] [169]
-Underfull \hbox (badness 1248) in paragraph at lines 10667--10670
+Underfull \hbox (badness 1248) in paragraph at lines 10643--10646
 []\TU/lmr/bx/n/10 Skill in percorso condiviso: \TU/lmtt/c/it/10 .agents/skills/
 <nome>/SKILL.md
  []
 
 [170]
-Underfull \hbox (badness 10000) in paragraph at lines 10707--10710
+Underfull \hbox (badness 10000) in paragraph at lines 10683--10686
 []\TU/lmr/bx/n/10 Istruzioni personali sempre attive:
  []
 
 [171]
-Overfull \hbox (5.20787pt too wide) in paragraph at lines 10809--10812
-\TU/lmtt/m/n/8 Files\ClaudeCode\CLAUDE.md\TU/lmr/m/n/8 ; 
- []
-
-
-Overfull \hbox (5.20787pt too wide) in paragraph at lines 10809--10812
-\TU/lmtt/m/n/8 /etc/claude-code/CLAUDE.md\TU/lmr/m/n/8 ; 
- []
-
-
-Overfull \hbox (12.52788pt too wide) in paragraph at lines 10809--10812
-\TU/lmtt/m/n/8 Support/ClaudeCode/CLAUDE.md|  
- []
-
-
-Overfull \vbox (2.06259pt too high) detected at line 10851
+Overfull \vbox (11.56259pt too high) detected at line 10827
  []
 
 [172]
-Underfull \hbox (badness 10000) in paragraph at lines 10899--10906
+Underfull \hbox (badness 10000) in paragraph at lines 10875--10882
 []\TU/lmr/m/n/10 i vecchi \TU/lmr/bx/n/10 comandi \TU/lmr/m/n/10 non sono morti
 : un file in \TU/lmtt/c/it/10 .clau-
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 10899--10906
+Underfull \hbox (badness 1009) in paragraph at lines 10875--10882
 \TU/lmtt/c/it/10 de/commands/deploy.md \TU/lmr/m/n/10 continua a produrre \TU/l
 mtt/c/it/10 /deploy\TU/lmr/m/n/10 , ma la skill
  []
 
 [173] [174]
-Underfull \hbox (badness 1048) in paragraph at lines 11021--11023
+Underfull \hbox (badness 1048) in paragraph at lines 10997--10999
 \TU/lmr/m/n/10 Gemini CLI usa file di contesto chiamati \TU/lmtt/b/n/10 GEMINI.
 md\TU/lmr/m/n/10 , caricati in modo
  []
 
 [175]
-Underfull \hbox (badness 4328) in paragraph at lines 11115--11118
+Underfull \hbox (badness 4328) in paragraph at lines 11091--11094
 []\TU/lmr/bx/n/10 Cursor: \TU/lmtt/c/it/10 AGENTS.md \TU/lmr/m/n/10 e \TU/lmtt/
 c/it/10 .cursor/rules/*.mdc\TU/lmr/m/n/10 ; configurazione in
- []
-
-
-Overfull \hbox (12.85875pt too wide) in paragraph at lines 11164--11165
-[]|\TU/lmtt/c/it/10 https://api.deepseek.com/anthropic|  
  []
 
 
@@ -2491,7 +2437,7 @@ Underfull \vbox (badness 1454) has occurred while \output is active []
 Underfull \vbox (badness 1454) has occurred while \output is active []
 
  [178]
-Underfull \hbox (badness 2229) in paragraph at lines 11343--11346
+Underfull \hbox (badness 2229) in paragraph at lines 11319--11322
 []\TU/lmr/bx/n/10 Copilot (VS Code): \TU/lmtt/c/it/10 ~/.copilot/\TU/lmr/m/n/10
  ; plugin Agent Plugins con
  []
@@ -2513,33 +2459,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [181]
 [182] [183] [184] [185] [186]
-Underfull \vbox (badness 1460) detected at line 11829
+Underfull \vbox (badness 1460) detected at line 11805
  []
 
 
-Overfull \vbox (0.95662pt too high) detected at line 11829
+Overfull \vbox (0.95662pt too high) detected at line 11805
  []
 
 [187] [188] [189] [190] [191] [192]
-Underfull \hbox (badness 8075) in paragraph at lines 12136--12139
+Underfull \hbox (badness 8075) in paragraph at lines 12112--12115
 []\TU/lmr/m/n/10 Le skill vengono esposte con il namespace del plugin (\TU/lmtt
 /c/it/10 /dotnet-
  []
 
 [193] [194] [195] [196]
-Underfull \hbox (badness 1845) in paragraph at lines 12374--12377
+Underfull \hbox (badness 1845) in paragraph at lines 12350--12353
 []\TU/lmr/bx/n/10 permessi\TU/lmr/m/n/10 : elenco degli strumenti limitato (\TU
 /lmtt/c/it/10 tools\TU/lmr/m/n/10 ), permessi del
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 12383--12385
+Underfull \hbox (badness 2197) in paragraph at lines 12359--12361
 []\TU/lmr/bx/n/10 approvazione umana\TU/lmr/m/n/10 : la conferma esplicita prim
 a di comandi
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 12407--12410
+Underfull \hbox (badness 2253) in paragraph at lines 12383--12386
 []\TU/lmr/bx/n/10 Preferire marketplace interni \TU/lmr/m/n/10 o verificati; pe
 r i plugin della
  []
@@ -2552,35 +2498,35 @@ Underfull \vbox (badness 5578) has occurred while \output is active []
 
  [198]
 [199]
-Overfull \vbox (2.27837pt too high) detected at line 12630
+Overfull \vbox (2.27837pt too high) detected at line 12606
  []
 
 [200] [201] [202] [203]
-Underfull \hbox (badness 1077) in paragraph at lines 12881--12886
+Underfull \hbox (badness 1077) in paragraph at lines 12857--12862
 \TU/lmr/bx/n/10 Cause. \TU/lmr/m/n/10 Manifest nel percorso sbagliato (\TU/lmtt
 /c/it/10 .claude-plugin/plugin.json
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 12881--12886
+Underfull \hbox (badness 1694) in paragraph at lines 12857--12862
 \TU/lmr/m/n/10 per Claude, \TU/lmtt/c/it/10 plugin.json \TU/lmr/m/n/10 alla rad
 ice per Agent Plugins); marketplace
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 12881--12886
+Underfull \hbox (badness 1314) in paragraph at lines 12857--12862
 \TU/lmr/m/n/10 non aggiunto; plugin disabilitato; supporto ai plugin spento nel
 l’editor
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 12887--12889
+Underfull \hbox (badness 1077) in paragraph at lines 12863--12865
 []\TU/lmr/bx/n/10 Verifica. \TU/lmr/m/n/10 Elenca i plugin installati (\TU/lmtt
 /c/it/10 /plugin list\TU/lmr/m/n/10 ) e controlla che il
  []
 
 [204] [205]
-Underfull \hbox (badness 3302) in paragraph at lines 13008--13015
+Underfull \hbox (badness 3302) in paragraph at lines 12984--12991
 \TU/lmtt/c/it/10 TS.md\TU/lmr/m/n/10 ; skill in \TU/lmtt/c/it/10 .github/skills
 /\TU/lmr/m/n/10 , \TU/lmtt/c/it/10 .agents/skills/ \TU/lmr/m/n/10 o \TU/lmtt/c/
 it/10 ~/.copi-
@@ -2589,36 +2535,36 @@ it/10 ~/.copi-
 [206] [207] [208
 
 ]
-Underfull \hbox (badness 1122) in paragraph at lines 13109--13112
+Underfull \hbox (badness 1122) in paragraph at lines 13085--13088
 []\TU/lmr/m/n/10 confrontare PHP, Python, Node.js e Java con C# e .NET senza
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 13121--13124
+Underfull \hbox (badness 1430) in paragraph at lines 13097--13100
 []\TU/lmr/m/n/10 pianificare schema, migrazioni e dati con Entity Framework Cor
 e
  []
 
 [209] [210] [211]
-Underfull \hbox (badness 1281) in paragraph at lines 13305--13308
+Underfull \hbox (badness 1281) in paragraph at lines 13281--13284
 []\TU/lmr/bx/n/10 Dati: \TU/lmr/m/n/10 database, tabelle, volumi, crescita, vin
 coli, indici, backup,
  []
 
 [212] [213] [214] [215] [216] [217] [218]
-Underfull \hbox (badness 1137) in paragraph at lines 13746--13748
+Underfull \hbox (badness 1137) in paragraph at lines 13722--13724
 []\TU/lmr/m/n/10 si effettua una migrazione con snapshot iniziale e sincronizza
 zione
  []
 
 
-Underfull \hbox (badness 3449) in paragraph at lines 13781--13784
+Underfull \hbox (badness 3449) in paragraph at lines 13757--13760
 []\TU/lmr/bx/n/10 Vertical slice: \TU/lmr/m/n/10 un flusso completo attraversa 
 HTTP, dominio,
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 13784--13787
+Underfull \hbox (badness 1635) in paragraph at lines 13760--13763
 []\TU/lmr/bx/n/10 Migrazione per capacità: \TU/lmr/m/n/10 ogni unità ha criteri
  d’accettazione,
  []
@@ -2630,13 +2576,9 @@ Underfull \vbox (badness 1478) has occurred while \output is active []
 Underfull \vbox (badness 1478) has occurred while \output is active []
 
  [222]
-[223] [224] [225] [226] [227] [228] [229] [230]
-Overfull \hbox (5.86388pt too wide) in paragraph at lines 14535--14535
-[]|\TU/lmtt/c/it/10 SaveChanges\TU/lmr/m/n/10 /transazione|  
- []
-
-[231] [232] [233] [234] [235]
-Underfull \hbox (badness 1571) in paragraph at lines 14826--14829
+[223] [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234]
+[235]
+Underfull \hbox (badness 1571) in paragraph at lines 14803--14806
 []\TU/lmr/m/n/10 mantenere temporaneamente la verifica tramite il sistema ident
 ità
  []
@@ -2648,37 +2590,41 @@ Underfull \vbox (badness 1184) has occurred while \output is active []
 Underfull \vbox (badness 1184) has occurred while \output is active []
 
  [243]
-[244] [245] [246]
-Underfull \hbox (badness 3735) in paragraph at lines 15448--15448
-[][]\TU/lmr/bx/n/14.4 5.13 Approfondire la mappa dai principali
- []
-
-
-Underfull \hbox (badness 2213) in paragraph at lines 15476--15479
-[]\TU/lmr/m/n/10 route e controller PHP verso endpoint/controller ASP.NET Core,
-
- []
-
-[247] [248] [249] [250]
-Underfull \hbox (badness 1377) in paragraph at lines 15718--15721
-[]\TU/lmr/m/n/10 punto di consistenza, strategia delta e trattamento delle scri
-tture
- []
-
-[251] [252] [253] [254] [255] [256] [257]
-Underfull \hbox (badness 1194) in paragraph at lines 16168--16170
+[244] [245] [246] [247]
+Underfull \hbox (badness 1194) in paragraph at lines 15500--15502
 \TU/lmr/m/n/10 La solution può iniziare con API e test, senza creare tutti i pr
 ogetti
  []
 
-[258] [259] [260] [261] [262] [263]
-Underfull \hbox (badness 1735) in paragraph at lines 16621--16624
+[248]
+Overfull \vbox (1.78047pt too high) detected at line 15588
+ []
+
+[249] [250] [251]
+Underfull \hbox (badness 3735) in paragraph at lines 15774--15774
+[][]\TU/lmr/bx/n/14.4 5.13 Approfondire la mappa dai principali
+ []
+
+[252]
+Underfull \hbox (badness 2213) in paragraph at lines 15802--15805
+[]\TU/lmr/m/n/10 route e controller PHP verso endpoint/controller ASP.NET Core,
+
+ []
+
+[253] [254] [255] [256]
+Underfull \hbox (badness 1377) in paragraph at lines 16044--16047
+[]\TU/lmr/m/n/10 punto di consistenza, strategia delta e trattamento delle scri
+tture
+ []
+
+[257] [258] [259] [260] [261] [262] [263]
+Underfull \hbox (badness 1735) in paragraph at lines 16598--16601
 []\TU/lmr/bx/n/10 Ottimizzare prima di misurare. \TU/lmr/m/n/10 AOT, cache o pa
 rallelismo
  []
 
 [264]
-Underfull \hbox (badness 2608) in paragraph at lines 16681--16685
+Underfull \hbox (badness 2608) in paragraph at lines 16658--16662
 []\TU/lmr/m/n/10 Per ogni capacità, annotare un punteggio qualitativo di rischi
 o (bas-
  []
@@ -2701,10 +2647,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 35505 strings out of 402511
- 698283 string characters out of 5435770
- 1382109 words of memory out of 5000000
- 64159 multiletter control sequences out of 15000+600000
+ 35504 strings out of 402511
+ 698277 string characters out of 5435770
+ 1382038 words of memory out of 5000000
+ 64158 multiletter control sequences out of 15000+600000
  634163 words of font info for 110 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  92i,11n,114p,1015b,679s stack positions out of 10000i,1000n,20000p,200000b,200000s

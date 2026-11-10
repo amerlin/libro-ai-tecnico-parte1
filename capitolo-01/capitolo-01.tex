@@ -790,31 +790,16 @@ che non implementeremo in dettaglio ma che è bene conoscere:
 \subsection{1.4.5 La tabella riassuntiva}\label{la-tabella-riassuntiva}
 
 {\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2075}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4906}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1321}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1698}}@{}}
+\begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Primitivo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Direzione del controllo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Scopo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Esempio
-\end{minipage} \\
+Primitivo & Chi lo attiva & A cosa serve \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Tool & Modello & Eseguire azioni & \texttt{create\_ticket},
-\texttt{get\_weather} \\
-Resource & Client / applicazione & Fornire dati di contesto &
-\texttt{config://app}, \texttt{docs://123} \\
-Prompt & Utente / client & Riutilizzare istruzioni &
-\texttt{review\_code}, \texttt{summarize\_meeting} \\
+Tool & Modello & Eseguire azioni \\
+Resource & Client / app & Fornire contesto \\
+Prompt & Utente / client & Preparare istruzioni \\
 \end{longtable}
 }
 
@@ -1628,36 +1613,27 @@ registrazione}\label{gli-attributi-di-registrazione}
 L'SDK adotta un approccio dichiarativo: si espongono le funzionalità
 marcando metodi e classi con attributi. La mappatura è:
 
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3939}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2727}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Attributo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Applicato a
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Effetto
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{{[}McpServerToolType{]}} & Classe & Segnala che la classe
-contiene dei tool \\
-\texttt{{[}McpServerTool{]}} & Metodo & Espone il metodo come tool \\
-\texttt{{[}McpServerPromptType{]}} & Classe & Segnala che la classe
-contiene dei prompt \\
-\texttt{{[}McpServerPrompt{]}} & Metodo & Espone il metodo come
-prompt \\
-\texttt{{[}McpServerResourceType{]}} & Classe & Segnala che la classe
-contiene delle risorse \\
-\texttt{{[}McpServerResource{]}} & Metodo & Espone il metodo come
-risorsa \\
-\end{longtable}
-}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{{[}McpServerToolType{]}}}, sulla classe: segnala che
+  contiene dei tool.
+\item
+  \textbf{\texttt{{[}McpServerTool{]}}}, sul metodo: lo espone come
+  tool.
+\item
+  \textbf{\texttt{{[}McpServerPromptType{]}}}, sulla classe: segnala che
+  contiene dei prompt.
+\item
+  \textbf{\texttt{{[}McpServerPrompt{]}}}, sul metodo: lo espone come
+  prompt.
+\item
+  \textbf{\texttt{{[}McpServerResourceType{]}}}, sulla classe: segnala
+  che contiene delle risorse.
+\item
+  \textbf{\texttt{{[}McpServerResource{]}}}, sul metodo: lo espone come
+  risorsa.
+\end{itemize}
 
 Le descrizioni (fondamentali, come abbiamo detto) si esprimono con
 l'attributo standard di .NET \texttt{{[}Description{]}}, sia sul metodo
@@ -3549,6 +3525,167 @@ Queste pratiche, sommate, trasformano un server ``che funziona'' in un
 server \textbf{affidabile}, che un modello può usare con fiducia e che
 un team può mantenere nel tempo.
 
+\section{1.21 Sicurezza e operatività}\label{sicurezza-e-operativituxe0}
+
+Un MCP server è un \textbf{ponte tra un modello e i tuoi sistemi}: se
+non è protetto, diventa un ponte per chiunque riesca a raggiungerlo. La
+sicurezza va considerata fin dall'inizio, non aggiunta alla fine.
+
+\subsection{Il principio del minimo
+privilegio}\label{il-principio-del-minimo-privilegio}
+
+Il principio guida è semplice: \textbf{esponi solo ciò che serve, con i
+permessi minimi necessari}. Se il server deve leggere file, non deve
+poter scrivere ovunque; se deve interrogare un database, usi un utente
+con soli diritti di lettura. Ogni tool in più, ogni permesso in più, è
+una superficie d'attacco in più.
+
+Nel nostro esempio file system abbiamo applicato questo principio
+confinando tutte le operazioni in una directory radice. Il costruttore
+normalizza \texttt{\_root} con \texttt{Path.GetFullPath} e rimuove gli
+eventuali separatori finali con
+\texttt{Path.TrimEndingDirectorySeparator}. In \texttt{Resolve}, il
+percorso normalizzato è ammesso solo se coincide con la radice o inizia
+con la radice seguita da un separatore: così un percorso come
+\texttt{C:\textbackslash{}dati2} non supera il controllo per una root
+\texttt{C:\textbackslash{}dati}. Il confronto ignora maiuscole e
+minuscole su Windows ed è sensibile al caso sugli altri sistemi.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{var}\NormalTok{ full }\OperatorTok{=}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{GetFullPath}\OperatorTok{(}\NormalTok{Path}\OperatorTok{.}\FunctionTok{Combine}\OperatorTok{(}\NormalTok{\_root}\OperatorTok{,}\NormalTok{ relativePath}\OperatorTok{));}
+\DataTypeTok{var}\NormalTok{ comparison }\OperatorTok{=}\NormalTok{ OperatingSystem}\OperatorTok{.}\FunctionTok{IsWindows}\OperatorTok{()}
+    \OperatorTok{?}\NormalTok{ StringComparison}\OperatorTok{.}\FunctionTok{OrdinalIgnoreCase}
+    \OperatorTok{:}\NormalTok{ StringComparison}\OperatorTok{.}\FunctionTok{Ordinal}\OperatorTok{;}
+\DataTypeTok{var}\NormalTok{ rootPrefix }\OperatorTok{=}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{EndsInDirectorySeparator}\OperatorTok{(}\NormalTok{\_root}\OperatorTok{)}
+    \OperatorTok{?}\NormalTok{ \_root}
+    \OperatorTok{:}\NormalTok{ \_root }\OperatorTok{+}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{DirectorySeparatorChar}\OperatorTok{;}
+
+\KeywordTok{if} \OperatorTok{(!}\DataTypeTok{string}\OperatorTok{.}\FunctionTok{Equals}\OperatorTok{(}\NormalTok{full}\OperatorTok{,}\NormalTok{ \_root}\OperatorTok{,}\NormalTok{ comparison}\OperatorTok{)} \OperatorTok{\&\&}
+    \OperatorTok{!}\NormalTok{full}\OperatorTok{.}\FunctionTok{StartsWith}\OperatorTok{(}\NormalTok{rootPrefix}\OperatorTok{,}\NormalTok{ comparison}\OperatorTok{))}
+    \KeywordTok{throw} \KeywordTok{new} \FunctionTok{McpException}\OperatorTok{(}\StringTok{"Access denied: path escapes the root directory."}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+La radice stessa è ammessa, così un percorso relativo vuoto può indicare
+la directory radice. Questa difesa contro il \textbf{path traversal} (un
+argomento come \texttt{..\textbackslash{}..\textbackslash{}Windows}) è
+essenziale in qualunque tool che tocchi il file system.
+\texttt{GetFullPath} normalizza i percorsi ma non risolve i collegamenti
+simbolici: se la directory radice ne contiene, occorre verificare
+separatamente anche i relativi target.
+
+\subsection{La minaccia della prompt
+injection}\label{la-minaccia-della-prompt-injection}
+
+Il modello è, per sua natura, influenzabile dal testo che riceve. Un
+documento malevolo letto dal server, o un argomento fornito da un
+utente, potrebbe contenere istruzioni nascoste che spingono il modello a
+compiere azioni indesiderate (esfiltrare dati, eseguire tool
+pericolosi). È la cosiddetta \textbf{prompt injection}.
+
+Le contromisure principali:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{separa i dati dalle istruzioni}: quando inietti nel contesto
+  il contenuto di una risorsa o il risultato di un tool, delimitalo
+  chiaramente e istruisci il modello a trattarlo come dato, non come
+  comando;
+\item
+  \textbf{convalida e igienizza} gli input prima di usarli;
+\item
+  \textbf{limita i tool pericolosi}: le operazioni distruttive
+  richiedono conferma esplicita dell'utente (molti host lo fanno
+  automaticamente se il tool è annotato \texttt{Destructive\ =\ true});
+\item
+  \textbf{non esporre segreti} nei dati che il server restituisce.
+\end{itemize}
+
+\subsection{Autenticazione e
+autorizzazione}\label{autenticazione-e-autorizzazione}
+
+\begin{itemize}
+\tightlist
+\item
+  Per i server \textbf{\texttt{stdio}}, il trust è locale: il server
+  gira come processo del client e, di norma, eredita i permessi
+  dell'utente. La protezione è data dall'ambiente, non dal protocollo.
+\item
+  Per i server \textbf{HTTP}, la specifica prevede \textbf{OAuth 2.1}
+  per autenticare i client. Esporre un server MCP HTTP su Internet senza
+  autenticazione è quasi sempre un errore: chiunque potrebbe usarne i
+  tool.
+\item
+  L'SDK ASP.NET Core offre primitive per l'autenticazione
+  (\texttt{AddAuthorizationFilters}) e si integra con i meccanismi
+  standard di ASP.NET Core (policy, middleware).
+\end{itemize}
+
+\subsection{Segreti e configurazione}\label{segreti-e-configurazione}
+
+Non scrivere mai chiavi API, password o token nel codice sorgente o nei
+file di configurazione condivisi. Usa:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{variabili d'ambiente} (per gli host che le supportano);
+\item
+  \textbf{user secrets} in sviluppo (\texttt{dotnet\ user-secrets});
+\item
+  un \textbf{gestore di segreti} (Azure Key Vault, AWS Secrets Manager,
+  ecc.) in produzione;
+\item
+  per i server HTTP, i meccanismi di autenticazione del protocollo.
+\end{itemize}
+
+\subsection{Controllare l'esposizione di
+rete}\label{controllare-lesposizione-di-rete}
+
+Un server HTTP MCP espone un endpoint: applicalo le stesse regole di
+qualunque servizio web. In particolare:
+
+\begin{itemize}
+\tightlist
+\item
+  usa \textbf{TLS} (HTTPS) in produzione;
+\item
+  \textbf{limita l'accesso} con firewall, reti private o VPN;
+\item
+  \textbf{registra} le richieste (senza dati sensibili) per poter
+  indagare eventuali abusi;
+\item
+  tieni \textbf{aggiornati} i pacchetti: l'SDK MCP evolve e corregge
+  vulnerabilità.
+\end{itemize}
+
+\subsection{Checklist di sicurezza}\label{checklist-di-sicurezza}
+
+Prima di mettere in produzione un server MCP, verifica:
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  ogni tool applica il minimo privilegio;
+\item[$\square$]
+  gli input sono validati e i percorsi sono confinati;
+\item[$\square$]
+  i segreti non sono nel codice né nella configurazione condivisa;
+\item[$\square$]
+  i tool distruttivi sono annotati e richiedono conferma;
+\item[$\square$]
+  i server HTTP usano TLS e autenticazione;
+\item[$\square$]
+  i log non contengono dati sensibili;
+\item[$\square$]
+  le dipendenze sono aggiornate.
+\end{itemize}
+
+La sicurezza non è un punto di arrivo, ma un processo: rivedi questa
+checklist a ogni modifica rilevante del server.
+
 \subsection{1.21.1 Risoluzione dei problemi
 comuni}\label{risoluzione-dei-problemi-comuni}
 
@@ -3854,167 +3991,6 @@ abbiamo costruito \textbf{server} (stdio e HTTP), \textbf{risorse},
 \textbf{prompt} e ora un \textbf{client}. L'SDK .NET copre l'intero
 spettro del protocollo, e averlo esplorato per intero è la base migliore
 per i capitoli successivi.
-
-\section{1.21 Sicurezza e operatività}\label{sicurezza-e-operativituxe0}
-
-Un MCP server è un \textbf{ponte tra un modello e i tuoi sistemi}: se
-non è protetto, diventa un ponte per chiunque riesca a raggiungerlo. La
-sicurezza va considerata fin dall'inizio, non aggiunta alla fine.
-
-\subsection{Il principio del minimo
-privilegio}\label{il-principio-del-minimo-privilegio}
-
-Il principio guida è semplice: \textbf{esponi solo ciò che serve, con i
-permessi minimi necessari}. Se il server deve leggere file, non deve
-poter scrivere ovunque; se deve interrogare un database, usi un utente
-con soli diritti di lettura. Ogni tool in più, ogni permesso in più, è
-una superficie d'attacco in più.
-
-Nel nostro esempio file system abbiamo applicato questo principio
-confinando tutte le operazioni in una directory radice. Il costruttore
-normalizza \texttt{\_root} con \texttt{Path.GetFullPath} e rimuove gli
-eventuali separatori finali con
-\texttt{Path.TrimEndingDirectorySeparator}. In \texttt{Resolve}, il
-percorso normalizzato è ammesso solo se coincide con la radice o inizia
-con la radice seguita da un separatore: così un percorso come
-\texttt{C:\textbackslash{}dati2} non supera il controllo per una root
-\texttt{C:\textbackslash{}dati}. Il confronto ignora maiuscole e
-minuscole su Windows ed è sensibile al caso sugli altri sistemi.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DataTypeTok{var}\NormalTok{ full }\OperatorTok{=}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{GetFullPath}\OperatorTok{(}\NormalTok{Path}\OperatorTok{.}\FunctionTok{Combine}\OperatorTok{(}\NormalTok{\_root}\OperatorTok{,}\NormalTok{ relativePath}\OperatorTok{));}
-\DataTypeTok{var}\NormalTok{ comparison }\OperatorTok{=}\NormalTok{ OperatingSystem}\OperatorTok{.}\FunctionTok{IsWindows}\OperatorTok{()}
-    \OperatorTok{?}\NormalTok{ StringComparison}\OperatorTok{.}\FunctionTok{OrdinalIgnoreCase}
-    \OperatorTok{:}\NormalTok{ StringComparison}\OperatorTok{.}\FunctionTok{Ordinal}\OperatorTok{;}
-\DataTypeTok{var}\NormalTok{ rootPrefix }\OperatorTok{=}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{EndsInDirectorySeparator}\OperatorTok{(}\NormalTok{\_root}\OperatorTok{)}
-    \OperatorTok{?}\NormalTok{ \_root}
-    \OperatorTok{:}\NormalTok{ \_root }\OperatorTok{+}\NormalTok{ Path}\OperatorTok{.}\FunctionTok{DirectorySeparatorChar}\OperatorTok{;}
-
-\KeywordTok{if} \OperatorTok{(!}\DataTypeTok{string}\OperatorTok{.}\FunctionTok{Equals}\OperatorTok{(}\NormalTok{full}\OperatorTok{,}\NormalTok{ \_root}\OperatorTok{,}\NormalTok{ comparison}\OperatorTok{)} \OperatorTok{\&\&}
-    \OperatorTok{!}\NormalTok{full}\OperatorTok{.}\FunctionTok{StartsWith}\OperatorTok{(}\NormalTok{rootPrefix}\OperatorTok{,}\NormalTok{ comparison}\OperatorTok{))}
-    \KeywordTok{throw} \KeywordTok{new} \FunctionTok{McpException}\OperatorTok{(}\StringTok{"Access denied: path escapes the root directory."}\OperatorTok{);}
-\end{Highlighting}
-\end{Shaded}
-
-La radice stessa è ammessa, così un percorso relativo vuoto può indicare
-la directory radice. Questa difesa contro il \textbf{path traversal} (un
-argomento come \texttt{..\textbackslash{}..\textbackslash{}Windows}) è
-essenziale in qualunque tool che tocchi il file system.
-\texttt{GetFullPath} normalizza i percorsi ma non risolve i collegamenti
-simbolici: se la directory radice ne contiene, occorre verificare
-separatamente anche i relativi target.
-
-\subsection{La minaccia della prompt
-injection}\label{la-minaccia-della-prompt-injection}
-
-Il modello è, per sua natura, influenzabile dal testo che riceve. Un
-documento malevolo letto dal server, o un argomento fornito da un
-utente, potrebbe contenere istruzioni nascoste che spingono il modello a
-compiere azioni indesiderate (esfiltrare dati, eseguire tool
-pericolosi). È la cosiddetta \textbf{prompt injection}.
-
-Le contromisure principali:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{separa i dati dalle istruzioni}: quando inietti nel contesto
-  il contenuto di una risorsa o il risultato di un tool, delimitalo
-  chiaramente e istruisci il modello a trattarlo come dato, non come
-  comando;
-\item
-  \textbf{convalida e igienizza} gli input prima di usarli;
-\item
-  \textbf{limita i tool pericolosi}: le operazioni distruttive
-  richiedono conferma esplicita dell'utente (molti host lo fanno
-  automaticamente se il tool è annotato \texttt{Destructive\ =\ true});
-\item
-  \textbf{non esporre segreti} nei dati che il server restituisce.
-\end{itemize}
-
-\subsection{Autenticazione e
-autorizzazione}\label{autenticazione-e-autorizzazione}
-
-\begin{itemize}
-\tightlist
-\item
-  Per i server \textbf{\texttt{stdio}}, il trust è locale: il server
-  gira come processo del client e, di norma, eredita i permessi
-  dell'utente. La protezione è data dall'ambiente, non dal protocollo.
-\item
-  Per i server \textbf{HTTP}, la specifica prevede \textbf{OAuth 2.1}
-  per autenticare i client. Esporre un server MCP HTTP su Internet senza
-  autenticazione è quasi sempre un errore: chiunque potrebbe usarne i
-  tool.
-\item
-  L'SDK ASP.NET Core offre primitive per l'autenticazione
-  (\texttt{AddAuthorizationFilters}) e si integra con i meccanismi
-  standard di ASP.NET Core (policy, middleware).
-\end{itemize}
-
-\subsection{Segreti e configurazione}\label{segreti-e-configurazione}
-
-Non scrivere mai chiavi API, password o token nel codice sorgente o nei
-file di configurazione condivisi. Usa:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{variabili d'ambiente} (per gli host che le supportano);
-\item
-  \textbf{user secrets} in sviluppo (\texttt{dotnet\ user-secrets});
-\item
-  un \textbf{gestore di segreti} (Azure Key Vault, AWS Secrets Manager,
-  ecc.) in produzione;
-\item
-  per i server HTTP, i meccanismi di autenticazione del protocollo.
-\end{itemize}
-
-\subsection{Controllare l'esposizione di
-rete}\label{controllare-lesposizione-di-rete}
-
-Un server HTTP MCP espone un endpoint: applicalo le stesse regole di
-qualunque servizio web. In particolare:
-
-\begin{itemize}
-\tightlist
-\item
-  usa \textbf{TLS} (HTTPS) in produzione;
-\item
-  \textbf{limita l'accesso} con firewall, reti private o VPN;
-\item
-  \textbf{registra} le richieste (senza dati sensibili) per poter
-  indagare eventuali abusi;
-\item
-  tieni \textbf{aggiornati} i pacchetti: l'SDK MCP evolve e corregge
-  vulnerabilità.
-\end{itemize}
-
-\subsection{Checklist di sicurezza}\label{checklist-di-sicurezza}
-
-Prima di mettere in produzione un server MCP, verifica:
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  ogni tool applica il minimo privilegio;
-\item[$\square$]
-  gli input sono validati e i percorsi sono confinati;
-\item[$\square$]
-  i segreti non sono nel codice né nella configurazione condivisa;
-\item[$\square$]
-  i tool distruttivi sono annotati e richiedono conferma;
-\item[$\square$]
-  i server HTTP usano TLS e autenticazione;
-\item[$\square$]
-  i log non contengono dati sensibili;
-\item[$\square$]
-  le dipendenze sono aggiornate.
-\end{itemize}
-
-La sicurezza non è un punto di arrivo, ma un processo: rivedi questa
-checklist a ogni modifica rilevante del server.
 
 \section{1.22 Riepilogo, glossario ed
 esercizi}\label{riepilogo-glossario-ed-esercizi}

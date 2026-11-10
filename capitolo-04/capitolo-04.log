@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  4 NOV 2026 11:27
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.10.12)  10 NOV 2026 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1502,22 +1502,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1112--1115
  []
 
 [17]
-Overfull \hbox (5.20787pt too wide) in paragraph at lines 1214--1217
-\TU/lmtt/m/n/8 Files\ClaudeCode\CLAUDE.md\TU/lmr/m/n/8 ; 
- []
-
-
-Overfull \hbox (5.20787pt too wide) in paragraph at lines 1214--1217
-\TU/lmtt/m/n/8 /etc/claude-code/CLAUDE.md\TU/lmr/m/n/8 ; 
- []
-
-
-Overfull \hbox (12.52788pt too wide) in paragraph at lines 1214--1217
-\TU/lmtt/m/n/8 Support/ClaudeCode/CLAUDE.md|  
- []
-
-
-Overfull \vbox (2.06259pt too high) detected at line 1256
+Overfull \vbox (11.56259pt too high) detected at line 1256
  []
 
 [18]
@@ -1542,11 +1527,6 @@ md\TU/lmr/m/n/10 , caricati in modo
 Underfull \hbox (badness 4328) in paragraph at lines 1520--1523
 []\TU/lmr/bx/n/10 Cursor: \TU/lmtt/c/it/10 AGENTS.md \TU/lmr/m/n/10 e \TU/lmtt/
 c/it/10 .cursor/rules/*.mdc\TU/lmr/m/n/10 ; configurazione in
- []
-
-
-Overfull \hbox (12.85875pt too wide) in paragraph at lines 1569--1570
-[]|\TU/lmtt/c/it/10 https://api.deepseek.com/anthropic|  
  []
 
 
@@ -1681,7 +1661,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  24172 strings out of 402511
  444946 string characters out of 5435770
- 1098686 words of memory out of 5000000
+ 1098687 words of memory out of 5000000
  53051 multiletter control sequences out of 15000+600000
  634107 words of font info for 103 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
