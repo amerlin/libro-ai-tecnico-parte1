@@ -47,36 +47,36 @@
     ([xshift=\bleed,yshift=\bleed]current page.south west) rectangle
     ([xshift={\bleed+\backw+\spinewidthcm},yshift={\coverH-\bleed}]current page.south west);
 
-  \node[rotate=90,text=white,font=\bfseries\fontsize{16}{20}\selectfont]
+  \node[rotate=90,text=white,font=\bfseries\fontsize{18}{22}\selectfont]
     at ([xshift={\bleed+\backw+0.5*\spinewidthcm},yshift={0.5*\coverH}]current page.south west)
     {QUADERNO AI \quad\textbullet\quad 1};
 
-  \node[rotate=90,text=coverPale,font=\small]
+  \node[rotate=90,text=coverPale,font=\fontsize{12}{14}\selectfont]
     at ([xshift={\bleed+\backw+0.5*\spinewidthcm},yshift={0.5*\coverH - 6.2cm}]current page.south west)
     {Andrea Merlin};
 
   % ---- Retro ----
   \begin{scope}[shift={([xshift=\bleed,yshift=\bleed]current page.south west)}]
 
-    \node[anchor=north west,text=white,font=\bfseries\fontsize{18}{22}\selectfont]
+    \node[anchor=north west,text=white,font=\bfseries\fontsize{22}{26}\selectfont]
       at (1.5, 21.3) {Quaderno AI};
 
-    \node[anchor=north west,text=coverPale,font=\footnotesize]
+    \node[anchor=north west,text=coverPale,font=\fontsize{10}{12}\selectfont]
       at (1.5, 19.7) {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
 
     \draw[coverOrange,line width=1.4pt] (1.5, 18.3) -- (3.5, 18.3);
 
-    \node[anchor=north west,text=coverPale,font=\small,text width=11.6cm,align=left]
+    \node[anchor=north west,text=coverPale,font=\fontsize{11}{14}\selectfont,text width=11.6cm,align=left]
       at (1.5, 17.3)
       {Un percorso operativo per costruire applicazioni .NET con l'intelligenza
        artificiale: server MCP, persistenza con Entity Framework Core, sviluppo
        guidato dalle specifiche, personalizzazione degli agenti e migrazione da
        altri linguaggi.};
 
-    \node[anchor=north west,text=coverCyan,font=\bfseries\fontsize{11}{14}\selectfont]
+    \node[anchor=north west,text=coverCyan,font=\bfseries\fontsize{14}{17}\selectfont]
       at (1.5, 12.6) {Dentro questo quaderno};
 
-    \node[anchor=north west,text=coverPale,font=\footnotesize,text width=11.6cm,align=left]
+    \node[anchor=north west,text=coverPale,font=\fontsize{10}{12}\selectfont,text width=11.6cm,align=left]
       at (1.5, 11.6)
       {\textbullet\ Costruire MCP server completi in .NET 10\\
        \textbullet\ Modellare dati e query con EF Core\\
@@ -86,7 +86,7 @@
 
     \draw[coverCyan,opacity=0.55,line width=0.7pt] (1.5, 7.0) -- (7.2, 7.0);
 
-    \node[anchor=north west,text=coverPale,font=\footnotesize,text width=10.4cm,align=left]
+    \node[anchor=north west,text=coverPale,font=\fontsize{10}{12}\selectfont,text width=10.4cm,align=left]
       at (1.5, 6.3)
       {Andrea Merlin. Laureato in informatica, appassionato di tecnologie\\
        Microsoft, DevOps e data-privacy; dal 2013 scrive sul suo blog\\
@@ -112,7 +112,7 @@
 
     \node[anchor=north west,align=left,text=white]
       at (1.50, 21.00) {%
-        {\footnotesize\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
+        {\fontsize{10}{12}\selectfont\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
 
     \draw[coverCyan,opacity=0.65,line width=0.7pt] (1.50, 19.92) -- (4.40, 19.92);
 
@@ -136,33 +136,33 @@
     \foreach \p/\label in {srcA/MCP,srcB/SPEC,srcC/AGENTI,srcD/.NET} {
       \fill[coverNavy] (\p) circle (0.40cm);
       \draw[coverCyan,line width=1.0pt] (\p) circle (0.40cm);
-      \node[text=white,font=\scriptsize\bfseries] at (\p) {\label};
+      \node[text=white,font=\fontsize{8.5}{10}\selectfont\bfseries] at (\p) {\label};
     }
 
     \fill[coverBlue] (core) circle (0.70cm);
     \draw[coverCyan,line width=1.3pt] (core) circle (0.70cm);
     \draw[coverCyan,opacity=0.32,line width=0.7pt] (core) circle (0.93cm);
-    \node[text=white,font=\large\bfseries] at (core) {AI};
+    \node[text=white,font=\fontsize{16}{18}\selectfont\bfseries] at (core) {AI};
 
     \fill[coverOrange] (dotnet) circle (0.60cm);
     \draw[white,line width=0.6pt,opacity=0.85] (dotnet) circle (0.60cm);
-    \node[text=white,font=\footnotesize\bfseries] at (dotnet) {.NET};
+    \node[text=white,font=\fontsize{9}{11}\selectfont\bfseries] at (dotnet) {.NET};
 
-    \node[anchor=west,text=coverPale,font=\footnotesize]
+    \node[anchor=west,text=coverPale,font=\fontsize{9.5}{12}\selectfont]
       at (1.50, 12.39) {CONCETTI, STRUMENTI E PERCORSI PRATICI};
 
-    \node[anchor=west,align=left,text=white,font=\fontsize{26}{30}\selectfont\bfseries]
+    \node[anchor=west,align=left,text=white,font=\fontsize{32}{36}\selectfont\bfseries]
       at (1.50, 9.93) {Quaderno AI};
 
-    \node[anchor=west,align=left,text=coverPale,font=\fontsize{11}{14}\selectfont]
+    \node[anchor=west,align=left,text=coverPale,font=\fontsize{14}{17}\selectfont]
       at (1.50, 6.85) {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
 
     \draw[coverOrange,line width=1.4pt] (1.50, 4.31) -- (3.64, 4.31);
 
-    \node[anchor=west,text=white,font=\footnotesize]
+    \node[anchor=west,text=white,font=\fontsize{9.5}{12}\selectfont]
       at (1.50, 3.54) {MCP \quad SPEC-DRIVEN DEVELOPMENT \quad AGENTI \quad MIGRAZIONE A .NET};
 
-    \node[anchor=south east,text=coverPale,font=\footnotesize]
+    \node[anchor=south east,text=coverPale,font=\fontsize{9}{11}\selectfont]
       at ({\frontw-1.50cm}, 1.60) {Andrea Merlin \quad | \quad Numero 1 - Novembre 2026};
 
   \end{scope}

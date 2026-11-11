@@ -22,7 +22,7 @@
 
   \node[anchor=north west,align=left,text=white]
     at ([xshift=1.30cm,yshift=-1.46cm]current page.north west) {%
-      {\footnotesize\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
+      {\fontsize{10}{12}\selectfont\color{coverCyan}SVILUPPO SOFTWARE \textbullet\ IA \textbullet\ .NET}};
 
   \draw[coverCyan,opacity=0.65,line width=0.7pt]
     ([xshift=1.30cm,yshift=-2.54cm]current page.north west) --
@@ -49,27 +49,27 @@
   \foreach \p/\label in {srcA/MCP,srcB/SPEC,srcC/AGENTI,srcD/.NET} {
     \fill[coverNavy] (\p) circle (0.40cm);
     \draw[coverCyan,line width=1.0pt] (\p) circle (0.40cm);
-    \node[text=white,font=\scriptsize\bfseries] at (\p) {\label};
+    \node[text=white,font=\fontsize{8.5}{10}\selectfont\bfseries] at (\p) {\label};
   }
 
   \fill[coverBlue] (core) circle (0.70cm);
   \draw[coverCyan,line width=1.3pt] (core) circle (0.70cm);
   \draw[coverCyan,opacity=0.32,line width=0.7pt] (core) circle (0.93cm);
-  \node[text=white,font=\large\bfseries] at (core) {AI};
+  \node[text=white,font=\fontsize{16}{18}\selectfont\bfseries] at (core) {AI};
 
   \fill[coverOrange] (dotnet) circle (0.60cm);
   \draw[white,line width=0.6pt,opacity=0.85] (dotnet) circle (0.60cm);
-  \node[text=white,font=\footnotesize\bfseries] at (dotnet) {.NET};
+  \node[text=white,font=\fontsize{9}{11}\selectfont\bfseries] at (dotnet) {.NET};
 
-  \node[anchor=west,text=coverPale,font=\footnotesize]
+  \node[anchor=west,text=coverPale,font=\fontsize{9.5}{12}\selectfont]
     at ([xshift=1.30cm,yshift=-10.47cm]current page.north west)
     {CONCETTI, STRUMENTI E PERCORSI PRATICI};
 
-  \node[anchor=west,align=left,text=white,font=\fontsize{26}{30}\selectfont\bfseries]
+  \node[anchor=west,align=left,text=white,font=\fontsize{32}{36}\selectfont\bfseries]
     at ([xshift=1.27cm,yshift=-12.93cm]current page.north west)
     {Quaderno AI};
 
-  \node[anchor=west,align=left,text=coverPale,font=\fontsize{11}{14}\selectfont]
+  \node[anchor=west,align=left,text=coverPale,font=\fontsize{14}{17}\selectfont]
     at ([xshift=1.34cm,yshift=-16.01cm]current page.north west)
     {Concetti, strumenti e percorsi pratici\\per lo sviluppo software con AI};
 
@@ -77,11 +77,11 @@
     ([xshift=1.34cm,yshift=-18.55cm]current page.north west) --
     ([xshift=3.48cm,yshift=-18.55cm]current page.north west);
 
-  \node[anchor=west,text=white,font=\footnotesize]
+  \node[anchor=west,text=white,font=\fontsize{9.5}{12}\selectfont]
     at ([xshift=1.34cm,yshift=-19.32cm]current page.north west)
     {MCP \quad SPEC-DRIVEN DEVELOPMENT \quad AGENTI \quad MIGRAZIONE A .NET};
 
-  \node[anchor=south east,text=coverPale,font=\footnotesize]
+  \node[anchor=south east,text=coverPale,font=\fontsize{9}{11}\selectfont]
     at ([xshift=-1.30cm,yshift=1.20cm]current page.south east)
     {Andrea Merlin \quad | \quad Numero 1 - Novembre 2026};
 \end{tikzpicture}
