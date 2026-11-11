@@ -98,6 +98,10 @@ public class TaskEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
 
 Ogni test mappa uno scenario della specifica:
 
+```{=latex}
+\small
+```
+
 | Test | Scenario di accettazione |
 |------|--------------------------|
 | `CreateTask_WithValidTitle_ReturnsCreated` | US1, scenario 1 |
@@ -105,6 +109,10 @@ Ogni test mappa uno scenario della specifica:
 | `ListTasks_FilterByStatus_...` | US2, scenario 1 |
 | `CompleteTask_ExistingId_...` | US3, scenario 1 |
 | `DeleteTask_ExistingId_...` | US3, scenario 2 |
+
+```{=latex}
+\normalsize
+```
 
 È la tracciabilità che la convergenza verificherà: ogni requisito testabile ha il suo test.
 

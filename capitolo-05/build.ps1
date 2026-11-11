@@ -29,7 +29,7 @@ try {
         --pdf-engine=$XeLaTeX `
         --toc --toc-depth=2 `
         -V documentclass=book `
-        -V fontsize=10pt `
+        -V fontsize=11pt `
         -V "geometry:papersize={6in,9in},inner=0.75in,outer=0.5in,top=0.7in,bottom=0.7in" `
         -V lang=it `
         -V colorlinks=true `
