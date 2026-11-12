@@ -124,6 +124,18 @@
 \floatplacement{figure}{H}
 \setlength{\emergencystretch}{8em}
 \sloppy
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -1048,18 +1060,18 @@ che si pestino i piedi.
 \tightlist
 \item
   \textbf{Istruzioni di progetto:}
-  \texttt{.github/copilot-instructions.md} (il file principale, sempre
-  caricato).
+  \texttt{.github/copilot-instructions.md} (sempre caricato).
 \item
-  \textbf{Istruzioni in formato condiviso:} \texttt{AGENTS.md}
-  (utilizzabile anche da altri agenti compatibili).
+  \textbf{Istruzioni condivise:} \texttt{AGENTS.md} (anche per altri agenti
+  compatibili).
 \item
   \textbf{Istruzioni mirate:}
+  \\
   \texttt{.github/instructions/**/*.instructions.md} (frontmatter
   \texttt{applyTo} e \texttt{description}).
 \item
   \textbf{Prompt riutilizzabili:}
-  \texttt{.github/prompts/**/*.prompt.md} (invocati come
+  \texttt{.github/prompts/**/*.prompt.md} (richiamati con
   \texttt{/nome}).
 \item
   \textbf{Agenti:} \texttt{.github/agents/*.agent.md} (frontmatter
@@ -1067,11 +1079,11 @@ che si pestino i piedi.
 \item
   \textbf{Skill:}
   \texttt{.github/skills/\textless{}nome\textgreater{}/SKILL.md}
-  (standard Agent Skills).
+  (formato Agent Skills).
 \item
-  \textbf{Skill in percorso condiviso:}
+  \textbf{Skill condivise:}
   \texttt{.agents/skills/\textless{}nome\textgreater{}/SKILL.md}
-  (scoperta da VS Code nei contesti supportati e da Codex).
+  (VS Code nei contesti supportati; Codex).
 \end{itemize}
 
 L'albero di un progetto che usa tutto:

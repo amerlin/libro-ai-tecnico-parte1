@@ -6,13 +6,14 @@ VS Code ha un'architettura che vale la pena capire prima di guardare le cartelle
 
 ### 4.7.1 I file di progetto
 
-- **Istruzioni di progetto:** `.github/copilot-instructions.md` (il file principale, sempre caricato).
-- **Istruzioni in formato condiviso:** `AGENTS.md` (utilizzabile anche da altri agenti compatibili).
-- **Istruzioni mirate:** `.github/instructions/**/*.instructions.md` (frontmatter `applyTo` e `description`).
-- **Prompt riutilizzabili:** `.github/prompts/**/*.prompt.md` (invocati come `/nome`).
+- **Istruzioni di progetto:** `.github/copilot-instructions.md` (sempre caricato).
+- **Istruzioni condivise:** `AGENTS.md` (anche per altri agenti compatibili).
+- **Istruzioni mirate:**  
+  `.github/instructions/**/*.instructions.md` (frontmatter `applyTo` e `description`).
+- **Prompt riutilizzabili:** `.github/prompts/**/*.prompt.md` (richiamati con `/nome`).
 - **Agenti:** `.github/agents/*.agent.md` (frontmatter `name`, `description`, `tools`, `model`).
-- **Skill:** `.github/skills/<nome>/SKILL.md` (standard Agent Skills).
-- **Skill in percorso condiviso:** `.agents/skills/<nome>/SKILL.md` (scoperta da VS Code nei contesti supportati e da Codex).
+- **Skill:** `.github/skills/<nome>/SKILL.md` (formato Agent Skills).
+- **Skill condivise:** `.agents/skills/<nome>/SKILL.md` (VS Code nei contesti supportati; Codex).
 
 L'albero di un progetto che usa tutto:
 
